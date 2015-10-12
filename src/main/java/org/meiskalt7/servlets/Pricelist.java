@@ -2,6 +2,7 @@ package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.CategoriesService;
 import org.meiskalt7.crud.ProductsService;
+import org.meiskalt7.entity.Categories;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,18 +14,52 @@ import java.io.IOException;
 /**
  * @author Eiskalt on 12.10.2015.
  */
-@WebServlet
+@WebServlet(name = "Pricelist")
 public class Pricelist extends HttpServlet {
 
-    private CategoriesService categoriesService;
-    private ProductsService productsService;
+    //@Resource(name = "jdbc/XE")
+    /*public void init() {
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("CLASS NOT FOUND!!!");
+            e.printStackTrace();
+        }
+    }*/
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String field = request.getParameter("category");
+
+
+    {
+        System.out.println("START!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Если выношу то не находит ресурс
+        CategoriesService categoriesService = new CategoriesService();
+        ProductsService productsService = new ProductsService();
+
+        String category = request.getParameter("category");
         String name = request.getParameter("name");
         String priceFrom = request.getParameter("priceFrom");
         String priceTo = request.getParameter("priceTo");
 
-        System.out.println(field + " " + " " + name + " " + priceFrom + " " + priceTo);
+        //Если заполнено поле категория, то ищем по категории айдишник(id) для второй таблицы (catid)
+        if (!category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
+            System.out.println(categoriesService.getId(category));
+        }
+
+        if (!category.isEmpty() & !name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
+            System.out.println(categoriesService.getId(category));
+        }
+
+        if (category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
+            for (Categories c : categoriesService.getAll()) {
+                System.out.println(c);
+            }
+        }
     }
 }

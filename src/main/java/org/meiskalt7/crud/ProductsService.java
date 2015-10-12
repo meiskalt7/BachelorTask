@@ -4,6 +4,7 @@ import org.meiskalt7.entity.Products;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -11,6 +12,8 @@ import java.util.List;
  * @author Eiskalt on 12.10.2015.
  */
 public class ProductsService {
+
+    @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
     public Products add(Products products) {
@@ -28,6 +31,8 @@ public class ProductsService {
     public Products get(int id) {
         return em.find(Products.class, id);
     }
+
+    //public Products getByCat(int id) { return em. }
 
     public void update(Products products) {
         em.getTransaction().begin();

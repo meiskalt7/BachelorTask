@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table(name = "CAT")
 @NamedQuery(name = "Categories.getAll", query = "SELECT c from Categories c")
 public class Categories {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "NAME", length = 255)
