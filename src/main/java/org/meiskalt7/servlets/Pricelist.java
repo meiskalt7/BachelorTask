@@ -18,22 +18,6 @@ import java.io.IOException;
 @WebServlet(name = "Pricelist")
 public class Pricelist extends HttpServlet {
 
-    //@Resource(name = "jdbc/XE")
-    /*public void init() {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("CLASS NOT FOUND!!!");
-            e.printStackTrace();
-        }
-    }*/
-
-
-
-    {
-        System.out.println("START!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -43,18 +27,13 @@ public class Pricelist extends HttpServlet {
         CategoriesService categoriesService = new CategoriesService();
         ProductsService productsService = new ProductsService();
 
-        String category = request.getParameter("category");
-        String name = request.getParameter("name");
+        String category = toNormalCase(request.getParameter("category"));
+        String name = toNormalCase(request.getParameter("name"));
         String priceFrom = request.getParameter("priceFrom");
         String priceTo = request.getParameter("priceTo");
 
         //Если заполнено поле категория, то ищем по категории айдишник(id) для второй таблицы (catid)
         if (!category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
-            /*System.out.println(categoriesService.getId(category));
-            for (Products p : productsService.getByCat(categoriesService.getId(category))) {
-                System.out.println(p);
-            }*/
-
             request.setAttribute("category", category);
             request.setAttribute("productsList", productsService.getByCat(categoriesService.getId(category)));
             RequestDispatcher rd = getServletContext()
@@ -71,5 +50,11 @@ public class Pricelist extends HttpServlet {
                 System.out.println(c);
             }
         }
+    }
+
+    private String toNormalCase(String str) {
+        if (!str.isEmpty())
+        return str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase();
+        return str;
     }
 }
