@@ -7,7 +7,7 @@
   <jsp:forward page="/Pricelist"></jsp:forward>
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Прайс-лист</title>
@@ -24,10 +24,10 @@
             <th>Цена до:</th>
         </thead>
         <tbody>
-        <td><input type="text" name = "category" maxlength = "255"/></td>
-        <td><input type="text" name = "name" maxlength = "255"/></td>
-        <td><input type="text" name = "priceFrom"/></td>
-        <td><input type="text" name = "priceTo"/></td>
+        <td><input type="text" name="category" maxlength="255"/></td>
+        <td><input type="text" name="name" maxlength="255"/></td>
+        <td><input type="text" name="priceFrom"/></td>
+        <td><input type="text" name="priceTo"/></td>
         <td><input type="submit" value="Найти"/></td>
         </tbody>
     </table>
@@ -40,18 +40,14 @@
         <th>Цена</th>
     </thead>
     <tbody>
-    <td>Текст</td>
-    <td>Текст</td>
-    <td>Текст</td>
+    <c:forEach var="product" items="${productsList}">
     <tr>
-        <td>Текст</td>
-        <td>Текст</td>
-        <td>Текст</td>
-    <tr>
-        <td>Текст</td>
-        <td>Текст</td>
-        <td>Текст</td>
+        <td>${category}</td>
+        <td>${product.getName()}</td>
+        <td>${product.getNumber()}</td>
+    </tr>
     </tbody>
+    </c:forEach>
 </table>
 </body>
 </html>

@@ -4,6 +4,7 @@ import org.meiskalt7.crud.CategoriesService;
 import org.meiskalt7.crud.ProductsService;
 import org.meiskalt7.entity.Categories;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +50,16 @@ public class Pricelist extends HttpServlet {
 
         //Если заполнено поле категория, то ищем по категории айдишник(id) для второй таблицы (catid)
         if (!category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
-            System.out.println(categoriesService.getId(category));
+            /*System.out.println(categoriesService.getId(category));
+            for (Products p : productsService.getByCat(categoriesService.getId(category))) {
+                System.out.println(p);
+            }*/
+
+            request.setAttribute("category", category);
+            request.setAttribute("productsList", productsService.getByCat(categoriesService.getId(category)));
+            RequestDispatcher rd = getServletContext()
+                    .getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
         }
 
         if (!category.isEmpty() & !name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {

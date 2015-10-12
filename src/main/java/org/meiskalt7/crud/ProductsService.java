@@ -32,7 +32,10 @@ public class ProductsService {
         return em.find(Products.class, id);
     }
 
-    //public Products getByCat(int id) { return em. }
+    public List<Products> getByCat(int id) {
+        //return (Integer)em.createQuery("SELECT id FROM Categories WHERE name = '" + category + "'").getResultList().get(0);
+        return em.createQuery("SELECT p FROM Products p WHERE cat_id = " + id + "").getResultList();
+    }
 
     public void update(Products products) {
         em.getTransaction().begin();

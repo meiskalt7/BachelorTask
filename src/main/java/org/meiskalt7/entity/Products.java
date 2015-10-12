@@ -61,4 +61,8 @@ public class Products {
     public void setNumber(double number) {
         this.number = number;
     }
+
+    public String toString() {
+        return "Products{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + number + '}';
+    }
 }
