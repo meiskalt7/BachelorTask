@@ -18,13 +18,26 @@ public class Products {
     private String name;
 
     @Column(name = "PRICE")
-    private double number;
+    private double price;
 
-    public Products(int id, int cat_id, String name, double number) {
+
+    private Categories categories = new Categories();
+
+    @ManyToOne(fetch = FetchType.LAZY,optional=true)
+    @JoinColumn(name = "CAT_ID")
+    public Categories getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Categories categories) {
+        this.categories = categories;
+    }
+
+    public Products(int id, int cat_id, String name, double price) {
         this.id = id;
         this.cat_id = cat_id;
         this.name = name;
-        this.number = number;
+        this.price = price;
     }
 
     public Products() {
@@ -54,15 +67,15 @@ public class Products {
         this.name = name;
     }
 
-    public double getNumber() {
-        return number;
+    public double getPrice() {
+        return price;
     }
 
-    public void setNumber(double number) {
-        this.number = number;
+    public void setPrice(double number) {
+        this.price = number;
     }
 
     public String toString() {
-        return "Products{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + number + '}';
+        return "Products{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + price + '}';
     }
 }

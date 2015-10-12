@@ -44,7 +44,7 @@
     <tr>
         <td>${category}</td>
         <td>${product.getName()}</td>
-        <td>${product.getNumber()}</td>
+        <td>${product.getPrice()}</td>
     </tr>
     </tbody>
     </c:forEach>

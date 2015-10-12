@@ -2,7 +2,6 @@ package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.CategoriesService;
 import org.meiskalt7.crud.ProductsService;
-import org.meiskalt7.entity.Categories;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,7 +31,14 @@ public class Pricelist extends HttpServlet {
         String priceFrom = request.getParameter("priceFrom");
         String priceTo = request.getParameter("priceTo");
 
-        //Если заполнено поле категория, то ищем по категории айдишник(id) для второй таблицы (catid)
+        request.setAttribute("category", category);
+        request.setAttribute("productsList", productsService.getHQL(category, name, parseDouble(priceFrom), parseDouble(priceTo)));
+        RequestDispatcher rd = getServletContext()
+                .getRequestDispatcher("/index.jsp");
+        rd.forward(request, response);
+
+
+        /*//CATEGORY
         if (!category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
             request.setAttribute("category", category);
             request.setAttribute("productsList", productsService.getByCat(categoriesService.getId(category)));
@@ -40,21 +46,32 @@ public class Pricelist extends HttpServlet {
                     .getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
         }
-
-        if (!category.isEmpty() & !name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
-            System.out.println(categoriesService.getId(category));
+        //NAME
+        if (category.isEmpty() & !name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
+            request.setAttribute("category", categoriesService.get((productsService.getCatByName(name))).getName());
+            request.setAttribute("productsList", productsService.getByName(name));
+            RequestDispatcher rd = getServletContext()
+                    .getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
         }
-
-        if (category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
-            for (Categories c : categoriesService.getAll()) {
-                System.out.println(c);
-            }
-        }
+        //PRICE FROM
+        if (category.isEmpty() & name.isEmpty() & !priceFrom.isEmpty() & priceTo.isEmpty()) {
+            request.setAttribute("category", categoriesService.getSome(productsService.getByPriceFrom(Double.parseDouble(priceFrom))));
+            request.setAttribute("productsList", productsService.getByPriceFrom(Double.parseDouble(priceFrom)));
+            RequestDispatcher rd = getServletContext()
+                    .getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
+        }*/
     }
 
     private String toNormalCase(String str) {
         if (!str.isEmpty())
-        return str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase();
+            return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
         return str;
+    }
+
+    double parseDouble(String str) {
+        if (str != null && str.length() > 0) return Double.parseDouble(str);
+        return 0;
     }
 }

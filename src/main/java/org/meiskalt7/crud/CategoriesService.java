@@ -1,12 +1,13 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Categories;
+import org.meiskalt7.entity.Products;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Eiskalt on 12.10.2015.
@@ -45,18 +46,32 @@ public class CategoriesService {
     }
 
     public void deleteAll() {
-        for( Categories cat : getAll()) {
+        for (Categories cat : getAll()) {
             delete(cat.getId());
         }
     }
 
     public int getId(String category) {
-        //List<Integer> query = em.createQuery("SELECT id FROM Categories WHERE name = '" + category + "'").getResultList().get(0);
-        //List<Integer> query = em.createQuery("SELECT id FROM Categories WHERE name = 'Printer'").getResultList();
-        //em.createQuery("DELETE FROM Categories");
-        //for(Integer cat:query) System.out.println(cat.toString());
-        return (Integer)em.createQuery("SELECT id FROM Categories WHERE name = '" + category + "'").getResultList().get(0);
+        return (Integer) em.createQuery("SELECT id FROM Categories WHERE name = '" + category + "'").getResultList().get(0);
+    }
+
+    public List<Categories> getSome(List<Products> products) {
+        List<Categories> categories = getAll();
+        List<Categories> categories1 = new ArrayList<Categories>();
+        for(Products p: products) categories1.add(categories.get(p.getCat_id()));
+        return categories1;
     }
 
 
+    /*public List<Categories> getHQL(String category, String name, Double priceFrom, Double priceTo) {
+        TypedQuery<Categories> query = em.createQuery("SELECT c FROM Categories as c, Products as p " +
+                "WHERE (c.name = :category OR :category = null) AND (p.name = :name OR :name = null) " +
+                "AND (p.price > :priceFrom OR :priceFrom = null) AND (p.price < :priceTo OR :priceTo = null)", Products.class);
+        return query
+                .setParameter("category", category)
+                .setParameter("name", name)
+                .setParameter("priceFrom", priceFrom)
+                .setParameter("priceTo", priceTo)
+                .getResultList();
+    }*/
 }
