@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="HibernateJPA:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="HibernateJPA/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HibernateJPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="junit:junit:4.8.1" />
+          <element id="library" level="project" name="org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+          <element id="library" level="project" name="org.hibernate:hibernate-entitymanager:5.0.2.Final" />
+          <element id="library" level="project" name="ojdbc6" />
+          <element id="library" level="project" name="org.eclipse.persistence:com.springsource.org.eclipse.persistence.jpa:2.0.0" />
+          <element id="library" level="project" name="Mojarra-1.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
