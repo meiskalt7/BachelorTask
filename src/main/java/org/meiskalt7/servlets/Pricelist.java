@@ -43,8 +43,7 @@ public class Pricelist extends HttpServlet {
                 return Double.parseDouble(str);
             } catch (NumberFormatException e) {
                 request.setAttribute("errorMessage", "Error: incorrect value, required number.");
-                //rd.forward(request, response);
-                return 0;
+                return -1;
             }
         return 0;
     }

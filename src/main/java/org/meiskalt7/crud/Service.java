@@ -1,10 +1,13 @@
 package org.meiskalt7.crud;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
 /**
  * @author Eiskalt on 12.10.2015.
  */
-/*class Service<T> {
+class Service<T> {
     final Class<T> typeParameterClass;
 
     public Service(Class<T> typeParameterClass) {
@@ -36,4 +39,4 @@ package org.meiskalt7.crud;
     public T get(int id) {
         return em.find(typeParameterClass, id);
     }
-}*/
+}
