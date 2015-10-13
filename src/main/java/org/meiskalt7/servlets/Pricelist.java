@@ -28,14 +28,24 @@ public class Pricelist extends HttpServlet {
         String priceFrom = request.getParameter("priceFrom");
         String priceTo = request.getParameter("priceTo");
 
-        request.setAttribute("productsList", productsService.getHQL(category, name, parseDouble(priceFrom), parseDouble(priceTo)));
+        if (category.length() > 0 || name.length() > 0 || priceFrom.length() > 0 || priceTo.length() > 0)
+        {
+            request.setAttribute("productsList", productsService.getHQL(category, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
+        } else request.setAttribute("errorMessage", "Error: Please fill one or more fields. ");
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/index.jsp");
         rd.forward(request, response);
     }
 
-    double parseDouble(String str) {
-        if (str != null && str.length() > 0) return Double.parseDouble(str);
+    double parseDouble(String str, HttpServletRequest request) {
+        if (str != null && str.length() > 0)
+            try {
+                return Double.parseDouble(str);
+            } catch (NumberFormatException e) {
+                request.setAttribute("errorMessage", "Error: incorrect value, required number.");
+                //rd.forward(request, response);
+                return 0;
+            }
         return 0;
     }
 }

@@ -41,16 +41,14 @@
     </thead>
     <tbody>
     <c:forEach var="product" items="${productsList}">
-        <%--<c:forEach var="i" begin="0" end="${productsList.size()}">--%>
-        <%--<% for(int i = 0; i < productsList.size(); i++) { %>--%>
     <tr>
         <td>${product.getCategory().getName()}</td>
         <td>${product.getName()}</td>
         <td>${product.getPrice()}</td>
     </tr>
     </tbody>
-    <%--<% } %>--%>
     </c:forEach>
 </table>
+${errorMessage}
 </body>
 </html>
