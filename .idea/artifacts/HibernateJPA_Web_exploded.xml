@@ -1,11 +1,12 @@
 <component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="HibernateJPA:Web exploded">
+  <artifact type="exploded-war" build-on-make="true" name="HibernateJPA:Web exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded</output-path>
-    <root id="archive" name="HibernateJPA_Web exploded.war">
+    <root id="root">
       <element id="javaee-facet-resources" facet="HibernateJPA/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="HibernateJPA" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/META-INF/MANIFEST.MF" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="junit:junit:4.8.1" />
