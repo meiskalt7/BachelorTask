@@ -16,9 +16,9 @@ public class Categories {
     @Column(name = "NAME", length = 255)
     private String name;
 
+    @OneToMany(mappedBy="category", fetch = FetchType.LAZY)
     private List<Products> products = new ArrayList<Products>();
 
-    @OneToMany(mappedBy = "categories", fetch = FetchType.LAZY)
     public List<Products> getProducts() {
         return products;
     }

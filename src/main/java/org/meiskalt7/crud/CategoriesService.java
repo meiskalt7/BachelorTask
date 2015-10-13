@@ -52,7 +52,7 @@ public class CategoriesService {
     }
 
     public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Categories WHERE name = '" + category + "'").getResultList().get(0);
+        return (Integer) em.createQuery("SELECT id FROM Categories WHERE name = :category").setParameter("category", category).getResultList().get(0);
     }
 
     public List<Categories> getSome(List<Products> products) {
@@ -62,16 +62,15 @@ public class CategoriesService {
         return categories1;
     }
 
-
-    /*public List<Categories> getHQL(String category, String name, Double priceFrom, Double priceTo) {
-        TypedQuery<Categories> query = em.createQuery("SELECT c FROM Categories as c, Products as p " +
-                "WHERE (c.name = :category OR :category = null) AND (p.name = :name OR :name = null) " +
-                "AND (p.price > :priceFrom OR :priceFrom = null) AND (p.price < :priceTo OR :priceTo = null)", Products.class);
+    public List<Categories> getHQL(String category, String name, Double priceFrom, Double priceTo) {
+        TypedQuery<Categories> query = em.createQuery("SELECT c FROM Categories c WHERE id IN ( SELECT cat_id FROM Products p " +
+                "WHERE (p.category.name = :category OR :category = null) AND (p.name = :name OR :name = null) " +
+                "AND (p.price > :priceFrom OR :priceFrom = 0) AND (p.price < :priceTo OR :priceTo = 0))", Categories.class);
         return query
                 .setParameter("category", category)
                 .setParameter("name", name)
                 .setParameter("priceFrom", priceFrom)
                 .setParameter("priceTo", priceTo)
                 .getResultList();
-    }*/
+    }
 }

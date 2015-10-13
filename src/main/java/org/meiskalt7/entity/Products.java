@@ -20,17 +20,17 @@ public class Products {
     @Column(name = "PRICE")
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name="CAT_ID", nullable=false, insertable=false, updatable=false)
+    //@ElementCollection(targetClass=Categories.class)
+    private Categories category = new Categories();
 
-    private Categories categories = new Categories();
-
-    @ManyToOne(fetch = FetchType.LAZY,optional=true)
-    @JoinColumn(name = "CAT_ID")
-    public Categories getCategories() {
-        return categories;
+    public Categories getCategory() {
+        return category;
     }
 
-    public void setCategories(Categories categories) {
-        this.categories = categories;
+    public void setCategory(Categories categories) {
+        this.category = categories;
     }
 
     public Products(int id, int cat_id, String name, double price) {

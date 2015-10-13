@@ -31,15 +31,15 @@ public class Pricelist extends HttpServlet {
         String priceFrom = request.getParameter("priceFrom");
         String priceTo = request.getParameter("priceTo");
 
-        request.setAttribute("category", category);
+        request.setAttribute("categoriesList", categoriesService.getHQL(category, name, parseDouble(priceFrom), parseDouble(priceTo)));
         request.setAttribute("productsList", productsService.getHQL(category, name, parseDouble(priceFrom), parseDouble(priceTo)));
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/index.jsp");
         rd.forward(request, response);
 
 
-        /*//CATEGORY
-        if (!category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
+        //CATEGORY
+        /*if (!category.isEmpty() & name.isEmpty() & priceFrom.isEmpty() & priceTo.isEmpty()) {
             request.setAttribute("category", category);
             request.setAttribute("productsList", productsService.getByCat(categoriesService.getId(category)));
             RequestDispatcher rd = getServletContext()
