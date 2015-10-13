@@ -6,8 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "CAT")
-@NamedQuery(name = "Categories.getAll", query = "SELECT c from Categories c")
-public class Categories {
+@NamedQuery(name = "Categories.getAll", query = "SELECT c from Category c")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,23 +16,23 @@ public class Categories {
     @Column(name = "NAME", length = 255)
     private String name;
 
-    @OneToMany(mappedBy="category", fetch = FetchType.LAZY)
-    private List<Products> products = new ArrayList<Products>();
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private List<Product> products = new ArrayList<Product>();
 
-    public List<Products> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Products> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 
-    public Categories(int id, String name) {
+    public Category(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Categories() {
+    public Category() {
     }
 
     public int getId() {
@@ -53,6 +53,6 @@ public class Categories {
 
     @Override
     public String toString() {
-        return "Categories{" + "id=" + id + ", name=" + name + '}';
+        return "Category{" + "id=" + id + ", name=" + name + '}';
     }
 }

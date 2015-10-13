@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "PROD")
-@NamedQuery(name = "Products.getAll", query = "SELECT p from Products p")
-public class Products {
+@NamedQuery(name = "Products.getAll", query = "SELECT p from Product p")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,26 +21,25 @@ public class Products {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name="CAT_ID", nullable=false, insertable=false, updatable=false)
-    //@ElementCollection(targetClass=Categories.class)
-    private Categories category = new Categories();
+    @JoinColumn(name = "CAT_ID", nullable = false, insertable = false, updatable = false)
+    private Category category = new Category();
 
-    public Categories getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Categories categories) {
-        this.category = categories;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    public Products(int id, int cat_id, String name, double price) {
+    public Product(int id, int cat_id, String name, double price) {
         this.id = id;
         this.cat_id = cat_id;
         this.name = name;
         this.price = price;
     }
 
-    public Products() {
+    public Product() {
     }
 
     public int getId() {
@@ -76,6 +75,6 @@ public class Products {
     }
 
     public String toString() {
-        return "Products{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + price + '}';
+        return "Product{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + price + '}';
     }
 }

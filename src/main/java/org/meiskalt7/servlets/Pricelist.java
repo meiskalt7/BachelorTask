@@ -1,6 +1,6 @@
 package org.meiskalt7.servlets;
 
-import org.meiskalt7.crud.ProductsService;
+import org.meiskalt7.crud.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ public class Pricelist extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductsService productsService = new ProductsService();
+        ProductService productService = new ProductService();
 
         String category = request.getParameter("category").toLowerCase();
         String name = request.getParameter("name").toLowerCase();
@@ -30,7 +30,7 @@ public class Pricelist extends HttpServlet {
 
         if (category.length() > 0 || name.length() > 0 || priceFrom.length() > 0 || priceTo.length() > 0)
         {
-            request.setAttribute("productsList", productsService.getHQL(category, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
+            request.setAttribute("productsList", productService.getHQL(category, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
         } else request.setAttribute("errorMessage", "Error: Please fill one or more fields. ");
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/index.jsp");
