@@ -61,16 +61,4 @@ public class CategoriesService {
         for(Products p: products) categories1.add(categories.get(p.getCat_id()));
         return categories1;
     }
-
-    public List<Categories> getHQL(String category, String name, Double priceFrom, Double priceTo) {
-        TypedQuery<Categories> query = em.createQuery("SELECT c FROM Categories c WHERE id IN ( SELECT cat_id FROM Products p " +
-                "WHERE (p.category.name = :category OR :category = null) AND (p.name = :name OR :name = null) " +
-                "AND (p.price > :priceFrom OR :priceFrom = 0) AND (p.price < :priceTo OR :priceTo = 0))", Categories.class);
-        return query
-                .setParameter("category", category)
-                .setParameter("name", name)
-                .setParameter("priceFrom", priceFrom)
-                .setParameter("priceTo", priceTo)
-                .getResultList();
-    }
 }

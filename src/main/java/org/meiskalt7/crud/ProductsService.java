@@ -65,10 +65,9 @@ public class ProductsService {
     }
 
     public List<Products> getHQL(String category, String name, Double priceFrom, Double priceTo) {
-        List<Products> products = em.createQuery("from Products").getResultList();
         TypedQuery<Products> query = em.createQuery("SELECT p FROM Products as p INNER JOIN p.category " +
-                "WHERE (p.category.name = :category OR :category = null) AND (p.name = :name OR :name = null) " +
-                "AND (p.price > :priceFrom OR :priceFrom = 0) AND (p.price < :priceTo OR :priceTo = 0)", Products.class);
+                "WHERE (lower(p.category.name) = :category OR :category = null) AND (lower(p.name) = :name OR :name = null) " +
+                "AND (p.price >= :priceFrom OR :priceFrom = 0) AND (p.price <= :priceTo OR :priceTo = 0)", Products.class);
         return query
                 .setParameter("category", category)
                 .setParameter("name", name)
