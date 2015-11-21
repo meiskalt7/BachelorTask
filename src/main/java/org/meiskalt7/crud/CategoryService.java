@@ -11,17 +11,51 @@ import java.util.List;
 /**
  * @author Eiskalt on 12.10.2015.
  */
-public class CategoryService extends Service<Category> {
+public class CategoryService {
 
     public CategoryService() {
-        super(Category.class);
+
     }
 
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
+
+    public Category add(Category category) {
+        em.getTransaction().begin();
+        Category categoryFromDB = em.merge(category);
+        em.getTransaction().commit();
+        return categoryFromDB;
+    }
+
+    public void delete(int id) {
+        em.getTransaction().begin();
+        em.remove(get(id));
+        em.getTransaction().commit();
+    }
+
+    public void update(Category serviceType) {
+        em.getTransaction().begin();
+        em.merge(serviceType);
+        em.getTransaction().commit();
+    }
+
+    public Category get(int id) {
+        return em.find(Category.class, id);
+    }
+
     public List<Category> getAll() {
         TypedQuery<Category> namedQuery = em.createNamedQuery("Categories.getAll", Category.class);
         return namedQuery.getResultList();
+    }
+
+    public void deleteAll() {
+        for (Category cat : getAll()) {
+            delete(cat.getId());
+        }
+    }
+
+    public int getId(String category) {
+        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList().get(0);
     }
 }

@@ -1,22 +1,63 @@
 package org.meiskalt7.crud;
 
+import org.meiskalt7.entity.Category;
 import org.meiskalt7.entity.Product;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
  * @author Eiskalt on 12.10.2015.
  */
-public class ProductService extends Service<Product>{
+public class ProductService {
 
     public ProductService() {
-        super(Product.class);
+
+    }
+
+    @PersistenceContext
+    public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+
+
+    public Product add(Product product) {
+        em.getTransaction().begin();
+        Product productFromDB = em.merge(product);
+        em.getTransaction().commit();
+        return productFromDB;
+    }
+
+    public void delete(int id) {
+        em.getTransaction().begin();
+        em.remove(get(id));
+        em.getTransaction().commit();
+    }
+
+    public void update(Product serviceType) {
+        em.getTransaction().begin();
+        em.merge(serviceType);
+        em.getTransaction().commit();
+    }
+
+    public Product get(int id) {
+        return em.find(Product.class, id);
     }
 
     public List<Product> getAll() {
         TypedQuery<Product> namedQuery = em.createNamedQuery("Products.getAll", Product.class);
         return namedQuery.getResultList();
+    }
+
+    public void deleteAll() {
+        for (Product prod : getAll()) {
+            delete(prod.getId());
+        }
+    }
+
+    public int getId(String product) {
+        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :product").setParameter("product", product).getResultList().get(0);
     }
 
     public List<Product> getHQL(String category, String name, Double priceFrom, Double priceTo) {
