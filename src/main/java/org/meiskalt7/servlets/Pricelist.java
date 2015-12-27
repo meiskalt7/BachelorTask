@@ -28,10 +28,9 @@ public class Pricelist extends HttpServlet {
         String priceFrom = request.getParameter("priceFrom");
         String priceTo = request.getParameter("priceTo");
 
-        //if (category.length() > 0 || name.length() > 0 || priceFrom.length() > 0 || priceTo.length() > 0)
-        //{
+        if (category.length() > 0 || name.length() > 0 || priceFrom.length() > 0 || priceTo.length() > 0) {
             request.setAttribute("productsList", productService.getHQL(category, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
-        //} else request.setAttribute("errorMessage", "Error: Please fill one or more fields. ");
+        } else request.setAttribute("errorMessage", "Error: Please fill one or more fields. ");
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/index.jsp");
         rd.forward(request, response);

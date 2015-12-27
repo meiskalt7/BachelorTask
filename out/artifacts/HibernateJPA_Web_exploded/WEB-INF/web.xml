@@ -15,9 +15,18 @@
         <servlet-class>org.meiskalt7.servlets.Pricelist</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>AdminPage</servlet-name>
+        <servlet-class>org.meiskalt7.servlets.AdminPage</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Pricelist</servlet-name>
         <url-pattern>/Pricelist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPage</servlet-name>
+        <url-pattern>/AdminPage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>

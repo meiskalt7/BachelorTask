@@ -16,7 +16,7 @@
 <body>
 <a href="index.jsp">To Pricelist</a> <a href="login.jsp">Login</a> <br>
 Добавить продукт(выбор категории, ввод названия продукта и его цены)
-<form action="${pageContext.request.contextPath}/Pricelist" method="get">
+<form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
         <tr>
@@ -25,10 +25,9 @@
             <th>Цена:</th>
         </thead>
         <tbody>
-        <td><select>
-            <c:forEach var="product" items="${productsList}">
-                <option>${product.getCategory().getName()}</option>
-                >
+        <td><select name="categoryName" id="categoryId">
+            <c:forEach var="category" items="${categoryList}">
+                <option value="${category.getId()}">${category.getName()}</option>
             </c:forEach>
         </select></td>
         <td><input type="text" name="name" maxlength="255"/></td>
@@ -58,14 +57,14 @@
     </c:forEach>
 </table>
 Добавить категорию(введение название категории)
-<form action="${pageContext.request.contextPath}/Pricelist" method="get">
+<form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
         <tr>
             <th>Категория:</th>
         </thead>
         <tbody>
-        <td><input type="text" name="name" maxlength="255"/></td>
+        <td><input type="text" name="categoryName" maxlength="255"/></td>
         <td><input type="submit" value="Добавить категорию"/></td>
         </tbody>
     </table>

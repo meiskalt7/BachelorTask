@@ -39,6 +39,12 @@ public class Product {
         this.price = price;
     }
 
+    public Product(int cat_id, String name, double price) {
+        this.cat_id = cat_id;
+        this.name = name;
+        this.price = price;
+    }
+
     public Product() {
     }
 

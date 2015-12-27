@@ -18,8 +18,9 @@
           <element id="library" level="project" name="antlr:antlr:2.7.7" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/standard-1.1.2.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar" />
-          <element id="file-copy" path="$USER_HOME$/Desktop/jstl-1.2.jar" />
-          <element id="file-copy" path="$USER_HOME$/Desktop/mysql-connector-java-5.1.38-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../jstl-1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../mysql-connector-java-5.1.38-bin.jar" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:5.1.38" />
         </element>
       </element>
       <element id="directory" name="META-INF">
