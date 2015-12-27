@@ -15,7 +15,8 @@
 </head>
 <body>
 <a href="index.jsp">To Pricelist</a> <a href="login.jsp">Login</a> <br>
-Добавить продукт(выбор категории, ввод названия продукта и его цены)
+
+<h2>Добавить продукт</h2>
 <form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
@@ -36,14 +37,13 @@
         </tbody>
     </table>
 </form>
-Список продуктов(удалить, изменить)
+<h2>Список продуктов</h2>
 <table border="1">
     <thead>
     <tr>
         <th>Категория</th>
         <th>Наименование</th>
         <th>Цена</th>
-        <th>Изменить</th>
         <th>Удалить</th>
     </thead>
     <tbody>
@@ -52,11 +52,16 @@
         <td>${product.getCategory().getName()}</td>
         <td>${product.getName()}</td>
         <td>${product.getPrice()}</td>
+        <td>
+            <form>
+                <button type="submit" name="productId" value="${product.getId()}">delete</button>
+            </form>
+        </td>
     </tr>
     </tbody>
     </c:forEach>
 </table>
-Добавить категорию(введение название категории)
+<h2>Добавить категорию</h2>
 <form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
@@ -69,18 +74,22 @@
         </tbody>
     </table>
 </form>
-Список категорий(удалить, изменить)
+<h2>Список категорий</h2>
 <table border="1">
     <thead>
     <tr>
         <th>Категория</th>
-        <th>Изменить</th>
         <th>Удалить</th>
     </thead>
     <tbody>
     <c:forEach var="category" items="${categoryList}">
     <tr>
         <td>${category.getName()}</td>
+        <td>
+            <form>
+                <button type="submit" name="productId" value="${category.getId()}">delete</button>
+            </form>
+        </td>
     </tr>
     </tbody>
     </c:forEach>

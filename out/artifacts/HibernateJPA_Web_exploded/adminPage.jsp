@@ -15,7 +15,7 @@
 </head>
 <body>
 <a href="index.jsp">To Pricelist</a> <a href="login.jsp">Login</a> <br>
-Добавить продукт(выбор категории, ввод названия продукта и его цены)
+<h2>Добавить продукт</h2>
 <form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
@@ -25,25 +25,24 @@
             <th>Цена:</th>
         </thead>
         <tbody>
-        <td><select name="categoryName" id = "categoryId">
+        <td><select name="categoryId">
             <c:forEach var="category" items="${categoryList}">
                 <option value="${category.getId()}">${category.getName()}</option>
             </c:forEach>
         </select></td>
         <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="priceFrom"/></td>
+        <td><input type="text" name="price"/></td>
         <td><input type="submit" value="Добавить товар"/></td>
         </tbody>
     </table>
 </form>
-Список продуктов(удалить, изменить)
+<h2>Список продуктов</h2>
 <table border="1">
     <thead>
     <tr>
         <th>Категория</th>
         <th>Наименование</th>
         <th>Цена</th>
-        <th>Изменить</th>
         <th>Удалить</th>
     </thead>
     <tbody>
@@ -52,11 +51,12 @@
         <td>${product.getCategory().getName()}</td>
         <td>${product.getName()}</td>
         <td>${product.getPrice()}</td>
+        <td><form><button type="submit" name ="productId" value="${product.getId()}">delete</button></form></td>
     </tr>
     </tbody>
     </c:forEach>
 </table>
-Добавить категорию(введение название категории)
+<h2>Добавить категорию</h2>
 <form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
@@ -69,18 +69,18 @@
         </tbody>
     </table>
 </form>
-Список категорий(удалить, изменить)
+<h2>Список категорий</h2>
 <table border="1">
     <thead>
     <tr>
         <th>Категория</th>
-        <th>Изменить</th>
         <th>Удалить</th>
     </thead>
     <tbody>
-    <c:forEach var="product" items="${productsList}">
+    <c:forEach var="category" items="${categoryList}">
     <tr>
-        <td>${product.getCategory().getName()}</td>
+        <td>${category.getName()}</td>
+        <td><form><button type="submit" name ="productId" value="${category.getId()}">delete</button></form></td>
     </tr>
     </tbody>
     </c:forEach>

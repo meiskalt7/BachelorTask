@@ -40,8 +40,9 @@ public class Product {
         this.price = price;
     }
 
-    public Product(int cat_id, String name, double price) {
-        this.cat_id = cat_id;
+    public Product(Category category, String name, double price) {
+        setCategory(category);
+        this.cat_id = category.getId();
         this.name = name;
         this.price = price;
     }

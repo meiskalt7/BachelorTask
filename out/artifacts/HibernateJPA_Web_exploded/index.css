@@ -1,3 +1,34 @@
+body {
+	line-height: 1.75em;
+	background:#fafdd2;
+	background-image: url('1.jpg');
+	font-size: 11.5pt;
+	color: #040404;
+}
+
+h1,h2,h3,h4 {
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h2,h3,h4 {
+	font-family: "Segoe UI Black", sans-serif;
+	color: #ae0c0f;
+	margin-bottom: 1em;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+h4 {
+	font-size: 1em;
+}
+
 table {
     border-spacing: 0 10px;
     font-family: 'Open Sans', sans-serif;

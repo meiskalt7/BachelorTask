@@ -31,21 +31,24 @@ public class AdminPage extends HttpServlet {
             request.setAttribute("productsList", productService.getHQL("", "", 0.0, 0.0)); //load productsList
             ////load categoryList
             request.setAttribute("categoryList", categoryService.getAll());
-        } else if (request.getParameterMap().size() == 3) {
-            //Если послано добавление продукта, то
+        } else if (request.getParameter("name") != null) {
+            //Если послано добавление продукта, то(/!добавить запись айдишника, выбрать что из первых двух параметров реально нужно)
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+            Category category = categoryService.get(categoryId);
             String name = request.getParameter("name");
             String price = request.getParameter("price");
-            productService.add(new Product(categoryId, name, parseDouble(price, request)));
+            productService.add(new Product(category, name, parseDouble(price, request)));
             //request.setAttribute("productsList", productService.getHQL(category, name, parseDouble(price, request), 0.0));
-        } else if (request.getParameterMap().size() == 1) {
-            //Если послано добавление категории
+        } else if (request.getParameter("categoryName") != null) {
+            //Если послано добавление категории(/! добавить запись айдишника)
             String categoryName = request.getParameter("categoryName");
             categoryService.add(new Category(categoryName));
-        } else if (true) {
+        } else if (request.getParameter("productId") != null) {
             //Действие на удаление товара
-        } else if (true) {
+            productService.delete(Integer.parseInt(request.getParameter("productId")));
+        } else if (request.getParameter("categoryId") != null) {
             //Действие на удаление категории
+            categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));
         }
 
         RequestDispatcher rd = getServletContext()
