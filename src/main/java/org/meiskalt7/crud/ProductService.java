@@ -1,6 +1,5 @@
 package org.meiskalt7.crud;
 
-import org.meiskalt7.entity.Category;
 import org.meiskalt7.entity.Product;
 
 import javax.persistence.EntityManager;
@@ -9,13 +8,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-/**
- * @author Eiskalt on 12.10.2015.
- */
 public class ProductService {
 
     public ProductService() {
-
     }
 
     @PersistenceContext
@@ -62,16 +57,24 @@ public class ProductService {
 
     public List<Product> getHQL(String category, String name, Double priceFrom, Double priceTo) {
         if (priceFrom >= 0 & priceTo >= 0) {
-            TypedQuery<Product> query = em.createQuery("SELECT p FROM Product as p INNER JOIN p.category " +
-                    "WHERE (lower(p.category.name) LIKE :category OR :category = null) AND (lower(p.name) = :name OR :name = null) " +
-                    "AND (p.price >= :priceFrom OR :priceFrom = 0) AND (p.price <= :priceTo OR :priceTo = 0)", Product.class);
+            if (category.length() == 0) category = null;
+            if (name.length() == 0) name = null;
+            TypedQuery<Product> query = em.createQuery("SELECT p FROM Product as p INNER JOIN p.category WHERE (lower(p.category.name) LIKE :category OR :category IS NULL) AND (lower(p.name) LIKE :name OR :name IS NULL) AND (p.price >= :priceFrom OR :priceFrom = 0) AND (p.price <= :priceTo OR :priceTo = 0)", Product.class);
 
-            return query
-                    .setParameter("category", "%" + category + "%")
+            List<Product> list = query
+                    .setParameter("category", category)
                     .setParameter("name", name)
                     .setParameter("priceFrom", priceFrom)
                     .setParameter("priceTo", priceTo)
                     .getResultList();
+            System.out.println(list);
+            return list;
         } else return null;
+    }
+
+    public static void main(String[] args) {
+        ProductService ps = new ProductService();
+        List<Product> hql = ps.getHQL(null, null, .0, .0);
+        System.out.println("  !  ");
     }
 }

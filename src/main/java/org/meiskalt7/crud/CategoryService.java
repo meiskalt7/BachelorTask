@@ -8,9 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-/**
- * @author Eiskalt on 12.10.2015.
- */
 public class CategoryService {
 
     public CategoryService() {

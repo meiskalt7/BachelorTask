@@ -4,8 +4,6 @@ import org.junit.Test;
 import org.meiskalt7.crud.CategoryService;
 import org.meiskalt7.entity.Category;
 
-import java.util.List;
-
 /**
  * @author Eiskalt on 12.10.2015.
  */
@@ -32,66 +30,66 @@ public class CategoryServiceTest {
 
         service.delete(category.getId());
     }
-
+/*
     @Test
     public void testSelect() throws Exception {
-        //Создаем автомобиль для записи в БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         Category category1 = new Category();
         category1.setName("Citroen?");
 
-        //Записываем в БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         Category category = service.add(category1);
 
-        //Получние с БД Citroen?
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ Citroen?
         Category categoryFromDB = service.get(category.getId());
         System.out.println(categoryFromDB);
     }
 
     @Test
     public void testUpdate() throws Exception {
-        //Создаем автомобиль для записи в БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         Category category1 = new Category();
         category1.setName("Lambordshini");
 
-        //Записываем в БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         category1 = service.add(category1);
 
         category1.setName("Lambo");
 
-        //Обновляем
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         service.update(category1);
 
-        //Получаем обновленую запись
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         Category category2 = service.get(category1.getId());
         System.out.println(category2);
     }
 
     @Test
     public void testGetAll() {
-        //Создаем автомобиль для записи в БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         Category category1 = new Category();
         category1.setName("Lexus");
 
-        //Создаем автомобиль для записи в БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         Category category2 = new Category();
         category2.setName("Fiat");
 
-        //Создаем автомобиль для записи в БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         Category category3 = new Category();
         category3.setName("Porsche");
 
-        //Сохраняем все авто
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         service.add(category1);
         service.add(category2);
         service.add(category3);
 
-        //Получаем все авто с БД
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
         List<Category> categories = service.getAll();
 
-        //Выводим полученый список авто
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         for (Category c : categories) {
             System.out.println(c);
         }
     }
-
+*/
 }

@@ -14,6 +14,7 @@
     <title>Прайс-лист</title>
 </head>
 <body>
+<a href="adminPage.jsp">To Admin Page</a> <br> <a href="login.jsp">Login</a>
 Прайс-лист
 <form action="${pageContext.request.contextPath}/Pricelist" method="get">
     <table border="0">

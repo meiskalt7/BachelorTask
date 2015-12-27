@@ -3,7 +3,7 @@ package org.meiskalt7.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PROD")
+@Table(name = "prod")
 @NamedQuery(name = "Products.getAll", query = "SELECT p from Product p")
 public class Product {
 

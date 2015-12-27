@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "CAT")
+@Table(name = "cat")
 @NamedQuery(name = "Categories.getAll", query = "SELECT c from Category c")
 public class Category {
 

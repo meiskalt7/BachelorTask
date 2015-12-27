@@ -4,11 +4,11 @@
 
     <!-- Default set of monitored resources -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
-    <Resource name="jdbc/XE" auth="Container"
+    <Resource name="jdbc/autorest" auth="Container"
               type="javax.sql.DataSource"
               maxActive="100" maxIdle="30" maxWait="10000"
-              username="eiskalt"
-              password="QWER"
-              driverClassName="oracle.jdbc.driver.OracleDriver"
-              url="jdbc:oracle:thin:@//localhost:1521/XE"/>
+              username="root"
+              password="root"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/autorest"/>
 </Context>
