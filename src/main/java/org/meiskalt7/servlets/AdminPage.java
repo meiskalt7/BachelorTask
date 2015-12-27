@@ -41,9 +41,7 @@ public class AdminPage extends HttpServlet {
         } else if (request.getParameterMap().size() == 1) {
             //Если послано добавление категории
             String categoryName = request.getParameter("categoryName");
-            Category category = new Category();
-            category.setName(categoryName);
-            categoryService.add(category);
+            categoryService.add(new Category(categoryName));
         } else if (true) {
             //Действие на удаление товара
         } else if (true) {

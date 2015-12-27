@@ -10,6 +10,7 @@ import java.util.List;
 public class Category {
 
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
@@ -29,6 +30,10 @@ public class Category {
 
     public Category(int id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public Category(String name) {
         this.name = name;
     }
 

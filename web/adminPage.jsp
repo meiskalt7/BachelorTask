@@ -25,13 +25,13 @@
             <th>Цена:</th>
         </thead>
         <tbody>
-        <td><select name="categoryName" id="categoryId">
+        <td><select name="categoryId">
             <c:forEach var="category" items="${categoryList}">
                 <option value="${category.getId()}">${category.getName()}</option>
             </c:forEach>
         </select></td>
         <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="priceFrom"/></td>
+        <td><input type="text" name="price"/></td>
         <td><input type="submit" value="Добавить товар"/></td>
         </tbody>
     </table>
@@ -78,9 +78,9 @@
         <th>Удалить</th>
     </thead>
     <tbody>
-    <c:forEach var="product" items="${productsList}">
+    <c:forEach var="category" items="${categoryList}">
     <tr>
-        <td>${product.getCategory().getName()}</td>
+        <td>${category.getName()}</td>
     </tr>
     </tbody>
     </c:forEach>

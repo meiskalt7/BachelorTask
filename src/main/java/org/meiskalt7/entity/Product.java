@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Product {
 
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
