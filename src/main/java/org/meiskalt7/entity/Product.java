@@ -1,5 +1,7 @@
 package org.meiskalt7.entity;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,12 +15,15 @@ public class Product {
     private int id;
 
     @Column(name = "CAT_ID")
+    @NotNull
     private int cat_id;
 
     @Column(name = "NAME", length = 255)
+    @NotNull
     private String name;
 
     @Column(name = "PRICE")
+    @NotNull
     private double price;
 
     @ManyToOne

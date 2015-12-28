@@ -63,3 +63,44 @@ td:first-child {
 td:nth-child(2){
     text-align: left;
 }
+
+#header {
+    height: 130px;
+    padding: 40px;
+    position: relative;
+}
+
+#menu {
+    line-height: 57px;
+    position: absolute;
+    right: 40px;
+    top: 76px;
+    height: 57px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#menu a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1C1C1C;
+    font-size: 1.2em;
+}
+
+#menu ul li {
+    display: inline;
+    padding: 10px 10px 10px 10px;
+    margin: 0 8px 0 8px;
+}
+
+#menu a:hover {
+    color: #040404;
+}
+
+.li:hover {
+    border: solid 1px #BFB5A4;
+    font-color: #ff0d21;
+    box-shadow: inset 0px 0px 0px 1px #ff1719;
+    text-shadow: 1px 1px 0px rgba(255, 23, 25, 0.9);
+    background: #fff900 linear-gradient(#fff900, #fff900 50%, #fff900);
+
+}

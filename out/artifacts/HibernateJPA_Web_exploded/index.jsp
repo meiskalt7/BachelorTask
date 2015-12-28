@@ -14,8 +14,19 @@
     <title>Прайс-лист</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a> <br> <a href="login.jsp">Login</a>
-Прайс-лист
+<div id="header">
+    <div id="logo">
+        <h2>МЕНЮ РЕСТОРАНА:Прайс-лист</h2>
+    </div>
+    <div id="menu">
+        <ul>
+            <li class="li" ><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
+            <li class="li"><a href="index.jsp">To Pricelist</a></li>
+        </ul>
+        <br class="clearfix" />
+    </div>
+</div>
+
 <form action="${pageContext.request.contextPath}/Pricelist" method="get">
     <table border="0">
         <thead>
@@ -37,9 +48,9 @@
 <table border="1">
     <thead>
     <tr>
-        <th><a href="?sort=category">Категория</a></th>
-        <th><a href="?sort=name">Наименование</a></th>
-        <th><a href="?sort=price">Цена</a></th>
+        <th>Категория</th>
+        <th>Наименование</th>
+        <th>Цена</th>
     </thead>
     <tbody>
     <c:forEach var="product" items="${productsList}">

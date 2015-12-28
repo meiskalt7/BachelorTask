@@ -14,8 +14,23 @@
     <title>Прайс-лист</title>
 </head>
 <body>
-<a href="index.jsp">To Pricelist</a> <a href="login.jsp">Login</a> <br>
+
+<div id="header">
+    <div id="logo">
+        <h2>МЕНЮ РЕСТОРАНА:Страница администрирования</h2>
+    </div>
+    <div id="menu">
+        <ul>
+            <li class="li" ><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
+            <li class="li"><a href="index.jsp">To Pricelist</a></li>
+        </ul>
+        <br class="clearfix" />
+    </div>
+</div>
+
+
 <h2>Добавить продукт</h2>
+<div class="wrapper">
 <form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
@@ -36,6 +51,7 @@
         </tbody>
     </table>
 </form>
+</div>
 <h2>Список продуктов</h2>
 <table border="1">
     <thead>
@@ -51,7 +67,11 @@
         <td>${product.getCategory().getName()}</td>
         <td>${product.getName()}</td>
         <td>${product.getPrice()}</td>
-        <td><form><button type="submit" name ="productId" value="${product.getId()}">delete</button></form></td>
+        <td>
+            <form>
+                <button type="submit" name="productId" value="${product.getId()}">delete</button>
+            </form>
+        </td>
     </tr>
     </tbody>
     </c:forEach>
@@ -80,7 +100,11 @@
     <c:forEach var="category" items="${categoryList}">
     <tr>
         <td>${category.getName()}</td>
-        <td><form><button type="submit" name ="productId" value="${category.getId()}">delete</button></form></td>
+        <td>
+            <form>
+                <button type="submit" name="productId" value="${category.getId()}">delete</button>
+            </form>
+        </td>
     </tr>
     </tbody>
     </c:forEach>
