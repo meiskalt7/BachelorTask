@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.meiskalt7.crud.CategoryService;
 import org.meiskalt7.entity.Category;
 
+import java.util.List;
+
 /**
  * @author Eiskalt on 12.10.2015.
  */
@@ -30,7 +32,7 @@ public class CategoryServiceTest {
 
         service.delete(category.getId());
     }
-/*
+
     @Test
     public void testSelect() throws Exception {
         Category category1 = new Category();
@@ -78,5 +80,4 @@ public class CategoryServiceTest {
             System.out.println(c);
         }
     }
-*/
 }

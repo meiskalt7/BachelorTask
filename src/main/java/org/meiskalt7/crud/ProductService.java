@@ -30,9 +30,9 @@ public class ProductService {
         em.getTransaction().commit();
     }
 
-    public void update(Product serviceType) {
+    public void update(Product product) {
         em.getTransaction().begin();
-        em.merge(serviceType);
+        em.merge(product);
         em.getTransaction().commit();
     }
 
@@ -67,7 +67,6 @@ public class ProductService {
                     .setParameter("priceFrom", priceFrom)
                     .setParameter("priceTo", priceTo)
                     .getResultList();
-            System.out.println(list);
             return list;
         } else return null;
     }

@@ -26,12 +26,7 @@ public class AdminPage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductService productService = new ProductService();
         CategoryService categoryService = new CategoryService();
-        if (request.getParameterMap().size() == 0) {
-            //if first load
-            request.setAttribute("productsList", productService.getHQL("", "", 0.0, 0.0)); //load productsList
-            ////load categoryList
-            request.setAttribute("categoryList", categoryService.getAll());
-        } else if (request.getParameter("name") != null) {
+        if (request.getParameter("name") != null) {
             //Если послано добавление продукта, то(/!добавить запись айдишника, выбрать что из первых двух параметров реально нужно)
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             Category category = categoryService.get(categoryId);
@@ -50,6 +45,9 @@ public class AdminPage extends HttpServlet {
             //Действие на удаление категории
             categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));
         }
+
+        request.setAttribute("productsList", productService.getHQL("", "", 0.0, 0.0)); //load productsList
+        request.setAttribute("categoryList", categoryService.getAll());
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/adminPage.jsp");

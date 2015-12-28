@@ -21,15 +21,16 @@
     </div>
     <div id="menu">
         <ul>
-            <li class="li" ><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
-            <li class="li"><a href="index.jsp">To Pricelist</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/Pricelist">To Pricelist</a></li>
         </ul>
-        <br class="clearfix" />
+        <br class="clearfix"/>
     </div>
 </div>
 
 
 <h2>Добавить продукт</h2>
+
 <div class="wrapper">
 <form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
@@ -47,7 +48,7 @@
         </select></td>
         <td><input type="text" name="name" maxlength="255"/></td>
         <td><input type="text" name="price"/></td>
-        <td><input type="submit" value="Добавить товар"/></td>
+        <td><button type="submit" value="Добавить товар"/><a class="addProductButton">Добавить товар</a></td>
         </tbody>
     </table>
 </form>
@@ -69,7 +70,7 @@
         <td>${product.getPrice()}</td>
         <td>
             <form>
-                <button type="submit" name="productId" value="${product.getId()}">delete</button>
+                <button type="submit" name="productId" value="${product.getId()}"><a class="deleteButton">DELETE</a></button>
             </form>
         </td>
     </tr>
@@ -85,7 +86,7 @@
         </thead>
         <tbody>
         <td><input type="text" name="categoryName" maxlength="255"/></td>
-        <td><input type="submit" value="Добавить категорию"/></td>
+        <td><button type="submit" value="Добавить категорию"/><a class="addProductButton">Добавить категорию</a></td>
         </tbody>
     </table>
 </form>
@@ -102,7 +103,7 @@
         <td>${category.getName()}</td>
         <td>
             <form>
-                <button type="submit" name="productId" value="${category.getId()}">delete</button>
+                <button type="submit" name="categoryId" value="${category.getId()}"><a class="deleteButton">DELETE</a></button>
             </form>
         </td>
     </tr>

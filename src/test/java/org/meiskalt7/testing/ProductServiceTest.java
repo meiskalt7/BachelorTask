@@ -34,14 +34,11 @@ public class ProductServiceTest {
 
     @Test
     public void testSelect() throws Exception {
-        //������� ���������� ��� ������ � ��
         Product product1 = new Product();
         product1.setName("Citroen?");
 
-        //���������� � ��
         Product product = service.add(product1);
 
-        //�������� � �� Citroen?
         Product productFromDB = service.get(product.getId());
         System.out.println(productFromDB);
     }

@@ -21,7 +21,7 @@
     <div id="menu">
         <ul>
             <li class="li"><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
-            <li class="li"><a href="index.jsp">To Pricelist</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/Pricelist">To Pricelist</a></li>
         </ul>
         <br class="clearfix"/>
     </div>
@@ -45,6 +45,8 @@
         </tbody>
     </table>
 </form>
+
+<div onclick="transferCallToServlet()">
 <table border="1">
     <thead>
     <tr>
@@ -63,5 +65,6 @@
     </c:forEach>
 </table>
 ${errorMessage}
+</div>
 </body>
 </html>

@@ -20,31 +20,33 @@
     </div>
     <div id="menu">
         <ul>
-            <li class="li" ><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
-            <li class="li"><a href="index.jsp">To Pricelist</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/Pricelist">To Pricelist</a></li>
         </ul>
-        <br class="clearfix" />
+        <br class="clearfix"/>
     </div>
 </div>
 
-<form action="${pageContext.request.contextPath}/Pricelist" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Категория:</th>
-            <th>Наименование:</th>
-            <th>Цена от:</th>
-            <th>Цена до:</th>
-        </thead>
-        <tbody>
-        <td><input type="text" name="category" maxlength="255"/></td>
-        <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="priceFrom"/></td>
-        <td><input type="text" name="priceTo"/></td>
-        <td><input type="submit" value="Найти"/></td>
-        </tbody>
-    </table>
-</form>
+    <form action="${pageContext.request.contextPath}/Pricelist" method="get">
+        <table border="0">
+            <thead>
+            <tr>
+                <th>Категория:</th>
+                <th>Наименование:</th>
+                <th>Цена от:</th>
+                <th>Цена до:</th>
+            </thead>
+            <tbody>
+            <td><input type="text" name="category" maxlength="255"/></td>
+            <td><input type="text" name="name" maxlength="255"/></td>
+            <td><input type="text" name="priceFrom"/></td>
+            <td><input type="text" name="priceTo"/></td>
+            <td><input type="submit" value="Найти"/></td>
+            </tbody>
+        </table>
+    </form>
+
+<div onclick="transferCallToServlet()">
 <table border="1">
     <thead>
     <tr>
@@ -63,5 +65,6 @@
     </c:forEach>
 </table>
 ${errorMessage}
+</div>
 </body>
 </html>

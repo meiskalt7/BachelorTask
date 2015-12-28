@@ -26,14 +26,15 @@ public class CategoryService {
     }
 
     public void delete(int id) {
+        Category category = get(id);
         em.getTransaction().begin();
-        em.remove(get(id));
+        em.remove(category);
         em.getTransaction().commit();
     }
 
-    public void update(Category serviceType) {
+    public void update(Category category) {
         em.getTransaction().begin();
-        em.merge(serviceType);
+        em.merge(category);
         em.getTransaction().commit();
     }
 
