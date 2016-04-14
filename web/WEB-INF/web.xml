@@ -35,7 +35,7 @@
 
     <resource-ref>
         <res-ref-name>
-            jdbc/autorest
+            jdbc/baka
         </res-ref-name>
         <res-type>
             javax.sql.DataSource

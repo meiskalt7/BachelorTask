@@ -27,24 +27,24 @@
     </div>
 </div>
 
-    <form action="${pageContext.request.contextPath}/Pricelist" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>Категория:</th>
-                <th>Наименование:</th>
-                <th>Цена от:</th>
-                <th>Цена до:</th>
-            </thead>
-            <tbody>
-            <td><input type="text" name="category" maxlength="255"/></td>
-            <td><input type="text" name="name" maxlength="255"/></td>
-            <td><input type="text" name="priceFrom"/></td>
-            <td><input type="text" name="priceTo"/></td>
-            <td><input type="submit" value="Найти"/></td>
-            </tbody>
-        </table>
-    </form>
+<form action="${pageContext.request.contextPath}/Pricelist" method="get">
+    <table border="0">
+        <thead>
+        <tr>
+            <th>Категория:</th>
+            <th>Наименование:</th>
+            <th>Цена от:</th>
+            <th>Цена до:</th>
+        </thead>
+        <tbody>
+        <td><input type="text" name="category" maxlength="255"/></td>
+        <td><input type="text" name="name" maxlength="255"/></td>
+        <td><input type="text" name="priceFrom"/></td>
+        <td><input type="text" name="priceTo"/></td>
+        <td><input type="submit" value="Найти"/></td>
+        </tbody>
+    </table>
+</form>
 
 <div onclick="transferCallToServlet()">
 <table border="1">

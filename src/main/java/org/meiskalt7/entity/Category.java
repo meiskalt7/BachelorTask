@@ -3,6 +3,7 @@ package org.meiskalt7.entity;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 

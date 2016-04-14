@@ -3,6 +3,9 @@ package org.meiskalt7.entity;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "prod")
@@ -37,6 +40,17 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    @ManyToMany
+    @JoinTable(
+            name = "prod_composition",
+            joinColumns = @JoinColumn(name = "prod_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "ingrid_id", referencedColumnName = "id")
+    )
+    private List<Ingridient> ingridients = new ArrayList<Ingridient>();
+
+    @OneToOne(mappedBy = "product")
+    private Orderlist orderlist = new Orderlist();
 
     public Product(int id, int cat_id, String name, double price) {
         this.id = id;
@@ -85,6 +99,22 @@ public class Product {
 
     public void setPrice(double number) {
         this.price = number;
+    }
+
+    public List<Ingridient> getIngridients() {
+        return ingridients;
+    }
+
+    public void setIngridients(List<Ingridient> ingridients) {
+        this.ingridients = ingridients;
+    }
+
+    public Orderlist getOrderlist() {
+        return orderlist;
+    }
+
+    public void setOrderlist(Orderlist orderlist) {
+        this.orderlist = orderlist;
     }
 
     public String toString() {

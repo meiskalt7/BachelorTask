@@ -48,7 +48,9 @@
         </select></td>
         <td><input type="text" name="name" maxlength="255"/></td>
         <td><input type="text" name="price"/></td>
-        <td><button type="submit" value="Добавить товар"/><a class="addProductButton">Добавить товар</a></td>
+        <td>
+            <button type="submit" value="Добавить товар"/>
+            <a class="addProductButton">Добавить товар</a></td>
         </tbody>
     </table>
 </form>
@@ -70,7 +72,8 @@
         <td>${product.getPrice()}</td>
         <td>
             <form>
-                <button type="submit" name="productId" value="${product.getId()}"><a class="deleteButton">DELETE</a></button>
+                <button type="submit" name="productId" value="${product.getId()}"><a class="deleteButton">DELETE</a>
+                </button>
             </form>
         </td>
     </tr>
@@ -86,7 +89,9 @@
         </thead>
         <tbody>
         <td><input type="text" name="categoryName" maxlength="255"/></td>
-        <td><button type="submit" value="Добавить категорию"/><a class="addProductButton">Добавить категорию</a></td>
+        <td>
+            <button type="submit" value="Добавить категорию"/>
+            <a class="addProductButton">Добавить категорию</a></td>
         </tbody>
     </table>
 </form>
@@ -103,7 +108,8 @@
         <td>${category.getName()}</td>
         <td>
             <form>
-                <button type="submit" name="categoryId" value="${category.getId()}"><a class="deleteButton">DELETE</a></button>
+                <button type="submit" name="categoryId" value="${category.getId()}"><a class="deleteButton">DELETE</a>
+                </button>
             </form>
         </td>
     </tr>
