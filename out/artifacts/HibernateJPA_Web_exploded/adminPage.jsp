@@ -11,18 +11,38 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <title>Прайс-лист</title>
+    <title>Admin Page</title>
 </head>
 <body>
-
 <div id="header">
     <div id="logo">
-        <h2>МЕНЮ РЕСТОРАНА:Страница администрирования</h2>
+        <h2>AuRe: Страница администратора(продукты, категории, работники)</h2>
     </div>
     <div id="menu">
+        <h2>Меню сайта</h2>
         <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/AdminPage">To Admin Page</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/Pricelist">To Pricelist</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
+        </ul>
+        <ul>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+        </ul>
+        <h2>Waiter</h2>
+        <ul>
+            <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+        </ul>
+        <h2>Manager</h2>
+        <ul>
+            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+        </ul>
+        <h2>Administrator</h2>
+        <ul>
+            <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
         </ul>
         <br class="clearfix"/>
     </div>
@@ -32,28 +52,28 @@
 <h2>Добавить продукт</h2>
 
 <div class="wrapper">
-<form action="${pageContext.request.contextPath}/AdminPage" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Категория:</th>
-            <th>Наименование:</th>
-            <th>Цена:</th>
-        </thead>
-        <tbody>
-        <td><select name="categoryId">
-            <c:forEach var="category" items="${categoryList}">
-                <option value="${category.getId()}">${category.getName()}</option>
-            </c:forEach>
-        </select></td>
-        <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="price"/></td>
-        <td>
-            <button type="submit" value="Добавить товар"/>
-            <a class="addProductButton">Добавить товар</a></td>
-        </tbody>
-    </table>
-</form>
+    <form action="${pageContext.request.contextPath}/AdminPage" method="get">
+        <table border="0">
+            <thead>
+            <tr>
+                <th>Категория:</th>
+                <th>Наименование:</th>
+                <th>Цена:</th>
+            </thead>
+            <tbody>
+            <td><select name="categoryId">
+                <c:forEach var="category" items="${categoryList}">
+                    <option value="${category.getId()}">${category.getName()}</option>
+                </c:forEach>
+            </select></td>
+            <td><input type="text" name="name" maxlength="255"/></td>
+            <td><input type="text" name="price"/></td>
+            <td>
+                <button type="submit" value="Добавить товар"/>
+                <a class="addProductButton">Добавить товар</a></td>
+            </tbody>
+        </table>
+    </form>
 </div>
 <h2>Список продуктов</h2>
 <table border="1">
@@ -81,6 +101,7 @@
     </c:forEach>
 </table>
 <h2>Добавить категорию</h2>
+
 <form action="${pageContext.request.contextPath}/AdminPage" method="get">
     <table border="0">
         <thead>
@@ -109,6 +130,51 @@
         <td>
             <form>
                 <button type="submit" name="categoryId" value="${category.getId()}"><a class="deleteButton">DELETE</a>
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+    </c:forEach>
+</table>
+<h2>Добавить работника</h2>
+
+<form action="${pageContext.request.contextPath}/AdminPage" method="get">
+    <table border="0">
+        <thead>
+        <tr>
+            <th>Фамилия:</th>
+            <th>Имя:</th>
+            <th>Отчество:</th>
+            <th>Заработная плата:</th>
+        </thead>
+        <tbody>
+        <td><input type="text" name="surname" maxlength="255"/></td>
+        <td><input type="text" name="name" maxlength="255"/></td>
+        <td><input type="text" name="patronymic" maxlength="255"/></td>
+        <td><input type="text" name="wage" maxlength="255"/></td>
+        <td>
+            <button type="submit" value="Добавить работника"/>
+            <a class="addProductButton">Добавить работника</a></td>
+        </tbody>
+    </table>
+</form>
+<h2>Список работников ресторана</h2>
+<table border="1">
+    <thead>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Отчество</th>
+    <th>Заработная плата</th>
+    <th>Удалить</th>
+    </thead>
+    <tbody>
+    <c:forEach var="employee" items="${employeeList}">
+    <tr>
+        <td>${employee.getName()}</td>
+        <td>
+            <form>
+                <button type="submit" name="employeeId" value="${employee.getId()}"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>

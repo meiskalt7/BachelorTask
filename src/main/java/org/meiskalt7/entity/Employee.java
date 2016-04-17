@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "employees")
+@NamedQuery(name = "Employees.getAll", query = "SELECT c from Employee c")
 public class Employee {
 
     @Id

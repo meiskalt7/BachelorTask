@@ -1,22 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: Eiskalt
-  Date: 12.10.2015
-  Time: 10:58
+  Date: 17.04.2016
+  Time: 10:51
   To change this template use File | Settings | File Templates.
-  <jsp:forward page="/pricelist"></jsp:forward>
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <title>Прайс-лист</title>
+    <title>Admin Page</title>
 </head>
 <body>
+
 <div id="header">
     <div id="logo">
-        <h2>AuRe: Прайс-лист</h2>
+        <h2>AuRe: Контакты</h2>
     </div>
     <div id="menu">
         <h2>Меню сайта</h2>
@@ -48,44 +47,14 @@
     </div>
 </div>
 
-<form action="${pageContext.request.contextPath}/pricelist" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Категория:</th>
-            <th>Наименование:</th>
-            <th>Цена от:</th>
-            <th>Цена до:</th>
-        </thead>
-        <tbody>
-        <td><input type="text" name="category" maxlength="255"/></td>
-        <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="priceFrom"/></td>
-        <td><input type="text" name="priceTo"/></td>
-        <td><input type="submit" value="Найти"/></td>
-        </tbody>
-    </table>
-</form>
+<h2>The Golden Spruce</h2>
+The Golden Spruce - ресторан, который..., а так же..., к тому же...
+<h2>Адрес ресторана</h2>
+ул. Ленина 17
+(карту бы вставить)
+<h2>Телефон</h2>
+8-888-888-8888
+<h2>Ешь в Golden Spruce! Живи в удовольствие!</h2>
 
-<div onclick="transferCallToServlet()">
-    <table border="1">
-        <thead>
-        <tr>
-            <th>Категория</th>
-            <th>Наименование</th>
-            <th>Цена</th>
-        </thead>
-        <tbody>
-        <c:forEach var="product" items="${productsList}">
-        <tr>
-            <td>${product.getCategory().getName()}</td>
-            <td>${product.getName()}</td>
-            <td>${product.getPrice()}</td>
-        </tr>
-        </tbody>
-        </c:forEach>
-    </table>
-    ${errorMessage}
-</div>
 </body>
 </html>

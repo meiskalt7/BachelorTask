@@ -1,22 +1,22 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Eiskalt
-  Date: 12.10.2015
-  Time: 10:58
+  Date: 17.04.2016
+  Time: 10:43
   To change this template use File | Settings | File Templates.
-  <jsp:forward page="/pricelist"></jsp:forward>
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <title>Прайс-лист</title>
+    <title>Reservation Page</title>
 </head>
 <body>
+
 <div id="header">
     <div id="logo">
-        <h2>AuRe: Прайс-лист</h2>
+        <h2>AuRe: Страница бронирования столиков</h2>
     </div>
     <div id="menu">
         <h2>Меню сайта</h2>
@@ -48,44 +48,33 @@
     </div>
 </div>
 
-<form action="${pageContext.request.contextPath}/pricelist" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Категория:</th>
-            <th>Наименование:</th>
-            <th>Цена от:</th>
-            <th>Цена до:</th>
-        </thead>
-        <tbody>
-        <td><input type="text" name="category" maxlength="255"/></td>
-        <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="priceFrom"/></td>
-        <td><input type="text" name="priceTo"/></td>
-        <td><input type="submit" value="Найти"/></td>
-        </tbody>
-    </table>
-</form>
+<h2>Забронировать столик</h2>
 
-<div onclick="transferCallToServlet()">
-    <table border="1">
-        <thead>
-        <tr>
-            <th>Категория</th>
-            <th>Наименование</th>
-            <th>Цена</th>
-        </thead>
-        <tbody>
-        <c:forEach var="product" items="${productsList}">
-        <tr>
-            <td>${product.getCategory().getName()}</td>
-            <td>${product.getName()}</td>
-            <td>${product.getPrice()}</td>
-        </tr>
-        </tbody>
-        </c:forEach>
-    </table>
-    ${errorMessage}
+<div class="wrapper">
+    <form action="${pageContext.request.contextPath}/AdminPage" method="get">
+        <table border="0">
+            <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Телефон</th>
+                <th>Время</th>
+                <th>Столик</th>
+            </thead>
+            <tbody>
+            <td><select name="categoryId">
+                <c:forEach var="category" items="${categoryList}">
+                    <option value="${category.getId()}">${category.getName()}</option>
+                </c:forEach>
+            </select></td>
+            <td><input type="text" name="name" maxlength="255"/></td>
+            <td><input type="text" name="price"/></td>
+            <td>
+                <button type="submit" value="Забронировать"/>
+                <a class="addProductButton">Забронировать</a></td>
+            </tbody>
+        </table>
+    </form>
 </div>
+
 </body>
 </html>

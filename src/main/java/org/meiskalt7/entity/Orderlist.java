@@ -20,8 +20,8 @@ public class Orderlist {
     @Column
     private int quantity;
 
-    @OneToOne
-    @JoinColumn(name = "prod_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prod_id", nullable = false, insertable = false, updatable = false)
     private Product product = new Product();
 
     @ManyToOne

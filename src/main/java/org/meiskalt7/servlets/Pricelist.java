@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author Eiskalt on 12.10.2015.
- */
 @WebServlet(name = "Pricelist")
 public class Pricelist extends HttpServlet {
 

@@ -49,8 +49,8 @@ public class Product {
     )
     private List<Ingridient> ingridients = new ArrayList<Ingridient>();
 
-    @OneToOne(mappedBy = "product")
-    private Orderlist orderlist = new Orderlist();
+/*    @OneToOne(fetch=FetchType.LAZY, mappedBy = "product")
+    private Orderlist orderlist = new Orderlist();*/
 
     public Product(int id, int cat_id, String name, double price) {
         this.id = id;
@@ -109,13 +109,13 @@ public class Product {
         this.ingridients = ingridients;
     }
 
-    public Orderlist getOrderlist() {
+/*    public Orderlist getOrderlist() {
         return orderlist;
     }
 
     public void setOrderlist(Orderlist orderlist) {
         this.orderlist = orderlist;
-    }
+    }*/
 
     public String toString() {
         return "Product{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + price + '}';

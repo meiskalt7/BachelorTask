@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author Eiskalt on 12.10.2015.
- */
-@WebServlet(name = "Pricelist")
+@WebServlet(name = "AdminPage")
 public class AdminPage extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
