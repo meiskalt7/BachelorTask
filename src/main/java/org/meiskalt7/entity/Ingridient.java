@@ -11,6 +11,14 @@ import java.util.List;
 @Table(name = "ingridients")
 public class Ingridient {
 
+    public Ingridient() {
+    }
+
+    public Ingridient(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)

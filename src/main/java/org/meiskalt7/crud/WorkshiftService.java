@@ -5,7 +5,6 @@ import org.meiskalt7.entity.Workshift;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class WorkshiftService {
@@ -43,8 +42,8 @@ public class WorkshiftService {
     }
 
     public List<Workshift> getAll() {
-        TypedQuery<Workshift> namedQuery = em.createNamedQuery("Categories.getAll", Workshift.class);
-        return namedQuery.getResultList();
+        //TypedQuery<Workshift> namedQuery = em.createNamedQuery("Categories.getAll", Workshift.class);
+        return em.createQuery("SELECT w FROM Workshift w").getResultList();
     }
 
     public void deleteAll() {

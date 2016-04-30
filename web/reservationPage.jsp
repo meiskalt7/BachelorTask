@@ -51,7 +51,7 @@
 <h2>Забронировать столик</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/AdminPage" method="get">
+    <form action="${pageContext.request.contextPath}/admin" method="get">
         <table border="0">
             <thead>
             <tr>

@@ -11,7 +11,7 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <title>Admin Page</title>
+    <title>Администрирование</title>
 </head>
 <body>
 <div id="header">
@@ -52,7 +52,7 @@
 <h2>Добавить продукт</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/AdminPage" method="get">
+    <form action="${pageContext.request.contextPath}/admin" method="get">
         <table border="0">
             <thead>
             <tr>
@@ -102,7 +102,7 @@
 </table>
 <h2>Добавить категорию</h2>
 
-<form action="${pageContext.request.contextPath}/AdminPage" method="get">
+<form action="${pageContext.request.contextPath}/admin" method="get">
     <table border="0">
         <thead>
         <tr>
@@ -139,7 +139,7 @@
 </table>
 <h2>Добавить работника</h2>
 
-<form action="${pageContext.request.contextPath}/AdminPage" method="get">
+<form action="${pageContext.request.contextPath}/admin" method="get">
     <table border="0">
         <thead>
         <tr>
@@ -171,10 +171,102 @@
     <tbody>
     <c:forEach var="employee" items="${employeeList}">
     <tr>
+        <td>${employee.getSurname()}</td>
         <td>${employee.getName()}</td>
+        <td>${employee.getPatronymic()}</td>
+        <td>${employee.getWage()}</td>
         <td>
             <form>
                 <button type="submit" name="employeeId" value="${employee.getId()}"><a class="deleteButton">DELETE</a>
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+    </c:forEach>
+</table>
+
+<h2>Добавить работника</h2>
+
+<form action="${pageContext.request.contextPath}/admin" method="get">
+    <table border="0">
+        <thead>
+        <tr>
+            <th>Фамилия:</th>
+            <th>Имя:</th>
+            <th>Отчество:</th>
+            <th>Заработная плата:</th>
+        </thead>
+        <tbody>
+        <td><input type="text" name="surname" maxlength="255"/></td>
+        <td><input type="text" name="name" maxlength="255"/></td>
+        <td><input type="text" name="patronymic" maxlength="255"/></td>
+        <td><input type="text" name="wage" maxlength="255"/></td>
+        <td>
+            <button type="submit" value="Добавить работника"/>
+            <a class="addProductButton">Добавить работника</a></td>
+        </tbody>
+    </table>
+</form>
+<h2>Список работников ресторана</h2>
+<table border="1">
+    <thead>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Отчество</th>
+    <th>Заработная плата</th>
+    <th>Удалить</th>
+    </thead>
+    <tbody>
+    <c:forEach var="employee" items="${employeeList}">
+    <tr>
+        <td>${employee.getSurname()}</td>
+        <td>${employee.getName()}</td>
+        <td>${employee.getPatronymic()}</td>
+        <td>${employee.getWage()}</td>
+        <td>
+            <form>
+                <button type="submit" name="employeeId" value="${employee.getId()}"><a class="deleteButton">DELETE</a>
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+    </c:forEach>
+</table>
+
+<h2>Добавить смену</h2>
+
+<form action="${pageContext.request.contextPath}/admin" method="get">
+    <table border="0">
+        <thead>
+        <tr>
+            <th>Начало:</th>
+            <th>Конец:</th>
+        </thead>
+        <tbody>
+        <td><input type="text" name="start" maxlength="255"/></td>
+        <td><input type="text" name="finish" maxlength="255"/></td>
+        <td>
+            <button type="submit" value="Добавить"/>
+            <a class="addProductButton">Добавить</a></td>
+        </tbody>
+    </table>
+</form>
+<h2>Список смен</h2>
+<table border="1">
+    <thead>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    </thead>
+    <tbody>
+    <c:forEach var="timerange" items="${timerangeList}">
+    <tr>
+        <td>${timerange.getStart()}</td>
+        <td>${timerange.getFinish()}</td>
+        <td>
+            <form>
+                <button type="submit" name="timerangeId" value="${timerange.getId()}"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>

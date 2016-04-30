@@ -10,7 +10,7 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <title>Manager Page</title>
+    <title>Смена</title>
 </head>
 <body>
 
@@ -51,7 +51,7 @@
 <h2>Добавить ингридиент</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/ManagerPage" method="get">
+    <form action="${pageContext.request.contextPath}/workshift" method="get">
         <table border="0">
             <thead>
             <tr>
@@ -62,8 +62,8 @@
             <td><input type="text" name="name" maxlength="255"/></td>
             <td><input type="text" name="quantity"/></td>
             <td>
-                <button type="submit" value="Добавить ингридиент"/>
-                <a class="addProductButton">Добавить ингридиент</a></td>
+                <button type="submit" value="Добавить"/>
+                <a class="addProductButton">Добавить</a></td>
             </tbody>
         </table>
     </form>
@@ -79,9 +79,8 @@
     <tbody>
     <c:forEach var="ingrid" items="${ingridList}">
     <tr>
-        <td>${ingrid.getCategory().getName()}</td>
         <td>${ingrid.getName()}</td>
-        <td>${ingrid.getPrice()}</td>
+        <td>${ingrid.getQuantity()}</td>
         <td>
             <form>
                 <button type="submit" name="ingridId" value="${ingrid.getId()}"><a class="deleteButton">DELETE</a>
@@ -96,7 +95,7 @@
 <h2>Добавить смену</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/ManagerPage" method="get">
+    <form action="${pageContext.request.contextPath}/workshift" method="get">
         <table border="0">
             <thead>
             <tr>
@@ -104,16 +103,21 @@
                 <th>Время</th>
             </thead>
             <tbody>
-            <td><input type="text" name="name" maxlength="255"/></td>
-            <td><input type="text" name="quantity"/></td>
+            <td><select id="worker" size="1">
+                <c:forEach var="employee" items="${employeeList}">
+                    <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
+                </c:forEach>
+            </select></td>
+            <td><input type="text" name="time"/></td>
             <td>
-                <button type="submit" value="Добавить ингридиент"/>
-                <a class="addProductButton">Добавить ингридиент</a></td>
+                <button type="submit" value="Добавить"/>
+                <a class="addProductButton">Добавить</a></td>
             </tbody>
         </table>
     </form>
 </div>
 <h2>Список смен</h2>
+
 <table border="1">
     <thead>
     <tr>
@@ -122,14 +126,70 @@
         <th>Удалить</th>
     </thead>
     <tbody>
-    <c:forEach var="ingrid" items="${ingridList}">
+    <c:forEach var="workshift" items="${workshiftList}">
     <tr>
-        <td>${ingrid.getCategory().getName()}</td>
-        <td>${ingrid.getName()}</td>
-        <td>${ingrid.getPrice()}</td>
+        <td><select id="numbers" size="10">
+            <c:forEach items='${workshift.getEmployees()}' var='employee'>
+                <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
+            </c:forEach>
+        </select></td>
+        <td>${workshift.getDatetime()}</td>
         <td>
             <form>
-                <button type="submit" name="ingridId" value="${ingrid.getId()}"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="workshiftId" value="${workshift.getId()}"><a
+                        class="deleteButton">DELETE</a>
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+    </c:forEach>
+</table>
+
+<h2>Добавить к столику официанта</h2>
+
+<div class="wrapper">
+    <form action="${pageContext.request.contextPath}/workshift" method="get">
+        <table border="0">
+            <thead>
+            <tr>
+                <th>Работник</th>
+                <th>Столик</th>
+            </thead>
+            <tbody>
+            <td><select id="worker2" size="1">
+                <c:forEach var="employee" items="${employeeList}">
+                    <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
+                </c:forEach>
+            </select></td>
+            <td><select id="table" size="6" multiple>
+                <c:forEach var="table" items="${tablesList}">
+                    <option><c:out value='${table.getId()}'/> <c:out value='${table.getType()}'/></option>
+                </c:forEach>
+            </select></td>
+            <td>
+                <button type="submit" value="Добавить"/>
+                <a class="addProductButton">Добавить</a></td>
+            </tbody>
+        </table>
+    </form>
+</div>
+<h2>Список официантов-столиков</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Работник</th>
+        <th>Столик</th>
+        <th>Удалить</th>
+    </thead>
+    <tbody>
+    <c:forEach var="table" items="${tablesList}">
+    <tr>
+        <td>${table.getId}</td>
+        <td>${table.getId_empl()}</td>
+        <td>
+            <form>
+                <button type="submit" name="tableId" value="${table.getId()}"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>
@@ -141,19 +201,17 @@
 <h2>Добавить столик</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/ManagerPage" method="get">
+    <form action="${pageContext.request.contextPath}/workshift" method="get">
         <table border="0">
             <thead>
             <tr>
-                <th>Работник</th>
-                <th>Столик</th>
+                <th>Тип</th>
             </thead>
             <tbody>
-            <td><input type="text" name="name" maxlength="255"/></td>
             <td><input type="text" name="quantity"/></td>
             <td>
-                <button type="submit" value="Добавить ингридиент"/>
-                <a class="addProductButton">Добавить ингридиент</a></td>
+                <button type="submit" value="Добавить"/>
+                <a class="addProductButton">Добавить</a></td>
             </tbody>
         </table>
     </form>
@@ -162,19 +220,17 @@
 <table border="1">
     <thead>
     <tr>
-        <th>Работник</th>
-        <th>Столик</th>
-        <th>Удалить</th>
+        <th>Номер</th>
+        <th>Тип</th>
     </thead>
     <tbody>
-    <c:forEach var="ingrid" items="${ingridList}">
+    <c:forEach var="table" items="${tablesList}">
     <tr>
-        <td>${ingrid.getCategory().getName()}</td>
-        <td>${ingrid.getName()}</td>
-        <td>${ingrid.getPrice()}</td>
+        <td>${table.getId}</td>
+        <td>${table.getId_empl()}</td>
         <td>
             <form>
-                <button type="submit" name="ingridId" value="${ingrid.getId()}"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="tableId" value="${table.getId()}"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>

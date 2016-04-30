@@ -10,8 +10,20 @@ import java.util.List;
 @NamedQuery(name = "Employees.getAll", query = "SELECT c from Employee c")
 public class Employee {
 
+    public Employee() {
+    }
+
+    public Employee(String surname, String name, String patronymic, Double wage) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.wage = wage;
+    }
+
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employees_seq_gen")
+    @SequenceGenerator(name = "employees_seq_gen", sequenceName = "employees_id_seq")
     private int id;
 
     @Column(name = "surname")
@@ -24,7 +36,7 @@ public class Employee {
     private String patronymic;
 
     @Column(name = "wage")
-    private String wage;
+    private Double wage;
 
     @ManyToMany
     @JoinTable(
@@ -66,11 +78,11 @@ public class Employee {
         this.patronymic = patronymic;
     }
 
-    public String getWage() {
+    public Double getWage() {
         return wage;
     }
 
-    public void setWage(String wage) {
+    public void setWage(Double wage) {
         this.wage = wage;
     }
 

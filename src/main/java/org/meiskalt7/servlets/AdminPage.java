@@ -1,8 +1,10 @@
 package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.CategoryService;
+import org.meiskalt7.crud.EmployeeService;
 import org.meiskalt7.crud.ProductService;
 import org.meiskalt7.entity.Category;
+import org.meiskalt7.entity.Employee;
 import org.meiskalt7.entity.Product;
 
 import javax.servlet.RequestDispatcher;
@@ -21,10 +23,18 @@ public class AdminPage extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         ProductService productService = new ProductService();
         CategoryService categoryService = new CategoryService();
-        if (request.getParameter("name") != null) {
-            //Если послано добавление продукта, то(/!добавить запись айдишника, выбрать что из первых двух параметров реально нужно)
+        EmployeeService employeeService = new EmployeeService();
+
+        if (request.getParameter("surname") != null) {
+            String surname = request.getParameter("surname");
+            String name = request.getParameter("name");
+            String patronymic = request.getParameter("patronymic");
+            String wage = request.getParameter("wage");
+            employeeService.add(new Employee(surname, name, patronymic, parseDouble(wage, request)));
+        } else if (request.getParameter("name") != null) {
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             Category category = categoryService.get(categoryId);
             String name = request.getParameter("name");
@@ -32,19 +42,20 @@ public class AdminPage extends HttpServlet {
             productService.add(new Product(category, name, parseDouble(price, request)));
             //request.setAttribute("productsList", productService.getHQL(category, name, parseDouble(price, request), 0.0));
         } else if (request.getParameter("categoryName") != null) {
-            //Если послано добавление категории(/! добавить запись айдишника)
             String categoryName = request.getParameter("categoryName");
             categoryService.add(new Category(categoryName));
         } else if (request.getParameter("productId") != null) {
-            //Действие на удаление товара
             productService.delete(Integer.parseInt(request.getParameter("productId")));
         } else if (request.getParameter("categoryId") != null) {
-            //Действие на удаление категории
             categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));
+        } else if (request.getParameter("employeeId") != null) {
+            int employeeId = Integer.parseInt(request.getParameter("employeeId"));
+            employeeService.delete(employeeId);
         }
 
         request.setAttribute("productsList", productService.getHQL("", "", 0.0, 0.0)); //load productsList
         request.setAttribute("categoryList", categoryService.getAll());
+        request.setAttribute("employeeList", employeeService.getAll());
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/adminPage.jsp");

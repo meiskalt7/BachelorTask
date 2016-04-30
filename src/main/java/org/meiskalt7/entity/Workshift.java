@@ -14,7 +14,7 @@ public class Workshift {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "datetime")
+    @Column(name = "date")
     private Date datetime;
 
     @ManyToMany(mappedBy = "workshifts")

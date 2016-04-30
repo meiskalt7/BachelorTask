@@ -9,7 +9,7 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <title>Admin Page</title>
+    <title>Брони</title>
 </head>
 <body>
 <div id="menu">

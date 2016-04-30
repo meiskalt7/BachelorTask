@@ -14,7 +14,35 @@
     <title>Прайс-лист</title>
 </head>
 <body>
-<a href="adminPage.jsp">To Admin Page</a> <br> <a href="login.jsp">Login</a>
+<div id="menu">
+    <h2>Меню сайта</h2>
+    <ul>
+        <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
+    </ul>
+    <ul>
+        <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+    </ul>
+    <h2>Waiter</h2>
+    <ul>
+        <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+    </ul>
+    <h2>Manager</h2>
+    <ul>
+        <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+    </ul>
+    <h2>Administrator</h2>
+    <ul>
+        <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
+    </ul>
+    <br class="clearfix"/>
+</div>
+
 Создание сеанса для права входа на страницу администратора
 ${errorMessage}
 </body>

@@ -9,7 +9,7 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
-    <title>Main Page</title>
+    <title>Главная</title>
 </head>
 <body>
 <div id="menu">

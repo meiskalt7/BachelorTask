@@ -41,7 +41,7 @@ public class IngridientService {
     }
 
     public List<Ingridient> getAll() {
-        return em.createQuery("SELECT id FROM Ingridient").getResultList();
+        return em.createQuery("SELECT i FROM Ingridient i").getResultList();
     }
 
     public void deleteAll() {

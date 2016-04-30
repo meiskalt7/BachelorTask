@@ -1,51 +1,52 @@
 package org.meiskalt7.crud;
 
-import org.meiskalt7.entity.Employee;
+import org.meiskalt7.entity.TimeRange;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class EmployeeService {
+public class TimeRangeService {
 
-    public EmployeeService() {
+    public TimeRangeService() {
+
     }
 
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
-    public Employee add(Employee employee) {
+    public TimeRange add(TimeRange employee) {
         em.getTransaction().begin();
-        Employee employeeFromDB = em.merge(employee);
+        TimeRange employeeFromDB = em.merge(employee);
         em.getTransaction().commit();
         return employeeFromDB;
     }
 
     public void delete(int id) {
-        Employee employee = get(id);
+        TimeRange employee = get(id);
         em.getTransaction().begin();
         em.remove(employee);
         em.getTransaction().commit();
     }
 
-    public void update(Employee employee) {
+    public void update(TimeRange employee) {
         em.getTransaction().begin();
         em.merge(employee);
         em.getTransaction().commit();
     }
 
-    public Employee get(int id) {
-        return em.find(Employee.class, id);
+    public TimeRange get(int id) {
+        return em.find(TimeRange.class, id);
     }
 
-    public List<Employee> getAll() {
+    public List<TimeRange> getAll() {
         //TypedQuery<Employee> namedQuery = em.createNamedQuery("Employees.getAll", Employee.class);
-        return em.createQuery("SELECT e FROM Employee e").getResultList();
+        return em.createQuery("SELECT t FROM TimeRange t").getResultList();
     }
 
     public void deleteAll() {
-        for (Employee emp : getAll()) {
+        for (TimeRange emp : getAll()) {
             delete(emp.getId());
         }
     }
