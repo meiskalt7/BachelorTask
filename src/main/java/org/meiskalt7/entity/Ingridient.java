@@ -11,6 +11,20 @@ import java.util.List;
 @Table(name = "ingridients")
 public class Ingridient {
 
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ingridients_seq_gen")
+    @SequenceGenerator(name = "ingridients_seq_gen", sequenceName = "ingridients_id_seq")
+    private int id;
+    @Column(name = "NAME", length = 255)
+    @NotNull
+    private String name;
+    @Column
+    @NotNull
+    private int quantity;
+    @ManyToMany(mappedBy = "ingridients")
+    private List<Product> products = new ArrayList<Product>();
+
     public Ingridient() {
     }
 
@@ -18,22 +32,6 @@ public class Ingridient {
         this.name = name;
         this.quantity = quantity;
     }
-
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @Column(name = "NAME", length = 255)
-    @NotNull
-    private String name;
-
-    @Column
-    @NotNull
-    private int quantity;
-
-    @ManyToMany(mappedBy = "ingridients")
-    private List<Product> products = new ArrayList<Product>();
 
     public int getId() {
         return id;

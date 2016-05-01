@@ -102,29 +102,26 @@
                 <th>Работник</th>
                 <th>День</th>
                 <th>Время</th>
-                <th>Столики</th>
             </thead>
             <tbody>
-            <td><select id="worker" size="1">
+            <td><select multiple name="employee" size="5">
                 <c:forEach var="employee" items="${employeeList}">
-                    <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
+                    <option value="<c:out value='${employee.getId()}'/>"><c:out value='${employee.getName()}'/> <c:out
+                            value='${employee.getSurname()}'/></option>
                 </c:forEach>
             </select></td>
             <td><input type="date" name="date"/></td>
-            <td><select id="time" size="1">
+            <td><select name="timerange" size="1">
                 <c:forEach var="timerange" items="${timerangeList}">
-                    <option><c:out value='${timerange.getStart()}'/> - <c:out
-                            value='${timerange.getFinish()}'/></option>
+                    <option value="<c:out value='${timerange.getId()}'/>"><c:out value='${timerange.getStart()}'/> -
+                        <c:out
+                                value='${timerange.getFinish()}'/></option>
                 </c:forEach>
             </select></td>
-            <td align="right">
-                <c:forEach var="table" items="${tableList}">
-                <input type="checkbox" name="${table.getId()}" id="${table.getId()}"
-                       value="${table.getId()}"/>${table.getId()} ${table.getType()}<br>
-                </c:forEach>
             <td>
                 <button type="submit" value="Добавить"/>
-                <a class="addProductButton">Добавить</a></td>
+                <a class="addProductButton">Добавить</a>
+            </td>
             </tbody>
         </table>
     </form>
@@ -139,24 +136,36 @@
         <th>Работник</th>
         <th>Удалить</th>
     </tr>
-    <tr>
-        <c:forEach var="workshift" items="${workshiftList}">
+    <c:forEach var="workshift" items="${workshiftList}">
+        <tr>
+
             <th><c:out value='${workshift.getDate()}'/></th>
-        </c:forEach>
-        <c:forEach var="timerange" items="${timerangeList}">
-            <td>${timerange.getStart()} - ${timerange.getFinish()}</td>
-        </c:forEach>
-        <td><select id="numbers" size="10">
-            <c:forEach items='${workshift.getEmployees()}' var='employee'>
-                <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
-            </c:forEach>
-        </select></td>
-    </tr>
+            <td><c:forEach var="timerange" items="${timerangeList}">
+                <c:if test="${workshift.getTimerange_id() == timerange.getId()}">
+                    ${timerange.getStart()} - ${timerange.getFinish()}
+                </c:if>
+            </c:forEach></td>
+            <td><select id="numbers" size="10">
+                <c:forEach items='${workshift.getEmployees()}' var='employee'>
+                    <option>
+                        <c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/>
+                    </option>
+                </c:forEach>
+            </select></td>
+            <td>
+                <form>
+                    <button type="submit" name="workshiftId" value="${workshift.getId()}"><a
+                            class="deleteButton">DELETE</a>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
     </thead>
-    <tbody>
+    <%-- <tbody>
     <c:forEach var="timerange" items="${timerangeList}">
     <tr>
-        <td><select id="numbers1" size="10">
+        <td><select size="10">
             <c:forEach items='${workshift.getEmployees()}' var='employee'>
                 <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
             </c:forEach>
@@ -176,7 +185,7 @@
         </td>
     </tr>
     </tbody>
-    </c:forEach>
+    </c:forEach>--%>
 </table>
 
 <h2>Добавить к столику официанта</h2>
@@ -187,17 +196,20 @@
             <thead>
             <tr>
                 <th>Работник</th>
-                <th>Столик</th>
+                <th>Столики</th>
             </thead>
             <tbody>
-            <td><select id="worker2" size="1">
+            <td><select name="employee" size="1">
                 <c:forEach var="employee" items="${employeeList}">
-                    <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
+                    <option value="<c:out value='${employee.getId()}'/>"><c:out value='${employee.getName()}'/> <c:out
+                            value='${employee.getSurname()}'/></option>
                 </c:forEach>
             </select></td>
-            <td><select id="table" size="6" multiple>
+            <td><select multiple name="tables" size="6">
                 <c:forEach var="table" items="${tableList}">
-                    <option><c:out value='${table.getId()}'/> <c:out value='${table.getType()}'/></option>
+                    <option value="<c:out value='${table.getId()}'/>"><c:out value='${table.getId()}'/> (<c:out
+                            value='${table.getType()}'/>)
+                    </option>
                 </c:forEach>
             </select></td>
             <td>
@@ -212,25 +224,28 @@
     <thead>
     <tr>
         <th>Работник</th>
-        <th>Столик</th>
+        <th>Столики</th>
         <th>Место</th>
     </thead>
     <tbody>
-    <tr>
-        <c:forEach var="table" items="${employeeList}">
-            <td><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></td>
-        </c:forEach>
-        <c:forEach var="table" items="${tableList}">
-            <td>${table.getId()}</td>
-            <td>${table.getType()}</td>
-        </c:forEach>
-        <td>
-            <form>
-                <button type="submit" name="tableId" value="${table.getId()}"><a class="deleteButton">DELETE</a>
-                </button>
-            </form>
-        </td>
-    </tr>
+    <c:forEach var="employee" items="${employeeList}">
+        <tr>
+            <td>
+                <c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/>
+            </td>
+            <td><select size="10">
+                <c:forEach var="table" items="${employee.getTables()}">
+                    <option>${table.getId()} + ${table.getType()})</option>
+                </c:forEach>
+            </select></td>
+            <td>
+                <form>
+                    <button type="submit" name="tableId" value="${table.getId()}"><a class="deleteButton">DELETE</a>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
     </tbody>
 </table>
 

@@ -16,7 +16,7 @@ public class IngridientService {
     private IngridientService() {
     }
 
-    public static synchronized IngridientService getIngridientService() {
+    public static synchronized IngridientService getInstance() {
         if (ingridientService == null) {
             ingridientService = new IngridientService();
         }

@@ -8,6 +8,8 @@ public class Reservation {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reservations_seq_gen")
+    @SequenceGenerator(name = "reservations_seq_gen", sequenceName = "reservations_id_seq")
     private int id;
 
     @Column(name = "id_table")

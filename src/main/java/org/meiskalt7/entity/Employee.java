@@ -10,6 +10,34 @@ import java.util.List;
 @NamedQuery(name = "Employees.getAll", query = "SELECT c from Employee c")
 public class Employee {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employees_seq_gen")
+    @SequenceGenerator(name = "employees_seq_gen", sequenceName = "employees_id_seq")
+    private int id;
+    @Column(name = "surname")
+    private String surname;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "patronymic")
+    private String patronymic;
+    @Column(name = "wage")
+    private Double wage;
+    @ManyToMany
+    @JoinTable(
+            name = "works",
+            joinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "workshift_id", referencedColumnName = "id")
+    )
+    private List<Workshift> workshifts = new ArrayList<Workshift>();
+    @ManyToMany
+    @JoinTable(
+            name = "tables_employees",
+            joinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "table_id", referencedColumnName = "id")
+    )
+    private List<org.meiskalt7.entity.Table> tables = new ArrayList<org.meiskalt7.entity.Table>();
+
     public Employee() {
     }
 
@@ -19,32 +47,6 @@ public class Employee {
         this.patronymic = patronymic;
         this.wage = wage;
     }
-
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employees_seq_gen")
-    @SequenceGenerator(name = "employees_seq_gen", sequenceName = "employees_id_seq")
-    private int id;
-
-    @Column(name = "surname")
-    private String surname;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "patronymic")
-    private String patronymic;
-
-    @Column(name = "wage")
-    private Double wage;
-
-    @ManyToMany
-    @JoinTable(
-            name = "works",
-            joinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "workshift_id", referencedColumnName = "id")
-    )
-    private List<Workshift> workshifts = new ArrayList<Workshift>();
 
     public int getId() {
         return id;
@@ -92,5 +94,13 @@ public class Employee {
 
     public void setWorkshifts(List<Workshift> workshifts) {
         this.workshifts = workshifts;
+    }
+
+    public List<org.meiskalt7.entity.Table> getTables() {
+        return tables;
+    }
+
+    public void setTables(List<org.meiskalt7.entity.Table> tables) {
+        this.tables = tables;
     }
 }

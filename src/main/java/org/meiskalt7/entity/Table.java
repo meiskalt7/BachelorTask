@@ -8,24 +8,24 @@ import java.util.List;
 @javax.persistence.Table(name = "tables")
 public class Table {
 
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tables_seq_gen")
+    @SequenceGenerator(name = "tables_seq_gen", sequenceName = "tables_id_seq")
+    private int id;
+    @Column
+    private String type;
+    @OneToMany(mappedBy = "table", fetch = FetchType.LAZY)
+    private List<Reservation> reservations = new ArrayList<Reservation>();
+    @ManyToMany(mappedBy = "tables")
+    private List<Employee> employees = new ArrayList<Employee>();
+
     public Table() {
     }
 
     public Table(String type) {
         this.type = type;
     }
-
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tables_seq_gen")
-    @SequenceGenerator(name = "tables_seq_gen", sequenceName = "tables_id_seq")
-    private int id;
-
-    @Column
-    private String type;
-
-    @OneToMany(mappedBy = "table", fetch = FetchType.LAZY)
-    private List<Reservation> reservations = new ArrayList<Reservation>();
 
     public int getId() {
         return id;
@@ -49,5 +49,13 @@ public class Table {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }

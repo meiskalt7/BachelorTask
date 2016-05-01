@@ -12,6 +12,8 @@ public class Order {
 
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orders_seq_gen")
+    @SequenceGenerator(name = "orders_seq_gen", sequenceName = "orders_id_seq")
     private int id;
 
     @Column

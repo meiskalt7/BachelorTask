@@ -2,8 +2,8 @@ package org.meiskalt7.entity;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -11,14 +11,28 @@ import java.util.List;
 public class Workshift {
 
     @Id
-    @Column(name = "id")
+    @Column
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "workshifts_seq_gen")
+    @SequenceGenerator(name = "workshifts_seq_gen", sequenceName = "workshifts_id_seq")
     private int id;
-
-    @Column(name = "date")
+    @Column
     private Date date;
-
+    @Column
+    private int timerange_id;
     @ManyToMany(mappedBy = "workshifts")
     private List<Employee> employees = new ArrayList<Employee>();
+    @OneToOne
+    @JoinColumn(name = "timerange_id", nullable = false, insertable = false, updatable = false)
+    private TimeRange timeRange = new TimeRange();
+
+    public Workshift() {
+    }
+
+    public Workshift(Date date, TimeRange timeRange, List<Employee> employees) {
+        this.date = date;
+        this.timeRange = timeRange;
+        this.employees = employees;
+    }
 
     public int getId() {
         return id;
@@ -42,5 +56,21 @@ public class Workshift {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public int getTimerange_id() {
+        return timerange_id;
+    }
+
+    public void setTimerange_id(int timerange_id) {
+        this.timerange_id = timerange_id;
+    }
+
+    public TimeRange getTimeRange() {
+        return timeRange;
+    }
+
+    public void setTimeRange(TimeRange timeRange) {
+        this.timeRange = timeRange;
     }
 }

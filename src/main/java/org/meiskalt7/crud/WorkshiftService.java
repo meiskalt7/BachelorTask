@@ -9,17 +9,24 @@ import java.util.List;
 
 public class WorkshiftService {
 
-    public WorkshiftService() {
-
-    }
-
+    private static WorkshiftService workshiftService;
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
+    private WorkshiftService() {
 
-    public Workshift add(Workshift category) {
+    }
+
+    public static synchronized WorkshiftService getInstance() {
+        if (workshiftService == null) {
+            workshiftService = new WorkshiftService();
+        }
+        return workshiftService;
+    }
+
+    public Workshift add(Workshift workshift) {
         em.getTransaction().begin();
-        Workshift categoryFromDB = em.merge(category);
+        Workshift categoryFromDB = em.merge(workshift);
         em.getTransaction().commit();
         return categoryFromDB;
     }
