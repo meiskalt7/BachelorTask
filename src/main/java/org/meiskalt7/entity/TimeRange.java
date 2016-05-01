@@ -1,22 +1,31 @@
 package org.meiskalt7.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Time;
 
 @Entity
 @javax.persistence.Table(name = "timeranges")
 public class TimeRange {
 
+    public TimeRange() {
+    }
+
+    public TimeRange(Time start, Time finish) {
+        this.start = start;
+        this.finish = finish;
+    }
+
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timeranges_seq_gen")
+    @SequenceGenerator(name = "timeranges_seq_gen", sequenceName = "timeranges_id_seq")
     private int id;
 
     @Column
-    private String start;
+    private Time start;
 
     @Column
-    private String finish;
+    private Time finish;
 
     public int getId() {
         return id;
@@ -26,19 +35,19 @@ public class TimeRange {
         this.id = id;
     }
 
-    public String getStart() {
+    public Time getStart() {
         return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(Time start) {
         this.start = start;
     }
 
-    public String getFinish() {
+    public Time getFinish() {
         return finish;
     }
 
-    public void setFinish(String finish) {
+    public void setFinish(Time finish) {
         this.finish = finish;
     }
 }

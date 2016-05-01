@@ -1,9 +1,8 @@
 package org.meiskalt7.servlets;
 
-import org.meiskalt7.crud.EmployeeService;
-import org.meiskalt7.crud.IngridientService;
-import org.meiskalt7.crud.WorkshiftService;
+import org.meiskalt7.crud.*;
 import org.meiskalt7.entity.Ingridient;
+import org.meiskalt7.entity.Table;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,9 +18,11 @@ public class ManagerPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        IngridientService ingridientService = new IngridientService();
+        IngridientService ingridientService = IngridientService.getIngridientService();
         WorkshiftService workshiftService = new WorkshiftService();
-        EmployeeService employeeService = new EmployeeService();
+        EmployeeService employeeService = EmployeeService.getInstance();
+        TimeRangeService timeRangeService = TimeRangeService.getInstance();
+        TableService tableService = TableService.getInstance();
 
         if (req.getParameter("quantity") != null) {
             String name = req.getParameter("name");
@@ -36,11 +37,15 @@ public class ManagerPage extends HttpServlet {
         } else if (req.getParameter("workshiftId") != null) {
             int workshiftId = Integer.parseInt(req.getParameter("workshiftId"));
             workshiftService.delete(workshiftId);
+        } else if (req.getParameter("table") != null) {
+            tableService.add(new Table(req.getParameter("table")));
         }
 
         req.setAttribute("ingridList", ingridientService.getAll());
         req.setAttribute("workshiftList", workshiftService.getAll());
         req.setAttribute("employeeList", employeeService.getAll());
+        req.setAttribute("timerangeList", timeRangeService.getAll());
+        req.setAttribute("tableList", tableService.getAll());
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/managerPage.jsp");

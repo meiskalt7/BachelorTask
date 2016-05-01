@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class CategoryServiceTest {
 
-    CategoryService service = new CategoryService();
+    CategoryService service = CategoryService.getInstance();
 
     @Test
     public void testSaveRecord() throws Exception {

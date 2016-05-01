@@ -5,16 +5,24 @@ import org.meiskalt7.entity.Table;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class TableService {
 
+    private static TableService tableService;
+
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
-    public TableService() {
+    private TableService() {
 
+    }
+
+    public static synchronized TableService getInstance() {
+        if (tableService == null) {
+            tableService = new TableService();
+        }
+        return tableService;
     }
 
     public Table add(Table category) {
@@ -42,17 +50,12 @@ public class TableService {
     }
 
     public List<Table> getAll() {
-        TypedQuery<Table> namedQuery = em.createNamedQuery("Categories.getAll", Table.class);
-        return namedQuery.getResultList();
+        return em.createQuery("SELECT i FROM Table i").getResultList();
     }
 
     public void deleteAll() {
         for (Table cat : getAll()) {
             delete(cat.getId());
         }
-    }
-
-    public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList().get(0);
     }
 }

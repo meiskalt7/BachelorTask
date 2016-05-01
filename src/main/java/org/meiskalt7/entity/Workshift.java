@@ -15,7 +15,7 @@ public class Workshift {
     private int id;
 
     @Column(name = "date")
-    private Date datetime;
+    private Date date;
 
     @ManyToMany(mappedBy = "workshifts")
     private List<Employee> employees = new ArrayList<Employee>();
@@ -28,12 +28,12 @@ public class Workshift {
         this.id = id;
     }
 
-    public Date getDatetime() {
-        return datetime;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDatetime(Date datetime) {
-        this.datetime = datetime;
+    public void setDate(Date datetime) {
+        this.date = datetime;
     }
 
     public List<Employee> getEmployees() {

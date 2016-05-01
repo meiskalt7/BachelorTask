@@ -18,7 +18,7 @@ public class Pricelist extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductService productService = new ProductService();
+        ProductService productService = ProductService.getInstance();
         if (request.getParameterMap().size() != 0) {
             String category = request.getParameter("category").toLowerCase();
             String name = request.getParameter("name").toLowerCase();

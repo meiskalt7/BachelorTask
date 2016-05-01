@@ -3,9 +3,11 @@ package org.meiskalt7.servlets;
 import org.meiskalt7.crud.CategoryService;
 import org.meiskalt7.crud.EmployeeService;
 import org.meiskalt7.crud.ProductService;
+import org.meiskalt7.crud.TimeRangeService;
 import org.meiskalt7.entity.Category;
 import org.meiskalt7.entity.Employee;
 import org.meiskalt7.entity.Product;
+import org.meiskalt7.entity.TimeRange;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Time;
 
 @WebServlet(name = "AdminPage")
 public class AdminPage extends HttpServlet {
@@ -24,9 +27,10 @@ public class AdminPage extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ProductService productService = new ProductService();
-        CategoryService categoryService = new CategoryService();
-        EmployeeService employeeService = new EmployeeService();
+        ProductService productService = ProductService.getInstance();
+        CategoryService categoryService = CategoryService.getInstance();
+        EmployeeService employeeService = EmployeeService.getInstance();
+        TimeRangeService timeRangeService = TimeRangeService.getInstance();
 
         if (request.getParameter("surname") != null) {
             String surname = request.getParameter("surname");
@@ -51,11 +55,16 @@ public class AdminPage extends HttpServlet {
         } else if (request.getParameter("employeeId") != null) {
             int employeeId = Integer.parseInt(request.getParameter("employeeId"));
             employeeService.delete(employeeId);
+        } else if (request.getParameter("start") != null) {
+            Time start = Time.valueOf(request.getParameter("start") + ":00");
+            Time finish = Time.valueOf(request.getParameter("finish") + ":00");
+            timeRangeService.add(new TimeRange(start, finish));
         }
 
         request.setAttribute("productsList", productService.getHQL("", "", 0.0, 0.0)); //load productsList
         request.setAttribute("categoryList", categoryService.getAll());
         request.setAttribute("employeeList", employeeService.getAll());
+        request.setAttribute("timerangeList", timeRangeService.getAll());
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/adminPage.jsp");

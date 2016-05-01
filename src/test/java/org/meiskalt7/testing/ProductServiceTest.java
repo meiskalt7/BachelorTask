@@ -10,7 +10,7 @@ import java.util.List;
  * @author Eiskalt on 12.10.2015.
  */
 public class ProductServiceTest {
-    ProductService service = new ProductService();
+    ProductService service = ProductService.getInstance();
 
     @Test
     public void testSaveRecord() throws Exception {

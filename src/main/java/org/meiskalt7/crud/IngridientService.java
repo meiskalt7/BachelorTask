@@ -9,12 +9,19 @@ import java.util.List;
 
 public class IngridientService {
 
-    public IngridientService() {
-    }
-
+    private static IngridientService ingridientService;
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
+    private IngridientService() {
+    }
+
+    public static synchronized IngridientService getIngridientService() {
+        if (ingridientService == null) {
+            ingridientService = new IngridientService();
+        }
+        return ingridientService;
+    }
 
     public Ingridient add(Ingridient ingridient) {
         em.getTransaction().begin();

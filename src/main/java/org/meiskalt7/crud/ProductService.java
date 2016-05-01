@@ -10,12 +10,25 @@ import java.util.List;
 
 public class ProductService {
 
-    public ProductService() {
-    }
-
+    private static ProductService productService;
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
+    private ProductService() {
+    }
+
+    public static synchronized ProductService getInstance() {
+        if (productService == null) {
+            productService = new ProductService();
+        }
+        return productService;
+    }
+
+    public static void main(String[] args) {
+        ProductService ps = new ProductService();
+        List<Product> hql = ps.getHQL(null, null, .0, .0);
+        System.out.println("  !  ");
+    }
 
     public Product add(Product product) {
         em.getTransaction().begin();
@@ -69,11 +82,5 @@ public class ProductService {
                     .getResultList();
             return list;
         } else return null;
-    }
-
-    public static void main(String[] args) {
-        ProductService ps = new ProductService();
-        List<Product> hql = ps.getHQL(null, null, .0, .0);
-        System.out.println("  !  ");
     }
 }

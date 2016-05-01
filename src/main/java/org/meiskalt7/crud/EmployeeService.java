@@ -9,11 +9,19 @@ import java.util.List;
 
 public class EmployeeService {
 
-    public EmployeeService() {
-    }
-
+    private static EmployeeService employeeService;
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+
+    private EmployeeService() {
+    }
+
+    public static EmployeeService getInstance() {
+        if (employeeService == null) {
+            employeeService = new EmployeeService();
+        }
+        return employeeService;
+    }
 
     public Employee add(Employee employee) {
         em.getTransaction().begin();

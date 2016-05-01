@@ -186,55 +186,6 @@
     </c:forEach>
 </table>
 
-<h2>Добавить работника</h2>
-
-<form action="${pageContext.request.contextPath}/admin" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Фамилия:</th>
-            <th>Имя:</th>
-            <th>Отчество:</th>
-            <th>Заработная плата:</th>
-        </thead>
-        <tbody>
-        <td><input type="text" name="surname" maxlength="255"/></td>
-        <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="patronymic" maxlength="255"/></td>
-        <td><input type="text" name="wage" maxlength="255"/></td>
-        <td>
-            <button type="submit" value="Добавить работника"/>
-            <a class="addProductButton">Добавить работника</a></td>
-        </tbody>
-    </table>
-</form>
-<h2>Список работников ресторана</h2>
-<table border="1">
-    <thead>
-    <th>Фамилия</th>
-    <th>Имя</th>
-    <th>Отчество</th>
-    <th>Заработная плата</th>
-    <th>Удалить</th>
-    </thead>
-    <tbody>
-    <c:forEach var="employee" items="${employeeList}">
-    <tr>
-        <td>${employee.getSurname()}</td>
-        <td>${employee.getName()}</td>
-        <td>${employee.getPatronymic()}</td>
-        <td>${employee.getWage()}</td>
-        <td>
-            <form>
-                <button type="submit" name="employeeId" value="${employee.getId()}"><a class="deleteButton">DELETE</a>
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-    </c:forEach>
-</table>
-
 <h2>Добавить смену</h2>
 
 <form action="${pageContext.request.contextPath}/admin" method="get">
@@ -245,8 +196,8 @@
             <th>Конец:</th>
         </thead>
         <tbody>
-        <td><input type="text" name="start" maxlength="255"/></td>
-        <td><input type="text" name="finish" maxlength="255"/></td>
+        <td><input type="time" name="start" maxlength="255"/></td>
+        <td><input type="time" name="finish" maxlength="255"/></td>
         <td>
             <button type="submit" value="Добавить"/>
             <a class="addProductButton">Добавить</a></td>

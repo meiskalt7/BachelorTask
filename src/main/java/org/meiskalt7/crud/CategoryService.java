@@ -10,13 +10,20 @@ import java.util.List;
 
 public class CategoryService {
 
-    public CategoryService() {
-
-    }
-
+    private static CategoryService categoryService;
     @PersistenceContext
     public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
 
+    private CategoryService() {
+
+    }
+
+    public static CategoryService getInstance() {
+        if (categoryService == null) {
+            categoryService = new CategoryService();
+        }
+        return categoryService;
+    }
 
     public Category add(Category category) {
         em.getTransaction().begin();

@@ -9,8 +9,17 @@ import java.util.List;
 
 public class TimeRangeService {
 
-    public TimeRangeService() {
+    private static TimeRangeService timeRangeService;
 
+    private TimeRangeService() {
+
+    }
+
+    public static synchronized TimeRangeService getInstance() {
+        if (timeRangeService == null) {
+            timeRangeService = new TimeRangeService();
+        }
+        return timeRangeService;
     }
 
     @PersistenceContext
