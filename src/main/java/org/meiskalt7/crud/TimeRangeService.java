@@ -1,15 +1,17 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.TimeRange;
+import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class TimeRangeService {
+public class TimeRangeService implements GenericDao<TimeRange> {
 
     private static TimeRangeService timeRangeService;
+    @PersistenceContext
+    public EntityManager em = EntityManagerUtil.getEntityManager();
 
     private TimeRangeService() {
 
@@ -22,14 +24,10 @@ public class TimeRangeService {
         return timeRangeService;
     }
 
-    @PersistenceContext
-    public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
-
-    public TimeRange add(TimeRange employee) {
+    public void add(TimeRange timeRange) {
         em.getTransaction().begin();
-        TimeRange employeeFromDB = em.merge(employee);
+        em.persist(timeRange);
         em.getTransaction().commit();
-        return employeeFromDB;
     }
 
     public void delete(int id) {
@@ -51,7 +49,7 @@ public class TimeRangeService {
 
     public List<TimeRange> getAll() {
         //TypedQuery<Employee> namedQuery = em.createNamedQuery("Employees.getAll", Employee.class);
-        return em.createQuery("SELECT t FROM TimeRange t").getResultList();
+        return (List<TimeRange>) em.createQuery("SELECT t FROM TimeRange t").getResultList();
     }
 
     public void deleteAll() {

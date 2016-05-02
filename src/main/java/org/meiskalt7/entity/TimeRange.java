@@ -7,6 +7,15 @@ import java.sql.Time;
 @javax.persistence.Table(name = "timeranges")
 public class TimeRange {
 
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column
+    private Time start;
+    @Column
+    private Time finish;
+
     public TimeRange() {
     }
 
@@ -14,18 +23,6 @@ public class TimeRange {
         this.start = start;
         this.finish = finish;
     }
-
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timeranges_seq_gen")
-    @SequenceGenerator(name = "timeranges_seq_gen", sequenceName = "timeranges_id_seq")
-    private int id;
-
-    @Column
-    private Time start;
-
-    @Column
-    private Time finish;
 
     public int getId() {
         return id;

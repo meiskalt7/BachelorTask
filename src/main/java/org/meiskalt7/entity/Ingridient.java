@@ -13,8 +13,7 @@ public class Ingridient {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ingridients_seq_gen")
-    @SequenceGenerator(name = "ingridients_seq_gen", sequenceName = "ingridients_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "NAME", length = 255)
     @NotNull

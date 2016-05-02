@@ -1,40 +1,38 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Reservation;
+import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class ReservationService {
+public class ReservationService implements GenericDao<Reservation> {
+
+    @PersistenceContext
+    public EntityManager em = EntityManagerUtil.getEntityManager();
 
     public ReservationService() {
 
     }
 
-    @PersistenceContext
-    public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
-
-
-    public Reservation add(Reservation category) {
+    public void add(Reservation reservation) {
         em.getTransaction().begin();
-        Reservation categoryFromDB = em.merge(category);
+        em.persist(reservation);
         em.getTransaction().commit();
-        return categoryFromDB;
     }
 
     public void delete(int id) {
-        Reservation category = get(id);
+        Reservation reservation = get(id);
         em.getTransaction().begin();
-        em.remove(category);
+        em.remove(reservation);
         em.getTransaction().commit();
     }
 
-    public void update(Reservation category) {
+    public void update(Reservation reservation) {
         em.getTransaction().begin();
-        em.merge(category);
+        em.merge(reservation);
         em.getTransaction().commit();
     }
 

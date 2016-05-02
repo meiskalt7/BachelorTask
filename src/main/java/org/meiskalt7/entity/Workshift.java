@@ -12,8 +12,7 @@ public class Workshift {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "workshifts_seq_gen")
-    @SequenceGenerator(name = "workshifts_seq_gen", sequenceName = "workshifts_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private Date date;
@@ -21,7 +20,7 @@ public class Workshift {
     private int timerange_id;
     @ManyToMany(mappedBy = "workshifts")
     private List<Employee> employees = new ArrayList<Employee>();
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}) //мб понадобится еще на обновление
     @JoinColumn(name = "timerange_id", nullable = false, insertable = false, updatable = false)
     private TimeRange timeRange = new TimeRange();
 

@@ -14,8 +14,7 @@ public class Category {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cat_seq_gen")
-    @SequenceGenerator(name = "cat_seq_gen", sequenceName = "cat_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "NAME", length = 255)

@@ -1,9 +1,9 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Workshift;
+import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class WorkshiftService {
 
     private static WorkshiftService workshiftService;
     @PersistenceContext
-    public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+    public EntityManager em = EntityManagerUtil.getEntityManager();
 
     private WorkshiftService() {
 
@@ -32,9 +32,9 @@ public class WorkshiftService {
     }
 
     public void delete(int id) {
-        Workshift category = get(id);
+        Workshift workshift = get(id);
         em.getTransaction().begin();
-        em.remove(category);
+        em.remove(workshift);
         em.getTransaction().commit();
     }
 
@@ -50,7 +50,7 @@ public class WorkshiftService {
 
     public List<Workshift> getAll() {
         //TypedQuery<Workshift> namedQuery = em.createNamedQuery("Categories.getAll", Workshift.class);
-        return em.createQuery("SELECT w FROM Workshift w").getResultList();
+        return (List<Workshift>) em.createQuery("SELECT w FROM Workshift w").getResultList();
     }
 
     public void deleteAll() {

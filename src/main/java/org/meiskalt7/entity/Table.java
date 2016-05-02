@@ -10,8 +10,10 @@ public class Table {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tables_seq_gen")
-    @SequenceGenerator(name = "tables_seq_gen", sequenceName = "tables_id_seq")
+    /*@SequenceGenerator(name = "tables_seq_gen", sequenceName = "tables_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tables_seq_gen")*/
+    //@GeneratedValue(strategy = GenerationType.TABLE) нарушение уникальности ключа
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private String type;

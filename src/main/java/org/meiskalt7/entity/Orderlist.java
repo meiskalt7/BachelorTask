@@ -9,6 +9,7 @@ public class Orderlist {
 
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column

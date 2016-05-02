@@ -1,17 +1,17 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Ingridient;
+import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class IngridientService {
+public class IngridientService implements GenericDao<Ingridient> {
 
     private static IngridientService ingridientService;
     @PersistenceContext
-    public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+    public EntityManager em = EntityManagerUtil.getEntityManager();
 
     private IngridientService() {
     }
@@ -23,11 +23,10 @@ public class IngridientService {
         return ingridientService;
     }
 
-    public Ingridient add(Ingridient ingridient) {
+    public void add(Ingridient ingridient) {
         em.getTransaction().begin();
-        Ingridient ingridientFromDB = em.merge(ingridient);
+        em.persist(ingridient);
         em.getTransaction().commit();
-        return ingridientFromDB;
     }
 
     public void delete(int id) {
@@ -48,7 +47,7 @@ public class IngridientService {
     }
 
     public List<Ingridient> getAll() {
-        return em.createQuery("SELECT i FROM Ingridient i").getResultList();
+        return (List<Ingridient>) em.createQuery("SELECT i FROM Ingridient i").getResultList();
     }
 
     public void deleteAll() {

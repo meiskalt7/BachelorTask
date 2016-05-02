@@ -1,18 +1,15 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Table;
+import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class TableService {
+public class TableService implements GenericDao<Table> {
 
     private static TableService tableService;
-
-    @PersistenceContext
-    public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+    public EntityManager em = EntityManagerUtil.getEntityManager();
 
     private TableService() {
 
@@ -25,17 +22,16 @@ public class TableService {
         return tableService;
     }
 
-    public Table add(Table category) {
+    public void add(Table table) {
         em.getTransaction().begin();
-        Table categoryFromDB = em.merge(category);
+        em.persist(table);
         em.getTransaction().commit();
-        return categoryFromDB;
     }
 
     public void delete(int id) {
-        Table category = get(id);
+        Table table = get(id);
         em.getTransaction().begin();
-        em.remove(category);
+        em.remove(table);
         em.getTransaction().commit();
     }
 
@@ -50,7 +46,7 @@ public class TableService {
     }
 
     public List<Table> getAll() {
-        return em.createQuery("SELECT i FROM Table i").getResultList();
+        return (List<Table>) em.createQuery("SELECT i FROM Table i").getResultList();
     }
 
     public void deleteAll() {

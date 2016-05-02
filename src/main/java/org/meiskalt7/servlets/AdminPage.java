@@ -59,6 +59,9 @@ public class AdminPage extends HttpServlet {
             Time start = Time.valueOf(request.getParameter("start") + ":00");
             Time finish = Time.valueOf(request.getParameter("finish") + ":00");
             timeRangeService.add(new TimeRange(start, finish));
+        } else if (request.getParameter("timerangeId") != null) {
+            int timerangeId = Integer.parseInt(request.getParameter("timerangeId"));
+            timeRangeService.delete(timerangeId);
         }
 
         request.setAttribute("productsList", productService.getHQL("", "", 0.0, 0.0)); //load productsList

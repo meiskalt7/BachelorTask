@@ -14,8 +14,7 @@ public class Product {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prod_seq_gen")
-    @SequenceGenerator(name = "prod_seq_gen", sequenceName = "prod_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "CAT_ID")
@@ -33,15 +32,6 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "CAT_ID", nullable = false, insertable = false, updatable = false)
     private Category category = new Category();
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     @ManyToMany
     @JoinTable(
             name = "prod_composition",
@@ -49,9 +39,6 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "ingrid_id", referencedColumnName = "id")
     )
     private List<Ingridient> ingridients = new ArrayList<Ingridient>();
-
-/*    @OneToOne(fetch=FetchType.LAZY, mappedBy = "product")
-    private Orderlist orderlist = new Orderlist();*/
 
     public Product(int id, int cat_id, String name, double price) {
         this.id = id;
@@ -67,7 +54,18 @@ public class Product {
         this.price = price;
     }
 
+/*    @OneToOne(fetch=FetchType.LAZY, mappedBy = "product")
+    private Orderlist orderlist = new Orderlist();*/
+
     public Product() {
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getId() {

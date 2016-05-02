@@ -1,18 +1,18 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Product;
+import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class ProductService {
+public class ProductService implements GenericDao<Product> {
 
     private static ProductService productService;
     @PersistenceContext
-    public EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+    public EntityManager em = EntityManagerUtil.getEntityManager();
 
     private ProductService() {
     }
@@ -30,11 +30,10 @@ public class ProductService {
         System.out.println("  !  ");
     }
 
-    public Product add(Product product) {
+    public void add(Product product) {
         em.getTransaction().begin();
-        Product productFromDB = em.merge(product);
+        em.persist(product);
         em.getTransaction().commit();
-        return productFromDB;
     }
 
     public void delete(int id) {
@@ -74,13 +73,12 @@ public class ProductService {
             if (name.length() == 0) name = null;
             TypedQuery<Product> query = em.createQuery("SELECT p FROM Product as p INNER JOIN p.category WHERE (lower(p.category.name) LIKE :category OR :category IS NULL) AND (lower(p.name) LIKE :name OR :name IS NULL) AND (p.price >= :priceFrom OR :priceFrom = 0) AND (p.price <= :priceTo OR :priceTo = 0)", Product.class);
 
-            List<Product> list = query
+            return query
                     .setParameter("category", category)
                     .setParameter("name", name)
                     .setParameter("priceFrom", priceFrom)
                     .setParameter("priceTo", priceTo)
                     .getResultList();
-            return list;
         } else return null;
     }
 }
