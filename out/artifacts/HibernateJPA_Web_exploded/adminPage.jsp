@@ -12,6 +12,35 @@
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
     <title>Администрирование</title>
+    <script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var ingridDiv = $('#ingridDiv');
+            var i = $('#ingridDiv p').size() + 1;
+
+            $(document).on('click', '#delete_ingrid_button' + i, function () {
+                alert('Удалим элемент' + i)
+                if (i > 0) {
+                    i--;
+                    alert('Удалим элемент' + i)
+                    jQuery('#selectIngrid' + i).remove();
+                }
+                return false;
+            });
+
+            $("#add_ingrid_button").click(function () {
+                alert('добавлен элемент' + i)
+                jQuery('#delete_ingrid_button' + (i-1)).remove();
+                $('<p id="selectIngrid' + i + '"><select name="ingridientsId' + i + '"><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><button id="delete_ingrid_button' + i + '" type="button"><a class="deleteButton">x</a></button></p>').appendTo(ingridDiv);
+                i++;
+                return false;
+            });
+        });
+
+    </script>
 </head>
 <body>
 <div id="header">
@@ -61,13 +90,27 @@
                 <th>Цена:</th>
             </thead>
             <tbody>
-            <td><select name="categoryId">
+            <td><select name="categoryId" required>
                 <c:forEach var="category" items="${categoryList}">
                     <option value="${category.getId()}">${category.getName()}</option>
                 </c:forEach>
             </select></td>
-            <td><input type="text" name="name" maxlength="255"/></td>
-            <td><input type="text" name="price"/></td>
+            <td><input type="text" name="name" required maxlength="255"/></td>
+            <td><input type="text" required name="price"/></td>
+            <td>
+                <div id="ingridDiv">
+                    <button id="add_ingrid_button"><a class="addProductButton">Еще ингридиент</a></button>
+                    <p>
+                        <select name="ingridientsId" id="selectIngrid">
+                            <option selected value="default">Выберите ингридиент</option>
+                            <c:forEach var="ingrid" items="${ingridList}">
+                                <option value="${ingrid.getId()}">${ingrid.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </p>
+                </div>
+            </td>
+            <td><input type="text" name="quantity"/></td>
             <td>
                 <button type="submit" value="Добавить товар"/>
                 <a class="addProductButton">Добавить товар</a></td>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @WebServlet(name = "ManagerPage")
@@ -26,7 +27,31 @@ public class ManagerPage extends HttpServlet {
         TimeRangeService timeRangeService = TimeRangeService.getInstance();
         final TableService tableService = TableService.getInstance();
 
-        if (req.getParameter("quantity") != null) {
+        if (req.getParameter("button") != null) {
+            String button[] = req.getParameter("button").split(" ");
+            if ("delete".equals(button[0])) {
+                int id = Integer.parseInt(req.getParameter("id"));
+
+                if ("table".equals(button[1])) {
+                    tableService.delete(id);
+                } else if ("employee".equals(button[1])) {
+                    if (req.getParameter("tableId") != null) {
+                        String[] tableId = req.getParameterValues("tableId");
+                        Employee employee = employeeService.get(id);
+                        for (String tid : tableId) {
+                            Iterator<Table> i = employee.getTables().iterator();
+                            while (i.hasNext()) {
+                                Table table = i.next();
+                                if (table.getId() == Integer.parseInt(tid)) {
+                                    i.remove();
+                                }
+                            }
+                        }
+                        employeeService.update(employee);
+                    }
+                }
+            }
+        } else if (req.getParameter("quantity") != null) {
             String name = req.getParameter("name");
             int quantity = Integer.parseInt(req.getParameter("quantity"));
 

@@ -2,9 +2,6 @@ package org.meiskalt7.testing;
 
 import org.junit.Test;
 import org.meiskalt7.crud.CategoryService;
-import org.meiskalt7.entity.Category;
-
-import java.util.List;
 
 /**
  * @author Eiskalt on 12.10.2015.
@@ -15,38 +12,38 @@ public class CategoryServiceTest {
 
     @Test
     public void testSaveRecord() throws Exception {
-        Category category1 = new Category();
+        /*Category category1 = new Category();
         category1.setName("Keyboard");
 
         Category category = service.add(category1);
 
-        System.out.println(category);
+        System.out.println(category);*/
     }
 
     @Test
     public void testDeleteRecord() throws Exception {
-        Category category1 = new Category();
+        /*Category category1 = new Category();
         category1.setName("Printer");
 
         Category category = service.add(category1);
 
-        service.delete(category.getId());
+        service.delete(category.getId());*/
     }
 
     @Test
     public void testSelect() throws Exception {
-        Category category1 = new Category();
+        /*Category category1 = new Category();
         category1.setName("Citroen?");
 
         Category category = service.add(category1);
 
         Category categoryFromDB = service.get(category.getId());
-        System.out.println(categoryFromDB);
+        System.out.println(categoryFromDB);*/
     }
 
     @Test
     public void testUpdate() throws Exception {
-        Category category1 = new Category();
+        /*Category category1 = new Category();
         category1.setName("Lambordshini");
 
         category1 = service.add(category1);
@@ -56,12 +53,12 @@ public class CategoryServiceTest {
         service.update(category1);
 
         Category category2 = service.get(category1.getId());
-        System.out.println(category2);
+        System.out.println(category2);*/
     }
 
     @Test
     public void testGetAll() {
-        Category category1 = new Category();
+        /*Category category1 = new Category();
         category1.setName("Lexus");
 
         Category category2 = new Category();
@@ -78,6 +75,6 @@ public class CategoryServiceTest {
 
         for (Category c : categories) {
             System.out.println(c);
-        }
+        }*/
     }
 }

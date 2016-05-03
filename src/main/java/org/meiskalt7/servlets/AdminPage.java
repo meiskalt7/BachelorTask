@@ -1,13 +1,7 @@
 package org.meiskalt7.servlets;
 
-import org.meiskalt7.crud.CategoryService;
-import org.meiskalt7.crud.EmployeeService;
-import org.meiskalt7.crud.ProductService;
-import org.meiskalt7.crud.TimeRangeService;
-import org.meiskalt7.entity.Category;
-import org.meiskalt7.entity.Employee;
-import org.meiskalt7.entity.Product;
-import org.meiskalt7.entity.TimeRange;
+import org.meiskalt7.crud.*;
+import org.meiskalt7.entity.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "AdminPage")
 public class AdminPage extends HttpServlet {
@@ -31,6 +27,7 @@ public class AdminPage extends HttpServlet {
         CategoryService categoryService = CategoryService.getInstance();
         EmployeeService employeeService = EmployeeService.getInstance();
         TimeRangeService timeRangeService = TimeRangeService.getInstance();
+        final IngridientService ingridientService = IngridientService.getInstance();
 
         if (request.getParameter("surname") != null) {
             String surname = request.getParameter("surname");
@@ -43,8 +40,15 @@ public class AdminPage extends HttpServlet {
             Category category = categoryService.get(categoryId);
             String name = request.getParameter("name");
             String price = request.getParameter("price");
-            productService.add(new Product(category, name, parseDouble(price, request)));
-            //request.setAttribute("productsList", productService.getHQL(category, name, parseDouble(price, request), 0.0));
+
+            final String ingridientsId[] = request.getParameterValues("ingridients");
+            List<Ingridient> ingridients = new ArrayList<Ingridient>() {{
+                for (int i = 0; i < ingridientsId.length; i++) {
+                    add(ingridientService.get(Integer.parseInt(ingridientsId[i])));
+                }
+            }};
+
+            productService.add(new Product(category, name, parseDouble(price, request), ingridients));
         } else if (request.getParameter("categoryName") != null) {
             String categoryName = request.getParameter("categoryName");
             categoryService.add(new Category(categoryName));
@@ -68,6 +72,7 @@ public class AdminPage extends HttpServlet {
         request.setAttribute("categoryList", categoryService.getAll());
         request.setAttribute("employeeList", employeeService.getAll());
         request.setAttribute("timerangeList", timeRangeService.getAll());
+        request.setAttribute("ingridList", ingridientService.getAll());
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/adminPage.jsp");

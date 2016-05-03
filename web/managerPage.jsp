@@ -119,7 +119,7 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" value="Добавить"/>
+                <button type="submit" name="button" value="add workshift"/>
                 <a class="addProductButton">Добавить</a>
             </td>
             </tbody>
@@ -230,20 +230,22 @@
     <tbody>
     <c:forEach var="employee" items="${employeeList}">
         <tr>
-            <td>
-                <c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/>
-            </td>
-            <td><select size="10">
-                <c:forEach var="table" items="${employee.getTables()}">
-                    <option>${table.getId()} + ${table.getType()})</option>
-                </c:forEach>
-            </select></td>
-            <td>
-                <form>
-                    <button type="submit" name="tableId" value="${table.getId()}"><a class="deleteButton">DELETE</a>
+            <form>
+                <td>
+                    <c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/>
+                </td>
+                <td><select multiple name="tableId" size="6">
+                    <c:forEach var="table" items="${employee.getTables()}">
+                        <option value="<c:out value='${table.getId()}'/>">${table.getId()} + ${table.getType()})
+                        </option>
+                    </c:forEach>
+                </select></td>
+                <td>
+                    <input type="hidden" name="id" value="${employee.getId()}">
+                    <button type="submit" name="button" value="delete employee"><a class="deleteButton">DELETE</a>
                     </button>
-                </form>
-            </td>
+                </td>
+            </form>
         </tr>
     </c:forEach>
     </tbody>
@@ -280,8 +282,9 @@
         <td>${table.getId()}</td>
         <td>${table.getType()}</td>
         <td>
-            <form>
-                <button type="submit" name="tableId" value="${table.getId()}"><a class="deleteButton">DELETE</a>
+            <form action="${pageContext.request.contextPath}/workshift" method="get">
+                <input type="hidden" name="id" value="${table.getId()}">
+                <button type="submit" name="button" value="delete table"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>

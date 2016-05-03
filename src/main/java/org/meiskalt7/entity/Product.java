@@ -47,11 +47,12 @@ public class Product {
         this.price = price;
     }
 
-    public Product(Category category, String name, double price) {
+    public Product(Category category, String name, double price, List<Ingridient> ingridients) {
         setCategory(category);
         this.cat_id = category.getId();
         this.name = name;
         this.price = price;
+        this.ingridients = ingridients;
     }
 
 /*    @OneToOne(fetch=FetchType.LAZY, mappedBy = "product")
