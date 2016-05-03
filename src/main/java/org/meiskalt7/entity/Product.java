@@ -32,13 +32,13 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "CAT_ID", nullable = false, insertable = false, updatable = false)
     private Category category = new Category();
-    @ManyToMany
-    @JoinTable(
+    @OneToMany(mappedBy = "product")
+    /*@JoinTable(
             name = "prod_composition",
             joinColumns = @JoinColumn(name = "prod_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ingrid_id", referencedColumnName = "id")
-    )
-    private List<Ingridient> ingridients = new ArrayList<Ingridient>();
+    )*/
+    private List<Composition> ingridients = new ArrayList<Composition>();
 
     public Product(int id, int cat_id, String name, double price) {
         this.id = id;
@@ -47,12 +47,11 @@ public class Product {
         this.price = price;
     }
 
-    public Product(Category category, String name, double price, List<Ingridient> ingridients) {
+    public Product(Category category, String name, double price) {
         setCategory(category);
         this.cat_id = category.getId();
         this.name = name;
         this.price = price;
-        this.ingridients = ingridients;
     }
 
 /*    @OneToOne(fetch=FetchType.LAZY, mappedBy = "product")
@@ -101,11 +100,11 @@ public class Product {
         this.price = number;
     }
 
-    public List<Ingridient> getIngridients() {
+    public List<Composition> getIngridients() {
         return ingridients;
     }
 
-    public void setIngridients(List<Ingridient> ingridients) {
+    public void setIngridients(List<Composition> ingridients) {
         this.ingridients = ingridients;
     }
 
@@ -116,6 +115,7 @@ public class Product {
     public void setOrderlist(Orderlist orderlist) {
         this.orderlist = orderlist;
     }*/
+
 
     public String toString() {
         return "Product{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + price + '}';

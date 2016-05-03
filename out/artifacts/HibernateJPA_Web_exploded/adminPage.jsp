@@ -33,8 +33,8 @@
 
             $("#add_ingrid_button").click(function () {
                 alert('добавлен элемент' + i)
-                jQuery('#delete_ingrid_button' + (i-1)).remove();
-                $('<p id="selectIngrid' + i + '"><select name="ingridientsId' + i + '"><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><button id="delete_ingrid_button' + i + '" type="button"><a class="deleteButton">x</a></button></p>').appendTo(ingridDiv);
+                jQuery('#delete_ingrid_button' + (i - 1)).remove();
+                $('<p id="selectIngrid' + i + '"><select name="ingridientsId"><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><input type="text" name="quantity"/><button id="delete_ingrid_button' + i + '" type="button"><a class="deleteButton">x</a></button></p>').appendTo(ingridDiv);
                 i++;
                 return false;
             });
@@ -88,6 +88,8 @@
                 <th>Категория:</th>
                 <th>Наименование:</th>
                 <th>Цена:</th>
+                <th>Ингридиент:</th>
+                <th>Количество:</th>
             </thead>
             <tbody>
             <td><select name="categoryId" required>
@@ -97,6 +99,7 @@
             </select></td>
             <td><input type="text" name="name" required maxlength="255"/></td>
             <td><input type="text" required name="price"/></td>
+
             <td>
                 <div id="ingridDiv">
                     <button id="add_ingrid_button"><a class="addProductButton">Еще ингридиент</a></button>
@@ -107,10 +110,10 @@
                                 <option value="${ingrid.getId()}">${ingrid.getName()}</option>
                             </c:forEach>
                         </select>
+                        <input type="text" name="quantity"/>
                     </p>
                 </div>
             </td>
-            <td><input type="text" name="quantity"/></td>
             <td>
                 <button type="submit" value="Добавить товар"/>
                 <a class="addProductButton">Добавить товар</a></td>
@@ -125,6 +128,7 @@
         <th>Категория</th>
         <th>Наименование</th>
         <th>Цена</th>
+        <th>Ингридиент:Кол-во</th>
         <th>Удалить</th>
     </thead>
     <tbody>
@@ -133,6 +137,12 @@
         <td>${product.getCategory().getName()}</td>
         <td>${product.getName()}</td>
         <td>${product.getPrice()}</td>
+        <td>
+            <c:forEach var="ingridient" items="${product.getIngridients()}">
+                <p>${ingridient.getIngridient().getName()} :
+                        ${ingridient.getRequired()} </p>
+            </c:forEach>
+        </td>
         <td>
             <form>
                 <button type="submit" name="productId" value="${product.getId()}"><a class="deleteButton">DELETE</a>

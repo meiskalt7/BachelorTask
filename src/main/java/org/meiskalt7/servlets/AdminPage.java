@@ -27,6 +27,8 @@ public class AdminPage extends HttpServlet {
         CategoryService categoryService = CategoryService.getInstance();
         EmployeeService employeeService = EmployeeService.getInstance();
         TimeRangeService timeRangeService = TimeRangeService.getInstance();
+        CompositionService compositionService = CompositionService.getInstance();
+
         final IngridientService ingridientService = IngridientService.getInstance();
 
         if (request.getParameter("surname") != null) {
@@ -41,14 +43,25 @@ public class AdminPage extends HttpServlet {
             String name = request.getParameter("name");
             String price = request.getParameter("price");
 
-            final String ingridientsId[] = request.getParameterValues("ingridients");
+            Product product = new Product(category, name, parseDouble(price, request));
+            productService.add(product);
+            final String ingridientsId[] = request.getParameterValues("ingridientsId");
             List<Ingridient> ingridients = new ArrayList<Ingridient>() {{
                 for (int i = 0; i < ingridientsId.length; i++) {
                     add(ingridientService.get(Integer.parseInt(ingridientsId[i])));
                 }
             }};
-
-            productService.add(new Product(category, name, parseDouble(price, request), ingridients));
+            String required[] = request.getParameterValues("quantity");
+            int i = 0;
+            for (Ingridient ingridient : ingridients) {
+                Composition composition = new Composition();
+                composition.setProduct(product);
+                composition.setIngridient(ingridient);
+                composition.setRequired(Integer.parseInt(required[i]));
+                compositionService.add(composition);
+                product.getIngridients().add(composition);
+                i++;
+            }
         } else if (request.getParameter("categoryName") != null) {
             String categoryName = request.getParameter("categoryName");
             categoryService.add(new Category(categoryName));

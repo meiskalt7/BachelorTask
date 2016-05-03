@@ -21,8 +21,8 @@ public class Ingridient {
     @Column
     @NotNull
     private int quantity;
-    @ManyToMany(mappedBy = "ingridients")
-    private List<Product> products = new ArrayList<Product>();
+    @OneToMany(mappedBy = "ingridient")
+    private List<Composition> products = new ArrayList<Composition>();
 
     public Ingridient() {
     }
@@ -56,11 +56,11 @@ public class Ingridient {
         this.quantity = quantity;
     }
 
-    public List<Product> getProducts() {
+    public List<Composition> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<Composition> products) {
         this.products = products;
     }
 }
