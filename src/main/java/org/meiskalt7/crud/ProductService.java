@@ -67,11 +67,10 @@ public class ProductService implements GenericDao<Product> {
         return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :product").setParameter("product", product).getResultList().get(0);
     }
 
-    public List<Product> getHQL(String category, String name, Double priceFrom, Double priceTo) {
+    public List<Product> getHQL(Integer category, String name, Double priceFrom, Double priceTo) {
         if (priceFrom >= 0 & priceTo >= 0) {
-            if (category.length() == 0) category = null;
             if (name.length() == 0) name = null;
-            TypedQuery<Product> query = em.createQuery("SELECT p FROM Product as p INNER JOIN p.category WHERE (lower(p.category.name) LIKE :category OR :category IS NULL) AND (lower(p.name) LIKE :name OR :name IS NULL) AND (p.price >= :priceFrom OR :priceFrom = 0) AND (p.price <= :priceTo OR :priceTo = 0)", Product.class);
+            TypedQuery<Product> query = em.createQuery("SELECT p FROM Product as p INNER JOIN p.category WHERE (p.category.id = :category OR :category IS NULL) AND (lower(p.name) LIKE :name OR :name IS NULL) AND (p.price >= :priceFrom OR :priceFrom = 0) AND (p.price <= :priceTo OR :priceTo = 0)", Product.class);
 
             return query
                     .setParameter("category", category)

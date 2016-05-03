@@ -37,9 +37,9 @@ public class TimeRangeService implements GenericDao<TimeRange> {
         em.getTransaction().commit();
     }
 
-    public void update(TimeRange employee) {
+    public void update(TimeRange timeRange) {
         em.getTransaction().begin();
-        em.merge(employee);
+        em.merge(timeRange);
         em.getTransaction().commit();
     }
 

@@ -36,7 +36,9 @@ public class AdminPage extends HttpServlet {
             String name = request.getParameter("name");
             String patronymic = request.getParameter("patronymic");
             String wage = request.getParameter("wage");
-            employeeService.add(new Employee(surname, name, patronymic, parseDouble(wage, request)));
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            employeeService.add(new Employee(surname, name, patronymic, parseDouble(wage, request), username, password));
         } else if (request.getParameter("name") != null) {
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             Category category = categoryService.get(categoryId);
@@ -81,7 +83,7 @@ public class AdminPage extends HttpServlet {
             timeRangeService.delete(timerangeId);
         }
 
-        request.setAttribute("productsList", productService.getHQL("", "", 0.0, 0.0)); //load productsList
+        request.setAttribute("productsList", productService.getAll()); //load productsList
         request.setAttribute("categoryList", categoryService.getAll());
         request.setAttribute("employeeList", employeeService.getAll());
         request.setAttribute("timerangeList", timeRangeService.getAll());

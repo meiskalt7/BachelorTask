@@ -52,13 +52,18 @@
     <table border="0">
         <thead>
         <tr>
-            <th>Категория:</th>
-            <th>Наименование:</th>
-            <th>Цена от:</th>
-            <th>Цена до:</th>
+            <th>Категория</th>
+            <th>Наименование</th>
+            <th>Цена от</th>
+            <th>Цена до</th>
         </thead>
         <tbody>
-        <td><input type="text" name="category" maxlength="255"/></td>
+        <td><select name="categoryId" required>
+            <option selected value="all">Все</option>
+            <c:forEach var="category" items="${categoryList}">
+                <option value="${category.getId()}">${category.getName()}</option>
+            </c:forEach>
+        </select></td>
         <td><input type="text" name="name" maxlength="255"/></td>
         <td><input type="text" name="priceFrom"/></td>
         <td><input type="text" name="priceTo"/></td>
@@ -67,13 +72,15 @@
     </table>
 </form>
 
-<div onclick="transferCallToServlet()">
+<form action="${pageContext.request.contextPath}/pricelist" method="get">
     <table border="1">
         <thead>
         <tr>
             <th>Категория</th>
             <th>Наименование</th>
             <th>Цена</th>
+            <th>Количество</th>
+            <th>Заказать</th>
         </thead>
         <tbody>
         <c:forEach var="product" items="${productsList}">
@@ -81,11 +88,18 @@
             <td>${product.getCategory().getName()}</td>
             <td>${product.getName()}</td>
             <td>${product.getPrice()}</td>
+            <td><input type="number" name="quantity"/></td>
+            <input type="hidden" name="productId" value="${product.getId()}">
+            <td>
+                <button type="submit" name="button" value="add cart"><a class="addProductButton">В
+                    корзину</a>
+                </button>
+            </td>
         </tr>
         </tbody>
         </c:forEach>
     </table>
     ${errorMessage}
-</div>
+</form>
 </body>
 </html>

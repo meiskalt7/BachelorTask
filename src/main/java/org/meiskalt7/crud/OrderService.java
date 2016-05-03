@@ -10,11 +10,20 @@ import java.util.List;
 
 public class OrderService implements GenericDao<Order> {
 
+    private static OrderService orderService;
+
     @PersistenceContext
     public EntityManager em = EntityManagerUtil.getEntityManager();
 
     public OrderService() {
 
+    }
+
+    public static synchronized OrderService getInstance() {
+        if (orderService == null) {
+            orderService = new OrderService();
+        }
+        return orderService;
     }
 
     public void add(Order order) {

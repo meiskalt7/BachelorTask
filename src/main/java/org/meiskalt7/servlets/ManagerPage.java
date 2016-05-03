@@ -51,7 +51,9 @@ public class ManagerPage extends HttpServlet {
                     }
                 }
             }
-        } else if (req.getParameter("quantity") != null) {
+        }
+
+        if (req.getParameter("quantity") != null) {
             String name = req.getParameter("name");
             int quantity = Integer.parseInt(req.getParameter("quantity"));
 
@@ -74,7 +76,7 @@ public class ManagerPage extends HttpServlet {
                     add(tableService.get(Integer.parseInt(tablesId[i])));
                 }
             }};
-            employee.setTables(tables);
+            employee.getTables().addAll(tables);
             employeeService.update(employee);
         } else if (req.getParameter("timerange") != null) {
             final String[] employeeId = req.getParameterValues("employee");
@@ -86,7 +88,8 @@ public class ManagerPage extends HttpServlet {
             Date date = Date.valueOf(req.getParameter("date"));
             Integer timerangeId = Integer.parseInt(req.getParameter("timerange"));
             TimeRange timeRange = timeRangeService.get(timerangeId);
-            workshiftService.add(new Workshift(date, timeRange, employees));
+            Workshift workshift = new Workshift(date, timeRange, employees);
+            workshiftService.add(workshift);
         }
 
         req.setAttribute("ingridList", ingridientService.getAll());

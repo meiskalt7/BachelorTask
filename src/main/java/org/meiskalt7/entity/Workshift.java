@@ -31,6 +31,7 @@ public class Workshift {
         this.date = date;
         this.timeRange = timeRange;
         this.employees = employees;
+        this.timerange_id = timeRange.getId();
     }
 
     public int getId() {

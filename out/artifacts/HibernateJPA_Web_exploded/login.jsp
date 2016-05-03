@@ -43,7 +43,24 @@
     <br class="clearfix"/>
 </div>
 
-Создание сеанса для права входа на страницу администратора
+<h1>Login Page</h1>
+
+<h2>Signup Details</h2>
+
+<form action="${pageContext.request.contextPath}/loginCheck" method="get"><br/>Username:
+    <input type="username" name="username"> <br/>Password:
+    <input type="password" name="password"> <br/>
+    <input type="submit" value="Submit">
+</form>
+
+<c:if test="${sessionScope.username != null}">
+    <h1>Logout was done successfully.</h1>
+</c:if>
+
+<% if (session.getAttribute("username") != null) {
+    session.removeAttribute("username");
+}
+    session.invalidate(); %>
 ${errorMessage}
 </body>
 </html>

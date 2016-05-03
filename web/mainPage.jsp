@@ -41,6 +41,7 @@
     <br class="clearfix"/>
 </div>
 
+<h2></h2> <br/> <br/> <br/><br/><br/><br/><br/> <a href="logout.jsp">Logout</a>
 
 </body>
 </html>

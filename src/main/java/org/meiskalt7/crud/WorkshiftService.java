@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class WorkshiftService {
+public class WorkshiftService implements GenericDao<Workshift> {
 
     private static WorkshiftService workshiftService;
     @PersistenceContext
@@ -24,11 +24,10 @@ public class WorkshiftService {
         return workshiftService;
     }
 
-    public Workshift add(Workshift workshift) {
+    public void add(Workshift workshift) {
         em.getTransaction().begin();
-        Workshift categoryFromDB = em.merge(workshift);
+        em.merge(workshift);
         em.getTransaction().commit();
-        return categoryFromDB;
     }
 
     public void delete(int id) {

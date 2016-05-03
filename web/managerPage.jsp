@@ -39,11 +39,13 @@
         <ul>
             <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
         </ul>
-        <h2>Administrator</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
-        </ul>
+        <c:if test="${sessionScope.username == 'Max'}">
+            <h2>Administrator</h2>
+            <ul>
+                <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+                <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
+            </ul>
+        </c:if>
         <br class="clearfix"/>
     </div>
 </div>

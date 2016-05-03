@@ -34,7 +34,7 @@
             $("#add_ingrid_button").click(function () {
                 alert('добавлен элемент' + i)
                 jQuery('#delete_ingrid_button' + (i - 1)).remove();
-                $('<p id="selectIngrid' + i + '"><select name="ingridientsId"><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><input type="text" name="quantity"/><button id="delete_ingrid_button' + i + '" type="button"><a class="deleteButton">x</a></button></p>').appendTo(ingridDiv);
+                $('<p id="selectIngrid' + i + '"><select name="ingridientsId" required><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><input type="text" name="quantity"/><button id="delete_ingrid_button' + i + '" type="button"><a class="deleteButton">x</a></button></p>').appendTo(ingridDiv);
                 i++;
                 return false;
             });
@@ -57,7 +57,18 @@
         <ul>
             <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
             <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+            <li class="li">
+                <a href="${pageContext.request.contextPath}/login">
+                    <c:choose>
+                        <c:when test="${sessionScope.username == null}">
+                            Вход в систему
+                        </c:when>
+                        <c:otherwise>
+                            Выход из системы
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </li>
         </ul>
         <h2>Waiter</h2>
         <ul>
@@ -68,11 +79,13 @@
         <ul>
             <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
         </ul>
-        <h2>Administrator</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
-        </ul>
+        <c:if test="${sessionScope.username == 'Max'}">
+            <h2>Administrator</h2>
+            <ul>
+                <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+                <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
+            </ul>
+        </c:if>
         <br class="clearfix"/>
     </div>
 </div>
@@ -97,20 +110,20 @@
                     <option value="${category.getId()}">${category.getName()}</option>
                 </c:forEach>
             </select></td>
-            <td><input type="text" name="name" required maxlength="255"/></td>
-            <td><input type="text" required name="price"/></td>
+            <td><input type="text" name="name" maxlength="255" required/></td>
+            <td><input type="text" name="price" required/></td>
 
             <td>
                 <div id="ingridDiv">
                     <button id="add_ingrid_button"><a class="addProductButton">Еще ингридиент</a></button>
                     <p>
-                        <select name="ingridientsId" id="selectIngrid">
+                        <select name="ingridientsId" id="selectIngrid" required>
                             <option selected value="default">Выберите ингридиент</option>
                             <c:forEach var="ingrid" items="${ingridList}">
                                 <option value="${ingrid.getId()}">${ingrid.getName()}</option>
                             </c:forEach>
                         </select>
-                        <input type="text" name="quantity"/>
+                        <input type="text" name="quantity" required/>
                     </p>
                 </div>
             </td>
@@ -162,7 +175,7 @@
             <th>Категория:</th>
         </thead>
         <tbody>
-        <td><input type="text" name="categoryName" maxlength="255"/></td>
+        <td><input type="text" name="categoryName" maxlength="255" required/></td>
         <td>
             <button type="submit" value="Добавить категорию"/>
             <a class="addProductButton">Добавить категорию</a></td>
@@ -196,16 +209,25 @@
     <table border="0">
         <thead>
         <tr>
-            <th>Фамилия:</th>
-            <th>Имя:</th>
-            <th>Отчество:</th>
-            <th>Заработная плата:</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Заработная плата</th>
+            <th>Юзер</th>
+            <th>Пароль</th>
         </thead>
         <tbody>
-        <td><input type="text" name="surname" maxlength="255"/></td>
-        <td><input type="text" name="name" maxlength="255"/></td>
-        <td><input type="text" name="patronymic" maxlength="255"/></td>
-        <td><input type="text" name="wage" maxlength="255"/></td>
+        <td><input type="text" name="surname" maxlength="255" required/></td>
+        <td><input type="text" name="name" maxlength="255" required/></td>
+        <td><input type="text" name="patronymic" maxlength="255" required/></td>
+        <td><input type="text" name="wage" maxlength="255" required/></td>
+        <td><input type="username" name="username" maxlength="255" required/></td>
+        <td><input type="password" name="password" maxlength="255" required/></td>
+        <td><select name="userType" required>
+            <c:forEach var="userType" items="${userTypeList}">
+                <option value="${userType.getId()}">${userType.getType()}</option>
+            </c:forEach>
+        </select></td>
         <td>
             <button type="submit" value="Добавить работника"/>
             <a class="addProductButton">Добавить работника</a></td>
@@ -249,8 +271,8 @@
             <th>Конец:</th>
         </thead>
         <tbody>
-        <td><input type="time" name="start" maxlength="255"/></td>
-        <td><input type="time" name="finish" maxlength="255"/></td>
+        <td><input type="time" name="start" maxlength="255" required/></td>
+        <td><input type="time" name="finish" maxlength="255" required/></td>
         <td>
             <button type="submit" value="Добавить"/>
             <a class="addProductButton">Добавить</a></td>
