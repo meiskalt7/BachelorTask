@@ -28,6 +28,7 @@ public class AdminPage extends HttpServlet {
         EmployeeService employeeService = EmployeeService.getInstance();
         TimeRangeService timeRangeService = TimeRangeService.getInstance();
         CompositionService compositionService = CompositionService.getInstance();
+        UserTypeService userTypeService = UserTypeService.getInstance();
 
         final IngridientService ingridientService = IngridientService.getInstance();
 
@@ -38,8 +39,11 @@ public class AdminPage extends HttpServlet {
             String wage = request.getParameter("wage");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            String userTypeId = request.getParameter("userTypeId");
-            employeeService.add(new Employee(surname, name, patronymic, parseDouble(wage, request)));
+            int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
+            UserType userType = userTypeService.get(userTypeId);
+            Employee employee = new Employee(surname, name, patronymic, parseDouble(wage, request), username, password, userType);
+            //userType.getUser().add(employee);
+            employeeService.add(employee);
         } else if (request.getParameter("name") != null) {
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             Category category = categoryService.get(categoryId);
@@ -89,6 +93,7 @@ public class AdminPage extends HttpServlet {
         request.setAttribute("employeeList", employeeService.getAll());
         request.setAttribute("timerangeList", timeRangeService.getAll());
         request.setAttribute("ingridList", ingridientService.getAll());
+        request.setAttribute("userTypeList", userTypeService.getAll());
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/adminPage.jsp");
