@@ -17,12 +17,12 @@ public class UserType {
     private String type;
 
     @OneToMany(mappedBy = "userType")
-    private List<User> user;
+    private List<Employee> user;
 
     public UserType() {
     }
 
-    public UserType(String type, List<User> user) {
+    public UserType(String type, List<Employee> user) {
         this.type = type;
         this.user = user;
     }
@@ -43,11 +43,11 @@ public class UserType {
         this.type = type;
     }
 
-    public List<User> getUser() {
+    public List<Employee> getUser() {
         return user;
     }
 
-    public void setUser(List<User> user) {
+    public void setUser(List<Employee> user) {
         this.user = user;
     }
 }

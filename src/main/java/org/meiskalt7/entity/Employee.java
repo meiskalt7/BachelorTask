@@ -23,7 +23,13 @@ public class Employee {
     @Column(name = "wage")
     private Double wage;
     @Column
-    private int user_id;
+    private int usertype_id;
+
+    @Column
+    private String username;
+    @Column
+    private String password;
+
     @ManyToMany
     @JoinTable(
             name = "works",
@@ -39,18 +45,22 @@ public class Employee {
     )
     private List<org.meiskalt7.entity.Table> tables = new ArrayList<org.meiskalt7.entity.Table>();
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user = new User();
+    @ManyToOne
+    @JoinColumn(name = "usertype_id", nullable = false, insertable = false, updatable = false)
+    private UserType userType = new UserType();
 
     public Employee() {
     }
 
-    public Employee(String surname, String name, String patronymic, Double wage) {
+    public Employee(String surname, String name, String patronymic, Double wage, String username, String password, UserType userType) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.wage = wage;
+        this.username = username;
+        this.password = password;
+        this.userType = userType;
+        usertype_id = userType.getId();
     }
 
     public int getId() {
@@ -109,19 +119,35 @@ public class Employee {
         this.tables = tables;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUsertype_id() {
+        return usertype_id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUsertype_id(int usertype_id) {
+        this.usertype_id = usertype_id;
     }
 
-    public User getUser() {
-        return user;
+    public UserType getUserType() {
+        return userType;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
