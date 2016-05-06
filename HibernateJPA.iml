@@ -82,5 +82,6 @@
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: javax.faces:javax.faces-api:2.2" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4-1205-jdbc42" level="project" />
+    <orderEntry type="library" name="Maven: javax.resource:connector-api:1.5" level="project" />
   </component>
 </module>

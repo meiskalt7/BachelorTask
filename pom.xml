@@ -62,5 +62,10 @@
             <artifactId>postgresql</artifactId>
             <version>9.4-1205-jdbc42</version>
         </dependency>
+        <dependency>
+            <groupId>javax.resource</groupId>
+            <artifactId>connector-api</artifactId>
+            <version>1.5</version>
+        </dependency>
     </dependencies>
 </project>

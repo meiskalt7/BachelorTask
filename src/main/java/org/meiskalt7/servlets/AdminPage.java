@@ -38,7 +38,8 @@ public class AdminPage extends HttpServlet {
             String wage = request.getParameter("wage");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            employeeService.add(new Employee(surname, name, patronymic, parseDouble(wage, request), username, password));
+            String userTypeId = request.getParameter("userTypeId");
+            employeeService.add(new Employee(surname, name, patronymic, parseDouble(wage, request)));
         } else if (request.getParameter("name") != null) {
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             Category category = categoryService.get(categoryId);

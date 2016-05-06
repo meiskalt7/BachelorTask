@@ -1,7 +1,5 @@
 package org.meiskalt7.entity;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -18,15 +16,12 @@ public class Product {
     private int id;
 
     @Column(name = "CAT_ID")
-    @NotNull
     private int cat_id;
 
     @Column(name = "NAME", length = 255)
-    @NotNull
     private String name;
 
     @Column(name = "PRICE")
-    @NotNull
     private double price;
 
     @ManyToOne

@@ -23,9 +23,7 @@ public class Employee {
     @Column(name = "wage")
     private Double wage;
     @Column
-    private String username;
-    @Column
-    private String password;
+    private int user_id;
     @ManyToMany
     @JoinTable(
             name = "works",
@@ -41,16 +39,18 @@ public class Employee {
     )
     private List<org.meiskalt7.entity.Table> tables = new ArrayList<org.meiskalt7.entity.Table>();
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user = new User();
+
     public Employee() {
     }
 
-    public Employee(String surname, String name, String patronymic, Double wage, String username, String password) {
+    public Employee(String surname, String name, String patronymic, Double wage) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.wage = wage;
-        this.username = username;
-        this.password = password;
     }
 
     public int getId() {
@@ -109,19 +109,19 @@ public class Employee {
         this.tables = tables;
     }
 
-    public String getPassword() {
-        return password;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public String getUsername() {
-        return username;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

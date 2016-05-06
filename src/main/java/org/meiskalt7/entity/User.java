@@ -24,6 +24,9 @@ public class User {
     @JoinColumn(name = "usertype_id", nullable = false, insertable = false, updatable = false)
     private UserType userType = new UserType();
 
+    @OneToOne(mappedBy = "user")
+    private Employee employee = new Employee();
+
     public int getId() {
         return id;
     }
@@ -62,5 +65,13 @@ public class User {
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

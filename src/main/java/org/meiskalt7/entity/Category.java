@@ -1,7 +1,5 @@
 package org.meiskalt7.entity;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -18,7 +16,6 @@ public class Category {
     private int id;
 
     @Column(name = "NAME", length = 255)
-    @NotNull
     private String name;
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)

@@ -4,14 +4,13 @@ import org.meiskalt7.entity.Product;
 import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ProductService implements GenericDao<Product> {
 
     private static ProductService productService;
-    @PersistenceContext
+
     public EntityManager em = EntityManagerUtil.getEntityManager();
 
     private ProductService() {
