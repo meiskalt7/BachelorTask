@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="cart service">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" afterPath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage$1.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/adminPage.jsp" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/adminPage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/contactsPage.jsp" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/contactsPage.jsp" />
@@ -20,17 +19,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/statisticPage.jsp" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/statisticPage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/adminPage.jsp" afterPath="$PROJECT_DIR$/web/adminPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/contactsPage.jsp" afterPath="$PROJECT_DIR$/web/contactsPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/login.jsp" afterPath="$PROJECT_DIR$/web/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/mainPage.jsp" afterPath="$PROJECT_DIR$/web/mainPage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/managerPage.jsp" afterPath="$PROJECT_DIR$/web/managerPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ordersPage.jsp" afterPath="$PROJECT_DIR$/web/ordersPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reservationPage.jsp" afterPath="$PROJECT_DIR$/web/reservationPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/reservationsPage.jsp" afterPath="$PROJECT_DIR$/web/reservationsPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/shoppingCartPage.jsp" afterPath="$PROJECT_DIR$/web/shoppingCartPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/statisticPage.jsp" afterPath="$PROJECT_DIR$/web/statisticPage.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -160,7 +149,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="38" column="32" selection-start-line="36" selection-start-column="12" selection-end-line="38" selection-end-column="32" />
+                  <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -169,18 +158,8 @@
           <file leaf-file-name="ManagerPage.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Operation.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.33274022">
+                  <caret line="110" column="26" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -193,8 +172,8 @@
           <file leaf-file-name="managerPage.jsp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/managerPage.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5242537">
-                  <caret line="281" column="19" selection-start-line="281" selection-start-column="19" selection-end-line="281" selection-end-column="19" />
+                <state vertical-scroll-proportion="6.8041043">
+                  <caret line="241" column="21" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -283,11 +262,11 @@
         <option value="$PROJECT_DIR$/web/reservationsPage.jsp" />
         <option value="$PROJECT_DIR$/web/shoppingCartPage.jsp" />
         <option value="$PROJECT_DIR$/web/statisticPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java" />
         <option value="$PROJECT_DIR$/web/adminPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java" />
         <option value="$PROJECT_DIR$/web/managerPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" />
       </list>
     </option>
   </component>
@@ -1226,7 +1205,7 @@
       <workItem from="1461486716204" duration="3993000" />
       <workItem from="1461939247596" duration="100897000" />
       <workItem from="1462549378879" duration="3637000" />
-      <workItem from="1462553527809" duration="25677000" />
+      <workItem from="1462553527809" duration="26257000" />
     </task>
     <task id="LOCAL-00001" summary="#to Normal Services">
       <created>1448103689398</created>
@@ -1354,11 +1333,17 @@
       <option name="project" value="LOCAL" />
       <updated>1462608471170</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="some refactor">
+      <created>1462614947024</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1462614947024</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252792000" />
+    <option name="totallyTimeSpent" value="253372000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1458,7 +1443,8 @@
     <MESSAGE value="some improvements, reservation, start order" />
     <MESSAGE value="order" />
     <MESSAGE value="cart service" />
-    <option name="LAST_COMMIT_MESSAGE" value="cart service" />
+    <MESSAGE value="some refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="some refactor" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1876,14 +1862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/525d44cf/8830a087-103b-432a-840f-c24bd77759bf/baka.public.prod_composition">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1918,26 +1896,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="32" selection-start-line="36" selection-start-column="12" selection-end-line="38" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.12099644">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/managerPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5242537">
-          <caret line="281" column="19" selection-start-line="281" selection-start-column="19" selection-end-line="281" selection-end-column="19" />
+        <state vertical-scroll-proportion="6.8041043">
+          <caret line="241" column="21" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33274022">
+          <caret line="110" column="26" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
           <folding />
         </state>
       </provider>

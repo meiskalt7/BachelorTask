@@ -100,7 +100,8 @@
         <td>${ingrid.getQuantity()}</td>
         <td>
             <form>
-                <button type="submit" name="ingridId" value="${ingrid.getId()}"><a class="deleteButton">DELETE</a>
+                <input type="hidden" name="ingridId" value="${ingrid.getId()}">
+                <button type="submit" name="button" value="delete ingridient"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>
@@ -171,7 +172,8 @@
             </select></td>
             <td>
                 <form>
-                    <button type="submit" name="workshiftId" value="${workshift.getId()}"><a
+                    <input type="hidden" name="workshiftId" value="${workshift.getId()}">
+                    <button type="submit" name="button" value="delete workshift"><a
                             class="deleteButton">DELETE</a>
                     </button>
                 </form>
