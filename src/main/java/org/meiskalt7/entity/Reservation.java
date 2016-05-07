@@ -1,6 +1,7 @@
 package org.meiskalt7.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @javax.persistence.Table(name = "reservations")
@@ -21,11 +22,22 @@ public class Reservation {
     private String phone;
 
     @Column
-    private String datetime;
+    private Timestamp datetime;
 
     @ManyToOne
     @JoinColumn(name = "id_table", nullable = false, insertable = false, updatable = false)
     private Table table = new Table();
+
+    public Reservation() {
+    }
+
+    public Reservation(String name, String phone, Timestamp datetime, Table table) {
+        this.name = name;
+        this.phone = phone;
+        this.datetime = datetime;
+        this.table = table;
+        this.id_table = table.getId();
+    }
 
     public int getId() {
         return id;
@@ -59,11 +71,11 @@ public class Reservation {
         this.phone = phone;
     }
 
-    public String getDatetime() {
+    public Timestamp getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(String datetime) {
+    public void setDatetime(Timestamp datetime) {
         this.datetime = datetime;
     }
 

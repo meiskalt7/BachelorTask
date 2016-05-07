@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Eiskalt
@@ -20,9 +21,20 @@
         <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
     </ul>
     <ul>
-        <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
         <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-        <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+        <li class="li">
+            <a href="${pageContext.request.contextPath}/login">
+                <c:choose>
+                    <c:when test="${sessionScope.userType == null}">
+                        Вход в систему
+                    </c:when>
+                    <c:otherwise>
+                        Выход из системы
+                    </c:otherwise>
+                </c:choose>
+            </a>
+        </li>
     </ul>
     <h2>Waiter</h2>
     <ul>
@@ -40,6 +52,32 @@
     </ul>
     <br class="clearfix"/>
 </div>
+
+<h2>Список броней</h2>
+<table border="1">
+    <thead>
+    <th>ФИО</th>
+    <th>Телефон</th>
+    <th>Время</th>
+    <th>Столик</th>
+    </thead>
+    <tbody>
+    <c:forEach var="reservation" items="${reservationList}">
+    <tr>
+        <td>${reservation.getName()}</td>
+        <td>${reservation.getPhone()}</td>
+        <td>${reservation.getDatetime()}</td>
+        <td>${reservation.getTable().getType()}</td>
+        <td>
+            <form>
+                <button type="submit" name="timerangeId" value="${timerange.getId()}"><a class="deleteButton">DELETE</a>
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+    </c:forEach>
+</table>
 
 </body>
 </html>

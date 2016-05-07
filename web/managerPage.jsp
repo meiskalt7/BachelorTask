@@ -26,9 +26,20 @@
             <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
         </ul>
         <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
             <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+            <li class="li">
+                <a href="${pageContext.request.contextPath}/login">
+                    <c:choose>
+                        <c:when test="${sessionScope.userType == null}">
+                            Вход в систему
+                        </c:when>
+                        <c:otherwise>
+                            Выход из системы
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </li>
         </ul>
         <h2>Waiter</h2>
         <ul>
@@ -39,7 +50,7 @@
         <ul>
             <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
         </ul>
-        <c:if test="${sessionScope.username == 'Max'}">
+        <c:if test="${sessionScope.userType == 'Max'}">
             <h2>Administrator</h2>
             <ul>
                 <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
@@ -61,8 +72,8 @@
                 <th>Количество:</th>
             </thead>
             <tbody>
-            <td><input type="text" name="name" maxlength="255"/></td>
-            <td><input type="text" name="quantity"/></td>
+            <td><input type="text" name="name" maxlength="255" required/></td>
+            <td><input type="text" name="quantity" required/></td>
             <td>
                 <button type="submit" value="Добавить"/>
                 <a class="addProductButton">Добавить</a></td>
@@ -106,14 +117,14 @@
                 <th>Время</th>
             </thead>
             <tbody>
-            <td><select multiple name="employee" size="5">
+            <td><select multiple name="employee" size="5" required>
                 <c:forEach var="employee" items="${employeeList}">
                     <option value="<c:out value='${employee.getId()}'/>"><c:out value='${employee.getName()}'/> <c:out
                             value='${employee.getSurname()}'/></option>
                 </c:forEach>
             </select></td>
-            <td><input type="date" name="date"/></td>
-            <td><select name="timerange" size="1">
+            <td><input type="date" name="date" required/></td>
+            <td><select name="timerange" size="1" required>
                 <c:forEach var="timerange" items="${timerangeList}">
                     <option value="<c:out value='${timerange.getId()}'/>"><c:out value='${timerange.getStart()}'/> -
                         <c:out
@@ -164,30 +175,6 @@
         </tr>
     </c:forEach>
     </thead>
-    <%-- <tbody>
-    <c:forEach var="timerange" items="${timerangeList}">
-    <tr>
-        <td><select size="10">
-            <c:forEach items='${workshift.getEmployees()}' var='employee'>
-                <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
-            </c:forEach>
-        </select></td>
-        <td>${timerange.getStart()} - ${timerange.getFinish()}</td>
-        <td><select id="workers" size="10">
-            <c:forEach items='${workshift.getEmployees()}' var='employee'>
-                <option><c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/></option>
-            </c:forEach>
-        </select></td>
-        <td>
-            <form>
-                <button type="submit" name="workshiftId" value="${workshift.getId()}"><a
-                        class="deleteButton">DELETE</a>
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-    </c:forEach>--%>
 </table>
 
 <h2>Добавить к столику официанта</h2>
@@ -201,13 +188,13 @@
                 <th>Столики</th>
             </thead>
             <tbody>
-            <td><select name="employee" size="1">
+            <td><select name="employee" size="1" required>
                 <c:forEach var="employee" items="${employeeList}">
                     <option value="<c:out value='${employee.getId()}'/>"><c:out value='${employee.getName()}'/> <c:out
                             value='${employee.getSurname()}'/></option>
                 </c:forEach>
             </select></td>
-            <td><select multiple name="tables" size="6">
+            <td><select multiple name="tables" size="6" required>
                 <c:forEach var="table" items="${tableList}">
                     <option value="<c:out value='${table.getId()}'/>"><c:out value='${table.getId()}'/> (<c:out
                             value='${table.getType()}'/>)
@@ -263,7 +250,7 @@
                 <th>Тип</th>
             </thead>
             <tbody>
-            <td><input type="text" name="table"/></td>
+            <td><input type="text" name="table" required/></td>
             <td>
                 <button type="submit" value="Добавить"/>
                 <a class="addProductButton">Добавить</a></td>

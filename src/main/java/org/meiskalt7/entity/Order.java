@@ -2,8 +2,8 @@ package org.meiskalt7.entity;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,13 +20,17 @@ public class Order {
     private int id_empl;
 
     @Column
-    private Date datetime;
+    private Timestamp datetime;
 
     @Column
     private int id_table;
 
     @OneToMany(mappedBy = "order")
     private List<Orderlist> orderlists = new ArrayList<Orderlist>();
+
+    public Order(Timestamp datetime, int id_table, int id_empl) {
+
+    }
 
     public int getId() {
         return id;
@@ -44,11 +48,11 @@ public class Order {
         this.id_empl = id_empl;
     }
 
-    public Date getDatetime() {
+    public Timestamp getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(Date datetime) {
+    public void setDatetime(Timestamp datetime) {
         this.datetime = datetime;
     }
 

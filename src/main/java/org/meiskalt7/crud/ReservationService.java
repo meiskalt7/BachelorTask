@@ -5,16 +5,24 @@ import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ReservationService implements GenericDao<Reservation> {
+
+    private static ReservationService reservationService;
 
     @PersistenceContext
     public EntityManager em = EntityManagerUtil.getEntityManager();
 
     public ReservationService() {
 
+    }
+
+    public static synchronized ReservationService getInstance() {
+        if (reservationService == null) {
+            reservationService = new ReservationService();
+        }
+        return reservationService;
     }
 
     public void add(Reservation reservation) {
@@ -41,8 +49,7 @@ public class ReservationService implements GenericDao<Reservation> {
     }
 
     public List<Reservation> getAll() {
-        TypedQuery<Reservation> namedQuery = em.createNamedQuery("Categories.getAll", Reservation.class);
-        return namedQuery.getResultList();
+        return (List<Reservation>) em.createQuery("SELECT r FROM Reservation r").getResultList();
     }
 
     public void deleteAll() {

@@ -55,12 +55,12 @@
             <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
         </ul>
         <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
             <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
             <li class="li">
                 <a href="${pageContext.request.contextPath}/login">
                     <c:choose>
-                        <c:when test="${sessionScope.username == null}">
+                        <c:when test="${sessionScope.userType == null}">
                             Вход в систему
                         </c:when>
                         <c:otherwise>
@@ -79,7 +79,7 @@
         <ul>
             <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
         </ul>
-        <c:if test="${sessionScope.username == 'Max'}">
+        <c:if test="${sessionScope.userType == 'admin'}">
             <h2>Administrator</h2>
             <ul>
                 <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>

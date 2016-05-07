@@ -26,9 +26,20 @@
             <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
         </ul>
         <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
             <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+            <li class="li">
+                <a href="${pageContext.request.contextPath}/login">
+                    <c:choose>
+                        <c:when test="${sessionScope.userType == null}">
+                            Вход в систему
+                        </c:when>
+                        <c:otherwise>
+                            Выход из системы
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </li>
         </ul>
         <h2>Waiter</h2>
         <ul>
@@ -51,30 +62,33 @@
 <h2>Забронировать столик</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/admin" method="get">
+    <form action="${pageContext.request.contextPath}/reservation" method="get">
         <table border="0">
             <thead>
             <tr>
                 <th>ФИО</th>
-                <th>Телефон</th>
+                <th>Телефон(9XX-XXX-XXXX)</th>
                 <th>Время</th>
                 <th>Столик</th>
             </thead>
             <tbody>
-            <td><select name="categoryId">
-                <c:forEach var="category" items="${categoryList}">
-                    <option value="${category.getId()}">${category.getName()}</option>
+            <td><input type="text" name="name" maxlength="255" required/></td>
+            <td><input type="tel" name="phone" maxlength="255" pattern="9[0-9]{2}-[0-9]{3}-[0-9]{4}" required/></td>
+            <td><input type="datetime-local" name="time" maxlength="255" required/></td>
+            <td><select name="tableId">
+                <c:forEach var="table" items="${tableList}">
+                    <option value="<c:out value='${table.getId()}'/>"><c:out value='${table.getId()}'/> (<c:out
+                            value='${table.getType()}'/>)
+                    </option>
                 </c:forEach>
             </select></td>
-            <td><input type="text" name="name" maxlength="255"/></td>
-            <td><input type="text" name="price"/></td>
             <td>
-                <button type="submit" value="Забронировать"/>
+                <button type="submit" name="button" value="add reservation"/>
                 <a class="addProductButton">Забронировать</a></td>
             </tbody>
         </table>
     </form>
 </div>
-
+${resultMessage}
 </body>
 </html>

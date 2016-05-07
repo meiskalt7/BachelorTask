@@ -2,7 +2,10 @@ package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.CategoryService;
 import org.meiskalt7.crud.OrderService;
+import org.meiskalt7.crud.OrderlistService;
 import org.meiskalt7.crud.ProductService;
+import org.meiskalt7.entity.Order;
+import org.meiskalt7.entity.Orderlist;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,6 +26,7 @@ public class Pricelist extends HttpServlet {
         ProductService productService = ProductService.getInstance();
         CategoryService categoryService = CategoryService.getInstance();
         OrderService orderService = OrderService.getInstance();
+        OrderlistService orderlistService = OrderlistService.getInstance();
 
         if (request.getParameterMap().size() != 0) {
 
@@ -33,13 +37,15 @@ public class Pricelist extends HttpServlet {
                 if ("add".equals(button[0])) {
 
                     if ("cart".equals(button[1])) {
-                    /*int quantity = Integer.parseInt(request.getParameter("quantity"));
-                    int productId = Integer.parseInt(request.getParameter("productId"));
+                        int quantity = Integer.parseInt(request.getParameter("quantity"));
+                        int productId = Integer.parseInt(request.getParameter("productId"));
 
-                    Orderlist orderlist = new Orderlist();
-                    orderlist.setQuantity(quantity);
-                    orderlist.setProduct(productService.get(productId));
-                    orderService.add(O);*/
+                        Order order = new Order();
+
+
+                        Orderlist orderlist = new Orderlist();
+                        orderlist.setQuantity(quantity);
+                        orderlist.setProduct(productService.get(productId));
                     }
                 }
             }

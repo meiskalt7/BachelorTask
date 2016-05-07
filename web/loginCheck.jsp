@@ -22,7 +22,8 @@
 
         for (Employee employee : employeeList) {
             if (username.equals(employee.getUsername()) && password.equals(employee.getPassword())) {
-                session.setAttribute("username", username);
+                session.setAttribute("userType", employee.getUserType().getType());
+                session.setAttribute("userId", employee.getId());
                 response.sendRedirect("mainPage.jsp");
                 break;
             }

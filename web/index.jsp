@@ -26,9 +26,20 @@
             <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
         </ul>
         <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
             <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+            <li class="li">
+                <a href="${pageContext.request.contextPath}/login">
+                    <c:choose>
+                        <c:when test="${sessionScope.userType == null}">
+                            Вход в систему
+                        </c:when>
+                        <c:otherwise>
+                            Выход из системы
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </li>
         </ul>
         <h2>Waiter</h2>
         <ul>
@@ -90,15 +101,17 @@
             <td>${product.getPrice()}</td>
             <td><input type="number" name="quantity"/></td>
             <input type="hidden" name="productId" value="${product.getId()}">
+
             <td>
-                <button type="submit" name="button" value="add cart"><a class="addProductButton">В
-                    корзину</a>
+                <button type="submit" name="button" value="add cart"><a class="addProductButton">
+                    В корзину</a>
                 </button>
             </td>
         </tr>
         </tbody>
         </c:forEach>
     </table>
+    <input type="hidden" name="userId" value="${sessionScope.userId}">
     ${errorMessage}
 </form>
 </body>

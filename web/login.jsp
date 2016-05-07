@@ -22,9 +22,20 @@
         <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
     </ul>
     <ul>
-        <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+        <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
         <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-        <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+        <li class="li">
+            <a href="${pageContext.request.contextPath}/login">
+                <c:choose>
+                    <c:when test="${sessionScope.userType == null}">
+                        Вход в систему
+                    </c:when>
+                    <c:otherwise>
+                        Выход из системы
+                    </c:otherwise>
+                </c:choose>
+            </a>
+        </li>
     </ul>
     <h2>Waiter</h2>
     <ul>
@@ -48,12 +59,12 @@
 <h2>Signup Details</h2>
 
 <form action="${pageContext.request.contextPath}/loginCheck" method="get"><br/>Username:
-    <input type="username" name="username"> <br/>Password:
-    <input type="password" name="password"> <br/>
+    <input type="username" name="username" required> <br/>Password:
+    <input type="password" name="password" required> <br/>
     <input type="submit" value="Submit">
 </form>
 
-<c:if test="${sessionScope.username != null}">
+<c:if test="${sessionScope.userType != null}">
     <h1>Logout was done successfully.</h1>
 </c:if>
 
