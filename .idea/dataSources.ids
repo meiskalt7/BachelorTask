@@ -4226,8 +4226,8 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>1058</introspection-state-number>
-        <introspection-timestamp>2016-05-07.14:05:47.382</introspection-timestamp>
+        <introspection-state-number>1082</introspection-state-number>
+        <introspection-timestamp>2016-05-07.15:38:45.515</introspection-timestamp>
       </schema>
       <schema id="3" parent="1" name="pg_catalog">
         <object-id>11</object-id>
@@ -4309,7 +4309,7 @@
       </table>
       <table id="22" parent="2" name="orderlists">
         <object-id>24625</object-id>
-        <state-number>665</state-number>
+        <state-number>1062</state-number>
       </table>
       <table id="23" parent="2" name="orders">
         <object-id>24619</object-id>
@@ -4317,11 +4317,11 @@
       </table>
       <table id="24" parent="2" name="prod">
         <object-id>16404</object-id>
-        <state-number>895</state-number>
+        <state-number>1082</state-number>
       </table>
       <table id="25" parent="2" name="prod_composition">
         <object-id>24576</object-id>
-        <state-number>897</state-number>
+        <state-number>1082</state-number>
       </table>
       <table id="26" parent="2" name="reservations">
         <object-id>24581</object-id>
@@ -25212,6 +25212,7 @@
       </key>
       <foreign-key id="3751" parent="22" name="fkgwdu1ljigijk69j2wafcbtk8d">
         <columns>order_id</columns>
+        <ref-key>orders.orders_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>

@@ -37,20 +37,26 @@
             </a>
         </li>
     </ul>
-    <h2>Waiter</h2>
-    <ul>
-        <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
-        <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
-    </ul>
-    <h2>Manager</h2>
-    <ul>
-        <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
-    </ul>
-    <h2>Administrator</h2>
-    <ul>
-        <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
-        <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
-    </ul>
+    <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
+        <h2>Waiter</h2>
+        <ul>
+            <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+        </ul>
+    </c:if>
+    <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType)}">
+        <h2>Manager</h2>
+        <ul>
+            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+        </ul>
+    </c:if>
+    <c:if test="${'admin'.equals(sessionScope.userType)}">
+        <h2>Administrator</h2>
+        <ul>
+            <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
+        </ul>
+    </c:if>
     <br class="clearfix"/>
 </div>
 

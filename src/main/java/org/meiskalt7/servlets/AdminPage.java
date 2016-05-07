@@ -29,11 +29,95 @@ public class AdminPage extends HttpServlet {
         TimeRangeService timeRangeService = TimeRangeService.getInstance();
         CompositionService compositionService = CompositionService.getInstance();
         UserTypeService userTypeService = UserTypeService.getInstance();
-
         final IngridientService ingridientService = IngridientService.getInstance();
 
-        if (request.getParameter("surname") != null) {
-            String surname = request.getParameter("surname");
+        if (request.getParameter("button") != null) {
+            String button[] = request.getParameter("button").split(" ");
+
+            Operation operation = Operation.valueOf(button[0]);
+
+            switch (operation) {
+                case add:
+                    if ("product".equals(button[1])) {
+                        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+                        Category category = categoryService.get(categoryId);
+                        String name = request.getParameter("name");
+                        String price = request.getParameter("price");
+
+                        Product product = new Product(category, name, parseDouble(price, request));
+                        productService.add(product);
+                        final String ingridientsId[] = request.getParameterValues("ingridientsId");
+                        List<Ingridient> ingridients = new ArrayList<Ingridient>() {{
+                            for (int i = 0; i < ingridientsId.length; i++) {
+                                add(ingridientService.get(Integer.parseInt(ingridientsId[i])));
+                            }
+                        }};
+                        String required[] = request.getParameterValues("quantity");
+                        int i = 0;
+                        for (Ingridient ingridient : ingridients) {
+                            Composition composition = new Composition();
+                            composition.setProduct(product);
+                            composition.setIngridient(ingridient);
+                            composition.setRequired(Integer.parseInt(required[i]));
+                            compositionService.add(composition);
+                            product.getIngridients().add(composition);
+                            i++;
+                        }
+                    }
+
+                    if ("category".equals(button[1])) {
+                        String categoryName = request.getParameter("categoryName");
+                        categoryService.add(new Category(categoryName));
+                    }
+
+                    if ("employee".equals(button[1])) {
+                        String surname = request.getParameter("surname");
+                        String name = request.getParameter("name");
+                        String patronymic = request.getParameter("patronymic");
+                        String wage = request.getParameter("wage");
+                        String username = request.getParameter("username");
+                        String password = request.getParameter("password");
+                        int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
+                        UserType userType = userTypeService.get(userTypeId);
+                        Employee employee = new Employee(surname, name, patronymic, parseDouble(wage, request), username, password, userType);
+                        employeeService.add(employee);
+                    }
+
+                    if ("timeRange".equals(button[1])) {
+                        Time start = Time.valueOf(request.getParameter("start") + ":00");
+                        Time finish = Time.valueOf(request.getParameter("finish") + ":00");
+                        timeRangeService.add(new TimeRange(start, finish));
+                    }
+                    break;
+                case update:
+
+                    break;
+                case delete:
+
+                    if ("product".equals(button[1])) {
+                        productService.delete(Integer.parseInt(request.getParameter("productId")));
+                    }
+
+                    if ("category".equals(button[1])) {
+                        categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));
+                    }
+
+                    if ("employee".equals(button[1])) {
+                        int employeeId = Integer.parseInt(request.getParameter("employeeId"));
+                        employeeService.delete(employeeId);
+                    }
+
+                    if ("timeRange".equals(button[1])) {
+                        int timerangeId = Integer.parseInt(request.getParameter("timerangeId"));
+                        timeRangeService.delete(timerangeId);
+                    }
+
+                    break;
+            }
+        }
+
+        /*if (request.getParameter("surname") != null) {
+            *//*String surname = request.getParameter("surname");
             String name = request.getParameter("name");
             String patronymic = request.getParameter("patronymic");
             String wage = request.getParameter("wage");
@@ -42,10 +126,9 @@ public class AdminPage extends HttpServlet {
             int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
             UserType userType = userTypeService.get(userTypeId);
             Employee employee = new Employee(surname, name, patronymic, parseDouble(wage, request), username, password, userType);
-            //userType.getUser().add(employee);
-            employeeService.add(employee);
+            employeeService.add(employee);*//*
         } else if (request.getParameter("name") != null) {
-            int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+            *//*int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             Category category = categoryService.get(categoryId);
             String name = request.getParameter("name");
             String price = request.getParameter("price");
@@ -68,25 +151,25 @@ public class AdminPage extends HttpServlet {
                 compositionService.add(composition);
                 product.getIngridients().add(composition);
                 i++;
-            }
+            }*//*
         } else if (request.getParameter("categoryName") != null) {
-            String categoryName = request.getParameter("categoryName");
-            categoryService.add(new Category(categoryName));
+            *//*String categoryName = request.getParameter("categoryName");
+            categoryService.add(new Category(categoryName));*//*
         } else if (request.getParameter("productId") != null) {
-            productService.delete(Integer.parseInt(request.getParameter("productId")));
+            *//*productService.delete(Integer.parseInt(request.getParameter("productId")));*//*
         } else if (request.getParameter("categoryId") != null) {
-            categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));
+            *//*categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));*//*
         } else if (request.getParameter("employeeId") != null) {
-            int employeeId = Integer.parseInt(request.getParameter("employeeId"));
-            employeeService.delete(employeeId);
+            *//*int employeeId = Integer.parseInt(request.getParameter("employeeId"));
+            employeeService.delete(employeeId);*//*
         } else if (request.getParameter("start") != null) {
-            Time start = Time.valueOf(request.getParameter("start") + ":00");
+            *//*Time start = Time.valueOf(request.getParameter("start") + ":00");
             Time finish = Time.valueOf(request.getParameter("finish") + ":00");
-            timeRangeService.add(new TimeRange(start, finish));
+            timeRangeService.add(new TimeRange(start, finish));*//*
         } else if (request.getParameter("timerangeId") != null) {
-            int timerangeId = Integer.parseInt(request.getParameter("timerangeId"));
-            timeRangeService.delete(timerangeId);
-        }
+            *//*int timerangeId = Integer.parseInt(request.getParameter("timerangeId"));
+            timeRangeService.delete(timerangeId);*//*
+        }*/
 
         request.setAttribute("productsList", productService.getAll()); //load productsList
         request.setAttribute("categoryList", categoryService.getAll());

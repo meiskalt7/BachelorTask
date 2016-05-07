@@ -70,16 +70,20 @@
                 </a>
             </li>
         </ul>
-        <h2>Waiter</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
-        </ul>
-        <h2>Manager</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
-        </ul>
-        <c:if test="${sessionScope.userType == 'admin'}">
+        <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
+            <h2>Waiter</h2>
+            <ul>
+                <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
+                <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType)}">
+            <h2>Manager</h2>
+            <ul>
+                <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${'admin'.equals(sessionScope.userType)}">
             <h2>Administrator</h2>
             <ul>
                 <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
@@ -128,7 +132,7 @@
                 </div>
             </td>
             <td>
-                <button type="submit" value="Добавить товар"/>
+                <button type="submit" name="button" value="add product"/>
                 <a class="addProductButton">Добавить товар</a></td>
             </tbody>
         </table>
@@ -158,7 +162,8 @@
         </td>
         <td>
             <form>
-                <button type="submit" name="productId" value="${product.getId()}"><a class="deleteButton">DELETE</a>
+                <input type="hidden" name="productId" value="${product.getId()}">
+                <button type="submit" name="button" value="delete product"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>
@@ -177,7 +182,7 @@
         <tbody>
         <td><input type="text" name="categoryName" maxlength="255" required/></td>
         <td>
-            <button type="submit" value="Добавить категорию"/>
+            <button type="submit" name="button" value="add category"/>
             <a class="addProductButton">Добавить категорию</a></td>
         </tbody>
     </table>
@@ -195,7 +200,8 @@
         <td>${category.getName()}</td>
         <td>
             <form>
-                <button type="submit" name="categoryId" value="${category.getId()}"><a class="deleteButton">DELETE</a>
+                <input type="hidden" name="categoryId" value="${category.getId()}">
+                <button type="submit" name="button" value="delete category"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>
@@ -230,7 +236,7 @@
             </c:forEach>
         </select></td>
         <td>
-            <button type="submit" value="Добавить работника"/>
+            <button type="submit" name="button" value="add employee"/>
             <a class="addProductButton">Добавить работника</a></td>
         </tbody>
     </table>
@@ -260,7 +266,8 @@
         <td>${employee.getUserType().getType()}</td>
         <td>
             <form>
-                <button type="submit" name="employeeId" value="${employee.getId()}"><a class="deleteButton">DELETE</a>
+                <input type="hidden" name="employeeId" value="${employee.getId()}">
+                <button type="submit" name="button" value="delete employee"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>
@@ -282,7 +289,7 @@
         <td><input type="time" name="start" maxlength="255" required/></td>
         <td><input type="time" name="finish" maxlength="255" required/></td>
         <td>
-            <button type="submit" value="Добавить"/>
+            <button type="submit" name="button" value="add timeRange"/>
             <a class="addProductButton">Добавить</a></td>
         </tbody>
     </table>
@@ -300,7 +307,8 @@
         <td>${timerange.getFinish()}</td>
         <td>
             <form>
-                <button type="submit" name="timerangeId" value="${timerange.getId()}"><a class="deleteButton">DELETE</a>
+                <input type="hidden" name="timerangeId" value="${timerange.getId()}">
+                <button type="submit" name="button" value="delete timeRange"><a class="deleteButton">DELETE</a>
                 </button>
             </form>
         </td>

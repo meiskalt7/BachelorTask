@@ -41,16 +41,20 @@
                 </a>
             </li>
         </ul>
-        <h2>Waiter</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
-        </ul>
-        <h2>Manager</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
-        </ul>
-        <c:if test="${sessionScope.userType == 'Max'}">
+        <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
+            <h2>Waiter</h2>
+            <ul>
+                <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
+                <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType)}">
+            <h2>Manager</h2>
+            <ul>
+                <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${'admin'.equals(sessionScope.userType)}">
             <h2>Administrator</h2>
             <ul>
                 <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
@@ -75,7 +79,7 @@
             <td><input type="text" name="name" maxlength="255" required/></td>
             <td><input type="text" name="quantity" required/></td>
             <td>
-                <button type="submit" value="Добавить"/>
+                <button type="submit" name="button" value="add ingridient"/>
                 <a class="addProductButton">Добавить</a></td>
             </tbody>
         </table>
@@ -202,7 +206,7 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" value="Добавить"/>
+                <button type="submit" name="button" value="add tables_employees"/>
                 <a class="addProductButton">Добавить</a></td>
             </tbody>
         </table>
@@ -252,7 +256,7 @@
             <tbody>
             <td><input type="text" name="table" required/></td>
             <td>
-                <button type="submit" value="Добавить"/>
+                <button type="submit" name="button" value="add table"/>
                 <a class="addProductButton">Добавить</a></td>
             </tbody>
         </table>
