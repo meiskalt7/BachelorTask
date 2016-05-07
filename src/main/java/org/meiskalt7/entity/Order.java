@@ -31,7 +31,7 @@ public class Order {
     @JoinColumn(name = "id_empl", nullable = false, insertable = false, updatable = false)
     private Employee employee = new Employee();
 
-    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_table", nullable = false, insertable = false, updatable = false)
     private org.meiskalt7.entity.Table table = new org.meiskalt7.entity.Table();
 

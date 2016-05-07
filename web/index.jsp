@@ -90,7 +90,7 @@
         <option selected value="new">--Новый заказ--</option>
         <c:forEach var="order" items="${orderList}">
             <option value="${order.getId()}">${order.getId()} + ${order.getTable().getId()}
-                + ${order.getTable().getType()} + ${order.getTable().getDatetime()}</option>
+                + ${order.getTable().getType()} + ${order.getDatetime()}</option>
         </c:forEach>
         <option value="">--Прочие--</option>
     </select></td>

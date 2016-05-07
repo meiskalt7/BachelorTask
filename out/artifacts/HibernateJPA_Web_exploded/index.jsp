@@ -26,9 +26,20 @@
             <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
         </ul>
         <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
             <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/login">Вход в систему</a></li>
+            <li class="li">
+                <a href="${pageContext.request.contextPath}/login">
+                    <c:choose>
+                        <c:when test="${sessionScope.userType == null}">
+                            Вход в систему
+                        </c:when>
+                        <c:otherwise>
+                            Выход из системы
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </li>
         </ul>
         <h2>Waiter</h2>
         <ul>
@@ -70,9 +81,28 @@
         <td><input type="submit" value="Найти"/></td>
         </tbody>
     </table>
+    <input type="hidden" name="userId" value="${sessionScope.userId}">
 </form>
 
 <form action="${pageContext.request.contextPath}/pricelist" method="get">
+    <%-- выбор заказа(если выбран заказ, то блокируем выбор столика) --%>
+    <td><select name="orderId">
+        <option selected value="new">--Новый заказ--</option>
+        <c:forEach var="order" items="${orderList}">
+            <option value="${order.getId()}">${order.getId()} + ${order.getTable().getId()}
+                + ${order.getTable().getType()} + ${order.getDatetime()}</option>
+        </c:forEach>
+        <option value="">--Прочие--</option>
+    </select></td>
+    <%-- выбор столика для заказа(сначала свои, потом чужие) --%>
+    Столики:
+    <td><select name="tableId" required>
+        <option selected value="">--Назначенные--</option>
+        <c:forEach var="table" items="${waiterTableList}">
+            <option value="${table.getId()}">${table.getId()} + ${table.getType()}</option>
+        </c:forEach>
+        <option value="">--Прочие--</option>
+    </select></td>
     <table border="1">
         <thead>
         <tr>
@@ -90,15 +120,17 @@
             <td>${product.getPrice()}</td>
             <td><input type="number" name="quantity"/></td>
             <input type="hidden" name="productId" value="${product.getId()}">
+
             <td>
-                <button type="submit" name="button" value="add cart"><a class="addProductButton">В
-                    корзину</a>
+                <button type="submit" name="button" value="add cart"><a class="addProductButton">
+                    В корзину</a>
                 </button>
             </td>
         </tr>
         </tbody>
         </c:forEach>
     </table>
+    <input type="hidden" name="userId" value="${sessionScope.userId}">
     ${errorMessage}
 </form>
 </body>

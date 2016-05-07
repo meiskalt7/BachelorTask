@@ -55,12 +55,12 @@
             <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
         </ul>
         <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Бронирование</a></li>
+            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
             <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
             <li class="li">
                 <a href="${pageContext.request.contextPath}/login">
                     <c:choose>
-                        <c:when test="${sessionScope.username == null}">
+                        <c:when test="${sessionScope.userType == null}">
                             Вход в систему
                         </c:when>
                         <c:otherwise>
@@ -79,7 +79,7 @@
         <ul>
             <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
         </ul>
-        <c:if test="${sessionScope.username == 'Max'}">
+        <c:if test="${sessionScope.userType == 'admin'}">
             <h2>Administrator</h2>
             <ul>
                 <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
@@ -215,6 +215,7 @@
             <th>Заработная плата</th>
             <th>Юзер</th>
             <th>Пароль</th>
+            <th>Тип юзера</th>
         </thead>
         <tbody>
         <td><input type="text" name="surname" maxlength="255" required/></td>
@@ -223,7 +224,7 @@
         <td><input type="text" name="wage" maxlength="255" required/></td>
         <td><input type="username" name="username" maxlength="255" required/></td>
         <td><input type="password" name="password" maxlength="255" required/></td>
-        <td><select name="userType" required>
+        <td><select name="userTypeId" required>
             <c:forEach var="userType" items="${userTypeList}">
                 <option value="${userType.getId()}">${userType.getType()}</option>
             </c:forEach>
@@ -234,6 +235,7 @@
         </tbody>
     </table>
 </form>
+
 <h2>Список работников ресторана</h2>
 <table border="1">
     <thead>
@@ -241,6 +243,9 @@
     <th>Имя</th>
     <th>Отчество</th>
     <th>Заработная плата</th>
+    <th>Юзер</th>
+    <th>Пароль</th>
+    <th>Тип юзера</th>
     <th>Удалить</th>
     </thead>
     <tbody>
@@ -250,6 +255,9 @@
         <td>${employee.getName()}</td>
         <td>${employee.getPatronymic()}</td>
         <td>${employee.getWage()}</td>
+        <td>${employee.getUsername()}</td>
+        <td>${employee.getPassword()}</td>
+        <td>${employee.getUserType().getType()}</td>
         <td>
             <form>
                 <button type="submit" name="employeeId" value="${employee.getId()}"><a class="deleteButton">DELETE</a>

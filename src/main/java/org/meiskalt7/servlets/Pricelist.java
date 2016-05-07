@@ -37,7 +37,7 @@ public class Pricelist extends HttpServlet {
             if (request.getParameter("userId").length() > 0) {
                 int userId = Integer.parseInt(request.getParameter("userId"));
                 request.setAttribute("waiterTableList", employeeService.get(userId).getTables());
-
+                request.setAttribute("orderList", employeeService.get(userId).getOrderList());
 
                 if (button != null) {
 
@@ -54,19 +54,19 @@ public class Pricelist extends HttpServlet {
                                 Table table = tableService.get(tableId);
                                 Timestamp datetime = new Timestamp(System.currentTimeMillis());
                                 order = new Order(datetime, employee, table);
-                                orderService.update(order);
+                                orderService.add(order);
                             } else {
                                 int orderId = Integer.parseInt(request.getParameter("orderId"));
                                 order = orderService.get(orderId);
                             }
 
-
                             Orderlist orderlist = new Orderlist();
                             orderlist.setQuantity(quantity);
                             orderlist.setProduct(productService.get(productId));
+                            orderlist.setOrder(order);
                             orderlistService.add(orderlist);
-                            order.getOrderlists().add(orderlist);
-                            orderService.update(order);
+                            //order.getOrderlists().add(orderlist);
+
                         }
                     }
                 }

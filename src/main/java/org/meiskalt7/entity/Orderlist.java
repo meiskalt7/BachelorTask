@@ -25,7 +25,7 @@ public class Orderlist {
     @JoinColumn(name = "prod_id", nullable = false, insertable = false, updatable = false)
     private Product product = new Product();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "order_id", nullable = false, insertable = false, updatable = false)
     private Order order = new Order();
 
@@ -67,6 +67,7 @@ public class Orderlist {
 
     public void setProduct(Product product) {
         this.product = product;
+        prod_id = product.getId();
     }
 
     public Order getOrder() {
@@ -75,5 +76,6 @@ public class Orderlist {
 
     public void setOrder(Order order) {
         this.order = order;
+        order_id = order.getId();
     }
 }
