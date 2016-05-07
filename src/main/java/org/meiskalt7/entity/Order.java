@@ -12,8 +12,7 @@ public class Order {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orders_seq_gen")
-    @SequenceGenerator(name = "orders_seq_gen", sequenceName = "orders_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
@@ -27,6 +26,25 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<Orderlist> orderlists = new ArrayList<Orderlist>();
+
+    @ManyToOne
+    @JoinColumn(name = "id_empl", nullable = false, insertable = false, updatable = false)
+    private Employee employee = new Employee();
+
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "id_table", nullable = false, insertable = false, updatable = false)
+    private org.meiskalt7.entity.Table table = new org.meiskalt7.entity.Table();
+
+    public Order() {
+    }
+
+    public Order(Timestamp datetime, Employee employee, org.meiskalt7.entity.Table table) {
+        this.datetime = datetime;
+        this.employee = employee;
+        this.table = table;
+        this.id_empl = employee.getId();
+        this.id_table = table.getId();
+    }
 
     public Order(Timestamp datetime, int id_table, int id_empl) {
 
@@ -70,5 +88,21 @@ public class Order {
 
     public void setOrderlists(List<Orderlist> orderlists) {
         this.orderlists = orderlists;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public org.meiskalt7.entity.Table getTable() {
+        return table;
+    }
+
+    public void setTable(org.meiskalt7.entity.Table table) {
+        this.table = table;
     }
 }

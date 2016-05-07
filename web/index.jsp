@@ -81,9 +81,28 @@
         <td><input type="submit" value="Найти"/></td>
         </tbody>
     </table>
+    <input type="hidden" name="userId" value="${sessionScope.userId}">
 </form>
 
 <form action="${pageContext.request.contextPath}/pricelist" method="get">
+    <%-- выбор заказа(если выбран заказ, то блокируем выбор столика) --%>
+    <td><select name="orderId">
+        <option selected value="new">--Новый заказ--</option>
+        <c:forEach var="order" items="${orderList}">
+            <option value="${order.getId()}">${order.getId()} + ${order.getTable().getId()}
+                + ${order.getTable().getType()} + ${order.getTable().getDatetime()}</option>
+        </c:forEach>
+        <option value="">--Прочие--</option>
+    </select></td>
+    <%-- выбор столика для заказа(сначала свои, потом чужие) --%>
+    Столики:
+    <td><select name="tableId" required>
+        <option selected value="">--Назначенные--</option>
+        <c:forEach var="table" items="${waiterTableList}">
+            <option value="${table.getId()}">${table.getId()} + ${table.getType()}</option>
+        </c:forEach>
+        <option value="">--Прочие--</option>
+    </select></td>
     <table border="1">
         <thead>
         <tr>

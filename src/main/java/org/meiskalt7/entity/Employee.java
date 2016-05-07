@@ -49,6 +49,9 @@ public class Employee {
     @JoinColumn(name = "usertype_id", nullable = false, insertable = false, updatable = false)
     private UserType userType = new UserType();
 
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Order> orderList = new ArrayList<Order>();
+
     public Employee() {
     }
 
@@ -149,5 +152,13 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 }

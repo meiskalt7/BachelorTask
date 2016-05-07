@@ -100,7 +100,7 @@ public class AdminPage extends HttpServlet {
         rd.forward(request, response);
     }
 
-    double parseDouble(String str, HttpServletRequest request) {
+    private double parseDouble(String str, HttpServletRequest request) {
         if (str != null && str.length() > 0)
             try {
                 return Double.parseDouble(str);

@@ -11,7 +11,7 @@ public class IngridientService implements GenericDao<Ingridient> {
 
     private static IngridientService ingridientService;
     @PersistenceContext
-    public EntityManager em = EntityManagerUtil.getEntityManager();
+    private EntityManager em = EntityManagerUtil.getEntityManager();
 
     private IngridientService() {
     }

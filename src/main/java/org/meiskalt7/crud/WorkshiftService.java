@@ -11,7 +11,7 @@ public class WorkshiftService implements GenericDao<Workshift> {
 
     private static WorkshiftService workshiftService;
     @PersistenceContext
-    public EntityManager em = EntityManagerUtil.getEntityManager();
+    private EntityManager em = EntityManagerUtil.getEntityManager();
 
     private WorkshiftService() {
 

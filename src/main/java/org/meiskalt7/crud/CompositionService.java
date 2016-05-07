@@ -12,7 +12,7 @@ public class CompositionService implements GenericDao<Composition> {
     private static CompositionService compositionService;
 
     @PersistenceContext
-    public EntityManager em = EntityManagerUtil.getEntityManager();
+    private EntityManager em = EntityManagerUtil.getEntityManager();
 
     private CompositionService() {
     }

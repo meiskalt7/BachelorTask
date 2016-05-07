@@ -12,7 +12,7 @@ public class UserTypeService implements GenericDao<UserType> {
     private static UserTypeService userTypeService;
 
     @PersistenceContext
-    public EntityManager em = EntityManagerUtil.getEntityManager();
+    private EntityManager em = EntityManagerUtil.getEntityManager();
 
     private UserTypeService() {
     }

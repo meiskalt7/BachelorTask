@@ -11,7 +11,7 @@ public class TimeRangeService implements GenericDao<TimeRange> {
 
     private static TimeRangeService timeRangeService;
     @PersistenceContext
-    public EntityManager em = EntityManagerUtil.getEntityManager();
+    private EntityManager em = EntityManagerUtil.getEntityManager();
 
     private TimeRangeService() {
 

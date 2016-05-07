@@ -12,7 +12,7 @@ public class ReservationService implements GenericDao<Reservation> {
     private static ReservationService reservationService;
 
     @PersistenceContext
-    public EntityManager em = EntityManagerUtil.getEntityManager();
+    private EntityManager em = EntityManagerUtil.getEntityManager();
 
     public ReservationService() {
 

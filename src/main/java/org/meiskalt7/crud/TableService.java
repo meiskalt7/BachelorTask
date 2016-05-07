@@ -9,7 +9,7 @@ import java.util.List;
 public class TableService implements GenericDao<Table> {
 
     private static TableService tableService;
-    public EntityManager em = EntityManagerUtil.getEntityManager();
+    private EntityManager em = EntityManagerUtil.getEntityManager();
 
     private TableService() {
 
