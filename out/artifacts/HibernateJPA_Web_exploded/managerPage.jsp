@@ -10,6 +10,9 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="accordion-menu.js" type="text/javascript"></script>
+    <script src="float-panel.js"></script>
     <title>Смена</title>
 </head>
 <body>
@@ -18,48 +21,62 @@
     <div id="logo">
         <h2>AuRe: Страница менеджера смены</h2>
     </div>
-    <div id="menu">
-        <h2>Меню сайта</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
-        </ul>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-            <li class="li">
-                <a href="${pageContext.request.contextPath}/login">
-                    <c:choose>
-                        <c:when test="${sessionScope.userType == null}">
-                            Вход в систему
-                        </c:when>
-                        <c:otherwise>
-                            Выход из системы
-                        </c:otherwise>
-                    </c:choose>
-                </a>
-            </li>
-        </ul>
-        <h2>Waiter</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
-        </ul>
-        <h2>Manager</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
-        </ul>
-        <c:if test="${sessionScope.userType == 'Max'}">
-            <h2>Administrator</h2>
+    <div id="menu" class="float-panel">
+        <div id="accordion">
             <ul>
-                <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
-                <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
+                <li>
+                    <div>Меню сайта</div>
+                    <ul>
+                        <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
+                        <li class="li">
+                            <a href="${pageContext.request.contextPath}/login">
+                                <c:choose>
+                                    <c:when test="${sessionScope.userType == null}">
+                                        Вход в систему
+                                    </c:when>
+                                    <c:otherwise>
+                                        Выход из системы
+                                    </c:otherwise>
+                                </c:choose>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
+                        <div>Waiter</div>
+                        <ul>
+                            <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+                        </ul>
+                    </c:if>
+                </li>
+                <li>
+                    <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType)}">
+                        <div>Manager</div>
+                        <ul>
+                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+                        </ul>
+                    </c:if>
+                </li>
+                <li>
+                    <c:if test="${'admin'.equals(sessionScope.userType)}">
+                        <div>Administrator</div>
+                        <ul>
+                            <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
+                        </ul>
+                    </c:if>
+                </li>
             </ul>
-        </c:if>
-        <br class="clearfix"/>
+        </div>
     </div>
 </div>
+
 
 <h2>Добавить ингридиент</h2>
 
@@ -75,8 +92,9 @@
             <td><input type="text" name="name" maxlength="255" required/></td>
             <td><input type="text" name="quantity" required/></td>
             <td>
-                <button type="submit" value="Добавить"/>
-                <a class="addProductButton">Добавить</a></td>
+                <button type="submit" name="button" value="add ingridient" class="addProductButton"/>
+                Добавить
+            </td>
             </tbody>
         </table>
     </form>
@@ -96,7 +114,8 @@
         <td>${ingrid.getQuantity()}</td>
         <td>
             <form>
-                <button type="submit" name="ingridId" value="${ingrid.getId()}"><a class="deleteButton">DELETE</a>
+                <input type="hidden" name="id" value="${ingrid.getId()}">
+                <button type="submit" name="button" value="delete ingridient" class="deleteButton">DELETE
                 </button>
             </form>
         </td>
@@ -132,8 +151,8 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="add workshift"/>
-                <a class="addProductButton">Добавить</a>
+                <button type="submit" name="button" value="add workshift" class="addProductButton"/>
+                Добавить
             </td>
             </tbody>
         </table>
@@ -167,8 +186,8 @@
             </select></td>
             <td>
                 <form>
-                    <button type="submit" name="workshiftId" value="${workshift.getId()}"><a
-                            class="deleteButton">DELETE</a>
+                    <input type="hidden" name="id" value="${workshift.getId()}">
+                    <button type="submit" name="button" value="delete workshift" class="deleteButton">DELETE
                     </button>
                 </form>
             </td>
@@ -202,8 +221,9 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" value="Добавить"/>
-                <a class="addProductButton">Добавить</a></td>
+                <button type="submit" name="button" value="add tables_employees" class="addProductButton"/>
+                Добавить
+            </td>
             </tbody>
         </table>
     </form>
@@ -231,7 +251,7 @@
                 </select></td>
                 <td>
                     <input type="hidden" name="id" value="${employee.getId()}">
-                    <button type="submit" name="button" value="delete employee"><a class="deleteButton">DELETE</a>
+                    <button type="submit" name="button" value="delete employee" class="deleteButton">DELETE
                     </button>
                 </td>
             </form>
@@ -247,13 +267,16 @@
         <table border="0">
             <thead>
             <tr>
+                <th>Номер столика</th>
                 <th>Тип</th>
             </thead>
             <tbody>
+            <td><input type="text" name="number" required/></td>
             <td><input type="text" name="table" required/></td>
             <td>
-                <button type="submit" value="Добавить"/>
-                <a class="addProductButton">Добавить</a></td>
+                <button type="submit" name="button" value="add table" class="addProductButton"/>
+                Добавить
+            </td>
             </tbody>
         </table>
     </form>
@@ -268,12 +291,12 @@
     <tbody>
     <c:forEach var="table" items="${tableList}">
     <tr>
-        <td>${table.getId()}</td>
+        <td>${table.getNumber()}</td>
         <td>${table.getType()}</td>
         <td>
             <form action="${pageContext.request.contextPath}/workshift" method="get">
                 <input type="hidden" name="id" value="${table.getId()}">
-                <button type="submit" name="button" value="delete table"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="button" value="delete table" class="deleteButton">DELETE
                 </button>
             </form>
         </td>

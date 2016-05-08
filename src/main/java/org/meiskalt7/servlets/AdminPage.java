@@ -63,14 +63,10 @@ public class AdminPage extends HttpServlet {
                             product.getIngridients().add(composition);
                             i++;
                         }
-                    }
-
-                    if ("category".equals(button[1])) {
+                    } else if ("category".equals(button[1])) {
                         String categoryName = request.getParameter("categoryName");
                         categoryService.add(new Category(categoryName));
-                    }
-
-                    if ("employee".equals(button[1])) {
+                    } else if ("employee".equals(button[1])) {
                         String surname = request.getParameter("surname");
                         String name = request.getParameter("name");
                         String patronymic = request.getParameter("patronymic");
@@ -81,9 +77,7 @@ public class AdminPage extends HttpServlet {
                         UserType userType = userTypeService.get(userTypeId);
                         Employee employee = new Employee(surname, name, patronymic, parseDouble(wage, request), username, password, userType);
                         employeeService.add(employee);
-                    }
-
-                    if ("timeRange".equals(button[1])) {
+                    } else if ("timeRange".equals(button[1])) {
                         Time start = Time.valueOf(request.getParameter("start") + ":00");
                         Time finish = Time.valueOf(request.getParameter("finish") + ":00");
                         timeRangeService.add(new TimeRange(start, finish));
@@ -96,18 +90,12 @@ public class AdminPage extends HttpServlet {
 
                     if ("product".equals(button[1])) {
                         productService.delete(Integer.parseInt(request.getParameter("productId")));
-                    }
-
-                    if ("category".equals(button[1])) {
+                    } else if ("category".equals(button[1])) {
                         categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));
-                    }
-
-                    if ("employee".equals(button[1])) {
+                    } else if ("employee".equals(button[1])) {
                         int employeeId = Integer.parseInt(request.getParameter("employeeId"));
                         employeeService.delete(employeeId);
-                    }
-
-                    if ("timeRange".equals(button[1])) {
+                    } else if ("timeRange".equals(button[1])) {
                         int timerangeId = Integer.parseInt(request.getParameter("timerangeId"));
                         timeRangeService.delete(timerangeId);
                     }

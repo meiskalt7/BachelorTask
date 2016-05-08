@@ -77,6 +77,7 @@
     </div>
 </div>
 
+
 <h2>Добавить ингридиент</h2>
 
 <div class="wrapper">
@@ -113,7 +114,7 @@
         <td>${ingrid.getQuantity()}</td>
         <td>
             <form>
-                <input type="hidden" name="ingridId" value="${ingrid.getId()}">
+                <input type="hidden" name="id" value="${ingrid.getId()}">
                 <button type="submit" name="button" value="delete ingridient" class="deleteButton">DELETE
                 </button>
             </form>
@@ -185,7 +186,7 @@
             </select></td>
             <td>
                 <form>
-                    <input type="hidden" name="workshiftId" value="${workshift.getId()}">
+                    <input type="hidden" name="id" value="${workshift.getId()}">
                     <button type="submit" name="button" value="delete workshift" class="deleteButton">DELETE
                     </button>
                 </form>
@@ -266,9 +267,11 @@
         <table border="0">
             <thead>
             <tr>
+                <th>Номер столика</th>
                 <th>Тип</th>
             </thead>
             <tbody>
+            <td><input type="text" name="number" required/></td>
             <td><input type="text" name="table" required/></td>
             <td>
                 <button type="submit" name="button" value="add table" class="addProductButton"/>
@@ -288,7 +291,7 @@
     <tbody>
     <c:forEach var="table" items="${tableList}">
     <tr>
-        <td>${table.getId()}</td>
+        <td>${table.getNumber()}</td>
         <td>${table.getType()}</td>
         <td>
             <form action="${pageContext.request.contextPath}/workshift" method="get">

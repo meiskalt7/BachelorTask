@@ -13,6 +13,8 @@ public class Table {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
+    private int number;
+    @Column
     private String type;
     @OneToMany(mappedBy = "table", fetch = FetchType.LAZY)
     private List<Reservation> reservations = new ArrayList<Reservation>();
@@ -22,7 +24,8 @@ public class Table {
     public Table() {
     }
 
-    public Table(String type) {
+    public Table(int number, String type) {
+        this.number = number;
         this.type = type;
     }
 
@@ -56,5 +59,13 @@ public class Table {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 }

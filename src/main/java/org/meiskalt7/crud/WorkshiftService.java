@@ -26,7 +26,7 @@ public class WorkshiftService implements GenericDao<Workshift> {
 
     public void add(Workshift workshift) {
         em.getTransaction().begin();
-        em.merge(workshift);
+        em.persist(workshift);
         em.getTransaction().commit();
     }
 

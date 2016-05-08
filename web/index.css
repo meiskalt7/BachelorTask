@@ -147,7 +147,6 @@ td:nth-child(2){
     text-decoration: none;
     text-shadow: 0px 1px 0px #ffffff;
 }
-
 .deleteButton:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ccc2a6), color-stop(1, #eae0c2));
     background: -moz-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
@@ -158,7 +157,6 @@ td:nth-child(2){
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc2a6', endColorstr='#eae0c2', GradientType=0);
     background-color: #ccc2a6;
 }
-
 .deleteButton:active {
     position: relative;
     top: 1px;

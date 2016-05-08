@@ -39,9 +39,7 @@ public class ManagerPage extends HttpServlet {
                         String name = req.getParameter("name");
                         int quantity = Integer.parseInt(req.getParameter("quantity"));
                         ingridientService.add(new Ingridient(name, quantity));
-                    }
-
-                    if ("workshift".equals(button[1])) {
+                    } else if ("workshift".equals(button[1])) {
                         final String[] employeeId = req.getParameterValues("employee");
                         List<Employee> employees = new ArrayList<Employee>() {{
                             for (int i = 0; i < employeeId.length; i++) {
@@ -53,9 +51,11 @@ public class ManagerPage extends HttpServlet {
                         TimeRange timeRange = timeRangeService.get(timerangeId);
                         Workshift workshift = new Workshift(date, timeRange, employees);
                         workshiftService.add(workshift);
-                    }
-
-                    if ("tables_employees".equals(button[1])) {
+                        for (Employee emp : employees) {
+                            emp.getWorkshifts().add(workshift);
+                            employeeService.update(emp);
+                        }
+                    } else if ("tables_employees".equals(button[1])) {
                         Employee employee = employeeService.get(Integer.parseInt(req.getParameter("employee")));
                         final String tablesId[] = req.getParameterValues("tables");
                         List<Table> tables = new ArrayList<Table>() {{
@@ -65,10 +65,9 @@ public class ManagerPage extends HttpServlet {
                         }};
                         employee.getTables().addAll(tables);
                         employeeService.update(employee);
-                    }
-
-                    if ("table".equals(button[1])) {
-                        tableService.add(new Table(req.getParameter("table")));
+                    } else if ("table".equals(button[1])) {
+                        int number = Integer.parseInt(req.getParameter("number"));
+                        tableService.add(new Table(number, req.getParameter("table")));
                     }
 
                     break;
@@ -80,14 +79,9 @@ public class ManagerPage extends HttpServlet {
 
                     if ("table".equals(button[1])) {
                         tableService.delete(id);
-                    }
-
-                    if ("ingridient".equals(button[1])) {
-                        int ingridId = Integer.parseInt(req.getParameter("ingridId"));
-                        ingridientService.delete(ingridId);
-                    }
-
-                    if ("employee".equals(button[1])) {
+                    } else if ("ingridient".equals(button[1])) {
+                        ingridientService.delete(id);
+                    } else if ("employee".equals(button[1])) {
                         if (req.getParameter("tableId") != null) {
                             String[] tableId = req.getParameterValues("tableId");
                             Employee employee = employeeService.get(id);
@@ -102,11 +96,8 @@ public class ManagerPage extends HttpServlet {
                             }
                             employeeService.update(employee);
                         }
-                    }
-
-                    if ("workshift".equals(button[1])) {
-                        int workshiftId = Integer.parseInt(req.getParameter("workshiftId"));
-                        workshiftService.delete(workshiftId);
+                    } else if ("workshift".equals(button[1])) {
+                        workshiftService.delete(id);
                     }
                     break;
             }
