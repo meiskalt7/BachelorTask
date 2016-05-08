@@ -41,33 +41,40 @@ public class Pricelist extends HttpServlet {
 
                 if (button != null) {
 
-                    if ("add".equals(button[0])) {
+                    Operation operation = Operation.valueOf(button[0]);
 
-                        if ("cart".equals(button[1])) {
-                            int quantity = Integer.parseInt(request.getParameter("quantity"));
-                            int productId = Integer.parseInt(request.getParameter("productId"));
-                            int tableId = Integer.parseInt(request.getParameter("tableId"));
+                    switch (operation) {
+                        case add:
+                            if ("cart".equals(button[1])) {
+                                int quantity = Integer.parseInt(request.getParameter("quantity"));
+                                int productId = Integer.parseInt(request.getParameter("productId"));
+                                int tableId = Integer.parseInt(request.getParameter("tableId"));
 
-                            Order order;
-                            if ("new".equals(request.getParameter("orderId"))) {
-                                Employee employee = employeeService.get(userId);
-                                Table table = tableService.get(tableId);
-                                Timestamp datetime = new Timestamp(System.currentTimeMillis());
-                                order = new Order(datetime, employee, table);
-                                orderService.add(order);
-                            } else {
-                                int orderId = Integer.parseInt(request.getParameter("orderId"));
-                                order = orderService.get(orderId);
+                                Order order;
+                                if ("new".equals(request.getParameter("orderId"))) {
+                                    Employee employee = employeeService.get(userId);
+                                    Table table = tableService.get(tableId);
+                                    Timestamp datetime = new Timestamp(System.currentTimeMillis());
+                                    order = new Order(datetime, employee, table);
+                                    orderService.add(order);
+                                } else {
+                                    int orderId = Integer.parseInt(request.getParameter("orderId"));
+                                    order = orderService.get(orderId);
+                                }
+
+                                Orderlist orderlist = new Orderlist();
+                                orderlist.setQuantity(quantity);
+                                orderlist.setProduct(productService.get(productId));
+                                orderlist.setOrder(order);
+                                orderlistService.add(orderlist);
+                                //order.getOrderlists().add(orderlist);
+
                             }
-
-                            Orderlist orderlist = new Orderlist();
-                            orderlist.setQuantity(quantity);
-                            orderlist.setProduct(productService.get(productId));
-                            orderlist.setOrder(order);
-                            orderlistService.add(orderlist);
-                            //order.getOrderlists().add(orderlist);
-
-                        }
+                            break;
+                        case update:
+                            break;
+                        case delete:
+                            break;
                     }
                 }
             }

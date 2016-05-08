@@ -76,7 +76,7 @@
         <td>${reservation.getTable().getType()}</td>
         <td>
             <form>
-                <button type="submit" name="timerangeId" value="${timerange.getId()}"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="timerangeId" value="${timerange.getId()}" class="deleteButton">DELETE
                 </button>
             </form>
         </td>

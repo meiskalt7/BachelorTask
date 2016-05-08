@@ -89,8 +89,9 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="add reservation"/>
-                <a class="addProductButton">Забронировать</a></td>
+                <button type="submit" name="button" value="add reservation" class="addProductButton"/>
+                Забронировать
+            </td>
             </tbody>
         </table>
     </form>

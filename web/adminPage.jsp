@@ -34,7 +34,7 @@
             $("#add_ingrid_button").click(function () {
                 alert('добавлен элемент' + i)
                 jQuery('#delete_ingrid_button' + (i - 1)).remove();
-                $('<p id="selectIngrid' + i + '"><select name="ingridientsId" required><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><input type="text" name="quantity"/><button id="delete_ingrid_button' + i + '" type="button"><a class="deleteButton">x</a></button></p>').appendTo(ingridDiv);
+                $('<p id="selectIngrid' + i + '"><select name="ingridientsId" required><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><input type="text" name="quantity"/><button id="delete_ingrid_button' + i + '" type="button" class="deleteButton">x</button></p>').appendTo(ingridDiv);
                 i++;
                 return false;
             });
@@ -45,7 +45,7 @@
 <body>
 <div id="header">
     <div id="logo">
-        <h2>AuRe: Страница администратора(продукты, категории, работники)</h2>
+        <h1>AuRe: Страница администратора</h1>
     </div>
     <div id="menu">
         <h2>Меню сайта</h2>
@@ -119,7 +119,7 @@
 
             <td>
                 <div id="ingridDiv">
-                    <button id="add_ingrid_button"><a class="addProductButton">Еще ингридиент</a></button>
+                    <button id="add_ingrid_button" class="addProductButton">Еще ингридиент</button>
                     <p>
                         <select name="ingridientsId" id="selectIngrid" required>
                             <option selected value="default">Выберите ингридиент</option>
@@ -132,8 +132,9 @@
                 </div>
             </td>
             <td>
-                <button type="submit" name="button" value="add product"/>
-                <a class="addProductButton">Добавить товар</a></td>
+                <button type="submit" name="button" value="add product" class="addProductButton"/>
+                Добавить товар
+            </td>
             </tbody>
         </table>
     </form>
@@ -163,7 +164,7 @@
         <td>
             <form>
                 <input type="hidden" name="productId" value="${product.getId()}">
-                <button type="submit" name="button" value="delete product"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="button" value="delete product" class="deleteButton">DELETE
                 </button>
             </form>
         </td>
@@ -182,8 +183,9 @@
         <tbody>
         <td><input type="text" name="categoryName" maxlength="255" required/></td>
         <td>
-            <button type="submit" name="button" value="add category"/>
-            <a class="addProductButton">Добавить категорию</a></td>
+            <button type="submit" name="button" value="add category" class="addProductButton"/>
+            Добавить категорию
+        </td>
         </tbody>
     </table>
 </form>
@@ -201,7 +203,7 @@
         <td>
             <form>
                 <input type="hidden" name="categoryId" value="${category.getId()}">
-                <button type="submit" name="button" value="delete category"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="button" value="delete category" class="deleteButton">DELETE
                 </button>
             </form>
         </td>
@@ -236,8 +238,9 @@
             </c:forEach>
         </select></td>
         <td>
-            <button type="submit" name="button" value="add employee"/>
-            <a class="addProductButton">Добавить работника</a></td>
+            <button type="submit" name="button" value="add employee" class="addProductButton"/>
+            Добавить работника
+        </td>
         </tbody>
     </table>
 </form>
@@ -267,7 +270,7 @@
         <td>
             <form>
                 <input type="hidden" name="employeeId" value="${employee.getId()}">
-                <button type="submit" name="button" value="delete employee"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="button" value="delete employee" class="deleteButton">DELETE
                 </button>
             </form>
         </td>
@@ -289,8 +292,9 @@
         <td><input type="time" name="start" maxlength="255" required/></td>
         <td><input type="time" name="finish" maxlength="255" required/></td>
         <td>
-            <button type="submit" name="button" value="add timeRange"/>
-            <a class="addProductButton">Добавить</a></td>
+            <button type="submit" name="button" value="add timeRange" class="addProductButton"/>
+            Добавить
+        </td>
         </tbody>
     </table>
 </form>
@@ -308,7 +312,7 @@
         <td>
             <form>
                 <input type="hidden" name="timerangeId" value="${timerange.getId()}">
-                <button type="submit" name="button" value="delete timeRange"><a class="deleteButton">DELETE</a>
+                <button type="submit" name="button" value="delete timeRange" class="deleteButton">DELETE
                 </button>
             </form>
         </td>
