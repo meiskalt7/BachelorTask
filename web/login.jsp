@@ -76,11 +76,13 @@
 
 <h2>Signup Details</h2>
 
-<form action="${pageContext.request.contextPath}/loginCheck" method="get"><br/>Username:
-    <input type="username" name="username" required> <br/>Password:
-    <input type="password" name="password" required> <br/>
-    <input type="submit" value="Submit">
-</form>
+<center>
+    <form action="${pageContext.request.contextPath}/loginCheck" method="get"><br/>Username:
+        <input type="username" name="username" required> <br/> Password:
+        <input type="password" name="password" required> <br/>
+        <input type="submit" value="Submit">
+    </form>
+</center>
 
 <c:if test="${sessionScope.userType != null}">
     <h1>Logout was done successfully.</h1>

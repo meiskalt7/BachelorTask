@@ -215,7 +215,7 @@
             </select></td>
             <td><select multiple name="tables" size="6" required>
                 <c:forEach var="table" items="${tableList}">
-                    <option value="<c:out value='${table.getId()}'/>"><c:out value='${table.getId()}'/> (<c:out
+                    <option value="<c:out value='${table.getId()}'/>"><c:out value='${table.getNumber()}'/> (<c:out
                             value='${table.getType()}'/>)
                     </option>
                 </c:forEach>
@@ -245,7 +245,7 @@
                 </td>
                 <td><select multiple name="tableId" size="6">
                     <c:forEach var="table" items="${employee.getTables()}">
-                        <option value="<c:out value='${table.getId()}'/>">${table.getId()} + ${table.getType()})
+                        <option value="<c:out value='${table.getId()}'/>">${table.getNumber()} + ${table.getType()})
                         </option>
                     </c:forEach>
                 </select></td>
