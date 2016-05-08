@@ -117,7 +117,7 @@
     <td><select name="tableId" required>
         <option selected value="">--Назначенные--</option>
         <c:forEach var="table" items="${waiterTableList}">
-            <option value="${table.getId()}">${table.getId()} + ${table.getType()}</option>
+            <option value="${table.getId()}">${table.getNumber()} + ${table.getType()}</option>
         </c:forEach>
         <option value="">--Прочие--</option>
     </select></td>

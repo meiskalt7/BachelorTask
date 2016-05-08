@@ -95,7 +95,7 @@
             <td><input type="datetime-local" name="time" maxlength="255" required/></td>
             <td><select name="tableId">
                 <c:forEach var="table" items="${tableList}">
-                    <option value="<c:out value='${table.getId()}'/>"><c:out value='${table.getId()}'/> (<c:out
+                    <option value="<c:out value='${table.getId()}'/>"><c:out value='${table.getNumber()}'/> (<c:out
                             value='${table.getType()}'/>)
                     </option>
                 </c:forEach>
