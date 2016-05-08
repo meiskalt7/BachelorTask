@@ -41,12 +41,10 @@ public class OrdersPage extends HttpServlet {
                         }
                         break;
                 }
-
-
-                int userId = Integer.parseInt(req.getSession().getAttribute("userId").toString());
-                Employee employee = employeeService.get(userId);
-                req.setAttribute("orderList", employee.getOrderList());
             }
+            int userId = Integer.parseInt(req.getSession().getAttribute("userId").toString());
+            Employee employee = employeeService.get(userId);
+            req.setAttribute("orderList", employee.getOrderList());
         }
 
         RequestDispatcher rd = getServletContext()

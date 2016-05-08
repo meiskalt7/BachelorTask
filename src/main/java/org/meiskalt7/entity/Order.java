@@ -24,6 +24,9 @@ public class Order {
     @Column
     private int id_table;
 
+    @Column
+    private boolean ended;
+
     @OneToMany(mappedBy = "order")
     private List<Orderlist> orderlists = new ArrayList<Orderlist>();
 
@@ -44,6 +47,7 @@ public class Order {
         this.table = table;
         this.id_empl = employee.getId();
         this.id_table = table.getId();
+        this.ended = false;
     }
 
     public Order(Timestamp datetime, int id_table, int id_empl) {
@@ -104,5 +108,13 @@ public class Order {
 
     public void setTable(org.meiskalt7.entity.Table table) {
         this.table = table;
+    }
+
+    public boolean isEnded() {
+        return ended;
+    }
+
+    public void setEnded(boolean ended) {
+        this.ended = ended;
     }
 }

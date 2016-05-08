@@ -13,8 +13,6 @@
     <link href="index.css" rel="stylesheet" type="text/css">
     <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="accordion-menu.js" type="text/javascript"></script>
-    <script type="text/javascript" src="jquery-latest.js"></script>
-    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
     <script src="float-panel.js"></script>
     <title>Прайс-лист</title>
 </head>
@@ -123,7 +121,7 @@
         </c:forEach>
         <option value="">--Прочие--</option>
     </select></td>
-    <table border="1" class="tablesorter">
+    <table border="1">
         <thead>
         <tr>
             <th>Категория</th>

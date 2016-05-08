@@ -78,12 +78,15 @@ public class Pricelist extends HttpServlet {
                     }
                 }
             }
-            Integer categoryId = (!"all".equals(request.getParameter("categoryId"))) ? Integer.parseInt(request.getParameter("categoryId")) : null;
-            String name = request.getParameter("name").toLowerCase();
-            String priceFrom = request.getParameter("priceFrom");
-            String priceTo = request.getParameter("priceTo");
 
-            request.setAttribute("productsList", productService.getHQL(categoryId, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
+            if (request.getParameter("categoryId") != null) {
+                Integer categoryId = (!"all".equals(request.getParameter("categoryId"))) ? Integer.parseInt(request.getParameter("categoryId")) : null;
+                String name = request.getParameter("name").toLowerCase();
+                String priceFrom = request.getParameter("priceFrom");
+                String priceTo = request.getParameter("priceTo");
+
+                request.setAttribute("productsList", productService.getHQL(categoryId, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
+            }
         }
 
         request.setAttribute("categoryList", categoryService.getAll());

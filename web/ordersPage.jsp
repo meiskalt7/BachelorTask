@@ -77,21 +77,31 @@
     <tr>
         <th>Столик</th>
         <th>Время заказа</th>
-        <th>Продукты</th>
+        <th>Продукты:Стоимость</th>
+        <th>Итого:</th>
     </thead>
     <tbody>
     <c:forEach var="order" items="${orderList}">
     <tr>
         <td>${order.getTable().getNumber()} ${order.getTable().getType()}</td>
         <td>${order.getDatetime()}</td>
-        <c:forEach var="orderlist" items="${order.getOrderlists()}">
-            <td><p>${orderlist.getProduct().getName()} :
-                    ${orderlist.getProduct().getPrice()} </p></td>
-        </c:forEach>
+        <td><c:forEach var="orderlist" items="${order.getOrderlists()}">
+            <p>${orderlist.getProduct().getName()} :
+                    ${orderlist.getProduct().getPrice()} </p>
+        </c:forEach></td>
         <td>
-            <form action="${pageContext.request.contextPath}/cart" method="get">
+            <c:set var="total" value="${0}"/>
+            <c:forEach var="orderlist" items="${order.getOrderlists()}">
+                <c:set var="total" value="${total + orderlist.getProduct().getPrice()}"/>
+            </c:forEach>
+                ${total}
+        </td>
+        <td>
+            <form action="${pageContext.request.contextPath}/orders" method="get">
                 <input type="hidden" name="id" value="${order.getId()}">
                 <button type="submit" name="button" value="delete order" class="deleteButton">DELETE
+                </button>
+                <button type="submit" name="button" value="update order" class="deleteButton">ЗАКРЫТЬ
                 </button>
             </form>
         </td>
