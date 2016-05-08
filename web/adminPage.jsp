@@ -11,6 +11,9 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="accordion-menu.js" type="text/javascript"></script>
+    <script src="float-panel.js"></script>
     <title>Администрирование</title>
     <script type="text/javascript" src="jquery-2.2.3.min.js"></script>
 
@@ -47,50 +50,59 @@
     <div id="logo">
         <h1>AuRe: Страница администратора</h1>
     </div>
-    <div id="menu">
-        <h2>Меню сайта</h2>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
-        </ul>
-        <ul>
-            <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
-            <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
-            <li class="li">
-                <a href="${pageContext.request.contextPath}/login">
-                    <c:choose>
-                        <c:when test="${sessionScope.userType == null}">
-                            Вход в систему
-                        </c:when>
-                        <c:otherwise>
-                            Выход из системы
-                        </c:otherwise>
-                    </c:choose>
-                </a>
-            </li>
-        </ul>
-        <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
-            <h2>Waiter</h2>
+    <div id="menu" class="float-panel">
+        <div id="accordion">
             <ul>
-                <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
-                <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+                <li>
+                    <div>Меню сайта</div>
+                    <ul>
+                        <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
+                        <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
+                        <li class="li">
+                            <a href="${pageContext.request.contextPath}/login">
+                                <c:choose>
+                                    <c:when test="${sessionScope.userType == null}">
+                                        Вход в систему
+                                    </c:when>
+                                    <c:otherwise>
+                                        Выход из системы
+                                    </c:otherwise>
+                                </c:choose>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
+                        <div>Waiter</div>
+                        <ul>
+                            <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
+                        </ul>
+                    </c:if>
+                </li>
+                <li>
+                    <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType)}">
+                        <div>Manager</div>
+                        <ul>
+                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+                        </ul>
+                    </c:if>
+                </li>
+                <li>
+                    <c:if test="${'admin'.equals(sessionScope.userType)}">
+                        <div>Administrator</div>
+                        <ul>
+                            <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
+                        </ul>
+                    </c:if>
+                </li>
             </ul>
-        </c:if>
-        <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType)}">
-            <h2>Manager</h2>
-            <ul>
-                <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
-            </ul>
-        </c:if>
-        <c:if test="${'admin'.equals(sessionScope.userType)}">
-            <h2>Administrator</h2>
-            <ul>
-                <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
-                <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
-            </ul>
-        </c:if>
-        <br class="clearfix"/>
+        </div>
     </div>
 </div>
 
