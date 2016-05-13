@@ -23,12 +23,6 @@ public class ProductService implements GenericDao<Product> {
         return productService;
     }
 
-    public static void main(String[] args) {
-        ProductService ps = new ProductService();
-        List<Product> hql = ps.getHQL(null, null, .0, .0);
-        System.out.println("  !  ");
-    }
-
     public void add(Product product) {
         em.getTransaction().begin();
         em.persist(product);
@@ -60,10 +54,6 @@ public class ProductService implements GenericDao<Product> {
         for (Product prod : getAll()) {
             delete(prod.getId());
         }
-    }
-
-    public int getId(String product) {
-        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :product").setParameter("product", product).getResultList().get(0);
     }
 
     public List<Product> getHQL(Integer category, String name, Double priceFrom, Double priceTo) {

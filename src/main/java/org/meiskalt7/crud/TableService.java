@@ -35,9 +35,9 @@ public class TableService implements GenericDao<Table> {
         em.getTransaction().commit();
     }
 
-    public void update(Table category) {
+    public void update(Table table) {
         em.getTransaction().begin();
-        em.merge(category);
+        em.merge(table);
         em.getTransaction().commit();
     }
 

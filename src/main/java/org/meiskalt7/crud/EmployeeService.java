@@ -47,7 +47,6 @@ public class EmployeeService implements GenericDao<Employee> {
     }
 
     public List<Employee> getAll() {
-        //TypedQuery<Employee> namedQuery = em.createNamedQuery("Employees.getAll", Employee.class);
         return (List<Employee>) em.createQuery("SELECT e FROM Employee e").getResultList();
     }
 

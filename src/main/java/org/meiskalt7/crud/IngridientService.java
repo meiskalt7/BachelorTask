@@ -55,8 +55,4 @@ public class IngridientService implements GenericDao<Ingridient> {
             delete(ing.getId());
         }
     }
-
-    public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList().get(0);
-    }
 }

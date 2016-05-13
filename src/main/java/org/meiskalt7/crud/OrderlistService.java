@@ -32,15 +32,15 @@ public class OrderlistService implements GenericDao<Orderlist> {
     }
 
     public void delete(int id) {
-        Orderlist category = get(id);
+        Orderlist orderlist = get(id);
         em.getTransaction().begin();
-        em.remove(category);
+        em.remove(orderlist);
         em.getTransaction().commit();
     }
 
-    public void update(Orderlist category) {
+    public void update(Orderlist orderlist) {
         em.getTransaction().begin();
-        em.merge(category);
+        em.merge(orderlist);
         em.getTransaction().commit();
     }
 
@@ -56,9 +56,5 @@ public class OrderlistService implements GenericDao<Orderlist> {
         for (Orderlist orderlist : getAll()) {
             delete(orderlist.getId());
         }
-    }
-
-    public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList().get(0);
     }
 }

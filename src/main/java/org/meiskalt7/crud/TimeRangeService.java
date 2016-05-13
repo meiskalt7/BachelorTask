@@ -31,9 +31,9 @@ public class TimeRangeService implements GenericDao<TimeRange> {
     }
 
     public void delete(int id) {
-        TimeRange employee = get(id);
+        TimeRange timeRange = get(id);
         em.getTransaction().begin();
-        em.remove(employee);
+        em.remove(timeRange);
         em.getTransaction().commit();
     }
 
@@ -48,7 +48,6 @@ public class TimeRangeService implements GenericDao<TimeRange> {
     }
 
     public List<TimeRange> getAll() {
-        //TypedQuery<Employee> namedQuery = em.createNamedQuery("Employees.getAll", Employee.class);
         return (List<TimeRange>) em.createQuery("SELECT t FROM TimeRange t").getResultList();
     }
 

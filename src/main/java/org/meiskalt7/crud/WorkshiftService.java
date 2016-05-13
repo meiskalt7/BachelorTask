@@ -48,17 +48,12 @@ public class WorkshiftService implements GenericDao<Workshift> {
     }
 
     public List<Workshift> getAll() {
-        //TypedQuery<Workshift> namedQuery = em.createNamedQuery("Categories.getAll", Workshift.class);
         return (List<Workshift>) em.createQuery("SELECT w FROM Workshift w").getResultList();
     }
 
     public void deleteAll() {
-        for (Workshift cat : getAll()) {
-            delete(cat.getId());
+        for (Workshift workshift : getAll()) {
+            delete(workshift.getId());
         }
-    }
-
-    public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList().get(0);
     }
 }

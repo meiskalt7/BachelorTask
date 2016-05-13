@@ -53,12 +53,8 @@ public class ReservationService implements GenericDao<Reservation> {
     }
 
     public void deleteAll() {
-        for (Reservation cat : getAll()) {
-            delete(cat.getId());
+        for (Reservation reservation : getAll()) {
+            delete(reservation.getId());
         }
-    }
-
-    public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList().get(0);
     }
 }
