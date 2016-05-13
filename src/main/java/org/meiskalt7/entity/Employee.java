@@ -154,7 +154,7 @@ public class Employee {
         this.password = password;
     }
 
-    public List<Order> getOrderList() {
+    public List<Order> getOrders() {
         return orderList;
     }
 

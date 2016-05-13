@@ -37,7 +37,7 @@ public class Pricelist extends HttpServlet {
             if (request.getParameter("userId").length() > 0) {
                 int userId = Integer.parseInt(request.getParameter("userId"));
                 request.setAttribute("waiterTableList", employeeService.get(userId).getTables());
-                request.setAttribute("orderList", employeeService.get(userId).getOrderList());
+                request.setAttribute("orderList", employeeService.get(userId).getOrders());
 
                 if (button != null) {
 

@@ -5,7 +5,6 @@ import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class OrderlistService implements GenericDao<Orderlist> {
@@ -50,8 +49,7 @@ public class OrderlistService implements GenericDao<Orderlist> {
     }
 
     public List<Orderlist> getAll() {
-        TypedQuery<Orderlist> namedQuery = em.createNamedQuery("Categories.getAll", Orderlist.class);
-        return namedQuery.getResultList();
+        return (List<Orderlist>) em.createQuery("SELECT o FROM Orderlist o").getResultList();
     }
 
     public void deleteAll() {

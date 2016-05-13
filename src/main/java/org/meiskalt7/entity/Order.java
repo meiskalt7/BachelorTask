@@ -30,7 +30,7 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<Orderlist> orderlists = new ArrayList<Orderlist>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_empl", nullable = false, insertable = false, updatable = false)
     private Employee employee = new Employee();
 

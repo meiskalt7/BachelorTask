@@ -3,6 +3,7 @@ package org.meiskalt7.servlets;
 import org.meiskalt7.crud.EmployeeService;
 import org.meiskalt7.crud.OrderService;
 import org.meiskalt7.entity.Employee;
+import org.meiskalt7.entity.Order;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +19,6 @@ public class OrdersPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        EmployeeService employeeService = EmployeeService.getInstance();
         OrderService orderService = OrderService.getInstance();
 
         if (req.getSession().getAttribute("userId") != null) {
@@ -33,6 +33,12 @@ public class OrdersPage extends HttpServlet {
                     case add:
                         break;
                     case update:
+                        if ("order".equals(button[1])) {
+                            int id = Integer.parseInt(req.getParameter("id"));
+                            Order order = orderService.get(id);
+                            order.setEnded(true);
+                            orderService.update(order);
+                        }
                         break;
                     case delete:
                         if ("order".equals(button[1])) {
@@ -42,9 +48,11 @@ public class OrdersPage extends HttpServlet {
                         break;
                 }
             }
+
             int userId = Integer.parseInt(req.getSession().getAttribute("userId").toString());
+            EmployeeService employeeService = EmployeeService.getInstance();
             Employee employee = employeeService.get(userId);
-            req.setAttribute("orderList", employee.getOrderList());
+            req.setAttribute("orderList", employee.getOrders());
         }
 
         RequestDispatcher rd = getServletContext()

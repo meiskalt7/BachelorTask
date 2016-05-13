@@ -77,26 +77,51 @@
     <tr>
         <th>Столик</th>
         <th>Время заказа</th>
-        <th>Продукты</th>
+        <th>Продукты:Стоимость</th>
+        <th>Итого</th>
+        <th></th>
+        <th></th>
     </thead>
-    <tbody>
     <c:forEach var="order" items="${orderList}">
-    <tr>
-        <td>${order.getTable().getNumber()} ${order.getTable().getType()}</td>
-        <td>${order.getDatetime()}</td>
-        <c:forEach var="orderlist" items="${order.getOrderlists()}">
-        <td><p>${orderlist.getProduct().getName()} :
-                    ${orderlist.getProduct().getPrice()} </p></td>
-        </c:forEach>
-        <td>
-            <form action="${pageContext.request.contextPath}/cart" method="get">
-                <input type="hidden" name="id" value="${order.getId()}">
-                <button type="submit" name="button" value="delete order" class="deleteButton">DELETE
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
+        <tbody>
+        <tr>
+            <td>${order.getTable().getNumber()} ${order.getTable().getType()}</td>
+            <td>${order.getDatetime()}</td>
+            <td><c:forEach var="orderlist" items="${order.getOrderlists()}">
+                <p>${orderlist.getProduct().getName()} :
+                        ${orderlist.getProduct().getPrice()} </p>
+            </c:forEach></td>
+            <td>
+                <c:set var="total" value="${0}"/>
+                <c:forEach var="orderlist" items="${order.getOrderlists()}">
+                    <c:set var="total" value="${total + orderlist.getProduct().getPrice()}"/>
+                </c:forEach>
+                    ${total}
+            </td>
+            <td>
+                <form action="${pageContext.request.contextPath}/orders" method="get">
+                    <input type="hidden" name="id" value="${order.getId()}">
+                    <button type="submit" name="button" value="delete order" class="deleteButton">DELETE
+                    </button>
+                </form>
+            </td>
+            <td>
+                <c:choose>
+                    <c:when test="${order.isEnded() != true}">
+                        <form action="${pageContext.request.contextPath}/orders" method="get">
+                            <input type="hidden" name="id" value="${order.getId()}">
+                            <button type="submit" name="button" value="update order" class="deleteButton">ЗАКРЫТЬ ЗАКАЗ
+                            </button>
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        <button type="submit" name="button" value="update order" class="deleteButton" disabled>Закрыт
+                        </button>
+                    </c:otherwise>
+                </c:choose>
+            </td>
+        </tr>
+        </tbody>
     </c:forEach>
 </table>
 
