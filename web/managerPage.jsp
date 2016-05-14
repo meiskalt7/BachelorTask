@@ -91,6 +91,7 @@
             <tbody>
             <td><input type="text" name="name" maxlength="255" required/></td>
             <td><input type="text" name="quantity" required/></td>
+            <td><input type="text" name="price" required/></td>
             <td>
                 <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton"/>
                 Добавить
@@ -105,6 +106,7 @@
     <tr>
         <th>Название</th>
         <th>Количество</th>
+        <th>Цена</th>
         <th>Удалить</th>
     </thead>
     <tbody>
@@ -112,6 +114,7 @@
     <tr>
         <td>${ingrid.getName()}</td>
         <td>${ingrid.getQuantity()}</td>
+        <td>${ingrid.getPrice()}</td>
         <td>
             <form>
                 <input type="hidden" name="id" value="${ingrid.getId()}">

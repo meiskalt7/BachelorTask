@@ -188,28 +188,19 @@
     </table>
 </form>
 
-<table border="1">
+
+<table border="1" style="display: inline-block; border: 1px solid; float: left; ">
     <thead>
     <tr>
-        <th>Виды расходов:</th>
+        <th>Вид расхода</th>
         <th>З/П</th>
-        <th>Ингридиенты</th>
-        <th>Аренда</th>
+    </tr>
     </thead>
     <tbody>
     <c:forEach var="employeeAndWage" items="${employeeAndWageList}">
         <tr>
             <td></td>
             <td>${employeeAndWage}</td>
-            <td></td>
-            <td rowspan="42">${rent}</td>
-            <td>
-                <form>
-                    <input type="hidden" name="productId" value="${product.getId()}">
-                    <button type="submit" name="button" value="delete product" class="deleteButton">DELETE
-                    </button>
-                </form>
-            </td>
         </tr>
     </c:forEach>
     </tbody>
@@ -217,6 +208,44 @@
     <tr>
         <td>Общий счет:</td>
         <td>${wageSum}</td>
+    </tr>
+    </tfoot>
+</table>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Ингридиенты</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="ingridientAndCost" items="${ingridientAndCostList}">
+        <tr>
+            <td>${ingridientAndCost}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td>${ingridientSum}</td>
+    </tr>
+    </tfoot>
+</table>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Аренда</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td rowspan="42">${rent}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td>${costs}</td>
     </tr>
     </tfoot>
 </table>

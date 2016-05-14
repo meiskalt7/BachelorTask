@@ -101,7 +101,7 @@
             <td>
                 <form action="${pageContext.request.contextPath}/orders" method="get">
                     <input type="hidden" name="id" value="${order.getId()}">
-                    <button type="submit" name="button" value="delete order" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="DELETE ORDER" class="deleteButton">DELETE
                     </button>
                 </form>
             </td>
@@ -110,12 +110,12 @@
                     <c:when test="${order.isEnded() != true}">
                         <form action="${pageContext.request.contextPath}/orders" method="get">
                             <input type="hidden" name="id" value="${order.getId()}">
-                            <button type="submit" name="button" value="update order" class="deleteButton">ЗАКРЫТЬ ЗАКАЗ
+                            <button type="submit" name="button" value="UPDATE ORDER" class="deleteButton">ЗАКРЫТЬ ЗАКАЗ
                             </button>
                         </form>
                     </c:when>
                     <c:otherwise>
-                        <button type="submit" name="button" value="update order" class="deleteButton" disabled>Закрыт
+                        <button type="submit" name="button" value="" class="deleteButton" disabled>Закрыт
                         </button>
                     </c:otherwise>
                 </c:choose>

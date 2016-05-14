@@ -134,7 +134,8 @@ public class ManagerPage extends HttpServlet {
     private void createIngridient(HttpServletRequest req, IngridientService ingridientService) {
         String name = req.getParameter("name");
         int quantity = Integer.parseInt(req.getParameter("quantity"));
-        ingridientService.add(new Ingridient(name, quantity));
+        double price = Double.parseDouble(req.getParameter("price"));
+        ingridientService.add(new Ingridient(name, quantity, price));
     }
 
     @Override

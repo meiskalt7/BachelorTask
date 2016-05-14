@@ -17,15 +17,18 @@ public class Ingridient {
     private String name;
     @Column
     private int quantity;
+    @Column
+    private double price;
     @OneToMany(mappedBy = "ingridient")
     private List<Composition> products = new ArrayList<Composition>();
 
     public Ingridient() {
     }
 
-    public Ingridient(String name, int quantity) {
+    public Ingridient(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
+        this.price = price;
     }
 
     public int getId() {
@@ -58,5 +61,13 @@ public class Ingridient {
 
     public void setProducts(List<Composition> products) {
         this.products = products;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

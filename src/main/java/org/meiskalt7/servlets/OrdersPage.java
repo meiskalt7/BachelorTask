@@ -29,11 +29,13 @@ public class OrdersPage extends HttpServlet {
 
                 Operation operation = Operation.valueOf(button[0]);
 
+                Entity entity = Entity.valueOf(button[1]);
+
                 switch (operation) {
                     case ADD:
                         break;
                     case UPDATE:
-                        if ("order".equals(button[1])) {
+                        if (Entity.ORDER.equals(entity)) {
                             int id = Integer.parseInt(req.getParameter("id"));
                             Order order = orderService.get(id);
                             order.setEnded(true);
@@ -41,7 +43,7 @@ public class OrdersPage extends HttpServlet {
                         }
                         break;
                     case DELETE:
-                        if ("order".equals(button[1])) {
+                        if (Entity.ORDER.equals(entity)) {
                             int id = Integer.parseInt(req.getParameter("id"));
                             orderService.delete(id);
                         }

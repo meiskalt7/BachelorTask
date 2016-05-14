@@ -76,7 +76,38 @@
     </div>
 </div>
 
-<h2>Список чеков(свернуть, развернуть)</h2>
+<h2>Сумма чеков за месяц(выбор месяца, либо всего)</h2>
+
+<form action="${pageContext.request.contextPath}/statistics" method="get">
+    <table border="0">
+        <thead>
+        <tr>
+            <th>Месяц:</th>
+            <th></th>
+        </thead>
+        <tbody>
+        <td><select name="month" size="1">
+            <option value="-1">Все месяцы</option>
+            <option value="0">Январь</option>
+            <option value="1">Февраль</option>
+            <option value="2">Март</option>
+            <option value="3">Апрель</option>
+            <option value="4">Май</option>
+            <option value="5">Июнь</option>
+            <option value="6">Июль</option>
+            <option value="7">Август</option>
+            <option value="8">Сентябрь</option>
+            <option value="9">Октябрь</option>
+            <option value="10">Ноябрь</option>
+            <option value="11">Декабрь</option>
+        </select></td>
+        <td>
+            <button type="submit" name="button" value="READ ORDER" class="addProductButton"/>
+            Показать
+        </td>
+        </tbody>
+    </table>
+</form>
 
 <table border="1">
     <thead>
@@ -125,60 +156,6 @@
 
 </table>
 
-<h2>Сумма всех чеков за месяц(выбор месяца, либо всего)</h2>
-
-<form action="${pageContext.request.contextPath}/statistics" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Месяц:</th>
-        </thead>
-        <tbody>
-        <td><select name="categoryId" required>
-            <c:forEach var="category" items="${categoryList}">
-                <option value="${category.getId()}">${category.getName()}</option>
-            </c:forEach>
-        </select></td>
-        <td>
-            <button type="submit" name="button" value="add product" class="addProductButton"/>
-            Показать
-        </td>
-        </tbody>
-    </table>
-</form>
-
-<table border="1">
-    <thead>
-    <tr>
-        <th>Столик</th>
-        <th>Время заказа</th>
-        <th>Продукты:Стоимость</th>
-        <th>Итого</th>
-    </thead>
-    <tbody>
-    <c:forEach var="product" items="${productsList}">
-    <tr>
-        <td>${product.getCategory().getName()}</td>
-        <td>${product.getName()}</td>
-        <td>${product.getPrice()}</td>
-        <td>
-            <c:forEach var="ingridient" items="${product.getIngridients()}">
-                <p>${ingridient.getIngridient().getName()} :
-                        ${ingridient.getRequired()} </p>
-            </c:forEach>
-        </td>
-        <td>
-            <form>
-                <input type="hidden" name="productId" value="${product.getId()}">
-                <button type="submit" name="button" value="delete product" class="deleteButton">DELETE
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-    </c:forEach>
-</table>
-
 <h2>Сумма всех расходов за месяц(выбор месяца, либо всего)</h2>
 
 <form action="${pageContext.request.contextPath}/statistics" method="get">
@@ -188,49 +165,89 @@
             <th>Месяц:</th>
         </thead>
         <tbody>
-        <td><select name="categoryId" required>
-            <c:forEach var="category" items="${categoryList}">
-                <option value="${category.getId()}">${category.getName()}</option>
-            </c:forEach>
+        <td><select name="month" size="1">
+            <option value="-1">Все месяцы</option>
+            <option value="0">Январь</option>
+            <option value="1">Февраль</option>
+            <option value="2">Март</option>
+            <option value="3">Апрель</option>
+            <option value="4">Май</option>
+            <option value="5">Июнь</option>
+            <option value="6">Июль</option>
+            <option value="7">Август</option>
+            <option value="8">Сентябрь</option>
+            <option value="9">Октябрь</option>
+            <option value="10">Ноябрь</option>
+            <option value="11">Декабрь</option>
         </select></td>
         <td>
-            <button type="submit" name="button" value="add product" class="addProductButton"/>
+            <button type="submit" name="button" value="READ COSTS" class="addProductButton"/>
             Показать
         </td>
         </tbody>
     </table>
 </form>
 
+
+<table border="1" style="display: inline-block; border: 1px solid; float: left; ">
+    <thead>
+    <tr>
+        <th>Вид расхода</th>
+        <th>З/П</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="employeeAndWage" items="${employeeAndWageList}">
+        <tr>
+            <td></td>
+            <td>${employeeAndWage}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td>Общий счет:</td>
+        <td>${wageSum}</td>
+    </tr>
+    </tfoot>
+</table>
+
 <table border="1">
     <thead>
     <tr>
-        <th>З/П</th>
         <th>Ингридиенты</th>
-        <th>Аренда</th>
-        <th>Итого</th>
+    </tr>
     </thead>
     <tbody>
-    <c:forEach var="product" items="${productsList}">
+    <c:forEach var="ingridientAndCost" items="${ingridientAndCostList}">
+        <tr>
+            <td>${ingridientAndCost}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+    <tfoot>
     <tr>
-        <td>${product.getCategory().getName()}</td>
-        <td>${product.getName()}</td>
-        <td>${product.getPrice()}</td>
-        <td>
-            <c:forEach var="ingridient" items="${product.getIngridients()}">
-                <p>${ingridient.getIngridient().getName()} :
-                        ${ingridient.getRequired()} </p>
-            </c:forEach>
-        </td>
-        <td>
-            <form>
-                <input type="hidden" name="productId" value="${product.getId()}">
-                <button type="submit" name="button" value="delete product" class="deleteButton">DELETE
-                </button>
-            </form>
-        </td>
+        <td>${ingridientSum}</td>
+    </tr>
+    </tfoot>
+</table>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Аренда</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td rowspan="42">${rent}</td>
     </tr>
     </tbody>
-    </c:forEach>
+    <tfoot>
+    <tr>
+        <td>${costs}</td>
+    </tr>
+    </tfoot>
 </table>
 
 <h2>Сумма всех доходов за месяц(выбор месяца, либо всего)</h2>
@@ -242,13 +259,23 @@
             <th>Месяц:</th>
         </thead>
         <tbody>
-        <td><select name="categoryId" required>
-            <c:forEach var="category" items="${categoryList}">
-                <option value="${category.getId()}">${category.getName()}</option>
-            </c:forEach>
+        <td><select name="month" size="1">
+            <option value="-1">Все месяцы</option>
+            <option value="0">Январь</option>
+            <option value="1">Февраль</option>
+            <option value="2">Март</option>
+            <option value="3">Апрель</option>
+            <option value="4">Май</option>
+            <option value="5">Июнь</option>
+            <option value="6">Июль</option>
+            <option value="7">Август</option>
+            <option value="8">Сентябрь</option>
+            <option value="9">Октябрь</option>
+            <option value="10">Ноябрь</option>
+            <option value="11">Декабрь</option>
         </select></td>
         <td>
-            <button type="submit" name="button" value="add product" class="addProductButton"/>
+            <button type="submit" name="button" value="READ INCOME" class="addProductButton"/>
             Показать
         </td>
         </tbody>
@@ -258,30 +285,26 @@
 <table border="1">
     <thead>
     <tr>
-        <th>Продукты</th>
+        <th>Продукт</th>
+        <th>Цена</th>
+        <th>Количество проданных</th>
+        <th>Итого</th>
     </thead>
     <tbody>
-    <c:forEach var="product" items="${productsList}">
-    <tr>
-        <td>${product.getCategory().getName()}</td>
-        <td>${product.getName()}</td>
-        <td>${product.getPrice()}</td>
-        <td>
-            <c:forEach var="ingridient" items="${product.getIngridients()}">
-                <p>${ingridient.getIngridient().getName()} :
-                        ${ingridient.getRequired()} </p>
-            </c:forEach>
-        </td>
-        <td>
-            <form>
-                <input type="hidden" name="productId" value="${product.getId()}">
-                <button type="submit" name="button" value="delete product" class="deleteButton">DELETE
-                </button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
+    <c:forEach var="product" items="${productList}">
+        <tr>
+            <td>${product.getName()}</td>
+            <td>${product.getPrice()}</td>
+            <td>${order.getQuantity()}</td>
+            <td>${product.getPrice()}</td>
+        </tr>
     </c:forEach>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td>Общий счет:</td>
+        <td>${salesSum}</td>
+    </tr>
 </table>
 
 <h2>Баланс за месяц(выбор месяца, либо всего)</h2>
@@ -293,13 +316,23 @@
             <th>Месяц:</th>
         </thead>
         <tbody>
-        <td><select name="categoryId" required>
-            <c:forEach var="category" items="${categoryList}">
-                <option value="${category.getId()}">${category.getName()}</option>
-            </c:forEach>
+        <td><select name="month" size="1">
+            <option value="-1">Все месяцы</option>
+            <option value="0">Январь</option>
+            <option value="1">Февраль</option>
+            <option value="2">Март</option>
+            <option value="3">Апрель</option>
+            <option value="4">Май</option>
+            <option value="5">Июнь</option>
+            <option value="6">Июль</option>
+            <option value="7">Август</option>
+            <option value="8">Сентябрь</option>
+            <option value="9">Октябрь</option>
+            <option value="10">Ноябрь</option>
+            <option value="11">Декабрь</option>
         </select></td>
         <td>
-            <button type="submit" name="button" value="add product" class="addProductButton"/>
+            <button type="submit" name="button" value="READ BALANCE" class="addProductButton"/>
             Показать
         </td>
         </tbody>
@@ -314,27 +347,12 @@
         <th>Баланс</th>
     </thead>
     <tbody>
-    <c:forEach var="product" items="${productsList}">
     <tr>
-        <td>${product.getCategory().getName()}</td>
-        <td>${product.getName()}</td>
-        <td>${product.getPrice()}</td>
-        <td>
-            <c:forEach var="ingridient" items="${product.getIngridients()}">
-                <p>${ingridient.getIngridient().getName()} :
-                        ${ingridient.getRequired()} </p>
-            </c:forEach>
-        </td>
-        <td>
-            <form>
-                <input type="hidden" name="productId" value="${product.getId()}">
-                <button type="submit" name="button" value="delete product" class="deleteButton">DELETE
-                </button>
-            </form>
-        </td>
+        <td>${salesSum}</td>
+        <td>${costs}</td>
+        <td>${salesSum - costs}</td>
     </tr>
     </tbody>
-    </c:forEach>
 </table>
 
 <h2>Потребность в официантах</h2>

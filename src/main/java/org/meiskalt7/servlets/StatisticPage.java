@@ -1,11 +1,9 @@
 package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.EmployeeService;
+import org.meiskalt7.crud.IngridientService;
 import org.meiskalt7.crud.OrderService;
-import org.meiskalt7.entity.Employee;
-import org.meiskalt7.entity.Order;
-import org.meiskalt7.entity.Orderlist;
-import org.meiskalt7.entity.Product;
+import org.meiskalt7.entity.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,10 +24,15 @@ public class StatisticPage extends HttpServlet {
 
         OrderService orderService = OrderService.getInstance();
         EmployeeService employeeService = EmployeeService.getInstance();
+        IngridientService ingridientService = IngridientService.getInstance();
+
         List<Order> endedOrders = new ArrayList<>();
         ArrayList<String> employeeAndWageList = null;
+        ArrayList<String> ingridientAndCostList = null;
         ArrayList<Product> productList = new ArrayList<>();
         double wageSum = 0;
+        double ingridientSum = 0;
+        double rent = 0;
         double salesSum = 0;
         double income = 0;
         double costs = 0;
@@ -61,6 +64,26 @@ public class StatisticPage extends HttpServlet {
                                 employeeAndWageList.add(employee.getSurname() + " " + employee.getName() + ":" + employee.getWage());
                                 wageSum += employee.getWage();
                             }
+
+                            //ingridients
+                            ingridientAndCostList = new ArrayList<>();
+                            for (Order order : orderService.getAll()) {
+                                if (order.isEnded()) {
+                                    for (Orderlist orderlist : order.getOrderlists()) {
+                                        for (Composition composition : orderlist.getProduct().getIngridients()) {
+                                            ingridientAndCostList.add(composition.getIngridient().getName() + ":" + composition.getIngridient().getPrice());
+                                            ingridientSum += orderlist.getQuantity() * (composition.getIngridient().getPrice() * composition.getRequired());
+                                        }
+                                    }
+                                }
+                            }
+
+                            //arenda(get from db)
+                            rent = 5000;
+
+                            //sum
+                            costs += wageSum + ingridientSum + rent;
+
                             break;
                         case ORDER:
 
@@ -78,9 +101,12 @@ public class StatisticPage extends HttpServlet {
         }
 
         req.setAttribute("orderList", endedOrders);
-        req.setAttribute("rent", 5000);
+        req.setAttribute("rent", rent);
         req.setAttribute("wageSum", wageSum);
         req.setAttribute("salesSum", salesSum);
+        req.setAttribute("ingridientSum", ingridientSum);
+        req.setAttribute("costs", costs);
+        req.setAttribute("ingridientAndCostList", ingridientAndCostList);
         req.setAttribute("employeeAndWageList", employeeAndWageList);
         req.setAttribute("productList", productList);
 
