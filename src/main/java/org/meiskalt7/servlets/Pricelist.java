@@ -44,7 +44,7 @@ public class Pricelist extends HttpServlet {
                     Operation operation = Operation.valueOf(button[0]);
 
                     switch (operation) {
-                        case add:
+                        case ADD:
                             if ("cart".equals(button[1])) {
                                 int quantity = Integer.parseInt(request.getParameter("quantity"));
                                 int productId = Integer.parseInt(request.getParameter("productId"));
@@ -71,9 +71,9 @@ public class Pricelist extends HttpServlet {
 
                             }
                             break;
-                        case update:
+                        case UPDATE:
                             break;
-                        case delete:
+                        case DELETE:
                             break;
                     }
                 }

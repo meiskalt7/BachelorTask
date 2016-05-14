@@ -37,7 +37,7 @@ public class AdminPage extends HttpServlet {
             Operation operation = Operation.valueOf(button[0]);
 
             switch (operation) {
-                case add:
+                case ADD:
                     if ("product".equals(button[1])) {
                         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
                         Category category = categoryService.get(categoryId);
@@ -83,10 +83,10 @@ public class AdminPage extends HttpServlet {
                         timeRangeService.add(new TimeRange(start, finish));
                     }
                     break;
-                case update:
+                case UPDATE:
 
                     break;
-                case delete:
+                case DELETE:
 
                     if ("product".equals(button[1])) {
                         productService.delete(Integer.parseInt(request.getParameter("productId")));

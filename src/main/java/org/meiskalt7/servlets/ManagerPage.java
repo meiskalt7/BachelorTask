@@ -33,7 +33,7 @@ public class ManagerPage extends HttpServlet {
             Operation operation = Operation.valueOf(button[0]);
 
             switch (operation) {
-                case add:
+                case ADD:
 
                     if ("ingridient".equals(button[1])) {
                         String name = req.getParameter("name");
@@ -71,9 +71,9 @@ public class ManagerPage extends HttpServlet {
                     }
 
                     break;
-                case update:
+                case UPDATE:
                     break;
-                case delete:
+                case DELETE:
 
                     int id = Integer.parseInt(req.getParameter("id"));
 

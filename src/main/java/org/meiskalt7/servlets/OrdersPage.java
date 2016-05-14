@@ -30,9 +30,9 @@ public class OrdersPage extends HttpServlet {
                 Operation operation = Operation.valueOf(button[0]);
 
                 switch (operation) {
-                    case add:
+                    case ADD:
                         break;
-                    case update:
+                    case UPDATE:
                         if ("order".equals(button[1])) {
                             int id = Integer.parseInt(req.getParameter("id"));
                             Order order = orderService.get(id);
@@ -40,7 +40,7 @@ public class OrdersPage extends HttpServlet {
                             orderService.update(order);
                         }
                         break;
-                    case delete:
+                    case DELETE:
                         if ("order".equals(button[1])) {
                             int id = Integer.parseInt(req.getParameter("id"));
                             orderService.delete(id);
