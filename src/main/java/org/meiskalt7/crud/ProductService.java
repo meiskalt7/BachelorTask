@@ -11,7 +11,7 @@ public class ProductService implements GenericDao<Product> {
 
     private static ProductService productService;
 
-    private EntityManager em = EntityManagerUtil.getEntityManager();
+    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private ProductService() {
     }

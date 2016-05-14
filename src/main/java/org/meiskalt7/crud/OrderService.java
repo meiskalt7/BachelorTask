@@ -12,9 +12,9 @@ public class OrderService implements GenericDao<Order> {
     private static OrderService orderService;
 
     @PersistenceContext
-    private EntityManager em = EntityManagerUtil.getEntityManager();
+    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
-    public OrderService() {
+    private OrderService() {
 
     }
 

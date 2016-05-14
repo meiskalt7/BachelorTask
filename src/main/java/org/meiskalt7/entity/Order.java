@@ -28,7 +28,7 @@ public class Order {
     private boolean ended;
 
     @OneToMany(mappedBy = "order")
-    private List<Orderlist> orderlists = new ArrayList<Orderlist>();
+    private List<Orderlist> orderlists = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "id_empl", nullable = false, insertable = false, updatable = false)
@@ -48,10 +48,6 @@ public class Order {
         this.id_empl = employee.getId();
         this.id_table = table.getId();
         this.ended = false;
-    }
-
-    public Order(Timestamp datetime, int id_table, int id_empl) {
-
     }
 
     public int getId() {
@@ -115,6 +111,6 @@ public class Order {
     }
 
     public void setEnded(boolean ended) {
-        this.ended = ended;
+        this.ended = true;
     }
 }

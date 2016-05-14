@@ -11,7 +11,7 @@ public class EmployeeService implements GenericDao<Employee> {
 
     private static EmployeeService employeeService;
     @PersistenceContext
-    private EntityManager em = EntityManagerUtil.getEntityManager();
+    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private EmployeeService() {
     }

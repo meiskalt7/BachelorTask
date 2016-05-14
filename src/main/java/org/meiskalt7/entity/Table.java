@@ -17,9 +17,9 @@ public class Table {
     @Column
     private String type;
     @OneToMany(mappedBy = "table", fetch = FetchType.LAZY)
-    private List<Reservation> reservations = new ArrayList<Reservation>();
+    private List<Reservation> reservations = new ArrayList<>();
     @ManyToMany(mappedBy = "tables")
-    private List<Employee> employees = new ArrayList<Employee>();
+    private List<Employee> employees = new ArrayList<>();
 
     public Table() {
     }

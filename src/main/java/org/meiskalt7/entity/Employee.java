@@ -36,21 +36,21 @@ public class Employee {
             joinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "workshift_id", referencedColumnName = "id")
     )
-    private List<Workshift> workshifts = new ArrayList<Workshift>();
+    private List<Workshift> workshifts = new ArrayList<>();
     @ManyToMany
     @JoinTable(
             name = "tables_employees",
             joinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "table_id", referencedColumnName = "id")
     )
-    private List<org.meiskalt7.entity.Table> tables = new ArrayList<org.meiskalt7.entity.Table>();
+    private List<org.meiskalt7.entity.Table> tables = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "usertype_id", nullable = false, insertable = false, updatable = false)
     private UserType userType = new UserType();
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
-    private List<Order> orderList = new ArrayList<Order>();
+    private List<Order> orderList = new ArrayList<>();
 
     public Employee() {
     }

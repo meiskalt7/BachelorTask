@@ -100,8 +100,8 @@ public class ManagerPage extends HttpServlet {
         Employee employee = employeeService.get(Integer.parseInt(req.getParameter("employee")));
         final String tablesId[] = req.getParameterValues("tables");
         List<Table> tables = new ArrayList<Table>() {{
-            for (int i = 0; i < tablesId.length; i++) {
-                add(tableService.get(Integer.parseInt(tablesId[i])));
+            for (String aTablesId : tablesId) {
+                add(tableService.get(Integer.parseInt(aTablesId)));
             }
         }};
         employee.getTables().addAll(tables);
@@ -116,8 +116,8 @@ public class ManagerPage extends HttpServlet {
     private void createWorkshift(HttpServletRequest req, WorkshiftService workshiftService, final EmployeeService employeeService, TimeRangeService timeRangeService) {
         final String[] employeeId = req.getParameterValues("employee");
         List<Employee> employees = new ArrayList<Employee>() {{
-            for (int i = 0; i < employeeId.length; i++) {
-                add(employeeService.get(Integer.parseInt(employeeId[i])));
+            for (String anEmployeeId : employeeId) {
+                add(employeeService.get(Integer.parseInt(anEmployeeId)));
             }
         }};
         Date date = Date.valueOf(req.getParameter("date"));

@@ -25,17 +25,17 @@
             var i = $('#ingridDiv p').size() + 1;
 
             $(document).on('click', '#delete_ingrid_button' + i, function () {
-                alert('Удалим элемент' + i)
+                alert('Удалим элемент' + i);
                 if (i > 0) {
                     i--;
-                    alert('Удалим элемент' + i)
+                    alert('Удалим элемент' + i);
                     jQuery('#selectIngrid' + i).remove();
                 }
                 return false;
             });
 
             $("#add_ingrid_button").click(function () {
-                alert('добавлен элемент' + i)
+                alert('добавлен элемент' + i);
                 jQuery('#delete_ingrid_button' + (i - 1)).remove();
                 $('<p id="selectIngrid' + i + '"><select name="ingridientsId" required><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><input type="text" name="quantity"/><button id="delete_ingrid_button' + i + '" type="button" class="deleteButton">x</button></p>').appendTo(ingridDiv);
                 i++;

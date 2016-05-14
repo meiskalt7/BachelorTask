@@ -97,8 +97,8 @@ public class AdminPage extends HttpServlet {
         productService.add(product);
         final String ingridientsId[] = request.getParameterValues("ingridientsId");
         List<Ingridient> ingridients = new ArrayList<Ingridient>() {{
-            for (int i = 0; i < ingridientsId.length; i++) {
-                add(ingridientService.get(Integer.parseInt(ingridientsId[i])));
+            for (String anIngridientsId : ingridientsId) {
+                add(ingridientService.get(Integer.parseInt(anIngridientsId)));
             }
         }};
         String required[] = request.getParameterValues("quantity");
@@ -112,7 +112,6 @@ public class AdminPage extends HttpServlet {
             product.getIngridients().add(composition);
             i++;
         }
-        return;
     }
 
     private void createEmployee(HttpServletRequest request, EmployeeService employeeService, UserTypeService userTypeService) {

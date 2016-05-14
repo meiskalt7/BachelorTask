@@ -1,7 +1,6 @@
 package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.EmployeeService;
-import org.meiskalt7.crud.IngridientService;
 import org.meiskalt7.crud.OrderService;
 import org.meiskalt7.entity.*;
 
@@ -24,7 +23,6 @@ public class StatisticPage extends HttpServlet {
 
         OrderService orderService = OrderService.getInstance();
         EmployeeService employeeService = EmployeeService.getInstance();
-        IngridientService ingridientService = IngridientService.getInstance();
 
         List<Order> endedOrders = new ArrayList<>();
         ArrayList<String> employeeAndWageList = null;
@@ -34,7 +32,6 @@ public class StatisticPage extends HttpServlet {
         double ingridientSum = 0;
         double rent = 0;
         double salesSum = 0;
-        double income = 0;
         double costs = 0;
 
         if (req.getParameter("button") != null) {
@@ -52,38 +49,31 @@ public class StatisticPage extends HttpServlet {
                         case BALANCE:
                             //Доходы(продажи) - расходы(З/П, Ингридиенты, Аренда)
                             salesSum = getSalesSum(orderService, productList);
+
+                            employeeAndWageList = new ArrayList<>();
+                            wageSum = getWageSum(employeeService, employeeAndWageList, wageSum);
+
+                            ingridientAndCostList = new ArrayList<>();
+                            ingridientSum = getIngridientSum(orderService, ingridientAndCostList, ingridientSum);
+
+                            rent = 5000;
+
+                            costs += wageSum + ingridientSum + rent;
                             break;
 
                         case INCOME:
                             salesSum = getSalesSum(orderService, productList);
                             break;
                         case COSTS:
-                            //sum zp, ingridient cost, arenda, itogo
                             employeeAndWageList = new ArrayList<>();
-                            for (Employee employee : employeeService.getAll()) {
-                                employeeAndWageList.add(employee.getSurname() + " " + employee.getName() + ":" + employee.getWage());
-                                wageSum += employee.getWage();
-                            }
+                            wageSum = getWageSum(employeeService, employeeAndWageList, wageSum);
 
-                            //ingridients
                             ingridientAndCostList = new ArrayList<>();
-                            for (Order order : orderService.getAll()) {
-                                if (order.isEnded()) {
-                                    for (Orderlist orderlist : order.getOrderlists()) {
-                                        for (Composition composition : orderlist.getProduct().getIngridients()) {
-                                            ingridientAndCostList.add(composition.getIngridient().getName() + ":" + composition.getIngridient().getPrice());
-                                            ingridientSum += orderlist.getQuantity() * (composition.getIngridient().getPrice() * composition.getRequired());
-                                        }
-                                    }
-                                }
-                            }
+                            ingridientSum = getIngridientSum(orderService, ingridientAndCostList, ingridientSum);
 
-                            //arenda(get from db)
                             rent = 5000;
 
-                            //sum
                             costs += wageSum + ingridientSum + rent;
-
                             break;
                         case ORDER:
 
@@ -113,6 +103,28 @@ public class StatisticPage extends HttpServlet {
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/statisticPage.jsp");
         rd.forward(req, resp);
+    }
+
+    private double getIngridientSum(OrderService orderService, ArrayList<String> ingridientAndCostList, double ingridientSum) {
+        for (Order order : orderService.getAll()) {
+            if (order.isEnded()) {
+                for (Orderlist orderlist : order.getOrderlists()) {
+                    for (Composition composition : orderlist.getProduct().getIngridients()) {
+                        ingridientAndCostList.add(composition.getIngridient().getName() + ":" + composition.getIngridient().getPrice());
+                        ingridientSum += orderlist.getQuantity() * (composition.getIngridient().getPrice() * composition.getRequired());
+                    }
+                }
+            }
+        }
+        return ingridientSum;
+    }
+
+    private double getWageSum(EmployeeService employeeService, ArrayList<String> employeeAndWageList, double wageSum) {
+        for (Employee employee : employeeService.getAll()) {
+            employeeAndWageList.add(employee.getSurname() + " " + employee.getName() + ":" + employee.getWage());
+            wageSum += employee.getWage();
+        }
+        return wageSum;
     }
 
     private double getSalesSum(OrderService orderService, ArrayList<Product> productList) {

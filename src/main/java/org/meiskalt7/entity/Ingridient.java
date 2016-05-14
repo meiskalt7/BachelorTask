@@ -20,7 +20,7 @@ public class Ingridient {
     @Column
     private double price;
     @OneToMany(mappedBy = "ingridient")
-    private List<Composition> products = new ArrayList<Composition>();
+    private List<Composition> products = new ArrayList<>();
 
     public Ingridient() {
     }

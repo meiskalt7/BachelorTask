@@ -12,7 +12,7 @@ public class CategoryService implements GenericDao<Category> {
 
     private static CategoryService categoryService;
     @PersistenceContext
-    private EntityManager em = EntityManagerUtil.getEntityManager();
+    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private CategoryService() {
 

@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="index2.css" rel="stylesheet" type="text/css">
     <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="accordion-menu.js" type="text/javascript"></script>
     <script src="float-panel.js"></script>
@@ -189,65 +189,34 @@
 </form>
 
 
-<table border="1" style="display: inline-block; border: 1px solid; float: left; ">
-    <thead>
+<table border="1">
     <tr>
         <th>Вид расхода</th>
-        <th>З/П</th>
     </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="employeeAndWage" items="${employeeAndWageList}">
-        <tr>
-            <td></td>
-            <td>${employeeAndWage}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-    <tfoot>
     <tr>
-        <td>Общий счет:</td>
+        <th>З/П</th>
+        <c:forEach var="employeeAndWage" items="${employeeAndWageList}">
+            <td>${employeeAndWage}</td>
+        </c:forEach>
         <td>${wageSum}</td>
     </tr>
-    </tfoot>
-</table>
-
-<table border="1">
-    <thead>
     <tr>
         <th>Ингридиенты</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="ingridientAndCost" items="${ingridientAndCostList}">
-        <tr>
+        <c:forEach var="ingridientAndCost" items="${ingridientAndCostList}">
             <td>${ingridientAndCost}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-    <tfoot>
-    <tr>
+        </c:forEach>
         <td>${ingridientSum}</td>
     </tr>
-    </tfoot>
-</table>
-
-<table border="1">
-    <thead>
     <tr>
         <th>Аренда</th>
+        <td>${rent}</td>
     </tr>
-    </thead>
-    <tbody>
     <tr>
-        <td rowspan="42">${rent}</td>
     </tr>
-    </tbody>
-    <tfoot>
     <tr>
+        <th>Итого:</th>
         <td>${costs}</td>
     </tr>
-    </tfoot>
 </table>
 
 <h2>Сумма всех доходов за месяц(выбор месяца, либо всего)</h2>

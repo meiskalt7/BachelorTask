@@ -33,7 +33,7 @@ public class Product {
             joinColumns = @JoinColumn(name = "prod_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ingrid_id", referencedColumnName = "id")
     )*/
-    private List<Composition> ingridients = new ArrayList<Composition>();
+    private List<Composition> ingridients = new ArrayList<>();
 
     public Product(int id, int cat_id, String name, double price) {
         this.id = id;
