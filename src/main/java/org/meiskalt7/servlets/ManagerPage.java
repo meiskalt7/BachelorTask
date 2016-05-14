@@ -39,7 +39,7 @@ public class ManagerPage extends HttpServlet {
                         case INGRIDIENT:
                             createIngridient(req, ingridientService);
                             break;
-                        case WORKHIFT:
+                        case WORKSHIFT:
                             createWorkshift(req, workshiftService, employeeService, timeRangeService);
                             break;
                         case TABLES_EMPLOYEES:
@@ -52,7 +52,6 @@ public class ManagerPage extends HttpServlet {
                 case UPDATE:
                     break;
                 case DELETE:
-
                     int id = Integer.parseInt(req.getParameter("id"));
                     switch (entity) {
                         case TABLE:
@@ -62,22 +61,9 @@ public class ManagerPage extends HttpServlet {
                             ingridientService.delete(id);
                             break;
                         case EMPLOYEE:
-                            if (req.getParameter("tableId") != null) {
-                                String[] tableId = req.getParameterValues("tableId");
-                                Employee employee = employeeService.get(id);
-                                for (String tid : tableId) {
-                                    Iterator<Table> i = employee.getTables().iterator();
-                                    while (i.hasNext()) {
-                                        Table table = i.next();
-                                        if (table.getId() == Integer.parseInt(tid)) {
-                                            i.remove();
-                                        }
-                                    }
-                                }
-                                employeeService.update(employee);
-                            }
+                            deassignTables(req, employeeService, id);
                             break;
-                        case WORKHIFT:
+                        case WORKSHIFT:
                             workshiftService.delete(id);
                             break;
                     }
@@ -94,6 +80,23 @@ public class ManagerPage extends HttpServlet {
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/managerPage.jsp");
         rd.forward(req, resp);
+    }
+
+    private void deassignTables(HttpServletRequest req, EmployeeService employeeService, int id) {
+        if (req.getParameter("tableId") != null) {
+            String[] tableId = req.getParameterValues("tableId");
+            Employee employee = employeeService.get(id);
+            for (String tid : tableId) {
+                Iterator<Table> i = employee.getTables().iterator();
+                while (i.hasNext()) {
+                    Table table = i.next();
+                    if (table.getId() == Integer.parseInt(tid)) {
+                        i.remove();
+                    }
+                }
+            }
+            employeeService.update(employee);
+        }
     }
 
     private void assignTables(HttpServletRequest req, EmployeeService employeeService, final TableService tableService) {

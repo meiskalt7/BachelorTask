@@ -19,6 +19,24 @@ public class ReservationsPage extends HttpServlet {
 
         req.setAttribute("reservationList", reservationService.getAll());
 
+        if (req.getParameter("button") != null) {
+            String button[] = req.getParameter("button").split(" ");
+
+            Operation operation = Operation.valueOf(button[0]);
+            Entity entity = Entity.valueOf(button[1]);
+
+            switch (operation) {
+                case DELETE:
+                    switch (entity) {
+                        case RESERVATION:
+                            int id = Integer.parseInt(req.getParameter("id"));
+                            reservationService.delete(id);
+                            break;
+                    }
+                    break;
+            }
+        }
+
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/reservationsPage.jsp");
         rd.forward(req, resp);
