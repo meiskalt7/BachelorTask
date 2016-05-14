@@ -1,7 +1,11 @@
 package org.meiskalt7.servlets;
 
+import org.meiskalt7.crud.EmployeeService;
 import org.meiskalt7.crud.OrderService;
+import org.meiskalt7.entity.Employee;
 import org.meiskalt7.entity.Order;
+import org.meiskalt7.entity.Orderlist;
+import org.meiskalt7.entity.Product;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,28 +15,91 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-@WebServlet(name = "StatisticPage")
+@WebServlet(name = "statisticPage")
 public class StatisticPage extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         OrderService orderService = OrderService.getInstance();
-
+        EmployeeService employeeService = EmployeeService.getInstance();
         List<Order> endedOrders = new ArrayList<>();
-        for (Order order : orderService.getAll()) {
-            if (order.isEnded()) {
-                endedOrders.add(order);
+        ArrayList<String> employeeAndWageList = null;
+        ArrayList<Product> productList = new ArrayList<>();
+        double wageSum = 0;
+        double salesSum = 0;
+        double income = 0;
+        double costs = 0;
+
+        if (req.getParameter("button") != null) {
+            String button[] = req.getParameter("button").split(" ");
+
+            Operation operation = Operation.valueOf(button[0]);
+            Entity entity = Entity.valueOf(button[1]);
+            Calendar calendar = Calendar.getInstance();
+            int month = Integer.parseInt(req.getParameter("month"));
+
+            switch (operation) {
+                case READ:
+
+                    switch (entity) {
+                        case BALANCE:
+                            //Доходы(продажи) - расходы(З/П, Ингридиенты, Аренда)
+                            salesSum = getSalesSum(orderService, productList);
+                            break;
+
+                        case INCOME:
+                            salesSum = getSalesSum(orderService, productList);
+                            break;
+                        case COSTS:
+                            //sum zp, ingridient cost, arenda, itogo
+                            employeeAndWageList = new ArrayList<>();
+                            for (Employee employee : employeeService.getAll()) {
+                                employeeAndWageList.add(employee.getSurname() + " " + employee.getName() + ":" + employee.getWage());
+                                wageSum += employee.getWage();
+                            }
+                            break;
+                        case ORDER:
+
+                            for (Order order : orderService.getAll()) {
+                                if (order.isEnded()) {
+                                    calendar.setTime(order.getDatetime());
+                                    if (month == -1 || calendar.get(Calendar.MONTH) == month)
+                                        endedOrders.add(order);
+                                }
+                            }
+                            break;
+                    }
+                    break;
             }
         }
 
         req.setAttribute("orderList", endedOrders);
+        req.setAttribute("rent", 5000);
+        req.setAttribute("wageSum", wageSum);
+        req.setAttribute("salesSum", salesSum);
+        req.setAttribute("employeeAndWageList", employeeAndWageList);
+        req.setAttribute("productList", productList);
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/statisticPage.jsp");
         rd.forward(req, resp);
+    }
+
+    private double getSalesSum(OrderService orderService, ArrayList<Product> productList) {
+        double salesSum = 0;
+        for (Order order : orderService.getAll()) {
+            if (order.isEnded()) {
+                for (Orderlist orderlist : order.getOrderlists()) {
+                    productList.add(orderlist.getProduct());
+                    salesSum += orderlist.getProduct().getPrice() * orderlist.getQuantity();
+                }
+            }
+        }
+        return salesSum;
     }
 
     @Override

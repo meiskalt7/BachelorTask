@@ -92,7 +92,7 @@
             <td><input type="text" name="name" maxlength="255" required/></td>
             <td><input type="text" name="quantity" required/></td>
             <td>
-                <button type="submit" name="button" value="add ingridient" class="addProductButton"/>
+                <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton"/>
                 Добавить
             </td>
             </tbody>
@@ -115,7 +115,7 @@
         <td>
             <form>
                 <input type="hidden" name="id" value="${ingrid.getId()}">
-                <button type="submit" name="button" value="delete ingridient" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE INGRIDIENT" class="deleteButton">DELETE
                 </button>
             </form>
         </td>
@@ -151,7 +151,7 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="add workshift" class="addProductButton"/>
+                <button type="submit" name="button" value="ADD WORKSHIFT" class="addProductButton"/>
                 Добавить
             </td>
             </tbody>
@@ -187,7 +187,7 @@
             <td>
                 <form>
                     <input type="hidden" name="id" value="${workshift.getId()}">
-                    <button type="submit" name="button" value="delete workshift" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="DELETE WORKSHIFT" class="deleteButton">DELETE
                     </button>
                 </form>
             </td>
@@ -221,7 +221,7 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="add tables_employees" class="addProductButton"/>
+                <button type="submit" name="button" value="ADD TABLES_EMPLOYEES" class="addProductButton"/>
                 Добавить
             </td>
             </tbody>
@@ -251,7 +251,7 @@
                 </select></td>
                 <td>
                     <input type="hidden" name="id" value="${employee.getId()}">
-                    <button type="submit" name="button" value="delete employee" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="DELETE EMPLOYEE" class="deleteButton">DELETE
                     </button>
                 </td>
             </form>
@@ -274,7 +274,7 @@
             <td><input type="text" name="number" required/></td>
             <td><input type="text" name="table" required/></td>
             <td>
-                <button type="submit" name="button" value="add table" class="addProductButton"/>
+                <button type="submit" name="button" value="ADD TABLE" class="addProductButton"/>
                 Добавить
             </td>
             </tbody>
@@ -296,7 +296,7 @@
         <td>
             <form action="${pageContext.request.contextPath}/workshift" method="get">
                 <input type="hidden" name="id" value="${table.getId()}">
-                <button type="submit" name="button" value="delete table" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE TABLE" class="deleteButton">DELETE
                 </button>
             </form>
         </td>
