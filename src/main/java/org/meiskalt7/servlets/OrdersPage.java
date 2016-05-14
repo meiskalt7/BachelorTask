@@ -52,7 +52,7 @@ public class OrdersPage extends HttpServlet {
             int userId = Integer.parseInt(req.getSession().getAttribute("userId").toString());
             EmployeeService employeeService = EmployeeService.getInstance();
             Employee employee = employeeService.get(userId);
-            req.setAttribute("orderList", employee.getOrders());
+            req.setAttribute("orderList", employee.getOrderList());
         }
 
         RequestDispatcher rd = getServletContext()
