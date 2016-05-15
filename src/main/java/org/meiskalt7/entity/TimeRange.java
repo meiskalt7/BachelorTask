@@ -18,7 +18,7 @@ public class TimeRange {
     @Column
     private Time finish;
 
-    @OneToMany(mappedBy = "timeRange")
+    @OneToMany(mappedBy = "timeRange", cascade = CascadeType.ALL)
     private List<Workshift> workshiftList = new ArrayList<>();
 
     public TimeRange() {
@@ -51,5 +51,13 @@ public class TimeRange {
 
     public void setFinish(Time finish) {
         this.finish = finish;
+    }
+
+    public List<Workshift> getWorkshiftList() {
+        return workshiftList;
+    }
+
+    public void setWorkshiftList(List<Workshift> workshiftList) {
+        this.workshiftList = workshiftList;
     }
 }

@@ -85,8 +85,9 @@
         <table border="0">
             <thead>
             <tr>
-                <th>Название:</th>
-                <th>Количество:</th>
+                <th>Название</th>
+                <th>Количество</th>
+                <th>Цена</th>
             </thead>
             <tbody>
             <td><input type="text" name="name" maxlength="255" required/></td>
@@ -145,7 +146,7 @@
                             value='${employee.getSurname()}'/></option>
                 </c:forEach>
             </select></td>
-            <td><input type="date" name="date" required/></td>
+            <td><input type="date" name="date" required min="${today}" value="${today}"/></td>
             <td><select name="timerange" size="1" required>
                 <c:forEach var="timerange" items="${timerangeList}">
                     <option value="<c:out value='${timerange.getId()}'/>"><c:out value='${timerange.getStart()}'/> -

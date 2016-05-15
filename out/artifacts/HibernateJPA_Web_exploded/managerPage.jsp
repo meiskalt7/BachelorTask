@@ -85,8 +85,9 @@
         <table border="0">
             <thead>
             <tr>
-                <th>Название:</th>
-                <th>Количество:</th>
+                <th>Название</th>
+                <th>Количество</th>
+                <th>Цена</th>
             </thead>
             <tbody>
             <td><input type="text" name="name" maxlength="255" required/></td>
@@ -100,7 +101,7 @@
         </table>
     </form>
 </div>
-<h2>Список ингридиентов</h2>
+<h2>Ингридиентов на складе</h2>
 <table border="1">
     <thead>
     <tr>
@@ -127,7 +128,7 @@
     </c:forEach>
 </table>
 
-<h2>Добавить смену</h2>
+<h2>Добавить расписание</h2>
 
 <div class="wrapper">
     <form action="${pageContext.request.contextPath}/workshift" method="get">
@@ -145,7 +146,7 @@
                             value='${employee.getSurname()}'/></option>
                 </c:forEach>
             </select></td>
-            <td><input type="date" name="date" required/></td>
+            <td><input type="date" name="date" required min="${today}" value="${today}"/></td>
             <td><select name="timerange" size="1" required>
                 <c:forEach var="timerange" items="${timerangeList}">
                     <option value="<c:out value='${timerange.getId()}'/>"><c:out value='${timerange.getStart()}'/> -
@@ -161,7 +162,7 @@
         </table>
     </form>
 </div>
-<h2>Список смен</h2>
+<h2>Расписание</h2>
 
 <table border="1">
     <thead>

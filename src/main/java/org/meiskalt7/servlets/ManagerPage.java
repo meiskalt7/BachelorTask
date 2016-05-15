@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -76,6 +77,9 @@ public class ManagerPage extends HttpServlet {
         req.setAttribute("employeeList", employeeService.getAll());
         req.setAttribute("timerangeList", timeRangeService.getAll());
         req.setAttribute("tableList", tableService.getAll());
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        req.setAttribute("today", simpleDateFormat.format(new java.util.Date()));
 
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/managerPage.jsp");

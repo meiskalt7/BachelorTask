@@ -23,6 +23,8 @@ public class AdminPage extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //TODO логирование изменений пользователями
+        //TODO добавить ингридиент(удаление третьей и т.д. ячеек)
         ProductService productService = ProductService.getInstance();
         CategoryService categoryService = CategoryService.getInstance();
         EmployeeService employeeService = EmployeeService.getInstance();
