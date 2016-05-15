@@ -14,7 +14,8 @@
     <link href="css/popup.css" rel="stylesheet" type="text/css">
     <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="js/accordion-menu.js" type="text/javascript"></script>
-    <script src="css/float-panel.js"></script>
+    <script src="js/popup.js" type="text/javascript"></script>
+    <script src="js/float-panel.js"></script>
     <title>Администрирование</title>
     <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 
@@ -45,20 +46,6 @@
                 return false;
             });
         });
-
-        //Функция отображения PopUp
-        function PopUpShow(id) {
-            alert(id);
-            $("#id").val(id);
-            $("#start").val('${timerangeList.get(id).getStart().toString().substring(0,5)}');
-            $("#finish").val('${timerangeList.get(id).getFinish().toString().substring(0,5)}');
-
-            $("#popup1").show();
-        }
-        //Функция скрытия PopUp
-        function PopUpHide() {
-            $("#popup1").hide();
-        }
 
     </script>
 </head>
@@ -339,10 +326,12 @@
         <td>${timerange.getStart()}</td>
         <td>${timerange.getFinish()}</td>
         <td>
-            <button type="button" onclick="PopUpShow('${timerange.getId()}')" class="updateButton">CHANGE
+            <button type="button"
+                    onclick="PopUpShow('${timerange.getId()}', '${timerangeList.get(id).getStart().toString().substring(0,5)}', '${timerangeList.get(id).getFinish().toString().substring(0,5)}')"
+                    class="updateButton">CHANGE
             </button>
             <form>
-                <input type="hidden" name="timerangeId" value="${loop.index}">
+                <input type="hidden" name="timerangeId" value="${timerange.getId()}">
                 <button type="submit" name="button" value="DELETE TIMERANGE" class="deleteButton">DELETE
                 </button>
             </form>

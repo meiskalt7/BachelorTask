@@ -12,7 +12,7 @@
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="js/accordion-menu.js" type="text/javascript"></script>
-    <script src="css/float-panel.js"></script>
+    <script src="js/float-panel.js"></script>
     <title>Заказы</title>
 </head>
 <body>
