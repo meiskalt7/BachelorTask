@@ -11,6 +11,7 @@
 <html>
 <head>
     <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="popup.css" rel="stylesheet" type="text/css">
     <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="accordion-menu.js" type="text/javascript"></script>
     <script src="float-panel.js"></script>
@@ -20,6 +21,8 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+
+            PopUpHide();
 
             var ingridDiv = $('#ingridDiv');
             var i = $('#ingridDiv p').size() + 1;
@@ -42,6 +45,21 @@
                 return false;
             });
         });
+
+        //Функция отображения PopUp
+        function PopUpShow(id) {
+
+            alert(id);
+            $("#id").val(id);
+            $("#start").val('${timerangeList.get(id).getStart().toString().substring(0,5)}');
+            $("#finish").val('${timerangeList.get(id).getFinish().toString().substring(0,5)}');
+
+            $("#popup1").show();
+        }
+        //Функция скрытия PopUp
+        function PopUpHide() {
+            $("#popup1").hide();
+        }
 
     </script>
 </head>
@@ -317,13 +335,15 @@
     <th>Конец</th>
     </thead>
     <tbody>
-    <c:forEach var="timerange" items="${timerangeList}">
+    <c:forEach var="timerange" items="${timerangeList}" varStatus="loop">
     <tr>
         <td>${timerange.getStart()}</td>
         <td>${timerange.getFinish()}</td>
         <td>
+            <button type="button" onclick="PopUpShow('${timerange.getId()}')" class="updateButton">CHANGE
+            </button>
             <form>
-                <input type="hidden" name="timerangeId" value="${timerange.getId()}">
+                <input type="hidden" name="timerangeId" value="${loop.index}">
                 <button type="submit" name="button" value="DELETE TIMERANGE" class="deleteButton">DELETE
                 </button>
             </form>
@@ -332,6 +352,20 @@
     </tbody>
     </c:forEach>
 </table>
+
+<div class="b-popup" id="popup1">
+    <div class="b-popup-content">
+        Изменение работы смены
+        <form>
+            <input id="id" type="hidden" name="id" required>
+            <input id="start" type="time" name="start" maxlength="255" required/>
+            <input id="finish" type="time" name="finish" maxlength="255" required/>
+            <button type="submit" name="button" value="UPDATE TIMERANGE" class="updateButton">UPDATE
+            </button>
+        </form>
+        <a href="javascript:PopUpHide()">Отмена</a>
+    </div>
+</div>
 ${errorMessage}
 </body>
 </html>

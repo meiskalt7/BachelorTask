@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="some renaming">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="min date">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/popup.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" afterPath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/TimeRange.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/TimeRange.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Workshift.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Workshift.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage$1.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/servlets/AdminPage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/adminPage.jsp" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/adminPage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/index.css" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/managerPage.jsp" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/managerPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/ordersPage.jsp" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/ordersPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/managerPage.jsp" afterPath="$PROJECT_DIR$/web/managerPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/adminPage.jsp" afterPath="$PROJECT_DIR$/web/adminPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.css" afterPath="$PROJECT_DIR$/web/index.css" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -95,21 +90,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="adminPage.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="adminPage.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/adminPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="16.346153">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManagerPage.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58301884">
-              <caret line="78" column="69" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.22284645">
+              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -119,17 +104,60 @@
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/net/DualStackPlainSocketImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="282" column="22" selection-start-line="282" selection-start-column="22" selection-end-line="282" selection-end-column="22" />
+              <caret line="273" column="0" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pricelist.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Pricelist.java">
+      <file leaf-file-name="TimeRange.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="98" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="98" />
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+              <folding>
+                <element signature="e#797#798#0" expanded="true" />
+                <element signature="e#825#826#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Time.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/sql/Time.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popup.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/popup.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.307692">
+              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManagerPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.896552">
+              <caret line="142" column="70" selection-start-line="142" selection-start-column="70" selection-end-line="142" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.23077">
+              <caret line="247" column="13" selection-start-line="247" selection-start-column="13" selection-end-line="247" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -139,7 +167,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeRangeService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -148,7 +186,7 @@
       <file leaf-file-name="managerPage.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/managerPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
+            <state vertical-scroll-proportion="49.692307">
               <caret line="148" column="86" selection-start-line="148" selection-start-column="86" selection-end-line="148" selection-end-column="86" />
               <folding />
             </state>
@@ -164,6 +202,7 @@
         <option value="Jsp File" />
         <option value="Class" />
         <option value="Enum" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -181,7 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ReservationPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Orderlist.java" />
@@ -222,16 +260,17 @@
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Employee.java" />
-        <option value="$PROJECT_DIR$/web/index.css" />
         <option value="$PROJECT_DIR$/web/statisticPage.jsp" />
         <option value="$PROJECT_DIR$/web/ordersPage.jsp" />
-        <option value="$PROJECT_DIR$/web/adminPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" />
         <option value="dbtable:/525d44cf/8830a087-103b-432a-840f-c24bd77759bf/baka.public.employees" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" />
         <option value="$PROJECT_DIR$/web/managerPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java" />
+        <option value="$PROJECT_DIR$/web/popup.css" />
+        <option value="$PROJECT_DIR$/web/index.css" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" />
+        <option value="$PROJECT_DIR$/web/adminPage.jsp" />
       </list>
     </option>
   </component>
@@ -353,24 +392,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJPA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="improvetaskBaka" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -559,6 +580,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="SearchEverywhereHistoryKey" value="employee&#9;FILE&#9;file://C:/Users/Eiskalt/IdeaProjects/improvetaskBaka/src/main/java/org/meiskalt7/entity/Employee.java&#10;Tab&#9;PSI&#9;JAVA://org.meiskalt7.entity.Table&#10;Wor&#9;FILE&#9;file://C:/Users/Eiskalt/IdeaProjects/improvetaskBaka/src/main/java/org/meiskalt7/entity/Workshift.java&#10;admin&#9;FILE&#9;file://C:/Users/Eiskalt/IdeaProjects/improvetaskBaka/web/adminPage.jsp&#10;Ingridi&#9;FILE&#9;file://C:/Users/Eiskalt/IdeaProjects/improvetaskBaka/src/main/java/org/meiskalt7/entity/Ingridient.java&#10;Ingr&#9;PSI&#9;JAVA://org.meiskalt7.entity.Ingridient" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1045,6 +1067,7 @@
     <configuration default="false" name="index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.29" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/pricelist" />
       <option name="COMMON_VM_ARGUMENTS" value="-Duser.region=us -Duser.language=en" />
+      <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
         <artifact name="HibernateJPA:Web exploded">
           <settings>
@@ -1367,7 +1390,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321502000" />
+    <option name="totallyTimeSpent" value="325464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1384,18 +1407,18 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32575756" sideWeight="0.48560768" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43398267" sideWeight="0.5271855" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3365801" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3795309" sideWeight="0.51706487" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22334754" sideWeight="0.52380955" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22334754" sideWeight="0.48293516" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22334754" sideWeight="0.47619048" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21908316" sideWeight="0.5064935" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19029851" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19029851" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32683983" sideWeight="0.4978678" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36471862" sideWeight="0.7100213" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36363637" sideWeight="0.7100213" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1501,7 +1524,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="235" />
+      <option name="time" value="242" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1514,28 +1537,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/UserTypeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Orderlist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/LoginCheck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48658317">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51699466">
@@ -1750,32 +1751,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.269231">
-          <caret line="138" column="59" selection-start-line="138" selection-start-column="59" selection-end-line="138" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/accordion-menu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0769231">
           <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1189#1190#0" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1996,42 +1976,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Pricelist.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="98" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/net/DualStackPlainSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="282" column="22" selection-start-line="282" selection-start-column="22" selection-end-line="282" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="16.346153">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/managerPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="148" column="86" selection-start-line="148" selection-start-column="86" selection-end-line="148" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -2055,10 +2003,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/popup.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.307692">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.23077">
+          <caret line="247" column="13" selection-start-line="247" selection-start-column="13" selection-end-line="247" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ManagerPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58301884">
-          <caret line="78" column="69" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
+        <state vertical-scroll-proportion="-8.896552">
+          <caret line="142" column="70" selection-start-line="142" selection-start-column="70" selection-end-line="142" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/sql/Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <folding>
+            <element signature="e#797#798#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/managerPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="49.692307">
+          <caret line="148" column="86" selection-start-line="148" selection-start-column="86" selection-end-line="148" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/net/DualStackPlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="273" column="0" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/adminPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22284645">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
           <folding />
         </state>
       </provider>
