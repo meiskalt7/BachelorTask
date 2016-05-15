@@ -57,6 +57,13 @@ public class AdminPage extends HttpServlet {
                     }
                     break;
                 case UPDATE:
+
+                    switch (entity) {
+                        case TIMERANGE:
+                            updateTimeRange(request, timeRangeService);
+                            break;
+                    }
+
                     break;
                 case DELETE:
                     switch (entity) {
@@ -156,6 +163,16 @@ public class AdminPage extends HttpServlet {
         Time start = Time.valueOf(request.getParameter("start") + ":00");
         Time finish = Time.valueOf(request.getParameter("finish") + ":00");
         timeRangeService.add(new TimeRange(start, finish));
+    }
+
+    private void updateTimeRange(HttpServletRequest request, TimeRangeService timeRangeService) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        TimeRange timeRange = timeRangeService.get(id);
+        Time start = Time.valueOf(request.getParameter("start") + ":00");
+        Time finish = Time.valueOf(request.getParameter("finish") + ":00");
+        timeRange.setStart(start);
+        timeRange.setFinish(finish);
+        timeRangeService.update(timeRange);
     }
 
     private double parseDouble(String str, HttpServletRequest request) {

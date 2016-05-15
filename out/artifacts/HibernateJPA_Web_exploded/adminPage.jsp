@@ -48,7 +48,6 @@
 
         //Функция отображения PopUp
         function PopUpShow(id) {
-
             alert(id);
             $("#id").val(id);
             $("#start").val('${timerangeList.get(id).getStart().toString().substring(0,5)}');
