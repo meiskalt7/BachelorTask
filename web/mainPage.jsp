@@ -9,10 +9,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="index.css" rel="stylesheet" type="text/css">
-    <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
-    <script src="accordion-menu.js" type="text/javascript"></script>
-    <script src="float-panel.js"></script>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="js/accordion-menu.js" type="text/javascript"></script>
+    <script src="css/float-panel.js"></script>
     <title>Главная</title>
 </head>
 <body>

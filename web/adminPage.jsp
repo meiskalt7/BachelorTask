@@ -10,13 +10,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link href="index.css" rel="stylesheet" type="text/css">
-    <link href="popup.css" rel="stylesheet" type="text/css">
-    <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
-    <script src="accordion-menu.js" type="text/javascript"></script>
-    <script src="float-panel.js"></script>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
+    <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="js/accordion-menu.js" type="text/javascript"></script>
+    <script src="css/float-panel.js"></script>
     <title>Администрирование</title>
-    <script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 
     <script type="text/javascript">
 
