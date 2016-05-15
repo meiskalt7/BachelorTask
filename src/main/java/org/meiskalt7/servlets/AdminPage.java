@@ -62,6 +62,12 @@ public class AdminPage extends HttpServlet {
                         case TIMERANGE:
                             updateTimeRange(request, timeRangeService);
                             break;
+                        case EMPLOYEE:
+                            updateEmployee(request, employeeService, userTypeService);
+                            break;
+                        case CATEGORY:
+                            updateCategory(request, categoryService);
+                            break;
                     }
 
                     break;
@@ -136,6 +142,51 @@ public class AdminPage extends HttpServlet {
         employeeService.add(employee);
     }
 
+    private void updateEmployee(HttpServletRequest request, EmployeeService employeeService, UserTypeService userTypeService) {
+        String surname = request.getParameter("surname");
+        String name = request.getParameter("name");
+        String patronymic = request.getParameter("patronymic");
+        String wage = request.getParameter("wage");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        Employee employee = employeeService.get(id);
+
+
+        if (surname != null && !surname.equals(employee.getSurname())) {
+            employee.setSurname(surname);
+        }
+
+        if (name != null && !name.equals(employee.getName())) {
+            employee.setName(name);
+        }
+
+        if (patronymic != null && !name.equals(employee.getPatronymic())) {
+            employee.setPatronymic(patronymic);
+        }
+
+        if (wage != null && !wage.equals(employee.getWage())) {
+            employee.setWage(parseDouble(wage, request));
+        }
+
+        if (username != null && !username.equals(employee.getUsername())) {
+            employee.setUsername(username);
+        }
+
+        if (password != null && !password.equals(employee.getPassword())) {
+            employee.setPassword(password);
+        }
+
+        int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
+        UserType userType = userTypeService.get(userTypeId);
+        if (userType != null && !userType.equals(employee.getUserType())) {
+            employee.setUserType(userType);
+        }
+
+        employeeService.update(employee);
+    }
+
     private void deleteTimeRange(HttpServletRequest request, TimeRangeService timeRangeService) {
         int timerangeId = Integer.parseInt(request.getParameter("timerangeId"));
         timeRangeService.delete(timerangeId);
@@ -157,6 +208,16 @@ public class AdminPage extends HttpServlet {
     private void createCategory(HttpServletRequest request, CategoryService categoryService) {
         String categoryName = request.getParameter("categoryName");
         categoryService.add(new Category(categoryName));
+    }
+
+    private void updateCategory(HttpServletRequest request, CategoryService categoryService) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Category category = categoryService.get(id);
+        String categoryName = request.getParameter("categoryName");
+        if (categoryName != null && !categoryName.equals(category.getName())) {
+            category.setName(categoryName);
+            categoryService.update(category);
+        }
     }
 
     private void createTimeRange(HttpServletRequest request, TimeRangeService timeRangeService) {

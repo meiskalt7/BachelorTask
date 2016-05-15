@@ -50,8 +50,15 @@ public class ManagerPage extends HttpServlet {
                             createTable(req, tableService);
                     }
                     break;
-                case UPDATE:
+                case UPDATE: {
+                    int id = Integer.parseInt(req.getParameter("id"));
+                    switch (entity) {
+                        case INGRIDIENT:
+                            updateIngridient(req, ingridientService, id);
+                            break;
+                    }
                     break;
+                }
                 case DELETE:
                     int id = Integer.parseInt(req.getParameter("id"));
                     switch (entity) {
@@ -143,6 +150,34 @@ public class ManagerPage extends HttpServlet {
         int quantity = Integer.parseInt(req.getParameter("quantity"));
         double price = Double.parseDouble(req.getParameter("price"));
         ingridientService.add(new Ingridient(name, quantity, price));
+    }
+
+    private void updateIngridient(HttpServletRequest req, IngridientService ingridientService, int id) {
+
+        Ingridient ingridient = ingridientService.get(id);
+
+        String name = req.getParameter("name");
+
+
+        if (name != null && !name.equals(ingridient.getName())) {
+            ingridient.setName(name);
+        }
+
+        if (req.getParameter("quantity") != null) {
+            int quantity = Integer.parseInt(req.getParameter("quantity"));
+            if (quantity != ingridient.getQuantity()) {
+                ingridient.setQuantity(quantity);
+            }
+        }
+
+        if (req.getParameter("price") != null) {
+            double price = Double.parseDouble(req.getParameter("price"));
+            if (price != ingridient.getPrice()) {
+                ingridient.setPrice(price);
+            }
+        }
+
+        ingridientService.update(ingridient);
     }
 
     @Override

@@ -10,9 +10,22 @@
 <html>
 <head>
     <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
     <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="js/accordion-menu.js" type="text/javascript"></script>
+    <script src="js/popup.js" type="text/javascript"></script>
     <script src="js/float-panel.js"></script>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            PopUpHide_ingrid();
+
+        });
+
+    </script>
+
     <title>Смена</title>
 </head>
 <body>
@@ -117,6 +130,10 @@
         <td>${ingrid.getQuantity()}</td>
         <td>${ingrid.getPrice()}</td>
         <td>
+            <button type="button"
+                    onclick="PopUpShow_ingrid('${ingrid.getId()}', '${ingrid.getName()}', '${ingrid.getQuantity()}', '${ingrid.getPrice()}')"
+                    class="updateButton">CHANGE
+            </button>
             <form>
                 <input type="hidden" name="id" value="${ingrid.getId()}">
                 <button type="submit" name="button" value="DELETE INGRIDIENT" class="deleteButton">DELETE
@@ -127,6 +144,22 @@
     </tbody>
     </c:forEach>
 </table>
+
+<%--Всплывающие окно--%>
+<div class="b-popup" id="popup_ingrid">
+    <div class="b-popup-content">
+        Изменение ингридиента
+        <form>
+            <input id="id_c" type="hidden" name="id" required>
+            <input id="name" type="text" name="name" maxlength="255" required/>
+            <input id="quantity" type="text" name="quantity" required/>
+            <input id="price" type="text" name="price" required/>
+            <button type="submit" name="button" value="UPDATE INGRIDIENT" class="updateButton">UPDATE
+            </button>
+        </form>
+        <a href="javascript:PopUpHide_ingrid()">Отмена</a>
+    </div>
+</div>
 
 <h2>Добавить расписание</h2>
 

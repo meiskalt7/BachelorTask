@@ -23,7 +23,9 @@
 
         $(document).ready(function () {
 
-            PopUpHide();
+            PopUpHide_timeRange();
+            PopUpHide_employee();
+            PopUpHide_category();
 
             var ingridDiv = $('#ingridDiv');
             var i = $('#ingridDiv p').size() + 1;
@@ -217,6 +219,10 @@
     <tr>
         <td>${category.getName()}</td>
         <td>
+            <button type="button"
+                    onclick="PopUpShow_category('${category.getId()}', '${category.getName()}')"
+                    class="updateButton">CHANGE
+            </button>
             <form>
                 <input type="hidden" name="categoryId" value="${category.getId()}">
                 <button type="submit" name="button" value="DELETE CATEGORY" class="deleteButton">DELETE
@@ -227,6 +233,22 @@
     </tbody>
     </c:forEach>
 </table>
+
+<%--Всплывающие окно--%>
+<div class="b-popup" id="popup_category">
+    <div class="b-popup-content">
+        Изменение имени категории
+        <form>
+            <input id="id_c" type="hidden" name="id" required>
+            <input id="categoryName" type="text" name="categoryName" maxlength="255" required/>
+            <button type="submit" name="button" value="UPDATE CATEGORY" class="updateButton">UPDATE
+            </button>
+        </form>
+        <a href="javascript:PopUpHide_category()">Отмена</a>
+    </div>
+</div>
+
+
 <h2>Добавить работника</h2>
 
 <form action="${pageContext.request.contextPath}/admin" method="get">
@@ -284,6 +306,10 @@
         <td>${employee.getPassword()}</td>
         <td>${employee.getUserType().getType()}</td>
         <td>
+            <button type="button"
+                    onclick="PopUpShow_employee('${employee.getId()}', '${employee.getSurname()}', '${employee.getName()}', '${employee.getPatronymic()}', '${employee.getWage()}', '${employee.getUsername()}', '${employee.getPassword()}', '${employee.getUserType().getId()}')"
+                    class="updateButton">CHANGE
+            </button>
             <form>
                 <input type="hidden" name="employeeId" value="${employee.getId()}">
                 <button type="submit" name="button" value="DELETE EMPLOYEE" class="deleteButton">DELETE
@@ -294,6 +320,30 @@
     </tbody>
     </c:forEach>
 </table>
+
+<%--Всплывающие окно--%>
+<div class="b-popup" id="popup_employee">
+    <div class="b-popup-content">
+        Изменение данных о работнике
+        <form>
+            <input id="id_e" type="hidden" name="id" required>
+            <input id="surname" type="text" name="surname" maxlength="255" required/>
+            <input id="name" type="text" name="name" maxlength="255" required/>
+            <input id="patronymic" type="text" name="patronymic" maxlength="255" required/>
+            <input id="wage" type="text" name="wage" maxlength="255" required/>
+            <input id="username" type="username" name="username" maxlength="255" required/>
+            <input id="password" type="password" name="password" maxlength="255" required/>
+            <select id="type" name="userTypeId" required>
+                <c:forEach var="userType" items="${userTypeList}">
+                    <option value="${userType.getId()}">${userType.getType()}</option>
+                </c:forEach>
+            </select>
+            <button type="submit" name="button" value="UPDATE EMPLOYEE" class="updateButton">UPDATE
+            </button>
+        </form>
+        <a href="javascript:PopUpHide_employee()">Отмена</a>
+    </div>
+</div>
 
 <h2>Добавить смену</h2>
 
@@ -327,7 +377,7 @@
         <td>${timerange.getFinish()}</td>
         <td>
             <button type="button"
-                    onclick="PopUpShow('${timerange.getId()}', '${timerangeList.get(id).getStart().toString().substring(0,5)}', '${timerangeList.get(id).getFinish().toString().substring(0,5)}')"
+                    onclick="PopUpShow_timeRange('${timerange.getId()}', '${timerangeList.get(id).getStart().toString().substring(0,5)}', '${timerangeList.get(id).getFinish().toString().substring(0,5)}')"
                     class="updateButton">CHANGE
             </button>
             <form>
@@ -341,7 +391,7 @@
     </c:forEach>
 </table>
 
-<div class="b-popup" id="popup1">
+<div class="b-popup" id="popup_timeRange">
     <div class="b-popup-content">
         Изменение работы смены
         <form>
@@ -351,7 +401,7 @@
             <button type="submit" name="button" value="UPDATE TIMERANGE" class="updateButton">UPDATE
             </button>
         </form>
-        <a href="javascript:PopUpHide()">Отмена</a>
+        <a href="javascript:PopUpHide_timeRange()">Отмена</a>
     </div>
 </div>
 ${errorMessage}
