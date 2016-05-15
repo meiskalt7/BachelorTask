@@ -2,6 +2,8 @@ package org.meiskalt7.entity;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @javax.persistence.Table(name = "timeranges")
@@ -15,6 +17,9 @@ public class TimeRange {
     private Time start;
     @Column
     private Time finish;
+
+    @OneToMany(mappedBy = "timeRange")
+    private List<Workshift> workshiftList = new ArrayList<>();
 
     public TimeRange() {
     }

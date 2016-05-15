@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="index2.css" rel="stylesheet" type="text/css">
+    <link href="index.css" rel="stylesheet" type="text/css">
     <link href="accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="accordion-menu.js" type="text/javascript"></script>
     <script src="float-panel.js"></script>
@@ -114,7 +114,7 @@
     <tr>
         <th>Столик</th>
         <th>Время заказа</th>
-        <th>Продукты:Стоимость</th>
+        <th>Блюда:Стоимость</th>
         <th>Итого</th>
         <th></th>
         <th></th>
@@ -254,7 +254,7 @@
 <table border="1">
     <thead>
     <tr>
-        <th>Продукт</th>
+        <th>Блюдо</th>
         <th>Цена</th>
         <th>Количество проданных</th>
         <th>Итого</th>

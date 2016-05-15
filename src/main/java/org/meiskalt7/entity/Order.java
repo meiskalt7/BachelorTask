@@ -27,7 +27,7 @@ public class Order {
     @Column
     private boolean ended;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<Orderlist> orderlists = new ArrayList<>();
 
     @ManyToOne

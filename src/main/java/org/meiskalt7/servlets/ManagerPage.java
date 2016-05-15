@@ -124,7 +124,7 @@ public class ManagerPage extends HttpServlet {
             }
         }};
         Date date = Date.valueOf(req.getParameter("date"));
-        Integer timerangeId = Integer.parseInt(req.getParameter("timerange"));
+        int timerangeId = Integer.parseInt(req.getParameter("timerange"));
         TimeRange timeRange = timeRangeService.get(timerangeId);
         Workshift workshift = new Workshift(date, timeRange, employees);
         workshiftService.add(workshift);

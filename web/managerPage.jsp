@@ -100,7 +100,7 @@
         </table>
     </form>
 </div>
-<h2>Список ингридиентов</h2>
+<h2>Ингридиентов на складе</h2>
 <table border="1">
     <thead>
     <tr>
@@ -127,7 +127,7 @@
     </c:forEach>
 </table>
 
-<h2>Добавить смену</h2>
+<h2>Добавить расписание</h2>
 
 <div class="wrapper">
     <form action="${pageContext.request.contextPath}/workshift" method="get">
@@ -161,7 +161,7 @@
         </table>
     </form>
 </div>
-<h2>Список смен</h2>
+<h2>Расписание</h2>
 
 <table border="1">
     <thead>

@@ -30,7 +30,7 @@ public class Employee {
     @Column
     private String password;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "works",
             joinColumns = @JoinColumn(name = "employees_id", referencedColumnName = "id"),
@@ -49,7 +49,7 @@ public class Employee {
     @JoinColumn(name = "usertype_id", nullable = false, insertable = false, updatable = false)
     private UserType userType = new UserType();
 
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL) //CascadeType -
     private List<Order> orderList = new ArrayList<>();
 
     public Employee() {

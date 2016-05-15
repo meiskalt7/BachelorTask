@@ -21,7 +21,7 @@ public class Workshift {
 
     @ManyToMany(mappedBy = "workshifts")
     private List<Employee> employees = new ArrayList<>();
-    @OneToOne(cascade = CascadeType.MERGE) //мб понадобится еще на обновление
+    @ManyToOne(cascade = CascadeType.MERGE) //мб понадобится еще на обновление
     @JoinColumn(name = "timerange_id", nullable = false, insertable = false, updatable = false)
     private TimeRange timeRange = new TimeRange();
 

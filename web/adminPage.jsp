@@ -107,7 +107,7 @@
 </div>
 
 
-<h2>Добавить продукт</h2>
+<h2>Добавить блюдо</h2>
 
 <div class="wrapper">
     <form action="${pageContext.request.contextPath}/admin" method="get">
@@ -151,7 +151,7 @@
         </table>
     </form>
 </div>
-<h2>Список продуктов</h2>
+<h2>Список блюд</h2>
 <table border="1">
     <thead>
     <tr>
@@ -297,8 +297,8 @@
     <table border="0">
         <thead>
         <tr>
-            <th>Начало:</th>
-            <th>Конец:</th>
+            <th>Начало</th>
+            <th>Конец</th>
         </thead>
         <tbody>
         <td><input type="time" name="start" maxlength="255" required/></td>
@@ -313,8 +313,8 @@
 <h2>Список смен</h2>
 <table border="1">
     <thead>
-    <th>Фамилия</th>
-    <th>Имя</th>
+    <th>Начало</th>
+    <th>Конец</th>
     </thead>
     <tbody>
     <c:forEach var="timerange" items="${timerangeList}">
