@@ -55,3 +55,16 @@ function PopUpHide_ingrid() {
     $("#popup_ingrid").hide();
 }
 
+function PopUpShow_table(id_t, number, table) {
+    alert(id_t);
+    $("#id_t").val(id_t);
+    $("#number").val(number);
+    $("#table").val(table);
+
+    $("#popup_table").show();
+}
+
+function PopUpHide_table() {
+    $("#popup_table").hide();
+}
+

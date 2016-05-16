@@ -21,6 +21,7 @@
         $(document).ready(function () {
 
             PopUpHide_ingrid();
+            PopUpHide_table();
 
         });
 
@@ -318,6 +319,7 @@
         </table>
     </form>
 </div>
+
 <h2>Список столиков</h2>
 <table border="1">
     <thead>
@@ -331,6 +333,11 @@
         <td>${table.getNumber()}</td>
         <td>${table.getType()}</td>
         <td>
+
+            <button type="button"
+                    onclick="PopUpShow_table('${table.getId()}', '${table.getNumber()}', '${table.getType()}')"
+                    class="updateButton">CHANGE
+            </button>
             <form action="${pageContext.request.contextPath}/workshift" method="get">
                 <input type="hidden" name="id" value="${table.getId()}">
                 <button type="submit" name="button" value="DELETE TABLE" class="deleteButton">DELETE
@@ -341,6 +348,21 @@
     </tbody>
     </c:forEach>
 </table>
+
+<%--Всплывающие окно--%>
+<div class="b-popup" id="popup_table">
+    <div class="b-popup-content">
+        Изменение стола
+        <form>
+            <input id="id_t" type="hidden" name="id" required>
+            <input id="number" type="text" name="number" required/>
+            <input id="table" type="text" name="table" required/>
+            <button type="submit" name="button" value="UPDATE INGRIDIENT" class="updateButton">UPDATE
+            </button>
+        </form>
+        <a href="javascript:PopUpHide_table()">Отмена</a>
+    </div>
+</div>
 
 </body>
 </html>
