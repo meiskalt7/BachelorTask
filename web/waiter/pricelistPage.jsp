@@ -27,9 +27,6 @@
                 <li>
                     <div>Меню сайта</div>
                     <ul>
-                        <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
-                        <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
-                        <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
                         <li class="li">
                             <a href="${pageContext.request.contextPath}/login">
                                 <c:choose>
@@ -48,6 +45,7 @@
                     <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
                         <div>Waiter</div>
                         <ul>
+                            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
                         </ul>
