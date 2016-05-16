@@ -9,13 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/popup.css" rel="stylesheet" type="text/css">
-    <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
-    <script src="js/accordion-menu.js" type="text/javascript"></script>
-    <script src="js/popup.js" type="text/javascript"></script>
-    <script src="js/float-panel.js"></script>
-    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../css/popup.css" rel="stylesheet" type="text/css">
+    <link href="../css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/accordion-menu.js" type="text/javascript"></script>
+    <script src="../js/popup.js" type="text/javascript"></script>
+    <script src="../js/float-panel.js"></script>
+    <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function () {

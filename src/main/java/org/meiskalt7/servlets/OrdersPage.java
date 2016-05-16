@@ -58,7 +58,7 @@ public class OrdersPage extends HttpServlet {
         }
 
         RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/ordersPage.jsp");
+                .getRequestDispatcher("/waiter/ordersPage.jsp");
         rd.forward(req, resp);
     }
 

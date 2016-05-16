@@ -31,10 +31,6 @@
         <servlet-class>org.meiskalt7.servlets.MainPage</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>cartPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.ShoppingCartPage</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>reservationPage</servlet-name>
         <servlet-class>org.meiskalt7.servlets.ReservationPage</servlet-class>
     </servlet>
@@ -82,10 +78,6 @@
     <servlet-mapping>
         <servlet-name>mainPage</servlet-name>
         <url-pattern>/main</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>cartPage</servlet-name>
-        <url-pattern>/cart</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>reservationPage</servlet-name>

@@ -9,10 +9,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
-    <script src="js/accordion-menu.js" type="text/javascript"></script>
-    <script src="js/float-panel.js"></script>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/accordion-menu.js" type="text/javascript"></script>
+    <script src="../js/float-panel.js"></script>
     <title>Reservation Page</title>
 </head>
 <body>
@@ -77,6 +77,7 @@
     </div>
 </div>
 
+<%-- TODO Перенести в reservations --%>
 <h2>Забронировать столик</h2>
 
 <div class="wrapper">

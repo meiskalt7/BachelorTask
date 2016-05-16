@@ -40,7 +40,7 @@ public class ReservationPage extends HttpServlet {
         req.setAttribute("tableList", tableService.getAll());
 
         RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/reservationPage.jsp");
+                .getRequestDispatcher("/waiter/reservationPage.jsp");
         rd.forward(req, resp);
     }
 

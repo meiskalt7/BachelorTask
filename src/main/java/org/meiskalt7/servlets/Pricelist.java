@@ -93,7 +93,7 @@ public class Pricelist extends HttpServlet {
 
 
         RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/index.jsp");
+                .getRequestDispatcher("/waiter/pricelistPage.jsp");
         rd.forward(request, response);
     }
 

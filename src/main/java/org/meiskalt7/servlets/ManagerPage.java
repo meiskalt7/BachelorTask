@@ -89,7 +89,7 @@ public class ManagerPage extends HttpServlet {
         req.setAttribute("today", simpleDateFormat.format(new java.util.Date()));
 
         RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/managerPage.jsp");
+                .getRequestDispatcher("/manager/managerPage.jsp");
         rd.forward(req, resp);
     }
 

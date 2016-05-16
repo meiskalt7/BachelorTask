@@ -101,7 +101,7 @@ public class StatisticPage extends HttpServlet {
         req.setAttribute("productList", productList);
 
         RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/statisticPage.jsp");
+                .getRequestDispatcher("/admin/statisticPage.jsp");
         rd.forward(req, resp);
     }
 

@@ -14,7 +14,7 @@
     <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="js/accordion-menu.js" type="text/javascript"></script>
     <script src="js/float-panel.js"></script>
-    <title>Прайс-лист</title>
+    <title>Вход в систему</title>
 </head>
 <body>
 <div id="menu" class="float-panel">
@@ -23,11 +23,8 @@
             <li>
                 <div>Меню сайта</div>
                 <ul>
-                    <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
                     <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
-                    <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
                     <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
-                    <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
                     <li class="li">
                         <a href="${pageContext.request.contextPath}/login">
                             <c:choose>

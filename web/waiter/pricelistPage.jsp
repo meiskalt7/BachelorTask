@@ -10,10 +10,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
-    <script src="js/accordion-menu.js" type="text/javascript"></script>
-    <script src="js/float-panel.js"></script>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/accordion-menu.js" type="text/javascript"></script>
+    <script src="../js/float-panel.js"></script>
     <title>Прайс-лист</title>
 </head>
 <body>

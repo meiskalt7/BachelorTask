@@ -3,17 +3,17 @@
   Created by IntelliJ IDEA.
   User: Eiskalt
   Date: 17.04.2016
-  Time: 12:11
+  Time: 12:12
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
-    <script src="js/accordion-menu.js" type="text/javascript"></script>
-    <script src="js/float-panel.js"></script>
-    <title>Заказы</title>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/accordion-menu.js" type="text/javascript"></script>
+    <script src="../js/float-panel.js"></script>
+    <title>Брони</title>
 </head>
 <body>
 <div id="menu" class="float-panel">
@@ -71,57 +71,30 @@
     </div>
 </div>
 
-<h2>Список заказов</h2>
+<h2>Список броней</h2>
 <table border="1">
     <thead>
-    <tr>
-        <th>Столик</th>
-        <th>Время заказа</th>
-        <th>Блюда:Стоимость</th>
-        <th>Итого</th>
-        <th></th>
-        <th></th>
+    <th>ФИО</th>
+    <th>Телефон</th>
+    <th>Время</th>
+    <th>Столик</th>
     </thead>
-    <c:forEach var="order" items="${orderList}">
-        <tbody>
-        <tr>
-            <td>${order.getTable().getNumber()} ${order.getTable().getType()}</td>
-            <td>${order.getDatetime()}</td>
-            <td><c:forEach var="orderlist" items="${order.getOrderlists()}">
-                <p>${orderlist.getProduct().getName()} :
-                        ${orderlist.getProduct().getPrice()} </p>
-            </c:forEach></td>
-            <td>
-                <c:set var="total" value="${0}"/>
-                <c:forEach var="orderlist" items="${order.getOrderlists()}">
-                    <c:set var="total" value="${total + orderlist.getProduct().getPrice()}"/>
-                </c:forEach>
-                    ${total}
-            </td>
-            <td>
-                <form action="${pageContext.request.contextPath}/orders" method="get">
-                    <input type="hidden" name="id" value="${order.getId()}">
-                    <button type="submit" name="button" value="DELETE ORDER" class="deleteButton">DELETE
-                    </button>
-                </form>
-            </td>
-            <td>
-                <c:choose>
-                    <c:when test="${order.isEnded() != true}">
-                        <form action="${pageContext.request.contextPath}/orders" method="get">
-                            <input type="hidden" name="id" value="${order.getId()}">
-                            <button type="submit" name="button" value="UPDATE ORDER" class="deleteButton">ЗАКРЫТЬ ЗАКАЗ
-                            </button>
-                        </form>
-                    </c:when>
-                    <c:otherwise>
-                        <button type="submit" name="button" value="" class="deleteButton" disabled>Закрыт
-                        </button>
-                    </c:otherwise>
-                </c:choose>
-            </td>
-        </tr>
-        </tbody>
+    <tbody>
+    <c:forEach var="reservation" items="${reservationList}">
+    <tr>
+        <td>${reservation.getName()}</td>
+        <td>${reservation.getPhone()}</td>
+        <td>${reservation.getDatetime()}</td>
+        <td>${reservation.getTable().getType()}</td>
+        <td>
+            <form>
+                <input type="hidden" name="id" value="${reservation.getId()}">
+                <button type="submit" name="button" value="DELETE RESERVATION" class="deleteButton">DELETE
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
     </c:forEach>
 </table>
 

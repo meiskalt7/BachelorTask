@@ -38,7 +38,7 @@ public class ReservationsPage extends HttpServlet {
         }
 
         RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/reservationsPage.jsp");
+                .getRequestDispatcher("/waiter/reservationsPage.jsp");
         rd.forward(req, resp);
     }
 

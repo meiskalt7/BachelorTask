@@ -98,7 +98,7 @@ public class AdminPage extends HttpServlet {
         request.setAttribute("userTypeList", userTypeService.getAll());
 
         RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/adminPage.jsp");
+                .getRequestDispatcher("/admin/adminPage.jsp");
         rd.forward(request, response);
     }
 
