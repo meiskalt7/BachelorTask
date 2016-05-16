@@ -27,11 +27,9 @@
                 <li>
                     <div>Меню сайта</div>
                     <ul>
-                        <li class="li"><a href="${pageContext.request.contextPath}/main">Главная страница</a></li>
                         <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
                         <li class="li"><a href="${pageContext.request.contextPath}/cart">Заказ</a></li>
                         <li class="li"><a href="${pageContext.request.contextPath}/reservation">Бронирование</a></li>
-                        <li class="li"><a href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
                         <li class="li">
                             <a href="${pageContext.request.contextPath}/login">
                                 <c:choose>

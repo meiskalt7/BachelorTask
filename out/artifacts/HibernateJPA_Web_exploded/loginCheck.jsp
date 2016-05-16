@@ -24,7 +24,19 @@
             if (username.equals(employee.getUsername()) && password.equals(employee.getPassword())) {
                 session.setAttribute("userType", employee.getUserType().getType());
                 session.setAttribute("userId", employee.getId());
-                response.sendRedirect("mainPage.jsp");
+
+                switch (employee.getUserType().getType()) {
+                    case "admin":
+                        response.sendRedirect("/admin");
+                        break;
+                    case "manager":
+                        response.sendRedirect("/workshift");
+                        break;
+                    case "waiter":
+                        response.sendRedirect("/pricelist");
+                        break;
+                }
+
                 break;
             }
         }
