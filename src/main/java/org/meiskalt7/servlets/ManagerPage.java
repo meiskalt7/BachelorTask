@@ -24,6 +24,7 @@ public class ManagerPage extends HttpServlet {
 
         IngridientService ingridientService = IngridientService.getInstance();
         WorkshiftService workshiftService = WorkshiftService.getInstance();
+        CategoryService categoryService = CategoryService.getInstance();
         final EmployeeService employeeService = EmployeeService.getInstance();
         TimeRangeService timeRangeService = TimeRangeService.getInstance();
         final TableService tableService = TableService.getInstance();
@@ -84,6 +85,7 @@ public class ManagerPage extends HttpServlet {
         request.setAttribute("employeeList", employeeService.getAll());
         request.setAttribute("timerangeList", timeRangeService.getAll());
         request.setAttribute("tableList", tableService.getAll());
+        request.setAttribute("categoryList", categoryService.getAll());
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         request.setAttribute("today", simpleDateFormat.format(new java.util.Date()));

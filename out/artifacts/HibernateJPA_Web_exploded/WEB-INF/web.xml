@@ -11,35 +11,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>Pricelist</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.Pricelist</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
-        <servlet-name>ordersPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.OrdersPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>reservationsPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.ReservationsPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>productsPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.ProductsPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>stockPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.StockPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>workshiftPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.WorkshiftPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>hallPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.HallPage</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AdminPage</servlet-name>
         <servlet-class>org.meiskalt7.servlets.AdminPage</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -56,17 +27,24 @@
         <servlet-name>loginCheck</servlet-name>
         <servlet-class>org.meiskalt7.servlets.LoginCheck</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>ManagerPage</servlet-name>
+        <servlet-class>org.meiskalt7.servlets.ManagerPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WaiterServlet</servlet-name>
+        <servlet-class>org.meiskalt7.servlets.WaiterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>Pricelist</servlet-name>
+        <servlet-name>WaiterServlet</servlet-name>
         <url-pattern>/pricelist</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ordersPage</servlet-name>
+        <servlet-name>WaiterServlet</servlet-name>
         <url-pattern>/orders</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>reservationsPage</servlet-name>
+        <servlet-name>WaiterServlet</servlet-name>
         <url-pattern>/reservations</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
