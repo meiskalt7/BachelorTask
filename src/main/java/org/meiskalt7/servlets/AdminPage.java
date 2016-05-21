@@ -97,8 +97,11 @@ public class AdminPage extends HttpServlet {
         request.setAttribute("ingridList", ingridientService.getAll());
         request.setAttribute("userTypeList", userTypeService.getAll());
 
+
+        //Один сервлет что правит всеми request.getServletPath()
         RequestDispatcher rd = getServletContext()
                 .getRequestDispatcher("/admin/adminPage.jsp");
+
         rd.forward(request, response);
     }
 

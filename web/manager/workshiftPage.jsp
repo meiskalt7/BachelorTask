@@ -147,5 +147,66 @@
     </thead>
 </table>
 
+<h2>Добавить смену</h2>
+
+<form action="${pageContext.request.contextPath}/admin" method="get">
+    <table border="0">
+        <thead>
+        <tr>
+            <th>Начало</th>
+            <th>Конец</th>
+        </thead>
+        <tbody>
+        <td><input type="time" name="start" maxlength="255" required/></td>
+        <td><input type="time" name="finish" maxlength="255" required/></td>
+        <td>
+            <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton"/>
+            Добавить
+        </td>
+        </tbody>
+    </table>
+</form>
+<h2>Список смен</h2>
+<table border="1">
+    <thead>
+    <th>Начало</th>
+    <th>Конец</th>
+    </thead>
+    <tbody>
+    <%-- jsp:useBean изучить --%>
+    <c:forEach var="timerange" items="${timerangeList}" varStatus="loop">
+    <tr>
+        <td>${timerange.getStart()}</td>
+        <td>${timerange.getFinish()}</td>
+        <td>
+            <button type="button"
+                    onclick="PopUpShow_timeRange('${timerange.getId()}', '${timerangeList.get(id).getStart().toString().substring(0,5)}', '${timerangeList.get(id).getFinish().toString().substring(0,5)}')"
+                    class="updateButton">CHANGE
+            </button>
+            <form>
+                <input type="hidden" name="timerangeId" value="${timerange.getId()}">
+                <button type="submit" name="button" value="DELETE TIMERANGE" class="deleteButton">DELETE
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+    </c:forEach>
+</table>
+
+<div class="b-popup" id="popup_timeRange">
+    <div class="b-popup-content">
+        Изменение работы смены
+        <form>
+            <input id="id" type="hidden" name="id" required>
+            <input id="start" type="time" name="start" maxlength="255" required/>
+            <input id="finish" type="time" name="finish" maxlength="255" required/>
+            <button type="submit" name="button" value="UPDATE TIMERANGE" class="updateButton">UPDATE
+            </button>
+        </form>
+        <a href="javascript:PopUpHide_timeRange()">Отмена</a>
+    </div>
+</div>
+
 </body>
 </html>

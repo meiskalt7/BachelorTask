@@ -91,7 +91,7 @@
 <h2>Добавить ингридиент</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/workshift" method="get">
+    <form action="${pageContext.request.contextPath}/stock" method="get">
         <table border="0">
             <thead>
             <tr>

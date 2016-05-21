@@ -20,7 +20,7 @@ import java.util.List;
 public class ManagerPage extends HttpServlet {
 
     @Override
-    protected void doGet(final HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(final HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         IngridientService ingridientService = IngridientService.getInstance();
         WorkshiftService workshiftService = WorkshiftService.getInstance();
@@ -28,8 +28,8 @@ public class ManagerPage extends HttpServlet {
         TimeRangeService timeRangeService = TimeRangeService.getInstance();
         final TableService tableService = TableService.getInstance();
 
-        if (req.getParameter("button") != null) {
-            String button[] = req.getParameter("button").split(" ");
+        if (request.getParameter("button") != null) {
+            String button[] = request.getParameter("button").split(" ");
 
             Operation operation = Operation.valueOf(button[0]);
             Entity entity = Entity.valueOf(button[1]);
@@ -38,29 +38,29 @@ public class ManagerPage extends HttpServlet {
                 case ADD:
                     switch (entity) {
                         case INGRIDIENT:
-                            createIngridient(req, ingridientService);
+                            createIngridient(request, ingridientService);
                             break;
                         case WORKSHIFT:
-                            createWorkshift(req, workshiftService, employeeService, timeRangeService);
+                            createWorkshift(request, workshiftService, employeeService, timeRangeService);
                             break;
                         case TABLES_EMPLOYEES:
-                            assignTables(req, employeeService, tableService);
+                            assignTables(request, employeeService, tableService);
                             break;
                         case TABLE:
-                            createTable(req, tableService);
+                            createTable(request, tableService);
                     }
                     break;
                 case UPDATE: {
-                    int id = Integer.parseInt(req.getParameter("id"));
+                    int id = Integer.parseInt(request.getParameter("id"));
                     switch (entity) {
                         case INGRIDIENT:
-                            updateIngridient(req, ingridientService, id);
+                            updateIngridient(request, ingridientService, id);
                             break;
                     }
                     break;
                 }
                 case DELETE:
-                    int id = Integer.parseInt(req.getParameter("id"));
+                    int id = Integer.parseInt(request.getParameter("id"));
                     switch (entity) {
                         case TABLE:
                             tableService.delete(id);
@@ -69,7 +69,7 @@ public class ManagerPage extends HttpServlet {
                             ingridientService.delete(id);
                             break;
                         case EMPLOYEE:
-                            deassignTables(req, employeeService, id);
+                            deassignTables(request, employeeService, id);
                             break;
                         case WORKSHIFT:
                             workshiftService.delete(id);
@@ -79,18 +79,30 @@ public class ManagerPage extends HttpServlet {
             }
         }
 
-        req.setAttribute("ingridList", ingridientService.getAll());
-        req.setAttribute("workshiftList", workshiftService.getAll());
-        req.setAttribute("employeeList", employeeService.getAll());
-        req.setAttribute("timerangeList", timeRangeService.getAll());
-        req.setAttribute("tableList", tableService.getAll());
+        request.setAttribute("ingridList", ingridientService.getAll());
+        request.setAttribute("workshiftList", workshiftService.getAll());
+        request.setAttribute("employeeList", employeeService.getAll());
+        request.setAttribute("timerangeList", timeRangeService.getAll());
+        request.setAttribute("tableList", tableService.getAll());
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        req.setAttribute("today", simpleDateFormat.format(new java.util.Date()));
+        request.setAttribute("today", simpleDateFormat.format(new java.util.Date()));
 
-        RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/manager/managerPage.jsp");
-        rd.forward(req, resp);
+        RequestDispatcher rd;
+        if (request.getServletPath().equals("/hall")) {
+            rd = getServletContext()
+                    .getRequestDispatcher("/manager/hallPage.jsp");
+        } else if (request.getServletPath().equals("/products")) {
+            rd = getServletContext()
+                    .getRequestDispatcher("/manager/productsPage.jsp");
+        } else if (request.getServletPath().equals("/stock")) {
+            rd = getServletContext()
+                    .getRequestDispatcher("/manager/stockPage.jsp");
+        } else {
+            rd = getServletContext()
+                    .getRequestDispatcher("/manager/workshiftPage.jsp");
+        }
+        rd.forward(request, response);
     }
 
     private void deassignTables(HttpServletRequest req, EmployeeService employeeService, int id) {

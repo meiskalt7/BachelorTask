@@ -24,22 +24,6 @@
         <servlet-class>org.meiskalt7.servlets.ReservationsPage</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>productsPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.ProductsPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>stockPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.StockPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>workshiftPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.WorkshiftPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>hallPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.HallPage</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AdminPage</servlet-name>
         <servlet-class>org.meiskalt7.servlets.AdminPage</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -70,19 +54,19 @@
         <url-pattern>/reservations</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>productsPage</servlet-name>
+        <servlet-name>ManagerPage</servlet-name>
         <url-pattern>/products</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>stockPage</servlet-name>
+        <servlet-name>ManagerPage</servlet-name>
         <url-pattern>/stock</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>workshiftPage</servlet-name>
+        <servlet-name>ManagerPage</servlet-name>
         <url-pattern>/workshift</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>hallPage</servlet-name>
+        <servlet-name>ManagerPage</servlet-name>
         <url-pattern>/hall</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

@@ -91,7 +91,7 @@
 <h2>Добавить столик</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/workshift" method="get">
+    <form action="${pageContext.request.contextPath}/hall" method="get">
         <table border="0">
             <thead>
             <tr>
@@ -128,7 +128,7 @@
                     onclick="PopUpShow_table('${table.getId()}', '${table.getNumber()}', '${table.getType()}')"
                     class="updateButton">CHANGE
             </button>
-            <form action="${pageContext.request.contextPath}/workshift" method="get">
+            <form action="${pageContext.request.contextPath}/hall" method="get">
                 <input type="hidden" name="id" value="${table.getId()}">
                 <button type="submit" name="button" value="DELETE TABLE" class="deleteButton">DELETE
                 </button>
@@ -157,7 +157,7 @@
 <h2>Добавить к столику официанта</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/workshift" method="get">
+    <form action="${pageContext.request.contextPath}/hall" method="get">
         <table border="0">
             <thead>
             <tr>

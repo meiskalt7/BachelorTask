@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Eiskalt
@@ -8,6 +9,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../css/popup.css" rel="stylesheet" type="text/css">
+    <link href="../css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/accordion-menu.js" type="text/javascript"></script>
+    <script src="../js/popup.js" type="text/javascript"></script>
+    <script src="../js/float-panel.js"></script>
+    <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            PopUpHide_category();
+
+            var ingridDiv = $('#ingridDiv');
+            var i = $('#ingridDiv p').size() + 1;
+
+            $(document).on('click', '#delete_ingrid_button' + i, function () {
+                alert('Удалим элемент' + i);
+                if (i > 0) {
+                    i--;
+                    alert('Удалим элемент' + i);
+                    jQuery('#selectIngrid' + i).remove();
+                }
+                return false;
+            });
+
+            $("#add_ingrid_button").click(function () {
+                alert('добавлен элемент' + i);
+                jQuery('#delete_ingrid_button' + (i - 1)).remove();
+                $('<p id="selectIngrid' + i + '"><select name="ingridientsId" required><option selected value="default">Выберите ингридиент</option>' + '<c:forEach var="ingrid" items="${ingridList}"><option value="${ingrid.getId()}">${ingrid.getName()}</option></c:forEach></select><input type="text" name="quantity"/><button id="delete_ingrid_button' + i + '" type="button" class="deleteButton">x</button></p>').appendTo(ingridDiv);
+                i++;
+                return false;
+            });
+        });
+
+    </script>
     <title>Блюда</title>
 </head>
 <body>
@@ -77,7 +114,7 @@
 <h2>Добавить блюдо</h2>
 
 <div class="wrapper">
-    <form action="${pageContext.request.contextPath}/admin" method="get">
+    <form action="${pageContext.request.contextPath}/products" method="get">
         <table border="0">
             <thead>
             <tr>
@@ -153,7 +190,7 @@
 </table>
 <h2>Добавить категорию</h2>
 
-<form action="${pageContext.request.contextPath}/admin" method="get">
+<form action="${pageContext.request.contextPath}/products" method="get">
     <table border="0">
         <thead>
         <tr>
