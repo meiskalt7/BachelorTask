@@ -2,18 +2,27 @@
 <%--
   Created by IntelliJ IDEA.
   User: Eiskalt
-  Date: 17.04.2016
-  Time: 12:11
+  Date: 21.05.2016
+  Time: 14:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../css/popup.css" rel="stylesheet" type="text/css">
     <link href="../css/accordion-menu.css" rel="stylesheet" type="text/css"/>
     <script src="../js/accordion-menu.js" type="text/javascript"></script>
+    <script src="../js/popup.js" type="text/javascript"></script>
     <script src="../js/float-panel.js"></script>
-    <title>Заказы</title>
+    <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            PopUpHide_ingrid();
+        });
+    </script>
+    <title>Запас ингридиентов</title>
 </head>
 <body>
 
@@ -79,59 +88,75 @@
     </div>
 </div>
 
-<h2>Список заказов</h2>
+<h2>Добавить ингридиент</h2>
+
+<div class="wrapper">
+    <form action="${pageContext.request.contextPath}/workshift" method="get">
+        <table border="0">
+            <thead>
+            <tr>
+                <th>Название</th>
+                <th>Количество</th>
+                <th>Цена</th>
+            </thead>
+            <tbody>
+            <td><input type="text" name="name" maxlength="255" required/></td>
+            <td><input type="text" name="quantity" required/></td>
+            <td><input type="text" name="price" required/></td>
+            <td>
+                <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton"/>
+                Добавить
+            </td>
+            </tbody>
+        </table>
+    </form>
+</div>
+<h2>Ингридиентов на складе</h2>
 <table border="1">
     <thead>
     <tr>
-        <th>Столик</th>
-        <th>Время заказа</th>
-        <th>Блюда:Стоимость</th>
-        <th>Итого</th>
-        <th></th>
-        <th></th>
+        <th>Название</th>
+        <th>Количество</th>
+        <th>Цена</th>
+        <th>Удалить</th>
     </thead>
-    <c:forEach var="order" items="${orderList}">
-        <tbody>
-        <tr>
-            <td>${order.getTable().getNumber()} ${order.getTable().getType()}</td>
-            <td>${order.getDatetime()}</td>
-            <td><c:forEach var="orderlist" items="${order.getOrderlists()}">
-                <p>${orderlist.getProduct().getName()} :
-                        ${orderlist.getProduct().getPrice()} </p>
-            </c:forEach></td>
-            <td>
-                <c:set var="total" value="${0}"/>
-                <c:forEach var="orderlist" items="${order.getOrderlists()}">
-                    <c:set var="total" value="${total + orderlist.getProduct().getPrice()}"/>
-                </c:forEach>
-                    ${total}
-            </td>
-            <td>
-                <form action="${pageContext.request.contextPath}/orders" method="get">
-                    <input type="hidden" name="id" value="${order.getId()}">
-                    <button type="submit" name="button" value="DELETE ORDER" class="deleteButton">DELETE
-                    </button>
-                </form>
-            </td>
-            <td>
-                <c:choose>
-                    <c:when test="${order.isEnded() != true}">
-                        <form action="${pageContext.request.contextPath}/orders" method="get">
-                            <input type="hidden" name="id" value="${order.getId()}">
-                            <button type="submit" name="button" value="UPDATE ORDER" class="deleteButton">ЗАКРЫТЬ ЗАКАЗ
-                            </button>
-                        </form>
-                    </c:when>
-                    <c:otherwise>
-                        <button type="submit" name="button" value="" class="deleteButton" disabled>Закрыт
-                        </button>
-                    </c:otherwise>
-                </c:choose>
-            </td>
-        </tr>
-        </tbody>
+    <tbody>
+    <c:forEach var="ingrid" items="${ingridList}">
+    <tr>
+        <td>${ingrid.getName()}</td>
+        <td>${ingrid.getQuantity()}</td>
+        <td>${ingrid.getPrice()}</td>
+        <td>
+            <button type="button"
+                    onclick="PopUpShow_ingrid('${ingrid.getId()}', '${ingrid.getName()}', '${ingrid.getQuantity()}', '${ingrid.getPrice()}')"
+                    class="updateButton">CHANGE
+            </button>
+            <form>
+                <input type="hidden" name="id" value="${ingrid.getId()}">
+                <button type="submit" name="button" value="DELETE INGRIDIENT" class="deleteButton">DELETE
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
     </c:forEach>
 </table>
+
+<%--Всплывающие окно--%>
+<div class="b-popup" id="popup_ingrid">
+    <div class="b-popup-content">
+        Изменение ингридиента
+        <form>
+            <input id="id_c" type="hidden" name="id" required>
+            <input id="name" type="text" name="name" maxlength="255" required/>
+            <input id="quantity" type="text" name="quantity" required/>
+            <input id="price" type="text" name="price" required/>
+            <button type="submit" name="button" value="UPDATE INGRIDIENT" class="updateButton">UPDATE
+            </button>
+        </form>
+        <a href="javascript:PopUpHide_ingrid()">Отмена</a>
+    </div>
+</div>
 
 </body>
 </html>

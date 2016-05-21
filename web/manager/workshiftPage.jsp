@@ -1,22 +1,18 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Eiskalt
-  Date: 12.10.2015
-  Time: 10:58
+  Date: 21.05.2016
+  Time: 14:01
   To change this template use File | Settings | File Templates.
-  <jsp:forward page="/Pricelist"></jsp:forward>
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/accordion-menu.css" rel="stylesheet" type="text/css"/>
-    <script src="js/accordion-menu.js" type="text/javascript"></script>
-    <script src="js/float-panel.js"></script>
-    <title>Вход в систему</title>
+    <title>Расписание</title>
 </head>
 <body>
+
 <div id="header">
     <div id="logo">
         <h1>AuRe: Страница администратора</h1>
@@ -45,7 +41,8 @@
                     <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
                         <div>Waiter</div>
                         <ul>
-                            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Меню ресторана</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Меню ресторана</a>
+                            </li>
                             <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
                         </ul>
@@ -78,26 +75,77 @@
     </div>
 </div>
 
-<h1>Login Page</h1>
+<h2>Добавить расписание</h2>
 
-<h2>Signup Details</h2>
-
-<center>
-    <form action="${pageContext.request.contextPath}/loginCheck" method="get"><br/>Username:
-        <input type="username" name="username" required> <br/> Password:
-        <input type="password" name="password" required> <br/>
-        <input type="submit" value="Submit">
+<div class="wrapper">
+    <form action="${pageContext.request.contextPath}/workshift" method="get">
+        <table border="0">
+            <thead>
+            <tr>
+                <th>Работник</th>
+                <th>День</th>
+                <th>Время</th>
+            </thead>
+            <tbody>
+            <td><select multiple name="employee" size="5" required>
+                <c:forEach var="employee" items="${employeeList}">
+                    <option value="<c:out value='${employee.getId()}'/>"><c:out value='${employee.getName()}'/> <c:out
+                            value='${employee.getSurname()}'/></option>
+                </c:forEach>
+            </select></td>
+            <td><input type="date" name="date" required min="${today}" value="${today}"/></td>
+            <td><select name="timerange" size="1" required>
+                <c:forEach var="timerange" items="${timerangeList}">
+                    <option value="<c:out value='${timerange.getId()}'/>"><c:out value='${timerange.getStart()}'/> -
+                        <c:out
+                                value='${timerange.getFinish()}'/></option>
+                </c:forEach>
+            </select></td>
+            <td>
+                <button type="submit" name="button" value="ADD WORKSHIFT" class="addProductButton"/>
+                Добавить
+            </td>
+            </tbody>
+        </table>
     </form>
-</center>
+</div>
+<h2>Расписание</h2>
 
-<c:if test="${sessionScope.userType != null}">
-    <h1>Logout was done successfully.</h1>
-</c:if>
+<table border="1">
+    <thead>
+    <tr>
+        <th>День</th>
+        <th>Время</th>
+        <th>Работник</th>
+        <th>Удалить</th>
+    </tr>
+    <c:forEach var="workshift" items="${workshiftList}">
+        <tr>
 
-<% if (session.getAttribute("username") != null) {
-    session.removeAttribute("username");
-}
-    session.invalidate(); %>
-${errorMessage}
+            <th><c:out value='${workshift.getDate()}'/></th>
+            <td><c:forEach var="timerange" items="${timerangeList}">
+                <c:if test="${workshift.getTimerange_id() == timerange.getId()}">
+                    ${timerange.getStart()} - ${timerange.getFinish()}
+                </c:if>
+            </c:forEach></td>
+            <td><select id="numbers" size="10">
+                <c:forEach items='${workshift.getEmployees()}' var='employee'>
+                    <option>
+                        <c:out value='${employee.getName()}'/> <c:out value='${employee.getSurname()}'/>
+                    </option>
+                </c:forEach>
+            </select></td>
+            <td>
+                <form>
+                    <input type="hidden" name="id" value="${workshift.getId()}">
+                    <button type="submit" name="button" value="DELETE WORKSHIFT" class="deleteButton">DELETE
+                    </button>
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
+    </thead>
+</table>
+
 </body>
 </html>

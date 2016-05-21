@@ -19,7 +19,7 @@
 <body>
 <div id="header">
     <div id="logo">
-        <h2>AuRe: Прайс-лист</h2>
+        <h1>AuRe: Страница администратора</h1>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -45,7 +45,8 @@
                     <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType) || 'waiter'.equals(sessionScope.userType)}">
                         <div>Waiter</div>
                         <ul>
-                            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Прайс-лист</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/pricelist">Меню ресторана</a>
+                            </li>
                             <li class="li"><a href="${pageContext.request.contextPath}/orders">Заказы</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/reservations">Брони</a></li>
                         </ul>
@@ -55,7 +56,10 @@
                     <c:if test="${'admin'.equals(sessionScope.userType) || 'manager'.equals(sessionScope.userType)}">
                         <div>Manager</div>
                         <ul>
-                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Смена</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/products">Блюда</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/stock">Ингридиенты</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Расписание</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/hall">Зал</a></li>
                         </ul>
                     </c:if>
                 </li>
@@ -63,7 +67,9 @@
                     <c:if test="${'admin'.equals(sessionScope.userType)}">
                         <div>Administrator</div>
                         <ul>
-                            <li class="li"><a href="${pageContext.request.contextPath}/admin">Администрирование</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/products">Блюда</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/admin">Работники</a></li>
+                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Расписание</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
                         </ul>
                     </c:if>
