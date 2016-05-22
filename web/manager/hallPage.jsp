@@ -209,7 +209,7 @@
                 </select></td>
                 <td>
                     <input type="hidden" name="id" value="${employee.getId()}">
-                    <button type="submit" name="button" value="DELETE EMPLOYEE" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="DELETE TABLES_EMPLOYEES" class="deleteButton">DELETE
                     </button>
                 </td>
             </form>

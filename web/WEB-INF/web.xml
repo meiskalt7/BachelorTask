@@ -11,8 +11,8 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>AdminPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.AdminPage</servlet-class>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>org.meiskalt7.servlets.ControllerServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
@@ -27,44 +27,36 @@
         <servlet-name>loginCheck</servlet-name>
         <servlet-class>org.meiskalt7.servlets.LoginCheck</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ManagerPage</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.ManagerPage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>WaiterServlet</servlet-name>
-        <servlet-class>org.meiskalt7.servlets.WaiterServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
-        <servlet-name>WaiterServlet</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/pricelist</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>WaiterServlet</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/orders</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>WaiterServlet</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/reservations</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AdminPage</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/products</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ManagerPage</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/stock</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ManagerPage</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/workshift</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ManagerPage</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/hall</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AdminPage</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

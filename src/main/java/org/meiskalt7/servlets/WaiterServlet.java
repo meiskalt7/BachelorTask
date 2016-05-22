@@ -1,3 +1,4 @@
+/*
 package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.*;
@@ -155,3 +156,4 @@ public class WaiterServlet extends HttpServlet {
         return 0.0;
     }
 }
+*/

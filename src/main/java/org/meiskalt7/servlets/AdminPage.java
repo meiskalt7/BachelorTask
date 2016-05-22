@@ -1,3 +1,4 @@
+/*
 package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.*;
@@ -23,8 +24,6 @@ public class AdminPage extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //TODO логирование изменений пользователями
-        //TODO добавить ингридиент(удаление третьей и т.д. ячеек)
         ProductService productService = ProductService.getInstance();
         CategoryService categoryService = CategoryService.getInstance();
         EmployeeService employeeService = EmployeeService.getInstance();
@@ -108,46 +107,6 @@ public class AdminPage extends HttpServlet {
                     .getRequestDispatcher("/admin/adminPage.jsp");
         }
         rd.forward(request, response);
-    }
-
-    private void createProduct(HttpServletRequest request, ProductService productService, CategoryService categoryService, CompositionService compositionService, final IngridientService ingridientService) {
-        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        Category category = categoryService.get(categoryId);
-        String name = request.getParameter("name");
-        String price = request.getParameter("price");
-
-        Product product = new Product(category, name, parseDouble(price, request));
-        productService.add(product);
-        final String ingridientsId[] = request.getParameterValues("ingridientsId");
-        List<Ingridient> ingridients = new ArrayList<Ingridient>() {{
-            for (String anIngridientsId : ingridientsId) {
-                add(ingridientService.get(Integer.parseInt(anIngridientsId)));
-            }
-        }};
-        String required[] = request.getParameterValues("quantity");
-        int i = 0;
-        for (Ingridient ingridient : ingridients) {
-            Composition composition = new Composition();
-            composition.setProduct(product);
-            composition.setIngridient(ingridient);
-            composition.setRequired(Integer.parseInt(required[i]));
-            compositionService.add(composition);
-            product.getIngridients().add(composition);
-            i++;
-        }
-    }
-
-    private void createEmployee(HttpServletRequest request, EmployeeService employeeService, UserTypeService userTypeService) {
-        String surname = request.getParameter("surname");
-        String name = request.getParameter("name");
-        String patronymic = request.getParameter("patronymic");
-        String wage = request.getParameter("wage");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
-        UserType userType = userTypeService.get(userTypeId);
-        Employee employee = new Employee(surname, name, patronymic, parseDouble(wage, request), username, password, userType);
-        employeeService.add(employee);
     }
 
     private void updateEmployee(HttpServletRequest request, EmployeeService employeeService, UserTypeService userTypeService) {
@@ -256,3 +215,4 @@ public class AdminPage extends HttpServlet {
     }
 }
 
+*/
