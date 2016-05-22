@@ -102,21 +102,20 @@
     </div>
 </div>
 
-<c:if test="${'admin'.equals(sessionScope.userType)}">
-    <h2>Добавить блюдо</h2>
-
-    <div class="wrapper">
-        <form action="${pageContext.request.contextPath}/products" method="get">
-            <table border="0">
-                <thead>
-                <tr>
-                    <th>Категория:</th>
-                    <th>Наименование:</th>
-                    <th>Цена:</th>
-                    <th>Ингридиент:</th>
-                    <th>Количество:</th>
-                </thead>
-                <tbody>
+<h2>Список блюд</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Категория</th>
+        <th>Наименование</th>
+        <th>Цена</th>
+        <th>Ингридиент:Кол-во</th>
+        <th>Удалить</th>
+    </thead>
+    <tbody>
+    <c:if test="${'admin'.equals(sessionScope.userType)}">
+        <tr>
+            <form action="${pageContext.request.contextPath}/products" method="get">
                 <td><select name="categoryId" required>
                     <c:forEach var="category" items="${categoryList}">
                         <option value="${category.getId()}">${category.getName()}</option>
@@ -127,7 +126,7 @@
 
                 <td>
                     <div id="ingridDiv">
-                        <button id="add_ingrid_button" class="addProductButton">Еще ингридиент</button>
+                        <button id="add_ingrid_button" class="addProductButton">Еще...</button>
                         <p>
                             <select name="ingridientsId" id="selectIngrid" required>
                                 <option selected value="default">Выберите ингридиент</option>
@@ -141,25 +140,11 @@
                 </td>
                 <td>
                     <button type="submit" name="button" value="ADD PRODUCT" class="addProductButton"/>
-                    Добавить товар
+                    Добавить
                 </td>
-                </tbody>
-            </table>
-        </form>
-    </div>
-</c:if>
-
-<h2>Список блюд</h2>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Категория</th>
-        <th>Наименование</th>
-        <th>Цена</th>
-        <th>Ингридиент:Кол-во</th>
-        <th>Удалить</th>
-    </thead>
-    <tbody>
+            </form>
+        </tr>
+    </c:if>
     <c:forEach var="product" items="${productsList}">
     <tr>
         <td>${product.getCategory().getName()}</td>
@@ -183,26 +168,6 @@
     </c:forEach>
 </table>
 
-<c:if test="${'admin'.equals(sessionScope.userType)}">
-    <h2>Добавить категорию</h2>
-
-    <form action="${pageContext.request.contextPath}/products" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>Категория:</th>
-            </thead>
-            <tbody>
-            <td><input type="text" name="categoryName" maxlength="255" required/></td>
-            <td>
-                <button type="submit" name="button" value="ADD CATEGORY" class="addProductButton"/>
-                Добавить категорию
-            </td>
-            </tbody>
-        </table>
-    </form>
-</c:if>
-
 <h2>Список категорий</h2>
 <table border="1">
     <thead>
@@ -211,6 +176,17 @@
         <th>Удалить</th>
     </thead>
     <tbody>
+    <c:if test="${'admin'.equals(sessionScope.userType)}">
+        <tr>
+            <form action="${pageContext.request.contextPath}/products" method="get">
+                <td><input type="text" name="categoryName" maxlength="255" required/></td>
+                <td>
+                    <button type="submit" name="button" value="ADD CATEGORY" class="addProductButton"/>
+                    Добавить
+                </td>
+            </form>
+        </tr>
+    </c:if>
     <c:forEach var="category" items="${categoryList}">
     <tr>
         <td>${category.getName()}</td>

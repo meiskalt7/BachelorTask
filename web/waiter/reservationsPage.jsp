@@ -69,19 +69,17 @@
     </div>
 </div>
 
-<h2>Забронировать столик</h2>
-
-<div class="wrapper">
-    <form action="${pageContext.request.contextPath}/reservation" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>ФИО</th>
-                <th>Телефон(9XX-XXX-XXXX)</th>
-                <th>Время</th>
-                <th>Столик</th>
-            </thead>
-            <tbody>
+<h2>Список броней</h2>
+<table border="1">
+    <thead>
+    <th>ФИО</th>
+    <th>Телефон</th>
+    <th>Время</th>
+    <th>Столик</th>
+    </thead>
+    <tbody>
+    <tr>
+        <form action="${pageContext.request.contextPath}/reservations" method="get">
             <td><input type="text" name="name" maxlength="255" required/></td>
             <td><input type="tel" name="phone" maxlength="255" pattern="9[0-9]{2}-[0-9]{3}-[0-9]{4}" required/></td>
             <td><input type="datetime-local" name="time" maxlength="255" required/></td>
@@ -96,20 +94,8 @@
                 <button type="submit" name="button" value="ADD RESERVATION" class="addProductButton"/>
                 Забронировать
             </td>
-            </tbody>
-        </table>
-    </form>
-</div>
-
-<h2>Список броней</h2>
-<table border="1">
-    <thead>
-    <th>ФИО</th>
-    <th>Телефон</th>
-    <th>Время</th>
-    <th>Столик</th>
-    </thead>
-    <tbody>
+        </form>
+    </tr>
     <c:forEach var="reservation" items="${reservationList}">
     <tr>
         <td>${reservation.getName()}</td>

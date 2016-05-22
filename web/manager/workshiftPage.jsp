@@ -79,18 +79,18 @@
     </div>
 </div>
 
-<h2>Добавить расписание</h2>
+<h2>Расписание</h2>
 
-<div class="wrapper">
-    <form action="${pageContext.request.contextPath}/workshift" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>Работник</th>
-                <th>День</th>
-                <th>Время</th>
-            </thead>
-            <tbody>
+<table border="1">
+    <thead>
+    <tr>
+        <th>День</th>
+        <th>Время</th>
+        <th>Работник</th>
+        <th>Удалить</th>
+    </tr>
+    <tr>
+        <form action="${pageContext.request.contextPath}/workshift" method="get">
             <td><select multiple name="employee" size="5" required>
                 <c:forEach var="employee" items="${employeeList}">
                     <option value="<c:out value='${employee.getId()}'/>"><c:out value='${employee.getName()}'/> <c:out
@@ -109,19 +109,7 @@
                 <button type="submit" name="button" value="ADD WORKSHIFT" class="addProductButton"/>
                 Добавить
             </td>
-            </tbody>
-        </table>
-    </form>
-</div>
-<h2>Расписание</h2>
-
-<table border="1">
-    <thead>
-    <tr>
-        <th>День</th>
-        <th>Время</th>
-        <th>Работник</th>
-        <th>Удалить</th>
+        </form>
     </tr>
     <c:forEach var="workshift" items="${workshiftList}">
         <tr>
@@ -151,28 +139,6 @@
     </thead>
 </table>
 
-<c:if test="${'admin'.equals(sessionScope.userType)}">
-    <h2>Добавить смену</h2>
-
-    <form action="${pageContext.request.contextPath}/workshift" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>Начало</th>
-                <th>Конец</th>
-            </thead>
-            <tbody>
-            <td><input type="time" name="start" maxlength="255" required/></td>
-            <td><input type="time" name="finish" maxlength="255" required/></td>
-            <td>
-                <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton"/>
-                Добавить
-            </td>
-            </tbody>
-        </table>
-    </form>
-</c:if>
-
 <h2>Список смен</h2>
 <table border="1">
     <thead>
@@ -180,7 +146,18 @@
     <th>Конец</th>
     </thead>
     <tbody>
-    <%-- jsp:useBean изучить --%>
+    <c:if test="${'admin'.equals(sessionScope.userType)}">
+        <tr>
+            <form action="${pageContext.request.contextPath}/workshift" method="get">
+                <td><input type="time" name="start" maxlength="255" required/></td>
+                <td><input type="time" name="finish" maxlength="255" required/></td>
+                <td>
+                    <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton"/>
+                    Добавить
+                </td>
+            </form>
+        </tr>
+    </c:if>
     <c:forEach var="timerange" items="${timerangeList}" varStatus="loop">
     <tr>
         <td>${timerange.getStart()}</td>

@@ -79,29 +79,6 @@
     </div>
 </div>
 
-<h2>Добавить ингридиент</h2>
-
-<div class="wrapper">
-    <form action="${pageContext.request.contextPath}/stock" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>Название</th>
-                <th>Количество</th>
-                <th>Цена</th>
-            </thead>
-            <tbody>
-            <td><input type="text" name="name" maxlength="255" required/></td>
-            <td><input type="text" name="quantity" required/></td>
-            <td><input type="text" name="price" required/></td>
-            <td>
-                <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton"/>
-                Добавить
-            </td>
-            </tbody>
-        </table>
-    </form>
-</div>
 <h2>Ингридиентов на складе</h2>
 <table border="1">
     <thead>
@@ -112,6 +89,17 @@
         <th>Удалить</th>
     </thead>
     <tbody>
+    <tr>
+        <form action="${pageContext.request.contextPath}/stock" method="get">
+            <td><input type="text" name="name" maxlength="255" required/></td>
+            <td><input type="text" name="quantity" required/></td>
+            <td><input type="text" name="price" required/></td>
+            <td>
+                <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton"/>
+                Добавить
+            </td>
+        </form>
+    </tr>
     <c:forEach var="ingrid" items="${ingridList}">
     <tr>
         <td>${ingrid.getName()}</td>

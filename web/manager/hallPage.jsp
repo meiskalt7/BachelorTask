@@ -79,29 +79,7 @@
     </div>
 </div>
 
-<h2>Добавить столик</h2>
-
-<div class="wrapper">
-    <form action="${pageContext.request.contextPath}/hall" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>Номер столика</th>
-                <th>Тип</th>
-            </thead>
-            <tbody>
-            <td><input type="text" name="number" required/></td>
-            <td><input type="text" name="table" required/></td>
-            <td>
-                <button type="submit" name="button" value="ADD TABLE" class="addProductButton"/>
-                Добавить
-            </td>
-            </tbody>
-        </table>
-    </form>
-</div>
-
-<h2>Список столиков</h2>
+<h2>СТОЛИКИ</h2>
 <table border="1">
     <thead>
     <tr>
@@ -155,17 +133,16 @@
     </div>
 </div>
 
-<h2>Добавить к столику официанта</h2>
-
-<div class="wrapper">
-    <form action="${pageContext.request.contextPath}/hall" method="get">
-        <table border="0">
-            <thead>
-            <tr>
-                <th>Работник</th>
-                <th>Столики</th>
-            </thead>
-            <tbody>
+<h2>Привязка официантов к столикам</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Работник</th>
+        <th>Столики</th>
+    </thead>
+    <tbody>
+    <tr>
+        <form action="${pageContext.request.contextPath}/hall" method="get">
             <td><select name="employee" size="1" required>
                 <c:forEach var="employee" items="${employeeList}">
                     <option value="<c:out value='${employee.getId()}'/>"><c:out value='${employee.getName()}'/> <c:out
@@ -183,19 +160,8 @@
                 <button type="submit" name="button" value="ADD TABLES_EMPLOYEES" class="addProductButton"/>
                 Добавить
             </td>
-            </tbody>
-        </table>
-    </form>
-</div>
-<h2>Список официантов-столиков</h2>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Работник</th>
-        <th>Столики</th>
-        <th>Место</th>
-    </thead>
-    <tbody>
+        </form>
+    </tr>
     <c:forEach var="employee" items="${employeeList}">
         <tr>
             <form>
