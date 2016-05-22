@@ -68,3 +68,19 @@ function PopUpHide_table() {
     $("#popup_table").hide();
 }
 
+function PopUpShow_reservation(id_r, name, phone, datetime, type) {
+    alert(id_r);
+    alert(datetime);
+    $("#id_r").val(id_r);
+    $("#name").val(name);
+    $("#phone").val(phone);
+    $("#datetime").val(datetime);
+    $("#type").val(type);
+
+    $("#popup_reservations").show();
+}
+
+function PopUpHide_reservation() {
+    $("#popup_reservations").hide();
+}
+

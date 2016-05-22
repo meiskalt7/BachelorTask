@@ -164,7 +164,7 @@
         <td>${timerange.getFinish()}</td>
         <td>
             <button type="button"
-                    onclick="PopUpShow_timeRange('${timerange.getId()}', '${timerangeList.get(id).getStart().toString().substring(0,5)}', '${timerangeList.get(id).getFinish().toString().substring(0,5)}')"
+                    onclick="PopUpShow_timeRange('${timerange.getId()}', '${timerange.getStart().toString().substring(0,5)}', '${timerange.getFinish().toString().substring(0,5)}')"
                     class="updateButton">CHANGE
             </button>
             <form action="${pageContext.request.contextPath}/workshift" method="get">
