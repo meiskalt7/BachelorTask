@@ -190,7 +190,6 @@ public class ControllerServlet extends HttpServlet {
                         .getRequestDispatcher("/waiter/ordersPage.jsp");
                 break;
             case PRICELIST:
-                request.setAttribute("productsList", productService.getAll());
                 request.setAttribute("categoryList", categoryService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/waiter/pricelistPage.jsp");
@@ -411,8 +410,7 @@ public class ControllerServlet extends HttpServlet {
     }
 
     private void createOrUpdateOrder(HttpServletRequest request, ProductService productService, OrderService orderService, OrderlistService orderlistService, EmployeeService employeeService, TableService tableService, int userId) {
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        int productId = Integer.parseInt(request.getParameter("productId"));
+
         int tableId = Integer.parseInt(request.getParameter("tableId"));
 
         Order order;
@@ -427,11 +425,20 @@ public class ControllerServlet extends HttpServlet {
             order = orderService.get(orderId);
         }
 
-        Orderlist orderlist = new Orderlist();
-        orderlist.setQuantity(quantity);
-        orderlist.setProduct(productService.get(productId));
-        orderlist.setOrder(order);
-        orderlistService.add(orderlist);
+        int i = 0;
+        String productId[] = request.getParameterValues("productId");
+        String quantity[] = request.getParameterValues("quantity");
+
+        while (i < productId.length) {
+            if (productId[i] != "" && quantity[i] != "") {
+                Orderlist orderlist = new Orderlist();
+                orderlist.setQuantity(Integer.parseInt(quantity[i]));
+                orderlist.setProduct(productService.get(Integer.parseInt(productId[i])));
+                orderlist.setOrder(order);
+                orderlistService.add(orderlist);
+            }
+            i++;
+        }
     }
 
     private void updateCategory(HttpServletRequest request, CategoryService categoryService) {

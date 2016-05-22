@@ -13,47 +13,45 @@ h1, h2, h3, h4 {
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 14pt;
 }
 
 h3 {
-    font-family: "Segoe UI Black", sans-serif;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     color: #22339d;
     margin-bottom: 1em;
     text-shadow: #c1a663 0 0 2px;
     text-align: left;
+    font-size: 14pt;
+}
+
+h4 {
+    font-size: 14pt;
 }
 
 h1, h2, h4 {
-    font-family: "Segoe UI Black", sans-serif;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     color: #22339d;
     margin-bottom: 1em;
     text-shadow: #c1a663 0 0 2px;
     text-align: center;
 }
 
-h3 {
-    font-size: 1.25em;
-}
-
-h4 {
-    font-size: 1em;
-}
-
 table {
     border-spacing: 0 10px;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 11pt;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     font-weight: bold;
-    background: #1a1915; /* Цвет фона таблицы */
-    color: #d6bc83; /* Цвет текста */
+    background: #BFBFD6; /* Цвет фона таблицы */
+    color: #17175F; /* Цвет текста */
 }
 
 th {
     padding: 10px 20px;
-    background: #777fac;
-    color: #FF9C00;
+    background: #303071;
+    color: #F8E6CE;
     border-right: 2px solid;
-    font-size: 0.9em;
+    font-size: 11pt;
 }
 
 th:first-child {

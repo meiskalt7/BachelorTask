@@ -114,8 +114,8 @@
     </thead>
     <tbody>
     <c:if test="${'admin'.equals(sessionScope.userType)}">
+        <form action="${pageContext.request.contextPath}/products" method="get">
         <tr>
-            <form action="${pageContext.request.contextPath}/products" method="get">
                 <td><select name="categoryId" required>
                     <c:forEach var="category" items="${categoryList}">
                         <option value="${category.getId()}">${category.getName()}</option>
@@ -125,8 +125,9 @@
                 <td><input type="text" name="price" required/></td>
 
                 <td>
+                    <button id="add_ingrid_button" class="addProductButton">Еще...</button>
                     <div id="ingridDiv">
-                        <button id="add_ingrid_button" class="addProductButton">Еще...</button>
+
                         <p>
                             <select name="ingridientsId" id="selectIngrid" required>
                                 <option selected value="default">Выберите ингридиент</option>
@@ -142,8 +143,8 @@
                     <button type="submit" name="button" value="ADD PRODUCT" class="addProductButton"/>
                     Добавить
                 </td>
-            </form>
         </tr>
+        </form>
     </c:if>
     <c:forEach var="product" items="${productsList}">
     <tr>
