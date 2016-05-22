@@ -21,7 +21,7 @@ public class Workshift {
 
     @ManyToMany(mappedBy = "workshifts") //TODO нужен каскад для удаления только смен, без работников
     private List<Employee> employees = new ArrayList<>();
-    @ManyToOne(cascade = CascadeType.MERGE) //мб понадобится еще на обновление
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "timerange_id", nullable = false, insertable = false, updatable = false)
     private TimeRange timeRange = new TimeRange();
 

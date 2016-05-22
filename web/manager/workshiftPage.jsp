@@ -163,7 +163,7 @@
 <c:if test="${'admin'.equals(sessionScope.userType)}">
     <h2>Добавить смену</h2>
 
-    <form action="${pageContext.request.contextPath}/admin" method="get">
+    <form action="${pageContext.request.contextPath}/workshift" method="get">
         <table border="0">
             <thead>
             <tr>
@@ -199,8 +199,8 @@
                     onclick="PopUpShow_timeRange('${timerange.getId()}', '${timerangeList.get(id).getStart().toString().substring(0,5)}', '${timerangeList.get(id).getFinish().toString().substring(0,5)}')"
                     class="updateButton">CHANGE
             </button>
-            <form action="${pageContext.request.contextPath}/admin" method="get">
-                <input type="hidden" name="timerangeId" value="${timerange.getId()}">
+            <form action="${pageContext.request.contextPath}/workshift" method="get">
+                <input type="hidden" name="id" value="${timerange.getId()}">
                 <button type="submit" name="button" value="DELETE TIMERANGE" class="deleteButton">DELETE
                 </button>
             </form>
@@ -213,7 +213,7 @@
 <div class="b-popup" id="popup_timeRange">
     <div class="b-popup-content">
         Изменение работы смены
-        <form action="${pageContext.request.contextPath}/admin" method="get">
+        <form action="${pageContext.request.contextPath}/workshift" method="get">
             <input id="id" type="hidden" name="id" required>
             <input id="start" type="time" name="start" maxlength="255" required/>
             <input id="finish" type="time" name="finish" maxlength="255" required/>

@@ -173,7 +173,7 @@
                     class="updateButton">CHANGE
             </button>
             <form>
-                <input type="hidden" name="employeeId" value="${employee.getId()}">
+                <input type="hidden" name="id" value="${employee.getId()}">
                 <button type="submit" name="button" value="DELETE EMPLOYEE" class="deleteButton">DELETE
                 </button>
             </form>

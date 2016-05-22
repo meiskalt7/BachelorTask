@@ -32,6 +32,7 @@ public class TimeRangeService implements GenericDao<TimeRange> {
 
     public void delete(int id) {
         TimeRange timeRange = get(id);
+        timeRange.getWorkshiftList().clear();
         em.getTransaction().begin();
         em.remove(timeRange);
         em.getTransaction().commit();

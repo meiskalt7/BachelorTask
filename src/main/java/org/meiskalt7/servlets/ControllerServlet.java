@@ -131,16 +131,16 @@ public class ControllerServlet extends HttpServlet {
                             workshiftService.delete(id);
                             break;
                         case PRODUCT:
-                            deleteProduct(request, productService);
+                            productService.delete(id);
                             break;
                         case CATEGORY:
-                            deleteCategory(request, categoryService);
+                            categoryService.delete(id);
                             break;
                         case EMPLOYEE:
-                            deleteEmployee(request, employeeService);
+                            employeeService.delete(id);
                             break;
                         case TIMERANGE:
-                            deleteTimeRange(request, timeRangeService);
+                            timeRangeService.delete(id);
                             break;
                         case RESERVATION:
                             reservationService.delete(id);
@@ -178,6 +178,7 @@ public class ControllerServlet extends HttpServlet {
         switch (servletPath) {
             case ADMIN:
                 request.setAttribute("ingridList", ingridientService.getAll());
+                request.setAttribute("employeeList", employeeService.getAll());
                 request.setAttribute("userTypeList", userTypeService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/admin/adminPage.jsp");
@@ -295,7 +296,6 @@ public class ControllerServlet extends HttpServlet {
         Ingridient ingridient = ingridientService.get(id);
 
         String name = req.getParameter("name");
-
 
         if (name != null && !name.equals(ingridient.getName())) {
             ingridient.setName(name);
@@ -458,24 +458,6 @@ public class ControllerServlet extends HttpServlet {
         employeeService.update(employee);
     }
 
-    private void deleteTimeRange(HttpServletRequest request, TimeRangeService timeRangeService) {
-        int timerangeId = Integer.parseInt(request.getParameter("timerangeId"));
-        timeRangeService.delete(timerangeId);
-    }
-
-    private void deleteEmployee(HttpServletRequest request, EmployeeService employeeService) {
-        int employeeId = Integer.parseInt(request.getParameter("employeeId"));
-        employeeService.delete(employeeId);
-    }
-
-    private void deleteCategory(HttpServletRequest request, CategoryService categoryService) {
-        categoryService.delete(Integer.parseInt(request.getParameter("categoryId")));
-    }
-
-    private void deleteProduct(HttpServletRequest request, ProductService productService) {
-        productService.delete(Integer.parseInt(request.getParameter("productId")));
-    }
-
     private double parseDouble(String str, HttpServletRequest request) {
         if (str != null && str.length() > 0)
             try {
@@ -485,10 +467,5 @@ public class ControllerServlet extends HttpServlet {
                 return -1;
             }
         return 0.0;
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
     }
 }

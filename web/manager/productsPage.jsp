@@ -182,7 +182,7 @@
         </td>
         <td>
             <form>
-                <input type="hidden" name="productId" value="${product.getId()}">
+                <input type="hidden" name="id" value="${product.getId()}">
                 <button type="submit" name="button" value="DELETE PRODUCT" class="deleteButton">DELETE
                 </button>
             </form>
@@ -229,7 +229,7 @@
                     class="updateButton">CHANGE
             </button>
             <form>
-                <input type="hidden" name="categoryId" value="${category.getId()}">
+                <input type="hidden" name="id" value="${category.getId()}">
                 <button type="submit" name="button" value="DELETE CATEGORY" class="deleteButton">DELETE
                 </button>
             </form>

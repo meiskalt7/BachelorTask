@@ -147,7 +147,7 @@
             <input id="id_t" type="hidden" name="id" required>
             <input id="number" type="text" name="number" required/>
             <input id="table" type="text" name="table" required/>
-            <button type="submit" name="button" value="UPDATE INGRIDIENT" class="updateButton">UPDATE
+            <button type="submit" name="button" value="UPDATE TABLE" class="updateButton">UPDATE
             </button>
         </form>
         <a href="javascript:PopUpHide_table()">Отмена</a>

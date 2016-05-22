@@ -18,7 +18,7 @@ public class TimeRange {
     @Column
     private Time finish;
 
-    @OneToMany(mappedBy = "timeRange", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "timeRange", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Workshift> workshiftList = new ArrayList<>();
 
     public TimeRange() {

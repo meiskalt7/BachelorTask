@@ -140,7 +140,7 @@
                 <c:set var="totalAll" value="${totalAll + total}"/>
             </td>
             <td>
-                <form action="${pageContext.request.contextPath}/orders" method="get">
+                <form action="${pageContext.request.contextPath}/statistics" method="get">
                     <input type="hidden" name="id" value="${order.getId()}">
                     <button type="submit" name="button" value="delete order" class="deleteButton">DELETE
                     </button>
