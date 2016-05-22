@@ -44,6 +44,12 @@ public class OrderService implements GenericDao<Order> {
         em.getTransaction().commit();
     }
 
+    public void refresh(Order order) {
+        em.getTransaction().begin();
+        em.refresh(order);
+        em.getTransaction().commit();
+    }
+
     public Order get(int id) {
         return em.find(Order.class, id);
     }

@@ -2,13 +2,15 @@ package org.meiskalt7.entity;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "employees")
 @NamedQuery(name = "Employees.getAll", query = "SELECT c from Employee c")
-public class Employee {
+public class Employee implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -160,5 +162,37 @@ public class Employee {
 
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(surname, employee.surname) &&
+                Objects.equals(name, employee.name) &&
+                Objects.equals(patronymic, employee.patronymic) &&
+                Objects.equals(username, employee.username) &&
+                Objects.equals(password, employee.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(surname, name, patronymic, username, password);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Employee{");
+        sb.append("id=").append(id);
+        sb.append(", surname='").append(surname).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", patronymic='").append(patronymic).append('\'');
+        sb.append(", wage=").append(wage);
+        sb.append(", usertype_id=").append(usertype_id);
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

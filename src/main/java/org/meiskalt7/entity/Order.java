@@ -2,13 +2,15 @@ package org.meiskalt7.entity;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order implements Serializable {
 
     @Id
     @Column
@@ -112,5 +114,32 @@ public class Order {
 
     public void setEnded(boolean ended) {
         this.ended = ended;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id_empl == order.id_empl &&
+                id_table == order.id_table &&
+                Objects.equals(datetime, order.datetime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id_empl, datetime, id_table);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Order{");
+        sb.append("id=").append(id);
+        sb.append(", id_empl=").append(id_empl);
+        sb.append(", datetime=").append(datetime);
+        sb.append(", id_table=").append(id_table);
+        sb.append(", ended=").append(ended);
+        sb.append('}');
+        return sb.toString();
     }
 }

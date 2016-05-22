@@ -162,6 +162,7 @@ public class ControllerServlet extends HttpServlet {
         if (request.getSession().getAttribute("userId") != null) {
             int userId = Integer.parseInt(request.getSession().getAttribute("userId").toString());
             Employee employee = employeeService.get(userId);
+            employeeService.refresh(employee);
             request.setAttribute("orderList", employee.getOrderList());
             request.setAttribute("waiterTableList", employee.getTables());
         }
@@ -421,6 +422,7 @@ public class ControllerServlet extends HttpServlet {
             Timestamp datetime = new Timestamp(System.currentTimeMillis());
             order = new Order(datetime, employee, table);
             orderService.add(order);
+            employeeService.refresh(employee);
         } else {
             int orderId = Integer.parseInt(request.getParameter("orderId"));
             order = orderService.get(orderId);
@@ -440,6 +442,7 @@ public class ControllerServlet extends HttpServlet {
             }
             i++;
         }
+        orderService.refresh(order);
     }
 
     private void updateCategory(HttpServletRequest request, CategoryService categoryService) {

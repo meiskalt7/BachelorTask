@@ -1,11 +1,13 @@
 package org.meiskalt7.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
 @javax.persistence.Table(name = "reservations")
-public class Reservation {
+public class Reservation implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -85,5 +87,34 @@ public class Reservation {
 
     public void setTable(Table table) {
         this.table = table;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation that = (Reservation) o;
+        return id_table == that.id_table &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(phone, that.phone) &&
+                Objects.equals(datetime, that.datetime) &&
+                Objects.equals(table, that.table);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id_table, name, phone, datetime, table);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Reservation{");
+        sb.append("id=").append(id);
+        sb.append(", id_table=").append(id_table);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", phone='").append(phone).append('\'');
+        sb.append(", datetime=").append(datetime);
+        sb.append('}');
+        return sb.toString();
     }
 }

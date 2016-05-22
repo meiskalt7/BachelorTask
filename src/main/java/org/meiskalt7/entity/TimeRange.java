@@ -1,13 +1,15 @@
 package org.meiskalt7.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @javax.persistence.Table(name = "timeranges")
-public class TimeRange {
+public class TimeRange implements Serializable {
 
     @Id
     @Column
@@ -59,5 +61,29 @@ public class TimeRange {
 
     public void setWorkshiftList(List<Workshift> workshiftList) {
         this.workshiftList = workshiftList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TimeRange timeRange = (TimeRange) o;
+        return Objects.equals(start, timeRange.start) &&
+                Objects.equals(finish, timeRange.finish);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(start, finish);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("TimeRange{");
+        sb.append("id=").append(id);
+        sb.append(", start=").append(start);
+        sb.append(", finish=").append(finish);
+        sb.append('}');
+        return sb.toString();
     }
 }

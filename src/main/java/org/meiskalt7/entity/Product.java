@@ -2,13 +2,15 @@ package org.meiskalt7.entity;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "prod")
 @NamedQuery(name = "Products.getAll", query = "SELECT p from Product p")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @Column(name = "ID")
@@ -103,16 +105,29 @@ public class Product {
         this.ingridients = ingridients;
     }
 
-/*    public Orderlist getOrderlist() {
-        return orderlist;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return cat_id == product.cat_id &&
+                Objects.equals(name, product.name) &&
+                Objects.equals(category, product.category);
     }
 
-    public void setOrderlist(Orderlist orderlist) {
-        this.orderlist = orderlist;
-    }*/
+    @Override
+    public int hashCode() {
+        return Objects.hash(cat_id, name, category);
+    }
 
-
+    @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", cat_id=" + cat_id + ", price=" + price + '}';
+        final StringBuilder sb = new StringBuilder("Product{");
+        sb.append("id=").append(id);
+        sb.append(", cat_id=").append(cat_id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", price=").append(price);
+        sb.append('}');
+        return sb.toString();
     }
 }

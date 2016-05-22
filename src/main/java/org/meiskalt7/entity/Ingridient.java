@@ -2,12 +2,14 @@ package org.meiskalt7.entity;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "ingridients")
-public class Ingridient {
+public class Ingridient implements Serializable {
 
     @Id
     @Column(name = "ID")
@@ -69,5 +71,30 @@ public class Ingridient {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingridient that = (Ingridient) o;
+        return Double.compare(that.price, price) == 0 &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Ingridient{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", quantity=").append(quantity);
+        sb.append(", price=").append(price);
+        sb.append('}');
+        return sb.toString();
     }
 }

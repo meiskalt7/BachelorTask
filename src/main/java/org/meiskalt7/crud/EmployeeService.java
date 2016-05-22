@@ -42,6 +42,12 @@ public class EmployeeService implements GenericDao<Employee> {
         em.getTransaction().commit();
     }
 
+    public void refresh(Employee employee) {
+        em.getTransaction().begin();
+        em.refresh(employee);
+        em.getTransaction().commit();
+    }
+
     public Employee get(int id) {
         return em.find(Employee.class, id);
     }
