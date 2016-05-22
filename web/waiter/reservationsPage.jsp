@@ -130,7 +130,7 @@
     <div class="b-popup-content">
         Изменение работы смены
         <form action="${pageContext.request.contextPath}/reservations" method="get">
-            <input id="id" type="hidden" name="id" required>
+            <input id="id_r" type="hidden" name="id" required>
             <input id="name" type="text" name="name" maxlength="255" required/>
             <input id="phone" type="tel" name="phone" maxlength="255" pattern="9[0-9]{2}-[0-9]{3}-[0-9]{4}" required/>
             <input id="datetime" type="datetime-local" name="time" maxlength="255" required/>

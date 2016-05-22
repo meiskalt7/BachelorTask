@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="update table">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" afterPath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" />
+    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="update reservation">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/popup.js" afterPath="$PROJECT_DIR$/web/js/popup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/manager/workshiftPage.jsp" afterPath="$PROJECT_DIR$/web/manager/workshiftPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" afterPath="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/waiter/reservationsPage.jsp" afterPath="$PROJECT_DIR$/web/waiter/reservationsPage.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -89,31 +86,31 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ControllerServlet.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ControllerServlet.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
               <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0331384">
+                  <caret line="108" column="87" selection-start-line="108" selection-start-column="87" selection-end-line="108" selection-end-column="87" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HttpServlet.class" pinned="false" current-in-tab="false">
+            <entry file="jar://C:/apache-tomcat-8.0.29/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-7.4074073">
+                  <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Reservation.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Reservation.java">
+              <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="reservationsPage.jsp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/web/waiter/reservationsPage.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.48665297">
-                  <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pricelistPage.jsp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-11.153846">
-                  <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
+                  <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
@@ -122,8 +119,8 @@
           <file leaf-file-name="productsPage.jsp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/manager/productsPage.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-80.19231">
-                  <caret line="128" column="86" selection-start-line="128" selection-start-column="86" selection-end-line="128" selection-end-column="86" />
+                <state vertical-scroll-proportion="-6.181818">
+                  <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
                   <folding />
                 </state>
               </provider>
@@ -133,21 +130,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="workshiftPage.jsp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/manager/workshiftPage.jsp">
+          <file leaf-file-name="productsPage.jsp" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/web/manager/productsPage.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-8.923077">
-                  <caret line="184" column="60" selection-start-line="184" selection-start-column="12" selection-end-line="184" selection-end-column="60" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="popup.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/web/js/popup.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.44464946">
-                  <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+                <state vertical-scroll-proportion="0.33333334">
+                  <caret line="128" column="86" selection-start-line="128" selection-start-column="86" selection-end-line="128" selection-end-column="86" />
                   <folding />
                 </state>
               </provider>
@@ -229,11 +216,11 @@
         <option value="$PROJECT_DIR$/web/manager/stockPage.jsp" />
         <option value="$PROJECT_DIR$/web/manager/productsPage.jsp" />
         <option value="$PROJECT_DIR$/web/admin/adminPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
         <option value="$PROJECT_DIR$/web/manager/workshiftPage.jsp" />
         <option value="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
         <option value="$PROJECT_DIR$/web/js/popup.js" />
         <option value="$PROJECT_DIR$/web/waiter/reservationsPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
       </list>
     </option>
   </component>
@@ -1100,7 +1087,6 @@
     <configuration default="false" name="START BAKA" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.29" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/login" />
       <option name="COMMON_VM_ARGUMENTS" value="-Duser.region=us -Duser.language=en" />
-      <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
         <artifact name="HibernateJPA:Web exploded">
           <settings>
@@ -1222,13 +1208,7 @@
       <workItem from="1463274907349" duration="3931000" />
       <workItem from="1463410455894" duration="985000" />
       <workItem from="1463812123866" duration="11530000" />
-      <workItem from="1463833333058" duration="26532000" />
-    </task>
-    <task id="LOCAL-00002" summary="rewrited all for RGR">
-      <created>1451230751158</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1451230751158</updated>
+      <workItem from="1463833333058" duration="28788000" />
     </task>
     <task id="LOCAL-00003" summary="rewrited all for RGR">
       <created>1451233700106</created>
@@ -1518,11 +1498,17 @@
       <option name="project" value="LOCAL" />
       <updated>1463899165917</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update reservation">
+      <created>1463903734672</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1463903734673</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="383629000" />
+    <option name="totallyTimeSpent" value="385885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1533,7 +1519,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32034633" sideWeight="0.5021322" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35930735" sideWeight="0.42537314" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38311687" sideWeight="0.42537314" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32034633" sideWeight="0.49573562" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21268657" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32467532" sideWeight="0.48347548" order="12" side_tool="false" content_ui="tabs" />
@@ -1602,7 +1588,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cleanup" />
     <MESSAGE value="some refactor and statistics" />
     <MESSAGE value="statistics and ingridient price" />
     <MESSAGE value="some refactor" />
@@ -1627,7 +1612,8 @@
     <MESSAGE value="scroll is SHIT" />
     <MESSAGE value="scrolling is SHIT" />
     <MESSAGE value="update table" />
-    <option name="LAST_COMMIT_MESSAGE" value="update table" />
+    <MESSAGE value="update reservation" />
+    <option name="LAST_COMMIT_MESSAGE" value="update reservation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1636,58 +1622,47 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
-          <line>411</line>
+          <line>437</line>
           <properties />
           <option name="timeStamp" value="260" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
-          <line>234</line>
-          <properties />
-          <option name="timeStamp" value="271" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
-          <line>159</line>
-          <properties />
-          <option name="timeStamp" value="272" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
-          <line>213</line>
+          <line>206</line>
           <properties />
           <option name="timeStamp" value="274" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="275" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
+          <line>362</line>
+          <properties />
+          <option name="timeStamp" value="276" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="279" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="275" />
+      <option name="time" value="280" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="order.getDatetime()" language="JAVA" custom="" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/context.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.5">
@@ -2109,42 +2084,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/apache-tomcat-8.0.29/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36871508">
-          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manager/productsPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-80.19231">
-          <caret line="128" column="86" selection-start-line="128" selection-start-column="86" selection-end-line="128" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.153846">
-          <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/manager/workshiftPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
+        <state vertical-scroll-proportion="0.4496124">
           <caret line="184" column="60" selection-start-line="184" selection-start-column="12" selection-end-line="184" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3321033">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/waiter/reservationsPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5387597">
+          <caret line="132" column="27" selection-start-line="132" selection-start-column="27" selection-end-line="132" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/apache-tomcat-8.0.29/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.4074073">
+          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2157,10 +2124,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/waiter/reservationsPage.jsp">
+    <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48665297">
-          <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
+        <state vertical-scroll-proportion="2.8992248">
+          <caret line="106" column="65" selection-start-line="106" selection-start-column="65" selection-end-line="106" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Reservation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manager/productsPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.181818">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0331384">
+          <caret line="108" column="87" selection-start-line="108" selection-start-column="87" selection-end-line="108" selection-end-column="87" />
           <folding />
         </state>
       </provider>

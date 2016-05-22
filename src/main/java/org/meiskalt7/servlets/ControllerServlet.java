@@ -78,17 +78,7 @@ public class ControllerServlet extends HttpServlet {
                             //order.getOrderlists().add(orderlist);
                             break;
                         case RESERVATION:
-                            String name = request.getParameter("name");
-                            String phone = request.getParameter("phone");
-                            Timestamp time = Timestamp.valueOf(request.getParameter("time").replace("T", " ") + ":00");
-                            int tableId = Integer.parseInt(request.getParameter("tableId"));
-
-                            Table table = tableService.get(tableId);
-
-                            Reservation reservation = new Reservation(name, phone, time, table);
-                            reservationService.add(reservation);
-
-                            request.setAttribute("resultMessage", "Столик забронирован");
+                            createReservation(request, tableService, reservationService);
                             break;
                     }
                     break;
@@ -114,6 +104,9 @@ public class ControllerServlet extends HttpServlet {
                             break;
                         case TABLE:
                             updateTable(request, tableService, id);
+                            break;
+                        case RESERVATION:
+                            updateReservation(request, reservationService, tableService, id);
                             break;
                     }
                     break;
@@ -235,6 +228,20 @@ public class ControllerServlet extends HttpServlet {
         rd.forward(request, response);
     }
 
+    private void createReservation(HttpServletRequest request, TableService tableService, ReservationService reservationService) {
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        Timestamp time = Timestamp.valueOf(request.getParameter("time").replace("T", " ") + ":00");
+        int tableId = Integer.parseInt(request.getParameter("tableId"));
+
+        Table table = tableService.get(tableId);
+
+        Reservation reservation = new Reservation(name, phone, time, table);
+        reservationService.add(reservation);
+
+        request.setAttribute("resultMessage", "Столик забронирован");
+    }
+
     private void deassignTables(HttpServletRequest req, EmployeeService employeeService, int id) {
         if (req.getParameter("tableId") != null) {
             String[] tableId = req.getParameterValues("tableId");
@@ -331,6 +338,25 @@ public class ControllerServlet extends HttpServlet {
         table.setType(type);
 
         tableService.update(table);
+    }
+
+    private void updateReservation(HttpServletRequest request, ReservationService reservationService, TableService tableService, int id) {
+        Reservation reservation = reservationService.get(id);
+
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        Timestamp time = Timestamp.valueOf(request.getParameter("time").replace("T", " ") + ":00");
+
+        reservation.setName(name);
+        reservation.setPhone(phone);
+        reservation.setDatetime(time);
+
+        int tableId = Integer.parseInt(request.getParameter("tableId"));
+        Table table = tableService.get(tableId);
+        reservation.setTable(table);
+        reservation.setId_table(tableId);
+
+        reservationService.update(reservation);
     }
 
     private void createProduct(HttpServletRequest request, ProductService productService, CategoryService categoryService, CompositionService compositionService, final IngridientService ingridientService) {
