@@ -18,7 +18,9 @@
 <body>
 <div id="header">
     <div id="logo">
-        <h1>AuRe: Страница администратора</h1>
+        <h1>AuRe</h1>
+
+        <h2>Статистика</h2>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -140,7 +142,7 @@
             <td>
                 <form action="${pageContext.request.contextPath}/statistics" method="get">
                     <input type="hidden" name="id" value="${order.getId()}">
-                    <button type="submit" name="button" value="delete order" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="delete order" class="deleteButton">УДАЛИТЬ
                     </button>
                 </form>
             </td>

@@ -86,7 +86,6 @@
         <th>Название</th>
         <th>Количество</th>
         <th>Цена</th>
-        <th>Удалить</th>
     </thead>
     <tbody>
     <tr>
@@ -96,7 +95,7 @@
             <td><input type="text" name="price" required/></td>
             <td>
                 <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton"/>
-                Добавить
+                ДОБАВИТЬ
             </td>
         </form>
     </tr>
@@ -108,11 +107,11 @@
         <td>
             <button type="button"
                     onclick="PopUpShow_ingrid('${ingrid.getId()}', '${ingrid.getName()}', '${ingrid.getQuantity()}', '${ingrid.getPrice()}')"
-                    class="updateButton">CHANGE
+                    class="updateButton">ИЗМЕНИТЬ
             </button>
             <form>
                 <input type="hidden" name="id" value="${ingrid.getId()}">
-                <button type="submit" name="button" value="DELETE INGRIDIENT" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE INGRIDIENT" class="deleteButton">УДАЛИТЬ
                 </button>
             </form>
         </td>

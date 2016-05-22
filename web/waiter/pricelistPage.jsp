@@ -88,7 +88,10 @@
         <td><input type="text" name="name" maxlength="255"/></td>
         <td><input type="text" name="priceFrom"/></td>
         <td><input type="text" name="priceTo"/></td>
-        <td><input type="submit" value="Найти"/></td>
+        <td>
+            <button type="submit" name="button" value="READ PRODUCT" class="addProductButton"/>
+            НАЙТИ
+        </td>
         </tbody>
     </table>
     <input type="hidden" name="userId" value="${sessionScope.userId}">

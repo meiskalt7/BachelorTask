@@ -113,11 +113,11 @@
         <td>
             <button type="button"
                     onclick="PopUpShow_reservation('${reservation.getId()}', '${reservation.getName()}', '${reservation.getPhone()}', '${reservation.getDatetime().toString().substring(0, 10)}'+ 'T' +'${reservation.getDatetime().toString().substring(11, 19)}', '${reservation.getTable().getType()}')"
-                    class="updateButton">CHANGE
+                    class="updateButton">ИЗМЕНИТЬ
             </button>
             <form>
                 <input type="hidden" name="id" value="${reservation.getId()}">
-                <button type="submit" name="button" value="DELETE RESERVATION" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE RESERVATION" class="deleteButton">УДАЛИТЬ
                 </button>
             </form>
         </td>

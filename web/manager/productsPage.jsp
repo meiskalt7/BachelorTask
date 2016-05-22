@@ -110,7 +110,6 @@
         <th>Наименование</th>
         <th>Цена</th>
         <th>Ингридиент:Кол-во</th>
-        <th>Удалить</th>
     </thead>
     <tbody>
     <c:if test="${'admin'.equals(sessionScope.userType)}">
@@ -141,7 +140,7 @@
                 </td>
                 <td>
                     <button type="submit" name="button" value="ADD PRODUCT" class="addProductButton"/>
-                    Добавить
+                    ДОБАВИТЬ
                 </td>
         </tr>
         </form>
@@ -160,7 +159,7 @@
         <td>
             <form>
                 <input type="hidden" name="id" value="${product.getId()}">
-                <button type="submit" name="button" value="DELETE PRODUCT" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE PRODUCT" class="deleteButton">УДАЛИТЬ
                 </button>
             </form>
         </td>
@@ -174,7 +173,6 @@
     <thead>
     <tr>
         <th>Категория</th>
-        <th>Удалить</th>
     </thead>
     <tbody>
     <c:if test="${'admin'.equals(sessionScope.userType)}">
@@ -183,7 +181,7 @@
                 <td><input type="text" name="categoryName" maxlength="255" required/></td>
                 <td>
                     <button type="submit" name="button" value="ADD CATEGORY" class="addProductButton"/>
-                    Добавить
+                    ДОБАВИТЬ
                 </td>
             </form>
         </tr>
@@ -194,11 +192,11 @@
         <td>
             <button type="button"
                     onclick="PopUpShow_category('${category.getId()}', '${category.getName()}')"
-                    class="updateButton">CHANGE
+                    class="updateButton">ИЗМЕНИТЬ
             </button>
             <form>
                 <input type="hidden" name="id" value="${category.getId()}">
-                <button type="submit" name="button" value="DELETE CATEGORY" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE CATEGORY" class="deleteButton">УДАЛИТЬ
                 </button>
             </form>
         </td>

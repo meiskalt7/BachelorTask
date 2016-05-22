@@ -87,7 +87,6 @@
         <th>День</th>
         <th>Время</th>
         <th>Работник</th>
-        <th>Удалить</th>
     </tr>
     <tr>
         <form action="${pageContext.request.contextPath}/workshift" method="get">
@@ -107,7 +106,7 @@
             </select></td>
             <td>
                 <button type="submit" name="button" value="ADD WORKSHIFT" class="addProductButton"/>
-                Добавить
+                ДОБАВИТЬ
             </td>
         </form>
     </tr>
@@ -130,7 +129,7 @@
             <td>
                 <form>
                     <input type="hidden" name="id" value="${workshift.getId()}">
-                    <button type="submit" name="button" value="DELETE WORKSHIFT" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="DELETE WORKSHIFT" class="deleteButton">УДАЛИТЬ
                     </button>
                 </form>
             </td>
@@ -153,7 +152,7 @@
                 <td><input type="time" name="finish" maxlength="255" required/></td>
                 <td>
                     <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton"/>
-                    Добавить
+                    ДОБАВИТЬ
                 </td>
             </form>
         </tr>
@@ -165,11 +164,11 @@
         <td>
             <button type="button"
                     onclick="PopUpShow_timeRange('${timerange.getId()}', '${timerange.getStart().toString().substring(0,5)}', '${timerange.getFinish().toString().substring(0,5)}')"
-                    class="updateButton">CHANGE
+                    class="updateButton">ИЗМЕНИТЬ
             </button>
             <form action="${pageContext.request.contextPath}/workshift" method="get">
                 <input type="hidden" name="id" value="${timerange.getId()}">
-                <button type="submit" name="button" value="DELETE TIMERANGE" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE TIMERANGE" class="deleteButton">УДАЛИТЬ
                 </button>
             </form>
         </td>

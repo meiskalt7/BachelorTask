@@ -100,7 +100,7 @@
             <td>
                 <form action="${pageContext.request.contextPath}/orders" method="get">
                     <input type="hidden" name="id" value="${order.getId()}">
-                    <button type="submit" name="button" value="DELETE ORDER" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="DELETE ORDER" class="deleteButton">УДАЛИТЬ
                     </button>
                 </form>
             </td>

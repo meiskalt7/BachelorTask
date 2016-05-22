@@ -93,7 +93,7 @@
             <td><input type="text" name="table" required/></td>
             <td>
                 <button type="submit" name="button" value="ADD TABLE" class="addProductButton"/>
-                Добавить
+                ДОБАВИТЬ
             </td>
         </form>
     </tr>
@@ -105,11 +105,11 @@
 
             <button type="button"
                     onclick="PopUpShow_table('${table.getId()}', '${table.getNumber()}', '${table.getType()}')"
-                    class="updateButton">CHANGE
+                    class="updateButton">ИЗМЕНИТЬ
             </button>
             <form action="${pageContext.request.contextPath}/hall" method="get">
                 <input type="hidden" name="id" value="${table.getId()}">
-                <button type="submit" name="button" value="DELETE TABLE" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE TABLE" class="deleteButton">УДАЛИТЬ
                 </button>
             </form>
         </td>
@@ -133,7 +133,8 @@
     </div>
 </div>
 
-<h2>Привязка официантов к столикам</h2>
+
+<h2>Список официантов-столиков</h2>
 <table border="1">
     <thead>
     <tr>
@@ -158,7 +159,7 @@
             </select></td>
             <td>
                 <button type="submit" name="button" value="ADD TABLES_EMPLOYEES" class="addProductButton"/>
-                Добавить
+                ДОБАВИТЬ
             </td>
         </form>
     </tr>
@@ -170,13 +171,13 @@
                 </td>
                 <td><select multiple name="tableId" size="6">
                     <c:forEach var="table" items="${employee.getTables()}">
-                        <option value="<c:out value='${table.getId()}'/>">${table.getNumber()} + ${table.getType()})
+                        <option value="<c:out value='${table.getId()}'/>">${table.getNumber()} (${table.getType()})
                         </option>
                     </c:forEach>
                 </select></td>
                 <td>
                     <input type="hidden" name="id" value="${employee.getId()}">
-                    <button type="submit" name="button" value="DELETE TABLES_EMPLOYEES" class="deleteButton">DELETE
+                    <button type="submit" name="button" value="DELETE TABLES_EMPLOYEES" class="deleteButton">УДАЛИТЬ
                     </button>
                 </td>
             </form>

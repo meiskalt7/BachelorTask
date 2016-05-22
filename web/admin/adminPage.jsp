@@ -119,7 +119,6 @@
     <th>Юзер</th>
     <th>Пароль</th>
     <th>Тип юзера</th>
-    <th>Удалить</th>
     </thead>
     <tbody>
     <tr>
@@ -137,7 +136,7 @@
             </select></td>
             <td>
                 <button type="submit" name="button" value="ADD EMPLOYEE" class="addProductButton"/>
-                Добавить
+                ДОБАВИТЬ
             </td>
         </form>
     </tr>
@@ -153,11 +152,11 @@
         <td>
             <button type="button"
                     onclick="PopUpShow_employee('${employee.getId()}', '${employee.getSurname()}', '${employee.getName()}', '${employee.getPatronymic()}', '${employee.getWage()}', '${employee.getUsername()}', '${employee.getPassword()}', '${employee.getUserType().getId()}')"
-                    class="updateButton">CHANGE
+                    class="updateButton">ИЗМЕНИТЬ
             </button>
             <form>
                 <input type="hidden" name="id" value="${employee.getId()}">
-                <button type="submit" name="button" value="DELETE EMPLOYEE" class="deleteButton">DELETE
+                <button type="submit" name="button" value="DELETE EMPLOYEE" class="deleteButton">УДАЛИТЬ
                 </button>
             </form>
         </td>
