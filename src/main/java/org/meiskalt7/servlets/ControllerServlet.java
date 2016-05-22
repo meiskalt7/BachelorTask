@@ -169,31 +169,22 @@ public class ControllerServlet extends HttpServlet {
             request.setAttribute("productsList", productService.getHQL(categoryId, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
         }
 
-        request.setAttribute("ingridList", ingridientService.getAll());
-        request.setAttribute("workshiftList", workshiftService.getAll());
-        request.setAttribute("employeeList", employeeService.getAll());
-        request.setAttribute("timerangeList", timeRangeService.getAll());
-        request.setAttribute("tableList", tableService.getAll());
-        request.setAttribute("categoryList", categoryService.getAll());
-        request.setAttribute("productsList", productService.getAll()); //load productsList
-        request.setAttribute("categoryList", categoryService.getAll());
-        request.setAttribute("employeeList", employeeService.getAll());
-        request.setAttribute("timerangeList", timeRangeService.getAll());
-        request.setAttribute("ingridList", ingridientService.getAll());
-        request.setAttribute("userTypeList", userTypeService.getAll());
-
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         request.setAttribute("today", simpleDateFormat.format(new java.util.Date()));
 
         RequestDispatcher rd;
-        ServletPath servletPath = ServletPath.valueOf(request.getServletPath());
+        ServletPath servletPath = ServletPath.getByPath(request.getServletPath());//request.getServletPath()
 
         switch (servletPath) {
             case ADMIN:
+                request.setAttribute("ingridList", ingridientService.getAll());
+                request.setAttribute("userTypeList", userTypeService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/admin/adminPage.jsp");
                 break;
             case HALL:
+                request.setAttribute("employeeList", employeeService.getAll());
+                request.setAttribute("tableList", tableService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/manager/hallPage.jsp");
                 break;
@@ -202,11 +193,15 @@ public class ControllerServlet extends HttpServlet {
                         .getRequestDispatcher("/waiter/ordersPage.jsp");
                 break;
             case PRICELIST:
+                request.setAttribute("productsList", productService.getAll());
                 request.setAttribute("categoryList", categoryService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/waiter/pricelistPage.jsp");
                 break;
             case PRODUCTS:
+                request.setAttribute("ingridList", ingridientService.getAll());
+                request.setAttribute("productsList", productService.getAll());
+                request.setAttribute("categoryList", categoryService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/manager/productsPage.jsp");
                 break;
@@ -217,10 +212,14 @@ public class ControllerServlet extends HttpServlet {
                         .getRequestDispatcher("/waiter/reservationsPage.jsp");
                 break;
             case STOCK:
+                request.setAttribute("ingridList", ingridientService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/manager/stockPage.jsp");
                 break;
             case WORKSHIFT:
+                request.setAttribute("workshiftList", workshiftService.getAll());
+                request.setAttribute("employeeList", employeeService.getAll());
+                request.setAttribute("timerangeList", timeRangeService.getAll());
                 rd = getServletContext()
                         .getRequestDispatcher("/manager/workshiftPage.jsp");
                 break;
