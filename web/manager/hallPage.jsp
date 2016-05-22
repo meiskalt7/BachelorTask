@@ -92,8 +92,9 @@
             <td><input type="text" name="number" required/></td>
             <td><input type="text" name="table" required/></td>
             <td>
-                <button type="submit" name="button" value="ADD TABLE" class="addProductButton"/>
-                ДОБАВИТЬ
+                <button type="submit" name="button" value="ADD TABLE" class="addProductButton">
+                    ДОБАВИТЬ
+                </button>
             </td>
         </form>
     </tr>
@@ -158,8 +159,9 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="ADD TABLES_EMPLOYEES" class="addProductButton"/>
-                ДОБАВИТЬ
+                <button type="submit" name="button" value="ADD TABLES_EMPLOYEES" class="addProductButton">
+                    ДОБАВИТЬ
+                </button>
             </td>
         </form>
     </tr>

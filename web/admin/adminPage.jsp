@@ -24,7 +24,7 @@
             PopUpHide_employee();
 
             var ingridDiv = $('#ingridDiv');
-            var i = $('#ingridDiv p').size() + 1;
+            var i = $('#ingridDiv').find('p').size() + 1;
 
             $(document).on('click', '#delete_ingrid_button' + i, function () {
                 alert('Удалим элемент' + i);
@@ -135,8 +135,9 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="ADD EMPLOYEE" class="addProductButton"/>
+                <button type="submit" name="button" value="ADD EMPLOYEE" class="addProductButton">
                 ДОБАВИТЬ
+                </button>
             </td>
         </form>
     </tr>

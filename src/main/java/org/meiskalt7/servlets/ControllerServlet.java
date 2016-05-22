@@ -482,11 +482,11 @@ public class ControllerServlet extends HttpServlet {
             employee.setName(name);
         }
 
-        if (patronymic != null && !name.equals(employee.getPatronymic())) {
+        if (patronymic != null && !patronymic.equals(employee.getPatronymic())) {
             employee.setPatronymic(patronymic);
         }
 
-        if (wage != null && !wage.equals(employee.getWage())) {
+        if (wage != null && !parseDouble(wage, request).equals(employee.getWage())) {
             employee.setWage(parseDouble(wage, request));
         }
 
@@ -507,13 +507,13 @@ public class ControllerServlet extends HttpServlet {
         employeeService.update(employee);
     }
 
-    private double parseDouble(String str, HttpServletRequest request) {
+    private Double parseDouble(String str, HttpServletRequest request) {
         if (str != null && str.length() > 0)
             try {
                 return Double.parseDouble(str);
             } catch (NumberFormatException e) {
                 request.setAttribute("errorMessage", "Error: incorrect value, required number.");
-                return -1;
+                return -1.0;
             }
         return 0.0;
     }

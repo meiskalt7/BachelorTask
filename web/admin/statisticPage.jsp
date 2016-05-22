@@ -104,8 +104,9 @@
             <option value="11">Декабрь</option>
         </select></td>
         <td>
-            <button type="submit" name="button" value="READ ORDER" class="addProductButton"/>
-            Показать
+            <button type="submit" name="button" value="READ ORDER" class="addProductButton">
+                Показать
+            </button>
         </td>
         </tbody>
     </table>
@@ -183,8 +184,9 @@
             <option value="11">Декабрь</option>
         </select></td>
         <td>
-            <button type="submit" name="button" value="READ COSTS" class="addProductButton"/>
-            Показать
+            <button type="submit" name="button" value="READ COSTS" class="addProductButton">
+                Показать
+            </button>
         </td>
         </tbody>
     </table>
@@ -246,8 +248,9 @@
             <option value="11">Декабрь</option>
         </select></td>
         <td>
-            <button type="submit" name="button" value="READ INCOME" class="addProductButton"/>
-            Показать
+            <button type="submit" name="button" value="READ INCOME" class="addProductButton">
+                Показать
+            </button>
         </td>
         </tbody>
     </table>
@@ -303,8 +306,9 @@
             <option value="11">Декабрь</option>
         </select></td>
         <td>
-            <button type="submit" name="button" value="READ BALANCE" class="addProductButton"/>
-            Показать
+            <button type="submit" name="button" value="READ BALANCE" class="addProductButton">
+                Показать
+            </button>
         </td>
         </tbody>
     </table>

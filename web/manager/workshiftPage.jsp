@@ -105,8 +105,9 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="ADD WORKSHIFT" class="addProductButton"/>
-                ДОБАВИТЬ
+                <button type="submit" name="button" value="ADD WORKSHIFT" class="addProductButton">
+                    ДОБАВИТЬ
+                </button>
             </td>
         </form>
     </tr>
@@ -151,8 +152,9 @@
                 <td><input type="time" name="start" maxlength="255" required/></td>
                 <td><input type="time" name="finish" maxlength="255" required/></td>
                 <td>
-                    <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton"/>
-                    ДОБАВИТЬ
+                    <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton">
+                        ДОБАВИТЬ
+                    </button>
                 </td>
             </form>
         </tr>

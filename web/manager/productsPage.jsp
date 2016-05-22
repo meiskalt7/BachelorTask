@@ -16,7 +16,7 @@
             PopUpHide_category();
 
             var ingridDiv = $('#ingridDiv');
-            var i = $('#ingridDiv p').size() + 1;
+            var i = $('#ingridDiv').find('p').size() + 1;
 
             $(document).on('click', '#delete_ingrid_button' + i, function () {
                 alert('Удалим элемент' + i);
@@ -114,7 +114,7 @@
     <tbody>
     <c:if test="${'admin'.equals(sessionScope.userType)}">
         <form action="${pageContext.request.contextPath}/products" method="get">
-        <tr>
+            <tr>
                 <td><select name="categoryId" required>
                     <c:forEach var="category" items="${categoryList}">
                         <option value="${category.getId()}">${category.getName()}</option>
@@ -139,10 +139,11 @@
                     </div>
                 </td>
                 <td>
-                    <button type="submit" name="button" value="ADD PRODUCT" class="addProductButton"/>
-                    ДОБАВИТЬ
+                    <button type="submit" name="button" value="ADD PRODUCT" class="addProductButton">
+                        ДОБАВИТЬ
+                    </button>
                 </td>
-        </tr>
+            </tr>
         </form>
     </c:if>
     <c:forEach var="product" items="${productsList}">
@@ -180,8 +181,9 @@
             <form action="${pageContext.request.contextPath}/products" method="get">
                 <td><input type="text" name="categoryName" maxlength="255" required/></td>
                 <td>
-                    <button type="submit" name="button" value="ADD CATEGORY" class="addProductButton"/>
-                    ДОБАВИТЬ
+                    <button type="submit" name="button" value="ADD CATEGORY" class="addProductButton">
+                        ДОБАВИТЬ
+                    </button>
                 </td>
             </form>
         </tr>

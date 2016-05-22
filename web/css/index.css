@@ -51,13 +51,13 @@ th {
     background: #303071;
     color: #F8E6CE;
     border-right: 2px solid;
-    font-size: 11pt;
+    font-size: 11pt; /*Размер заголовочного текста таблицы*/
 }
 
 td {
     vertical-align: middle;
     padding: 10px;
-    font-size: 11pt;
+    font-size: 11pt; /* Размер шрифта основного текста таблицы */
     text-align: center;
     border-top: 2px solid #56433D;
     border-bottom: 2px solid #56433D;
@@ -86,16 +86,16 @@ td {
 .li:hover {
     border: solid 1px #BFB5A4;
     font-color: #ff0d21;
-    box-shadow: inset 0px 0px 0px 1px #110d07;
-    text-shadow: 1px 1px 0px rgba(17, 13, 7, 0.9);
+    box-shadow: inset 0 0 0 1px #110d07;
+    text-shadow: 1px 1px 0 rgba(17, 13, 7, 0.9);
     background: #7a7788 linear-gradient(to top, #7a7788 50%, #8d877e);
 
 }
 
 .deleteButton {
-    -moz-box-shadow: 0px 10px 14px -7px #f5978e;
-    -webkit-box-shadow: 0px 10px 14px -7px #f5978e;
-    box-shadow: 0px 10px 14px -7px #f5978e;
+    -moz-box-shadow: 0 10px 14px -7px #f5978e;
+    -webkit-box-shadow: 0 10px 14px -7px #f5978e;
+    box-shadow: 0 10px 14px -7px #f5978e;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f));
     background: -moz-linear-gradient(top, #f24537 5%, #c62d1f 100%);
     background: -webkit-linear-gradient(top, #f24537 5%, #c62d1f 100%);
@@ -116,8 +116,9 @@ td {
     font-weight: bold;
     padding: 6px 12px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #810e05;
+    text-shadow: 0 1px 0 #810e05;
 }
+
 .deleteButton:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537));
     background: -moz-linear-gradient(top, #c62d1f 5%, #f24537 100%);
@@ -128,15 +129,16 @@ td {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537', GradientType=0);
     background-color: #c62d1f;
 }
+
 .deleteButton:active {
     position: relative;
     top: 1px;
 }
 
 .addProductButton {
-    -moz-box-shadow: 0px 10px 14px -7px #3e7327;
-    -webkit-box-shadow: 0px 10px 14px -7px #3e7327;
-    box-shadow: 0px 10px 14px -7px #3e7327;
+    -moz-box-shadow: 0 10px 14px -7px #3e7327;
+    -webkit-box-shadow: 0 10px 14px -7px #3e7327;
+    box-shadow: 0 10px 14px -7px #3e7327;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #72b352));
     background: -moz-linear-gradient(top, #77b55a 5%, #72b352 100%);
     background: -webkit-linear-gradient(top, #77b55a 5%, #72b352 100%);
@@ -157,8 +159,9 @@ td {
     font-weight: bold;
     padding: 6px 12px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #5b8a3c;
+    text-shadow: 0 1px 0 #5b8a3c;
 }
+
 .addProductButton:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a));
     background: -moz-linear-gradient(top, #72b352 5%, #77b55a 100%);
@@ -169,15 +172,16 @@ td {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a', GradientType=0);
     background-color: #72b352;
 }
+
 .addProductButton:active {
     position: relative;
     top: 1px;
 }
 
 .updateButton {
-    -moz-box-shadow: 0px 10px 14px -7px #1564ad;
-    -webkit-box-shadow: 0px 10px 14px -7px #1564ad;
-    box-shadow: 0px 10px 14px -7px #1564ad;
+    -moz-box-shadow: 0 10px 14px -7px #1564ad;
+    -webkit-box-shadow: 0 10px 14px -7px #1564ad;
+    box-shadow: 0 10px 14px -7px #1564ad;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5));
     background: -moz-linear-gradient(top, #79bbff 5%, #378de5 100%);
     background: -webkit-linear-gradient(top, #79bbff 5%, #378de5 100%);
@@ -198,7 +202,7 @@ td {
     font-weight: bold;
     padding: 6px 12px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #528ecc;
+    text-shadow: 0 1px 0 #528ecc;
 }
 
 .updateButton:hover {

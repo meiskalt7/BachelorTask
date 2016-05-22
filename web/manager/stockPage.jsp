@@ -94,8 +94,9 @@
             <td><input type="text" name="quantity" required/></td>
             <td><input type="text" name="price" required/></td>
             <td>
-                <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton"/>
-                ДОБАВИТЬ
+                <button type="submit" name="button" value="ADD INGRIDIENT" class="addProductButton">
+                    ДОБАВИТЬ
+                </button>
             </td>
         </form>
     </tr>

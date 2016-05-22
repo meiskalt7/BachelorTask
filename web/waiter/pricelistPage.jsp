@@ -89,8 +89,9 @@
         <td><input type="text" name="priceFrom"/></td>
         <td><input type="text" name="priceTo"/></td>
         <td>
-            <button type="submit" name="button" value="READ PRODUCT" class="addProductButton"/>
-            НАЙТИ
+            <button type="submit" name="button" value="READ PRODUCT" class="addProductButton">
+                НАЙТИ
+            </button>
         </td>
         </tbody>
     </table>
