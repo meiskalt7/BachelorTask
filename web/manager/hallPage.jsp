@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Eiskalt
-  Date: 21.05.2016
-  Time: 14:15
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -76,9 +69,7 @@
                     <c:if test="${'admin'.equals(sessionScope.userType)}">
                         <div>Administrator</div>
                         <ul>
-                            <li class="li"><a href="${pageContext.request.contextPath}/products">Блюда</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/admin">Работники</a></li>
-                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Расписание</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
                         </ul>
                     </c:if>
@@ -118,6 +109,16 @@
         <th>Тип</th>
     </thead>
     <tbody>
+    <tr>
+        <form action="${pageContext.request.contextPath}/hall" method="get">
+            <td><input type="text" name="number" required/></td>
+            <td><input type="text" name="table" required/></td>
+            <td>
+                <button type="submit" name="button" value="ADD TABLE" class="addProductButton"/>
+                Добавить
+            </td>
+        </form>
+    </tr>
     <c:forEach var="table" items="${tableList}">
     <tr>
         <td>${table.getNumber()}</td>

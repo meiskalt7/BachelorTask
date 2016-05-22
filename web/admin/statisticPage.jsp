@@ -66,9 +66,7 @@
                     <c:if test="${'admin'.equals(sessionScope.userType)}">
                         <div>Administrator</div>
                         <ul>
-                            <li class="li"><a href="${pageContext.request.contextPath}/products">Блюда</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/admin">Работники</a></li>
-                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Расписание</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
                         </ul>
                     </c:if>

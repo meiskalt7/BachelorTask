@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="one ControllerServlet #2 configured lists">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="some fixes">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" afterPath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/crud/TimeRangeService.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/crud/TimeRangeService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/TimeRange.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/TimeRange.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/adminPage.jsp" afterPath="$PROJECT_DIR$/web/admin/adminPage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/statisticPage.jsp" afterPath="$PROJECT_DIR$/web/admin/statisticPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/login.jsp" afterPath="$PROJECT_DIR$/web/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/loginCheck.jsp" afterPath="$PROJECT_DIR$/web/loginCheck.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/manager/hallPage.jsp" afterPath="$PROJECT_DIR$/web/manager/hallPage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/manager/productsPage.jsp" afterPath="$PROJECT_DIR$/web/manager/productsPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/manager/stockPage.jsp" afterPath="$PROJECT_DIR$/web/manager/stockPage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/manager/workshiftPage.jsp" afterPath="$PROJECT_DIR$/web/manager/workshiftPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/waiter/ordersPage.jsp" afterPath="$PROJECT_DIR$/web/waiter/ordersPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" afterPath="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/waiter/reservationsPage.jsp" afterPath="$PROJECT_DIR$/web/waiter/reservationsPage.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,61 +96,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reservationsPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/waiter/reservationsPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4545455">
-              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pricelistPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0727272">
-              <caret line="61" column="86" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControllerServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ordersPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/waiter/ordersPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0727272">
-              <caret line="30" column="71" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workshiftPage.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/manager/workshiftPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5324165">
-              <caret line="207" column="9" selection-start-line="207" selection-start-column="9" selection-end-line="207" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hallPage.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hallPage.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/manager/hallPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.4">
-              <caret line="149" column="67" selection-start-line="149" selection-start-column="67" selection-end-line="149" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.37918216">
+              <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -198,19 +152,13 @@
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ShoppingCartPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/StatisticPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ReservationPage.java" />
-        <option value="$PROJECT_DIR$/web/loginCheck.jsp" />
         <option value="$PROJECT_DIR$/web/waiter/reservationPage.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/manager/managerPage.jsp" />
-        <option value="$PROJECT_DIR$/web/waiter/ordersPage.jsp" />
-        <option value="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
-        <option value="$PROJECT_DIR$/web/waiter/reservationsPage.jsp" />
-        <option value="$PROJECT_DIR$/web/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ProductsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/WorkshiftPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/HallPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/StockPage.java" />
-        <option value="$PROJECT_DIR$/web/manager/stockPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ReservationsPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/OrdersPage.java" />
@@ -222,14 +170,20 @@
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/WaiterServlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ServletPath.java" />
-        <option value="$PROJECT_DIR$/web/manager/productsPage.jsp" />
-        <option value="$PROJECT_DIR$/web/admin/adminPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
-        <option value="$PROJECT_DIR$/web/manager/workshiftPage.jsp" />
+        <option value="$PROJECT_DIR$/web/loginCheck.jsp" />
+        <option value="$PROJECT_DIR$/web/admin/adminPage.jsp" />
         <option value="$PROJECT_DIR$/web/admin/statisticPage.jsp" />
+        <option value="$PROJECT_DIR$/web/manager/productsPage.jsp" />
+        <option value="$PROJECT_DIR$/web/manager/stockPage.jsp" />
+        <option value="$PROJECT_DIR$/web/manager/workshiftPage.jsp" />
+        <option value="$PROJECT_DIR$/web/waiter/ordersPage.jsp" />
+        <option value="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
+        <option value="$PROJECT_DIR$/web/waiter/reservationsPage.jsp" />
+        <option value="$PROJECT_DIR$/web/login.jsp" />
         <option value="$PROJECT_DIR$/web/manager/hallPage.jsp" />
       </list>
     </option>
@@ -1218,7 +1172,7 @@
       <workItem from="1463274907349" duration="3931000" />
       <workItem from="1463410455894" duration="985000" />
       <workItem from="1463812123866" duration="11530000" />
-      <workItem from="1463833333058" duration="18572000" />
+      <workItem from="1463833333058" duration="18952000" />
     </task>
     <task id="LOCAL-00001" summary="#to Normal Services">
       <created>1448103689398</created>
@@ -1496,11 +1450,17 @@
       <option name="project" value="LOCAL" />
       <updated>1463888338980</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="some fixes">
+      <created>1463894843926</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1463894843926</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375669000" />
+    <option name="totallyTimeSpent" value="376049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1580,7 +1540,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adminPage and managerPage refactor" />
     <MESSAGE value="added menu" />
     <MESSAGE value="design table fix" />
     <MESSAGE value="cleanup code" />
@@ -1605,7 +1564,8 @@
     <MESSAGE value="temp" />
     <MESSAGE value="one ControllerServlet" />
     <MESSAGE value="one ControllerServlet #2 configured lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="one ControllerServlet #2 configured lists" />
+    <MESSAGE value="some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1744,22 +1704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30141845">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/loginCheck.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.538462">
-          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -2025,54 +1969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/adminPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0727272">
-          <caret line="115" column="48" selection-start-line="115" selection-start-column="15" selection-end-line="115" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/statisticPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0727272">
-          <caret line="282" column="48" selection-start-line="282" selection-start-column="15" selection-end-line="282" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manager/productsPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0727272">
-          <caret line="104" column="86" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manager/stockPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0727272">
-          <caret line="81" column="86" selection-start-line="81" selection-start-column="53" selection-end-line="81" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0727272">
-          <caret line="61" column="86" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/waiter/reservationsPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4545455">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/net/DualStackPlainSocketImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2097,14 +1993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.75177306">
@@ -2113,26 +2001,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/manager/hallPage.jsp">
+    <entry file="file://$PROJECT_DIR$/web/admin/adminPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4">
-          <caret line="149" column="67" selection-start-line="149" selection-start-column="67" selection-end-line="149" selection-end-column="67" />
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/waiter/ordersPage.jsp">
+    <entry file="file://$PROJECT_DIR$/web/admin/statisticPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0727272">
-          <caret line="30" column="71" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="71" />
+        <state vertical-scroll-proportion="-14.384615">
+          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manager/productsPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231">
+          <caret line="93" column="28" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manager/stockPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="71" column="112" selection-start-line="71" selection-start-column="112" selection-end-line="71" selection-end-column="112" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/manager/workshiftPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5324165">
-          <caret line="207" column="9" selection-start-line="207" selection-start-column="9" selection-end-line="207" selection-end-column="9" />
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="70" column="28" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/waiter/ordersPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/loginCheck.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/waiter/reservationsPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="67" column="14" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manager/hallPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37918216">
+          <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
           <folding />
         </state>
       </provider>

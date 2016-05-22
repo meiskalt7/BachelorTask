@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Eiskalt
-  Date: 12.10.2015
-  Time: 10:58
-  To change this template use File | Settings | File Templates.
-  <jsp:forward page="/pricelist"></jsp:forward>
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -67,9 +59,7 @@
                     <c:if test="${'admin'.equals(sessionScope.userType)}">
                         <div>Administrator</div>
                         <ul>
-                            <li class="li"><a href="${pageContext.request.contextPath}/products">Блюда</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/admin">Работники</a></li>
-                            <li class="li"><a href="${pageContext.request.contextPath}/workshift">Расписание</a></li>
                             <li class="li"><a href="${pageContext.request.contextPath}/statistics">Статистика</a></li>
                         </ul>
                     </c:if>
