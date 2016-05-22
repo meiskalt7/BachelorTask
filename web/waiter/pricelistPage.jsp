@@ -103,8 +103,8 @@
     <td><select name="orderId">
         <option selected value="new">--Новый заказ--</option>
         <c:forEach var="order" items="${orderList}">
-            <option value="${order.getId()}">${order.getId()} + ${order.getTable().getId()}
-                + ${order.getTable().getType()} + ${order.getDatetime()}</option>
+            <option value="${order.getId()}">${order.getTable().getId()}
+                (${order.getTable().getType()}) ${order.getDatetime()}</option>
         </c:forEach>
         <option value="">--Прочие--</option>
     </select></td>
@@ -113,7 +113,7 @@
     <td><select name="tableId" required>
         <option selected value="">--Назначенные--</option>
         <c:forEach var="table" items="${waiterTableList}">
-            <option value="${table.getId()}">${table.getNumber()} + ${table.getType()}</option>
+            <option value="${table.getId()}">${table.getNumber()} (${table.getType()})</option>
         </c:forEach>
         <option value="">--Прочие--</option>
     </select></td>

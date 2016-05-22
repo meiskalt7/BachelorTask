@@ -1,40 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="first release version for">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/AdminPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/WaiterServlet.java" afterPath="" />
+    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="java beans">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" afterPath="$PROJECT_DIR$/out/artifacts/ArchiveForImprove/ForImprove.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/crud/EmployeeService.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/crud/EmployeeService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/crud/OrderService.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/crud/OrderService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Category.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Category.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Composition.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Composition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Employee.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Employee.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Ingridient.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Ingridient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Order.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Order.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Orderlist.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Orderlist.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Product.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Reservation.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Reservation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Table.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Table.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/TimeRange.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/TimeRange.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/UserType.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/UserType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Workshift.class" afterPath="$PROJECT_DIR$/out/artifacts/HibernateJPA_Web_exploded/WEB-INF/classes/org/meiskalt7/entity/Workshift.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Category.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Composition.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Composition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Employee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Ingridient.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Ingridient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Order.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Orderlist.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Orderlist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Product.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Reservation.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Reservation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Table.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Table.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/TimeRange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/UserType.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/UserType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" afterPath="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -141,10 +111,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pricelistPage.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.46124032">
+              <caret line="105" column="104" selection-start-line="105" selection-start-column="104" selection-end-line="105" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Employee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78044283">
+            <state vertical-scroll-proportion="0.0">
               <caret line="196" column="5" selection-start-line="196" selection-start-column="5" selection-end-line="196" selection-end-column="5" />
               <folding>
                 <element signature="e#4072#4073#0" expanded="true" />
@@ -174,21 +154,6 @@
               <folding>
                 <element signature="e#2042#2043#0" expanded="true" />
                 <element signature="e#2096#2097#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Composition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Composition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-              <folding>
-                <element signature="e#1138#1139#0" expanded="true" />
-                <element signature="e#1182#1183#0" expanded="true" />
-                <element signature="e#1548#1549#0" expanded="true" />
-                <element signature="e#1604#1605#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -296,7 +261,6 @@
         <option value="$PROJECT_DIR$/web/manager/workshiftPage.jsp" />
         <option value="$PROJECT_DIR$/web/manager/hallPage.jsp" />
         <option value="$PROJECT_DIR$/web/manager/productsPage.jsp" />
-        <option value="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
         <option value="$PROJECT_DIR$/web/css/popup.css" />
         <option value="$PROJECT_DIR$/web/css/accordion-menu.css" />
         <option value="$PROJECT_DIR$/web/css/index.css" />
@@ -319,6 +283,7 @@
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Orderlist.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Employee.java" />
+        <option value="$PROJECT_DIR$/web/waiter/pricelistPage.jsp" />
       </list>
     </option>
   </component>
@@ -1203,6 +1168,7 @@
     <configuration default="false" name="START BAKA" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.29" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/login" />
       <option name="COMMON_VM_ARGUMENTS" value="-Duser.region=us -Duser.language=en" />
+      <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
         <artifact name="HibernateJPA:Web exploded">
           <settings>
@@ -1325,13 +1291,7 @@
       <workItem from="1463410455894" duration="985000" />
       <workItem from="1463812123866" duration="11530000" />
       <workItem from="1463833333058" duration="41905000" />
-      <workItem from="1463924713433" duration="3337000" />
-    </task>
-    <task id="LOCAL-00007" summary="set styles">
-      <created>1451321216083</created>
-      <option name="number" value="00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1451321216083</updated>
+      <workItem from="1463924713433" duration="3486000" />
     </task>
     <task id="LOCAL-00008" summary="more classes for baka">
       <created>1460631065157</created>
@@ -1621,11 +1581,17 @@
       <option name="project" value="LOCAL" />
       <updated>1463923539390</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="java beans">
+      <created>1463928497732</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1463928497732</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402339000" />
+    <option name="totallyTimeSpent" value="402488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1683,7 +1649,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixes" />
     <MESSAGE value="some renaming" />
     <MESSAGE value="popup menu for change timeRange" />
     <MESSAGE value="update timeRange completed" />
@@ -1708,7 +1673,8 @@
     <MESSAGE value="menu fix and some redesign" />
     <MESSAGE value="redesign table fonts, localization" />
     <MESSAGE value="cleanup code" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup code" />
+    <MESSAGE value="java beans" />
+    <option name="LAST_COMMIT_MESSAGE" value="java beans" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1920,14 +1886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.076923">
           <caret line="156" column="29" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.615385">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -2236,7 +2194,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78044283">
+        <state vertical-scroll-proportion="0.0">
           <caret line="196" column="5" selection-start-line="196" selection-start-column="5" selection-end-line="196" selection-end-column="5" />
           <folding>
             <element signature="e#4072#4073#0" expanded="true" />
@@ -2244,6 +2202,14 @@
             <element signature="e#4667#4668#0" expanded="true" />
             <element signature="e#4749#4750#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/waiter/pricelistPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46124032">
+          <caret line="105" column="104" selection-start-line="105" selection-start-column="104" selection-end-line="105" selection-end-column="104" />
+          <folding />
         </state>
       </provider>
     </entry>
