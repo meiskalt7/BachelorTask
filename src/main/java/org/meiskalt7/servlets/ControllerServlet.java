@@ -112,6 +112,9 @@ public class ControllerServlet extends HttpServlet {
                             order.setEnded(true);
                             orderService.update(order);
                             break;
+                        case TABLE:
+                            updateTable(request, tableService, id);
+                            break;
                     }
                     break;
                 }
@@ -316,6 +319,18 @@ public class ControllerServlet extends HttpServlet {
         }
 
         ingridientService.update(ingridient);
+    }
+
+    private void updateTable(HttpServletRequest request, TableService tableService, int id) {
+        Table table = tableService.get(id);
+
+        int number = Integer.parseInt(request.getParameter("number"));
+        String type = request.getParameter("table");
+
+        table.setNumber(number);
+        table.setType(type);
+
+        tableService.update(table);
     }
 
     private void createProduct(HttpServletRequest request, ProductService productService, CategoryService categoryService, CompositionService compositionService, final IngridientService ingridientService) {

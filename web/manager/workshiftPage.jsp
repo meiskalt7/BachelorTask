@@ -158,7 +158,7 @@
             </form>
         </tr>
     </c:if>
-    <c:forEach var="timerange" items="${timerangeList}" varStatus="loop">
+    <c:forEach var="timerange" items="${timerangeList}">
     <tr>
         <td>${timerange.getStart()}</td>
         <td>${timerange.getFinish()}</td>

@@ -109,40 +109,6 @@
     </div>
 </div>
 
-<h2>Добавить работника</h2>
-
-<form action="${pageContext.request.contextPath}/admin" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Заработная плата</th>
-            <th>Юзер</th>
-            <th>Пароль</th>
-            <th>Тип юзера</th>
-        </thead>
-        <tbody>
-        <td><input type="text" name="surname" maxlength="255" required/></td>
-        <td><input type="text" name="name" maxlength="255" required/></td>
-        <td><input type="text" name="patronymic" maxlength="255" required/></td>
-        <td><input type="text" name="wage" maxlength="255" required/></td>
-        <td><input type="username" name="username" maxlength="255" required/></td>
-        <td><input type="password" name="password" maxlength="255" required/></td>
-        <td><select name="userTypeId" required>
-            <c:forEach var="userType" items="${userTypeList}">
-                <option value="${userType.getId()}">${userType.getType()}</option>
-            </c:forEach>
-        </select></td>
-        <td>
-            <button type="submit" name="button" value="ADD EMPLOYEE" class="addProductButton"/>
-            Добавить работника
-        </td>
-        </tbody>
-    </table>
-</form>
-
 <h2>Список работников ресторана</h2>
 <table border="1">
     <thead>
@@ -156,6 +122,25 @@
     <th>Удалить</th>
     </thead>
     <tbody>
+    <tr>
+        <form action="${pageContext.request.contextPath}/admin" method="get">
+            <td><input type="text" name="surname" maxlength="255" required/></td>
+            <td><input type="text" name="name" maxlength="255" required/></td>
+            <td><input type="text" name="patronymic" maxlength="255" required/></td>
+            <td><input type="text" name="wage" maxlength="255" required/></td>
+            <td><input type="username" name="username" maxlength="255" required/></td>
+            <td><input type="password" name="password" maxlength="255" required/></td>
+            <td><select name="userTypeId" required>
+                <c:forEach var="userType" items="${userTypeList}">
+                    <option value="${userType.getId()}">${userType.getType()}</option>
+                </c:forEach>
+            </select></td>
+            <td>
+                <button type="submit" name="button" value="ADD EMPLOYEE" class="addProductButton"/>
+                Добавить
+            </td>
+        </form>
+    </tr>
     <c:forEach var="employee" items="${employeeList}">
     <tr>
         <td>${employee.getSurname()}</td>
