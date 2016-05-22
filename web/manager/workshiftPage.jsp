@@ -9,6 +9,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../css/popup.css" rel="stylesheet" type="text/css">
+    <link href="../css/accordion-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/accordion-menu.js" type="text/javascript"></script>
+    <script src="../js/popup.js" type="text/javascript"></script>
+    <script src="../js/float-panel.js"></script>
+    <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            PopUpHide_timeRange();
+        });
+    </script>
     <title>Расписание</title>
 </head>
 <body>
@@ -147,25 +160,28 @@
     </thead>
 </table>
 
-<h2>Добавить смену</h2>
+<c:if test="${'admin'.equals(sessionScope.userType)}">
+    <h2>Добавить смену</h2>
 
-<form action="${pageContext.request.contextPath}/admin" method="get">
-    <table border="0">
-        <thead>
-        <tr>
-            <th>Начало</th>
-            <th>Конец</th>
-        </thead>
-        <tbody>
-        <td><input type="time" name="start" maxlength="255" required/></td>
-        <td><input type="time" name="finish" maxlength="255" required/></td>
-        <td>
-            <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton"/>
-            Добавить
-        </td>
-        </tbody>
-    </table>
-</form>
+    <form action="${pageContext.request.contextPath}/admin" method="get">
+        <table border="0">
+            <thead>
+            <tr>
+                <th>Начало</th>
+                <th>Конец</th>
+            </thead>
+            <tbody>
+            <td><input type="time" name="start" maxlength="255" required/></td>
+            <td><input type="time" name="finish" maxlength="255" required/></td>
+            <td>
+                <button type="submit" name="button" value="ADD TIMERANGE" class="addProductButton"/>
+                Добавить
+            </td>
+            </tbody>
+        </table>
+    </form>
+</c:if>
+
 <h2>Список смен</h2>
 <table border="1">
     <thead>
@@ -183,7 +199,7 @@
                     onclick="PopUpShow_timeRange('${timerange.getId()}', '${timerangeList.get(id).getStart().toString().substring(0,5)}', '${timerangeList.get(id).getFinish().toString().substring(0,5)}')"
                     class="updateButton">CHANGE
             </button>
-            <form>
+            <form action="${pageContext.request.contextPath}/admin" method="get">
                 <input type="hidden" name="timerangeId" value="${timerange.getId()}">
                 <button type="submit" name="button" value="DELETE TIMERANGE" class="deleteButton">DELETE
                 </button>
@@ -197,7 +213,7 @@
 <div class="b-popup" id="popup_timeRange">
     <div class="b-popup-content">
         Изменение работы смены
-        <form>
+        <form action="${pageContext.request.contextPath}/admin" method="get">
             <input id="id" type="hidden" name="id" required>
             <input id="start" type="time" name="start" maxlength="255" required/>
             <input id="finish" type="time" name="finish" maxlength="255" required/>

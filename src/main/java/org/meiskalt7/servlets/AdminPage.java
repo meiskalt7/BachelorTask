@@ -99,9 +99,14 @@ public class AdminPage extends HttpServlet {
 
 
         //Один сервлет что правит всеми request.getServletPath()
-        RequestDispatcher rd = getServletContext()
-                .getRequestDispatcher("/admin/adminPage.jsp");
-
+        RequestDispatcher rd;
+        if (request.getServletPath().equals("/products")) {
+            rd = getServletContext()
+                    .getRequestDispatcher("/manager/productsPage.jsp");
+        } else {
+            rd = getServletContext()
+                    .getRequestDispatcher("/admin/adminPage.jsp");
+        }
         rd.forward(request, response);
     }
 

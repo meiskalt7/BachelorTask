@@ -48,7 +48,7 @@
         <url-pattern>/reservations</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ManagerPage</servlet-name>
+        <servlet-name>AdminPage</servlet-name>
         <url-pattern>/products</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

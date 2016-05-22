@@ -103,21 +103,21 @@ public class WaiterServlet extends HttpServlet {
             }
         }
 
-        request.setAttribute("categoryList", categoryService.getAll());
-        request.setAttribute("reservationList", reservationService.getAll());
-        request.setAttribute("tableList", tableService.getAll());
-
         RequestDispatcher rd;
-        if (request.getServletPath().equals("/reservation")) {
+        if (request.getServletPath().equals("/reservations")) {
+            request.setAttribute("reservationList", reservationService.getAll());
+            request.setAttribute("tableList", tableService.getAll());
             rd = getServletContext()
                     .getRequestDispatcher("/waiter/reservationsPage.jsp");
+        } else if (request.getServletPath().equals("/orders")) {
+            rd = getServletContext()
+                    .getRequestDispatcher("/waiter/ordersPage.jsp");
         } else {
+            request.setAttribute("categoryList", categoryService.getAll());
             rd = getServletContext()
                     .getRequestDispatcher("/waiter/pricelistPage.jsp");
         }
-
         rd.forward(request, response);
-
     }
 
     private void createOrUpdateOrder(HttpServletRequest request, ProductService productService, OrderService orderService, OrderlistService orderlistService, EmployeeService employeeService, TableService tableService, int userId) {
