@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Eiskalt
-  Date: 17.04.2016
-  Time: 10:59
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -329,15 +322,5 @@
     </tr>
     </tbody>
 </table>
-
-<h2>Потребность в официантах</h2>
-12 столиков - 3 столика на официанта, 4 официнта
-Идеально: 3 столика - 1 официант на смену
-(кол-во столов/3)*2 = идеал
-
-<h2>Статистика уникальных IP</h2>
-
-//Яндекс метрика
-
 </body>
 </html>

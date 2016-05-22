@@ -15,7 +15,7 @@ enum ServletPath {
         }
     }
 
-    private String path;
+    private final String path;
 
     ServletPath(String path) {
         this.path = path;

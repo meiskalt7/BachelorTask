@@ -111,6 +111,6 @@ public class Order {
     }
 
     public void setEnded(boolean ended) {
-        this.ended = true;
+        this.ended = ended;
     }
 }
