@@ -70,6 +70,15 @@ td {
     position: relative;
 }
 
+#text {
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    color: #22339d;
+    margin-bottom: 1em;
+    text-shadow: #c1a663 0 0 2px;
+    text-align: center;
+    font-size: 14pt;
+}
+
 #menu {
     line-height: 57px;
     position: absolute;

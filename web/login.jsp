@@ -73,11 +73,16 @@
 
 <h2>Signup Details</h2>
 
-<div style="text-align: center;">
-    <form action="${pageContext.request.contextPath}/loginCheck" method="get"><br/>Username:
-        <input type="username" name="username" required> <br/> Password:
-        <input type="password" name="password" required> <br/>
-        <input type="submit" value="Submit">
+<div>
+    <form action="${pageContext.request.contextPath}/loginCheck" method="get">
+        <div id="text"><br/>Username:
+            <input type="username" name="username" required>
+            <br/> Password:
+            <input type="password" name="password" required> <br/>
+            <button type="submit" name="button" value="Sumbit" class="addProductButton">
+                Войти
+            </button>
+        </div>
     </form>
 </div>
 

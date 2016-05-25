@@ -23,11 +23,6 @@ public class Category implements Serializable {
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 
-    public Category(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
     public Category(String name) {
         this.name = name;
     }
