@@ -21,7 +21,9 @@
 
 <div id="header">
     <div id="logo">
-        <h1>AuRe: Страница администратора</h1>
+        <h1>AuRe</h1>
+
+        <h1>~ЗАЛ~</h1>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -80,7 +82,7 @@
 </div>
 
 <h2>СТОЛИКИ</h2>
-<table border="1">
+<table border="1" align="center">
     <thead>
     <tr>
         <th>Номер</th>
@@ -136,7 +138,7 @@
 
 
 <h2>Список официантов-столиков</h2>
-<table border="1">
+<table border="1" align="center">
     <thead>
     <tr>
         <th>Работник</th>

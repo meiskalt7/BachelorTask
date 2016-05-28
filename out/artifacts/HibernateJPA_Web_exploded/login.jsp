@@ -11,7 +11,8 @@
 <body>
 <div id="header">
     <div id="logo">
-        <h1>AuRe: Страница администратора</h1>
+        <h1>AuRe</h1>
+        <h1>~Авторизация~</h1>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -69,15 +70,19 @@
     </div>
 </div>
 
-<h1>Login Page</h1>
-
+<br/>
+<br/>
 <h2>Signup Details</h2>
-
-<div style="text-align: center;">
-    <form action="${pageContext.request.contextPath}/loginCheck" method="get"><br/>Username:
-        <input type="username" name="username" required> <br/> Password:
-        <input type="password" name="password" required> <br/>
-        <input type="submit" value="Submit">
+<div>
+    <form action="${pageContext.request.contextPath}/loginCheck" method="get">
+        <div id="text"><br/>Username:
+            <input type="username" name="username" required>
+            <br/> Password:
+            <input type="password" name="password" required> <br/>
+            <button type="submit" name="button" value="Sumbit" class="addProductButton">
+                Войти
+            </button>
+        </div>
     </form>
 </div>
 
