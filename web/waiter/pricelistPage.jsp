@@ -11,7 +11,9 @@
 <body>
 <div id="header">
     <div id="logo">
-        <h1>AuRe: Страница администратора</h1>
+        <h1>AuRe</h1>
+
+        <h1>~Меню Ресторана~</h1>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -69,8 +71,9 @@
     </div>
 </div>
 
+<h2>Поиск по меню</h2>
 <form action="${pageContext.request.contextPath}/pricelist" method="get">
-    <table border="0">
+    <table border="0" align="center">
         <thead>
         <tr>
             <th>Категория</th>
@@ -100,7 +103,8 @@
 
 <form action="${pageContext.request.contextPath}/pricelist" method="get">
     <%-- выбор заказа(если выбран заказ, то блокируем выбор столика) --%>
-    <td><select name="orderId">
+    <div align="center">
+        <td><select name="orderId">
         <option selected value="new">--Новый заказ--</option>
         <c:forEach var="order" items="${orderList}">
             <option value="${order.getId()}">${order.getTable().getId()}
@@ -117,7 +121,8 @@
         </c:forEach>
         <option value="">--Прочие--</option>
     </select></td>
-    <table border="1">
+    </div>
+    <table border="1" align="center">
         <thead>
         <tr>
             <th>Категория</th>

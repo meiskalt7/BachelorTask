@@ -13,7 +13,7 @@
     <div id="logo">
         <h1>AuRe</h1>
 
-        <h2>Статистика</h2>
+        <h1>~Статистика~</h1>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -71,7 +71,7 @@
     </div>
 </div>
 
-<h2>Сумма чеков за месяц(выбор месяца, либо всего)</h2>
+<h2>Сумма чеков за месяц</h2>
 
 <form action="${pageContext.request.contextPath}/statistics" method="get">
     <table border="0">
@@ -152,7 +152,7 @@
 
 </table>
 
-<h2>Сумма всех расходов за месяц(выбор месяца, либо всего)</h2>
+<h2>Сумма всех расходов за месяц</h2>
 
 <form action="${pageContext.request.contextPath}/statistics" method="get">
     <table border="0">
@@ -216,7 +216,7 @@
     </tr>
 </table>
 
-<h2>Сумма всех доходов за месяц(выбор месяца, либо всего)</h2>
+<h2>Сумма всех доходов за месяц</h2>
 
 <form action="${pageContext.request.contextPath}/statistics" method="get">
     <table border="0">
@@ -274,7 +274,7 @@
     </tr>
 </table>
 
-<h2>Баланс за месяц(выбор месяца, либо всего)</h2>
+<h2>Баланс за месяц</h2>
 
 <form action="${pageContext.request.contextPath}/statistics" method="get">
     <table border="0">

@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 @WebServlet(name = "ControllerServlet")
 public class ControllerServlet extends HttpServlet {
@@ -308,7 +309,7 @@ public class ControllerServlet extends HttpServlet {
 
         String name = req.getParameter("name");
 
-        if (name != null && !name.equals(ingridient.getName())) {
+        if (!Objects.equals(name, ingridient.getName())) {
             ingridient.setName(name);
         }
 

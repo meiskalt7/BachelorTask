@@ -21,7 +21,9 @@
 
 <div id="header">
     <div id="logo">
-        <h1>AuRe: Страница администратора</h1>
+        <h1>AuRe</h1>
+
+        <h1>~РАСПИСАНИЕ~</h1>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -79,9 +81,9 @@
     </div>
 </div>
 
-<h2>Расписание</h2>
+<h2></h2>
 
-<table border="1">
+<table border="1" align="center" style="float: left">
     <thead>
     <tr>
         <th>День</th>
@@ -139,8 +141,8 @@
     </thead>
 </table>
 
-<h2>Список смен</h2>
-<table border="1">
+<h2>Диапазон смен</h2>
+<table border="1" align="center">
     <thead>
     <th>Начало</th>
     <th>Конец</th>

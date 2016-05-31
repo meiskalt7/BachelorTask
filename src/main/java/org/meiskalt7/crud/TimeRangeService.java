@@ -1,20 +1,14 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.TimeRange;
-import org.meiskalt7.util.EntityManagerUtil;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class TimeRangeService implements GenericDao<TimeRange> {
+public class TimeRangeService extends Service<TimeRange> {
 
     private static TimeRangeService timeRangeService;
-    @PersistenceContext
-    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private TimeRangeService() {
-
     }
 
     public static synchronized TimeRangeService getInstance() {
@@ -22,26 +16,6 @@ public class TimeRangeService implements GenericDao<TimeRange> {
             timeRangeService = new TimeRangeService();
         }
         return timeRangeService;
-    }
-
-    public void add(TimeRange timeRange) {
-        em.getTransaction().begin();
-        em.persist(timeRange);
-        em.getTransaction().commit();
-    }
-
-    public void delete(int id) {
-        TimeRange timeRange = get(id);
-        timeRange.getWorkshiftList().clear();
-        em.getTransaction().begin();
-        em.remove(timeRange);
-        em.getTransaction().commit();
-    }
-
-    public void update(TimeRange timeRange) {
-        em.getTransaction().begin();
-        em.merge(timeRange);
-        em.getTransaction().commit();
     }
 
     public TimeRange get(int id) {

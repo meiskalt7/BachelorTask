@@ -1,17 +1,12 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Ingridient;
-import org.meiskalt7.util.EntityManagerUtil;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class IngridientService implements GenericDao<Ingridient> {
+public class IngridientService extends Service<Ingridient> {
 
     private static IngridientService ingridientService;
-    @PersistenceContext
-    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private IngridientService() {
     }
@@ -21,25 +16,6 @@ public class IngridientService implements GenericDao<Ingridient> {
             ingridientService = new IngridientService();
         }
         return ingridientService;
-    }
-
-    public void add(Ingridient ingridient) {
-        em.getTransaction().begin();
-        em.persist(ingridient);
-        em.getTransaction().commit();
-    }
-
-    public void delete(int id) {
-        Ingridient ingridient = get(id);
-        em.getTransaction().begin();
-        em.remove(ingridient);
-        em.getTransaction().commit();
-    }
-
-    public void update(Ingridient ingridient) {
-        em.getTransaction().begin();
-        em.merge(ingridient);
-        em.getTransaction().commit();
     }
 
     public Ingridient get(int id) {

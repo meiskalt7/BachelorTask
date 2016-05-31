@@ -1,21 +1,15 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Category;
-import org.meiskalt7.util.EntityManagerUtil;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class CategoryService implements GenericDao<Category> {
+public class CategoryService extends Service<Category> {
 
     private static CategoryService categoryService;
-    @PersistenceContext
-    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private CategoryService() {
-
     }
 
     public static CategoryService getInstance() {
@@ -23,25 +17,6 @@ public class CategoryService implements GenericDao<Category> {
             categoryService = new CategoryService();
         }
         return categoryService;
-    }
-
-    public void add(Category category) {
-        em.getTransaction().begin();
-        em.persist(category);
-        em.getTransaction().commit();
-    }
-
-    public void delete(int id) {
-        Category category = get(id);
-        em.getTransaction().begin();
-        em.remove(category);
-        em.getTransaction().commit();
-    }
-
-    public void update(Category category) {
-        em.getTransaction().begin();
-        em.merge(category);
-        em.getTransaction().commit();
     }
 
     public Category get(int id) {

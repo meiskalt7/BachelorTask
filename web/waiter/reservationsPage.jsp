@@ -78,7 +78,7 @@
 </div>
 
 <h2>Список броней</h2>
-<table border="1">
+<table border="1" align="center">
     <thead>
     <th>ФИО</th>
     <th>Телефон</th>

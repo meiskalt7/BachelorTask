@@ -11,7 +11,9 @@
 <body>
 <div id="header">
     <div id="logo">
-        <h1>AuRe: Страница администратора</h1>
+        <h1>AuRe</h1>
+
+        <h1>~Авторизация~</h1>
     </div>
     <div id="menu" class="float-panel">
         <div id="accordion">
@@ -69,10 +71,9 @@
     </div>
 </div>
 
-<h1>Login Page</h1>
-
+<br/>
+<br/>
 <h2>Signup Details</h2>
-
 <div>
     <form action="${pageContext.request.contextPath}/loginCheck" method="get">
         <div id="text"><br/>Username:

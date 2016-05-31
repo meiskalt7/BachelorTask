@@ -1,21 +1,14 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Reservation;
-import org.meiskalt7.util.EntityManagerUtil;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class ReservationService implements GenericDao<Reservation> {
+public class ReservationService extends Service<Reservation> {
 
     private static ReservationService reservationService;
 
-    @PersistenceContext
-    private final EntityManager em = EntityManagerUtil.getEntityManager();
-
     private ReservationService() {
-
     }
 
     public static synchronized ReservationService getInstance() {
@@ -23,25 +16,6 @@ public class ReservationService implements GenericDao<Reservation> {
             reservationService = new ReservationService();
         }
         return reservationService;
-    }
-
-    public void add(Reservation reservation) {
-        em.getTransaction().begin();
-        em.persist(reservation);
-        em.getTransaction().commit();
-    }
-
-    public void delete(int id) {
-        Reservation reservation = get(id);
-        em.getTransaction().begin();
-        em.remove(reservation);
-        em.getTransaction().commit();
-    }
-
-    public void update(Reservation reservation) {
-        em.getTransaction().begin();
-        em.merge(reservation);
-        em.getTransaction().commit();
     }
 
     public Reservation get(int id) {

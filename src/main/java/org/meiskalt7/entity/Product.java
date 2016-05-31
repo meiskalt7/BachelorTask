@@ -51,9 +51,6 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-/*    @OneToOne(fetch=FetchType.LAZY, mappedBy = "product")
-    private Orderlist orderlist = new Orderlist();*/
-
     public Product() {
     }
 

@@ -1,18 +1,12 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Order;
-import org.meiskalt7.util.EntityManagerUtil;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class OrderService implements GenericDao<Order> {
+public class OrderService extends Service<Order> {
 
     private static OrderService orderService;
-
-    @PersistenceContext
-    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private OrderService() {
 
@@ -23,25 +17,6 @@ public class OrderService implements GenericDao<Order> {
             orderService = new OrderService();
         }
         return orderService;
-    }
-
-    public void add(Order order) {
-        em.getTransaction().begin();
-        em.persist(order);
-        em.getTransaction().commit();
-    }
-
-    public void delete(int id) {
-        Order order = get(id);
-        em.getTransaction().begin();
-        em.remove(order);
-        em.getTransaction().commit();
-    }
-
-    public void update(Order order) {
-        em.getTransaction().begin();
-        em.merge(order);
-        em.getTransaction().commit();
     }
 
     public void refresh(Order order) {
@@ -63,8 +38,4 @@ public class OrderService implements GenericDao<Order> {
             delete(cat.getId());
         }
     }
-
-/*    public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Order WHERE name = :category").setParameter("category", category).getResultList().get(0);
-    }*/
 }

@@ -1,17 +1,13 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Product;
-import org.meiskalt7.util.EntityManagerUtil;
 
-import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class ProductService implements GenericDao<Product> {
+public class ProductService extends Service<Product> {
 
     private static ProductService productService;
-
-    private final EntityManager em = EntityManagerUtil.getEntityManager();
 
     private ProductService() {
     }
@@ -21,24 +17,6 @@ public class ProductService implements GenericDao<Product> {
             productService = new ProductService();
         }
         return productService;
-    }
-
-    public void add(Product product) {
-        em.getTransaction().begin();
-        em.persist(product);
-        em.getTransaction().commit();
-    }
-
-    public void delete(int id) {
-        em.getTransaction().begin();
-        em.remove(get(id));
-        em.getTransaction().commit();
-    }
-
-    public void update(Product product) {
-        em.getTransaction().begin();
-        em.merge(product);
-        em.getTransaction().commit();
     }
 
     public Product get(int id) {
