@@ -38,14 +38,14 @@ public class StatisticPage extends HttpServlet {
             String button[] = req.getParameter("button").split(" ");
 
             Operation operation = Operation.valueOf(button[0]);
-            Entity entity = Entity.valueOf(button[1]);
+            FinancialOperations finOperations = FinancialOperations.valueOf(button[1]);
             Calendar calendar = Calendar.getInstance();
             int month = Integer.parseInt(req.getParameter("month"));
 
             switch (operation) {
                 case READ:
 
-                    switch (entity) {
+                    switch (finOperations) {
                         case BALANCE:
                             //Доходы(продажи) - расходы(З/П, Ингридиенты, Аренда)
                             salesSum = getSalesSum(orderService, productList);
