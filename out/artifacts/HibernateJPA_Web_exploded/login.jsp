@@ -12,6 +12,7 @@
 <div id="header">
     <div id="logo">
         <h1>AuRe</h1>
+
         <h1>~Авторизация~</h1>
     </div>
     <div id="menu" class="float-panel">

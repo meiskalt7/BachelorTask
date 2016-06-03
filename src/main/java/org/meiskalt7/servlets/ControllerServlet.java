@@ -25,7 +25,6 @@ public class ControllerServlet extends HttpServlet {
     @Override
     protected void doGet(final HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        final EmployeeService employeeService = EmployeeService.getInstance();
         final TableService tableService = TableService.getInstance();
         ProductService productService = ProductService.getInstance();
         CompositionService compositionService = CompositionService.getInstance();
@@ -77,16 +76,16 @@ public class ControllerServlet extends HttpServlet {
                     int id = Integer.parseInt(request.getParameter("id"));
                     switch (entity) {
                         case INGRIDIENT:
-                            updateIngridient(request, Service.getService(entity), id);
+                            updateIngridient(request, id);
                             break;
                         case TIMERANGE:
-                            updateTimeRange(request);
+                            updateTimeRange(request, id);
                             break;
                         case EMPLOYEE:
-                            updateEmployee(request);
+                            updateEmployee(request, id);
                             break;
                         case CATEGORY:
-                            updateCategory(request);
+                            updateCategory(request, id);
                             break;
                         case ORDER:
                             updateOrder(id);
@@ -95,7 +94,7 @@ public class ControllerServlet extends HttpServlet {
                             updateTable(request, id);
                             break;
                         case RESERVATION:
-                            updateReservation(request, Service.getService(entity), tableService, id);
+                            updateReservation(request, id);
                             break;
                     }
                     break;
@@ -133,6 +132,9 @@ public class ControllerServlet extends HttpServlet {
         }
 
         if (request.getSession().getAttribute("userId") != null) {
+
+            EmployeeService employeeService = (EmployeeService) Service.getService(Entity.EMPLOYEE);
+
             int userId = Integer.parseInt(request.getSession().getAttribute("userId").toString());
             Employee employee = employeeService.get(userId);
             employeeService.refresh(employee);
@@ -306,7 +308,9 @@ public class ControllerServlet extends HttpServlet {
         ingridientService.add(new Ingridient(name, quantity, price));
     }
 
-    private void updateIngridient(HttpServletRequest req, Service ingridientService, int id) {
+    private void updateIngridient(HttpServletRequest req, int id) {
+
+        Service ingridientService = Service.getService(Entity.INGRIDIENT);
 
         Ingridient ingridient = (Ingridient) ingridientService.get(id);
 
@@ -348,8 +352,12 @@ public class ControllerServlet extends HttpServlet {
         tableService.update(table);
     }
 
-    private void updateReservation(HttpServletRequest request, Service reservationService, TableService tableService, int id) {
-        Reservation reservation = (Reservation) reservationService.get(id);
+    private void updateReservation(HttpServletRequest request, int id) {
+
+        ReservationService reservationService = (ReservationService) Service.getService(Entity.RESERVATION);
+        TableService tableService = (TableService) Service.getService(Entity.TABLE);
+
+        Reservation reservation = reservationService.get(id);
 
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
@@ -472,11 +480,10 @@ public class ControllerServlet extends HttpServlet {
         orderService.refresh(order);
     }
 
-    private void updateCategory(HttpServletRequest request) {
+    private void updateCategory(HttpServletRequest request, int id) {
 
         Service categoryService = Service.getService(Entity.CATEGORY);
 
-        int id = Integer.parseInt(request.getParameter("id"));
         Category category = (Category) categoryService.get(id);
         String categoryName = request.getParameter("categoryName");
         if (categoryName != null && !categoryName.equals(category.getName())) {
@@ -485,11 +492,10 @@ public class ControllerServlet extends HttpServlet {
         }
     }
 
-    private void updateTimeRange(HttpServletRequest request) {
+    private void updateTimeRange(HttpServletRequest request, int id) {
 
         Service timeRangeService = Service.getService(Entity.TIMERANGE);
 
-        int id = Integer.parseInt(request.getParameter("id"));
         TimeRange timeRange = (TimeRange) timeRangeService.get(id);
         Time start = Time.valueOf(request.getParameter("start") + ":00");
         Time finish = Time.valueOf(request.getParameter("finish") + ":00");
@@ -498,7 +504,7 @@ public class ControllerServlet extends HttpServlet {
         timeRangeService.update(timeRange);
     }
 
-    private void updateEmployee(HttpServletRequest request) {
+    private void updateEmployee(HttpServletRequest request, int id) {
 
         EmployeeService employeeService = (EmployeeService) Service.getService(Entity.EMPLOYEE);
         UserTypeService userTypeService = (UserTypeService) Service.getService(Entity.USERTYPE);
@@ -510,7 +516,6 @@ public class ControllerServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        int id = Integer.parseInt(request.getParameter("id"));
         Employee employee = employeeService.get(id);
 
 
