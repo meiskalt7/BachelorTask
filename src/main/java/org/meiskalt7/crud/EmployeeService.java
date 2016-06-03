@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class EmployeeService extends Service<Employee> {
 
@@ -75,27 +76,27 @@ public class EmployeeService extends Service<Employee> {
         Employee employee = employeeService.get(id);
 
 
-        if (surname != null && !surname.equals(employee.getSurname())) {
+        if (!Objects.equals(surname, employee.getSurname())) {
             employee.setSurname(surname);
         }
 
-        if (name != null && !name.equals(employee.getName())) {
+        if (Objects.equals(name, employee.getName())) {
             employee.setName(name);
         }
 
-        if (patronymic != null && !patronymic.equals(employee.getPatronymic())) {
+        if (Objects.equals(patronymic, employee.getPatronymic())) {
             employee.setPatronymic(patronymic);
         }
 
-        if (wage != null && !parseDouble(wage, request).equals(employee.getWage())) {
+        if (Objects.equals(wage, employee.getWage())) {
             employee.setWage(parseDouble(wage, request));
         }
 
-        if (username != null && !username.equals(employee.getUsername())) {
+        if (Objects.equals(username, employee.getUsername())) {
             employee.setUsername(username);
         }
 
-        if (password != null && !password.equals(employee.getPassword())) {
+        if (Objects.equals(password, employee.getPassword())) {
             employee.setPassword(password);
         }
 
