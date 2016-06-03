@@ -36,7 +36,7 @@ public class Reservation implements Serializable {
     public Reservation(String name, String phone, Timestamp datetime, Table table) {
         this.name = name;
         this.phone = phone;
-        this.datetime = datetime;
+        this.datetime = datetime == null ? null : new Timestamp(datetime.getTime());
         this.table = table;
         this.id_table = table.getId();
     }
@@ -78,7 +78,7 @@ public class Reservation implements Serializable {
     }
 
     public void setDatetime(Timestamp datetime) {
-        this.datetime = datetime;
+        this.datetime = datetime == null ? null : new Timestamp(datetime.getTime());
     }
 
     public Table getTable() {

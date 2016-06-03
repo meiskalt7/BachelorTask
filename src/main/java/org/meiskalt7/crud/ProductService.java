@@ -35,7 +35,7 @@ public class ProductService extends Service<Product> {
     }
 
     public List<Product> getHQL(Integer category, String name, Double priceFrom, Double priceTo) {
-        if (priceFrom >= 0 & priceTo >= 0) {
+        if (priceFrom >= 0 && priceTo >= 0) {
             if (name.length() == 0) name = null;
             TypedQuery<Product> query = em.createQuery("SELECT p FROM Product as p INNER JOIN p.category WHERE (p.category.id = :category OR :category IS NULL) AND (lower(p.name) LIKE :name OR :name IS NULL) AND (p.price >= :priceFrom OR :priceFrom = 0) AND (p.price <= :priceTo OR :priceTo = 0)", Product.class);
 

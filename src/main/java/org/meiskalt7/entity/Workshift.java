@@ -31,7 +31,7 @@ public class Workshift implements Serializable {
     }
 
     public Workshift(Date date, TimeRange timeRange, List<Employee> employees) {
-        this.date = date;
+        this.date = date == null ? null : new Date(date.getTime());
         this.timeRange = timeRange;
         this.employees = employees;
         this.timerange_id = timeRange.getId();
@@ -50,7 +50,7 @@ public class Workshift implements Serializable {
     }
 
     public void setDate(Date datetime) {
-        this.date = datetime;
+        this.date = datetime == null ? null : new Date(datetime.getTime());
     }
 
     public List<Employee> getEmployees() {

@@ -44,7 +44,7 @@ public class Order implements Serializable {
     }
 
     public Order(Timestamp datetime, Employee employee, org.meiskalt7.entity.Table table) {
-        this.datetime = datetime;
+        this.datetime = datetime == null ? null : new Timestamp(datetime.getTime());
         this.employee = employee;
         this.table = table;
         this.id_empl = employee.getId();
@@ -73,7 +73,7 @@ public class Order implements Serializable {
     }
 
     public void setDatetime(Timestamp datetime) {
-        this.datetime = datetime;
+        this.datetime = datetime == null ? null : new Timestamp(datetime.getTime());
     }
 
     public int getId_table() {

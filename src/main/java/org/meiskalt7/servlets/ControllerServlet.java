@@ -460,7 +460,7 @@ public class ControllerServlet extends HttpServlet {
         String quantity[] = request.getParameterValues("quantity");
 
         while (i < productId.length) {
-            if (productId[i] != "" && quantity[i] != "") {
+            if (!"".equals(productId[i]) && !"".equals(quantity[i])) {
                 Orderlist orderlist = new Orderlist();
                 orderlist.setQuantity(Integer.parseInt(quantity[i]));
                 orderlist.setProduct(productService.get(Integer.parseInt(productId[i])));
