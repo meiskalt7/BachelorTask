@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="big refactor, deleting switch-cases...">
+    <list default="true" id="7980b016-223b-4773-b569-01d0c820ac57" name="Default" comment="big refactor, deleting switch-cases #2">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/CategoryService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/CategoryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/CompositionService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/CompositionService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/IngridientService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/IngridientService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderlistService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderlistService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/ProductService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/ProductService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/ReservationService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/ReservationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/Service.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/Service.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TableService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TableService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/UserTypeService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/UserTypeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/WorkshiftService.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/WorkshiftService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java" afterPath="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -403,40 +393,88 @@
     <favorites_list name="HibernateJPA" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/Service.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControllerServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3548387">
-              <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/Service.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ControllerServlet.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.55218214">
+                  <caret line="164" column="46" selection-start-line="164" selection-start-column="46" selection-end-line="164" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Operation.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="3" column="56" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="56" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="3" column="102" selection-start-line="3" selection-start-column="102" selection-end-line="3" selection-end-column="102" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="OrderService.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TableService.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TableService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EmployeeService.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.61290324">
+                  <caret line="119" column="11" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="11" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -469,7 +507,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/loginCheck.jsp" />
         <option value="$PROJECT_DIR$/web/js/popup.js" />
         <option value="$PROJECT_DIR$/web/css/popup.css" />
@@ -499,27 +536,28 @@
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Product.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/FinancialOperation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/FinancialOperations.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/StatisticPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Workshift.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/GenericDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TableService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/CategoryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/CompositionService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/IngridientService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderlistService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/ReservationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TimeRangeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/UserTypeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/WorkshiftService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/ProductService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/Service.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java" />
       </list>
     </option>
   </component>
@@ -1575,13 +1613,7 @@
       <workItem from="1464692561059" duration="2872000" />
       <workItem from="1464880354323" duration="3903000" />
       <workItem from="1464953990733" duration="664000" />
-      <workItem from="1464954778765" duration="5262000" />
-    </task>
-    <task id="LOCAL-00019" summary="some improvements, reservation, start order">
-      <created>1462601138536</created>
-      <option name="number" value="00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1462601138536</updated>
+      <workItem from="1464954778765" duration="6188000" />
     </task>
     <task id="LOCAL-00020" summary="order">
       <created>1462606698443</created>
@@ -1871,11 +1903,17 @@
       <option name="project" value="LOCAL" />
       <updated>1464958442757</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="big refactor, deleting switch-cases #2">
+      <created>1464960346728</created>
+      <option name="number" value="00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1464960346728</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="446963000" />
+    <option name="totallyTimeSpent" value="447889000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1936,7 +1974,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="architecture refactor #3&#10;3 crud servlets" />
     <MESSAGE value="temp" />
     <MESSAGE value="one ControllerServlet" />
     <MESSAGE value="one ControllerServlet #2 configured lists" />
@@ -1961,20 +1998,13 @@
     <MESSAGE value="some code review with FindBugs" />
     <MESSAGE value="refactor methods&#10;" />
     <MESSAGE value="big refactor, deleting switch-cases..." />
-    <option name="LAST_COMMIT_MESSAGE" value="big refactor, deleting switch-cases..." />
+    <MESSAGE value="big refactor, deleting switch-cases #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="big refactor, deleting switch-cases #2" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java</url>
-          <line>196</line>
-          <properties />
-          <option name="timeStamp" value="285" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -2190,14 +2220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/util/EntityManagerUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2298,26 +2320,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09677419">
-          <caret line="3" column="124" selection-start-line="3" selection-start-column="124" selection-end-line="3" selection-end-column="124" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38709676">
           <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61290324">
-          <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -2346,14 +2352,6 @@
             <element signature="e#537#538#0" expanded="true" />
             <element signature="e#588#589#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TableService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2431,16 +2429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/entity/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.58064514">
@@ -2452,18 +2440,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/Service.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/OrderService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3548387">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/TableService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="102" selection-start-line="3" selection-start-column="102" selection-end-line="3" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="56" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/crud/EmployeeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61290324">
+          <caret line="119" column="11" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/meiskalt7/servlets/ControllerServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55218214">
+          <caret line="164" column="46" selection-start-line="164" selection-start-column="46" selection-end-line="164" selection-end-column="46" />
           <folding />
         </state>
       </provider>

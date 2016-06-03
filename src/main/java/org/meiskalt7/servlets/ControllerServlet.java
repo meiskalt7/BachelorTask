@@ -15,9 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 @WebServlet(name = "ControllerServlet")
 public class ControllerServlet extends HttpServlet {
@@ -36,35 +33,18 @@ public class ControllerServlet extends HttpServlet {
 
             switch (operation) {
                 case ADD:
-                    switch (entity) {
-                        case TABLES_EMPLOYEES:
-                            assignTables(request);
-                            break;
-                        case CART:
-                            int userId = Integer.parseInt(request.getSession().getAttribute("userId").toString());
-                            createOrUpdateOrder(request, orderlistService, userId);
-                            break;
-                        default:
-                            Service.getService(entity).create(request);
-                            break;
-                    }
+                    Service.getService(entity).create(request);
                     break;
                 case UPDATE: {
                     int id = Integer.parseInt(request.getParameter("id"));
                     Service.getService(entity).update(request, id);
                     break;
                 }
-                case DELETE:
+                case DELETE: {
                     int id = Integer.parseInt(request.getParameter("id"));
-                    switch (entity) {
-                        case TABLES_EMPLOYEES:
-                            deassignTables(request, id);
-                            break;
-                        default:
-                            Service.getService(entity).delete(id);
-                            break;
-                    }
+                    Service.getService(entity).delete(id);
                     break;
+                }
                 case READ:
                     if (request.getParameter("categoryId") != null) {
                         Integer categoryId = (!"all".equals(request.getParameter("categoryId"))) ? Integer.parseInt(request.getParameter("categoryId")) : null;
@@ -75,6 +55,19 @@ public class ControllerServlet extends HttpServlet {
                         request.setAttribute("productsList", productService.getHQL(categoryId, name, priceFrom, priceTo, request));
                     }
                     break;
+                case ASSIGN:
+                    ((EmployeeService) Service.getService(Entity.EMPLOYEE)).assignTables(request);
+                    break;
+                case DEASSIGN: {
+                    int id = Integer.parseInt(request.getParameter("id"));
+                    ((EmployeeService) Service.getService(Entity.EMPLOYEE)).deassignTables(request, id);
+                    break;
+                }
+                case TO_CART: {
+                    int userId = Integer.parseInt(request.getSession().getAttribute("userId").toString());
+                    createOrUpdateOrder(request, orderlistService, userId);
+                    break;
+                }
             }
         }
 
@@ -149,42 +142,6 @@ public class ControllerServlet extends HttpServlet {
         }
 
         rd.forward(request, response);
-    }
-
-    private void deassignTables(HttpServletRequest req, int id) {
-
-        EmployeeService employeeService = (EmployeeService) Service.getService(Entity.EMPLOYEE);
-
-        if (req.getParameter("tableId") != null) {
-            String[] tableId = req.getParameterValues("tableId");
-            Employee employee = employeeService.get(id);
-            for (String tid : tableId) {
-                Iterator<Table> i = employee.getTables().iterator();
-                while (i.hasNext()) {
-                    Table table = i.next();
-                    if (table.getId() == Integer.parseInt(tid)) {
-                        i.remove();
-                    }
-                }
-            }
-            employeeService.update(employee);
-        }
-    }
-
-    private void assignTables(HttpServletRequest req) {
-
-        Service employeeService = Service.getService(Entity.EMPLOYEE);
-        final Service tableService = Service.getService(Entity.TABLE);
-
-        Employee employee = (Employee) employeeService.get(Integer.parseInt(req.getParameter("employee")));
-        final String tablesId[] = req.getParameterValues("tables");
-        List<Table> tables = new ArrayList<Table>() {{
-            for (String aTablesId : tablesId) {
-                add((Table) tableService.get(Integer.parseInt(aTablesId)));
-            }
-        }};
-        employee.getTables().addAll(tables);
-        employeeService.update(employee);
     }
 
     private void createOrUpdateOrder(HttpServletRequest request, OrderlistService orderlistService, int userId) {

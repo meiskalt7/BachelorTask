@@ -1,10 +1,13 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Employee;
+import org.meiskalt7.entity.Table;
 import org.meiskalt7.entity.UserType;
 import org.meiskalt7.servlets.Entity;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class EmployeeService extends Service<Employee> {
@@ -103,5 +106,37 @@ public class EmployeeService extends Service<Employee> {
         }
 
         employeeService.update(employee);
+    }
+
+    public void assignTables(HttpServletRequest request) {
+        final Service tableService = Service.getService(Entity.TABLE);
+
+        Employee employee = get(Integer.parseInt(request.getParameter("employee")));
+        final String tablesId[] = request.getParameterValues("tables");
+        List<Table> tables = new ArrayList<Table>() {{
+            for (String aTablesId : tablesId) {
+                add((Table) tableService.get(Integer.parseInt(aTablesId)));
+            }
+        }};
+        employee.getTables().addAll(tables);
+        update(employee);
+    }
+
+    public void deassignTables(HttpServletRequest request, int id) {
+
+        if (request.getParameter("tableId") != null) {
+            String[] tableId = request.getParameterValues("tableId");
+            Employee employee = get(id);
+            for (String tid : tableId) {
+                Iterator<Table> i = employee.getTables().iterator();
+                while (i.hasNext()) {
+                    Table table = i.next();
+                    if (table.getId() == Integer.parseInt(tid)) {
+                        i.remove();
+                    }
+                }
+            }
+            update(employee);
+        }
     }
 }
