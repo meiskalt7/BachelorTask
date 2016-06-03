@@ -2,6 +2,7 @@ package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Orderlist;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public class OrderlistService extends Service<Orderlist> {
@@ -31,5 +32,15 @@ public class OrderlistService extends Service<Orderlist> {
         for (Orderlist orderlist : getAll()) {
             delete(orderlist.getId());
         }
+    }
+
+    @Override
+    public void create(HttpServletRequest request) {
+
+    }
+
+    @Override
+    public void update(HttpServletRequest request, int id) {
+
     }
 }

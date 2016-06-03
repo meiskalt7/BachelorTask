@@ -46,5 +46,14 @@ public class TableService extends Service<Table> {
     @Override
     public void update(HttpServletRequest request, int id) {
 
+        Table table = get(id);
+
+        int number = Integer.parseInt(request.getParameter("number"));
+        String type = request.getParameter("table");
+
+        table.setNumber(number);
+        table.setType(type);
+
+        update(table);
     }
 }

@@ -37,22 +37,15 @@ public class ControllerServlet extends HttpServlet {
             switch (operation) {
                 case ADD:
                     switch (entity) {
-                        case PRODUCT:
-                        case CATEGORY:
-                        case EMPLOYEE:
-                        case TIMERANGE:
-                        case INGRIDIENT:
-                        case WORKSHIFT:
-                        case TABLE:
-                        case RESERVATION:
-                            Service.getService(entity).create(request);
-                            break;
                         case TABLES_EMPLOYEES:
                             assignTables(request);
                             break;
                         case CART:
                             int userId = Integer.parseInt(request.getSession().getAttribute("userId").toString());
                             createOrUpdateOrder(request, orderlistService, userId);
+                            break;
+                        default:
+                            Service.getService(entity).create(request);
                             break;
                     }
                     break;
@@ -67,15 +60,7 @@ public class ControllerServlet extends HttpServlet {
                         case TABLES_EMPLOYEES:
                             deassignTables(request, id);
                             break;
-                        case CATEGORY:
-                        case EMPLOYEE:
-                        case INGRIDIENT:
-                        case ORDER:
-                        case PRODUCT:
-                        case RESERVATION:
-                        case TABLE:
-                        case TIMERANGE:
-                        case WORKSHIFT:
+                        default:
                             Service.getService(entity).delete(id);
                             break;
                     }

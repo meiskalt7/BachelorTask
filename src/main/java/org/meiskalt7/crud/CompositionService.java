@@ -2,6 +2,7 @@ package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Composition;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public class CompositionService extends Service<Composition> {
@@ -30,5 +31,15 @@ public class CompositionService extends Service<Composition> {
         for (Composition emp : getAll()) {
             delete(emp.getId());
         }
+    }
+
+    @Override
+    public void create(HttpServletRequest request) {
+
+    }
+
+    @Override
+    public void update(HttpServletRequest request, int id) {
+
     }
 }

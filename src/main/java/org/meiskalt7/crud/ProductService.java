@@ -75,14 +75,6 @@ public class ProductService extends Service<Product> {
 
     @Override
     public void update(HttpServletRequest request, int id) {
-        Service categoryService = Service.getService(Entity.CATEGORY);
-
-        Category category = (Category) categoryService.get(id);
-        String categoryName = request.getParameter("categoryName");
-        if (categoryName != null && !categoryName.equals(category.getName())) {
-            category.setName(categoryName);
-            categoryService.update(category);
-        }
     }
 
     public List<Product> getHQL(Integer category, String name, String priceFrom, String priceTo, HttpServletRequest request) {

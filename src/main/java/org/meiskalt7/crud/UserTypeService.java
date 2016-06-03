@@ -2,6 +2,7 @@ package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.UserType;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public class UserTypeService extends Service<UserType> {
@@ -33,5 +34,15 @@ public class UserTypeService extends Service<UserType> {
         for (UserType userType : getAll()) {
             delete(userType.getId());
         }
+    }
+
+    @Override
+    public void create(HttpServletRequest request) {
+
+    }
+
+    @Override
+    public void update(HttpServletRequest request, int id) {
+
     }
 }

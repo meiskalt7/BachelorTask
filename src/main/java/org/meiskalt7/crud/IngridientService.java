@@ -1,7 +1,6 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Ingridient;
-import org.meiskalt7.servlets.Entity;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -37,19 +36,16 @@ public class IngridientService extends Service<Ingridient> {
 
     @Override
     public void create(HttpServletRequest request) {
-        Service ingridientService = Service.getService(Entity.INGRIDIENT);
-
         String name = request.getParameter("name");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         double price = Double.parseDouble(request.getParameter("price"));
-        ingridientService.add(new Ingridient(name, quantity, price));
+        add(new Ingridient(name, quantity, price));
     }
 
     @Override
     public void update(HttpServletRequest request, int id) {
-        Service ingridientService = Service.getService(Entity.INGRIDIENT);
 
-        Ingridient ingridient = (Ingridient) ingridientService.get(id);
+        Ingridient ingridient = get(id);
 
         String name = request.getParameter("name");
 
@@ -71,6 +67,6 @@ public class IngridientService extends Service<Ingridient> {
             }
         }
 
-        ingridientService.update(ingridient);
+        update(ingridient);
     }
 }

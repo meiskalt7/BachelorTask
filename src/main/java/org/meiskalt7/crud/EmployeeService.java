@@ -43,7 +43,6 @@ public class EmployeeService extends Service<Employee> {
 
     @Override
     public void create(HttpServletRequest request) {
-        Service employeeService = Service.getService(Entity.EMPLOYEE);
         Service userTypeService = Service.getService(Entity.USERTYPE);
 
         String surname = request.getParameter("surname");
@@ -55,7 +54,7 @@ public class EmployeeService extends Service<Employee> {
         int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
         UserType userType = (UserType) userTypeService.get(userTypeId);
         Employee employee = new Employee(surname, name, patronymic, parseDouble(wage, request), username, password, userType);
-        employeeService.add(employee);
+        add(employee);
     }
 
     @Override

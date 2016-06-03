@@ -40,7 +40,6 @@ public class WorkshiftService extends Service<Workshift> {
 
     @Override
     public void create(HttpServletRequest request) {
-        Service workshiftService = Service.getService(Entity.WORKSHIFT);
         final Service employeeService = Service.getService(Entity.EMPLOYEE);
         Service timeRangeService = Service.getService(Entity.TIMERANGE);
 
@@ -54,7 +53,7 @@ public class WorkshiftService extends Service<Workshift> {
         int timerangeId = Integer.parseInt(request.getParameter("timerange"));
         TimeRange timeRange = (TimeRange) timeRangeService.get(timerangeId);
         Workshift workshift = new Workshift(date, timeRange, employees);
-        workshiftService.add(workshift);
+        add(workshift);
         for (Employee emp : employees) {
             emp.getWorkshifts().add(workshift);
             employeeService.update(emp);

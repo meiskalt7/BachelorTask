@@ -14,28 +14,6 @@ abstract public class Service<T> implements GenericDao<T> {
         this.em = EntityManagerUtil.getEntityManager();
     }
 
-    @Override
-    public void add(T t) {
-        em.getTransaction().begin();
-        em.persist(t);
-        em.getTransaction().commit();
-    }
-
-    @Override
-    public void update(T t) {
-        em.getTransaction().begin();
-        em.merge(t);
-        em.getTransaction().commit();
-    }
-
-    @Override
-    public void delete(int id) {
-        T t = get(id);
-        em.getTransaction().begin();
-        em.remove(t);
-        em.getTransaction().commit();
-    }
-
     public static Service getService(Entity entity) {
         switch (entity) {
             case CATEGORY:
@@ -72,5 +50,27 @@ abstract public class Service<T> implements GenericDao<T> {
                 return -1.0;
             }
         return 0.0;
+    }
+
+    @Override
+    public void add(T t) {
+        em.getTransaction().begin();
+        em.persist(t);
+        em.getTransaction().commit();
+    }
+
+    @Override
+    public void update(T t) {
+        em.getTransaction().begin();
+        em.merge(t);
+        em.getTransaction().commit();
+    }
+
+    @Override
+    public void delete(int id) {
+        T t = get(id);
+        em.getTransaction().begin();
+        em.remove(t);
+        em.getTransaction().commit();
     }
 }

@@ -39,7 +39,6 @@ public class ReservationService extends Service<Reservation> {
     @Override
     public void create(HttpServletRequest request) {
         TableService tableService = (TableService) Service.getService(Entity.TABLE);
-        ReservationService reservationService = (ReservationService) Service.getService(Entity.RESERVATION);
 
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
@@ -49,7 +48,7 @@ public class ReservationService extends Service<Reservation> {
         Table table = tableService.get(tableId);
 
         Reservation reservation = new Reservation(name, phone, time, table);
-        reservationService.add(reservation);
+        add(reservation);
 
         request.setAttribute("resultMessage", "Столик забронирован");
     }

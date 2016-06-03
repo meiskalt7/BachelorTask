@@ -1,8 +1,6 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Category;
-import org.meiskalt7.entity.Table;
-import org.meiskalt7.servlets.Entity;
 
 import javax.persistence.TypedQuery;
 import javax.servlet.http.HttpServletRequest;
@@ -39,25 +37,18 @@ public class CategoryService extends Service<Category> {
 
     @Override
     public void create(HttpServletRequest request) {
-        Service categoryService = Service.getService(Entity.CATEGORY);
-
         String categoryName = request.getParameter("categoryName");
-        categoryService.add(new Category(categoryName));
+        add(new Category(categoryName));
     }
 
     @Override
     public void update(HttpServletRequest request, int id) {
-        Service tableService = Service.getService(Entity.TABLE);
-
-        Table table = (Table) tableService.get(id);
-
-        int number = Integer.parseInt(request.getParameter("number"));
-        String type = request.getParameter("table");
-
-        table.setNumber(number);
-        table.setType(type);
-
-        tableService.update(table);
+        Category category = get(id);
+        String categoryName = request.getParameter("categoryName");
+        if (categoryName != null && !categoryName.equals(category.getName())) {
+            category.setName(categoryName);
+            update(category);
+        }
     }
 
     public int getId(String category) {
