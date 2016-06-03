@@ -1,7 +1,11 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Reservation;
+import org.meiskalt7.entity.Table;
+import org.meiskalt7.servlets.Entity;
 
+import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class ReservationService extends Service<Reservation> {
@@ -31,4 +35,47 @@ public class ReservationService extends Service<Reservation> {
             delete(reservation.getId());
         }
     }
+
+    @Override
+    public void create(HttpServletRequest request) {
+        TableService tableService = (TableService) Service.getService(Entity.TABLE);
+        ReservationService reservationService = (ReservationService) Service.getService(Entity.RESERVATION);
+
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        Timestamp time = Timestamp.valueOf(request.getParameter("time").replace("T", " ") + ":00");
+        int tableId = Integer.parseInt(request.getParameter("tableId"));
+
+        Table table = tableService.get(tableId);
+
+        Reservation reservation = new Reservation(name, phone, time, table);
+        reservationService.add(reservation);
+
+        request.setAttribute("resultMessage", "Столик забронирован");
+    }
+
+    @Override
+    public void update(HttpServletRequest request, int id) {
+        ReservationService reservationService = (ReservationService) Service.getService(Entity.RESERVATION);
+        TableService tableService = (TableService) Service.getService(Entity.TABLE);
+
+        Reservation reservation = reservationService.get(id);
+
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        Timestamp time = Timestamp.valueOf(request.getParameter("time").replace("T", " ") + ":00");
+
+        reservation.setName(name);
+        reservation.setPhone(phone);
+        reservation.setDatetime(time);
+
+        int tableId = Integer.parseInt(request.getParameter("tableId"));
+        Table table = tableService.get(tableId);
+        reservation.setTable(table);
+        reservation.setId_table(tableId);
+
+        reservationService.update(reservation);
+    }
+
+
 }

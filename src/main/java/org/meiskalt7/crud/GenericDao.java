@@ -1,5 +1,6 @@
 package org.meiskalt7.crud;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 interface GenericDao<T> {
@@ -14,4 +15,8 @@ interface GenericDao<T> {
     List<T> getAll();
 
     void deleteAll();
+
+    void create(HttpServletRequest request);
+
+    void update(HttpServletRequest request, int id);
 }

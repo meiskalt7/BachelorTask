@@ -1,7 +1,9 @@
 package org.meiskalt7.crud;
 
 import org.meiskalt7.entity.Order;
+import org.meiskalt7.servlets.Entity;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public class OrderService extends Service<Order> {
@@ -37,5 +39,19 @@ public class OrderService extends Service<Order> {
         for (Order cat : getAll()) {
             delete(cat.getId());
         }
+    }
+
+    @Override
+    public void create(HttpServletRequest request) {
+
+    }
+
+    @Override
+    public void update(HttpServletRequest request, int id) {
+        OrderService orderService = (OrderService) Service.getService(Entity.ORDER);
+
+        Order order = orderService.get(id);
+        order.setEnded(true);
+        orderService.update(order);
     }
 }

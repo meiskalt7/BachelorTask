@@ -1,7 +1,10 @@
 package org.meiskalt7.servlets;
 
 import org.meiskalt7.crud.*;
-import org.meiskalt7.entity.*;
+import org.meiskalt7.entity.Employee;
+import org.meiskalt7.entity.Order;
+import org.meiskalt7.entity.Orderlist;
+import org.meiskalt7.entity.Table;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,14 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 @WebServlet(name = "ControllerServlet")
 public class ControllerServlet extends HttpServlet {
@@ -25,9 +25,7 @@ public class ControllerServlet extends HttpServlet {
     @Override
     protected void doGet(final HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        final TableService tableService = TableService.getInstance();
         ProductService productService = ProductService.getInstance();
-        CompositionService compositionService = CompositionService.getInstance();
         OrderlistService orderlistService = OrderlistService.getInstance();
 
         if (request.getParameter("button") != null) {
@@ -40,63 +38,27 @@ public class ControllerServlet extends HttpServlet {
                 case ADD:
                     switch (entity) {
                         case PRODUCT:
-                            createProduct(request, compositionService);
-                            break;
                         case CATEGORY:
-                            createCategory(request);
-                            break;
                         case EMPLOYEE:
-                            createEmployee(request);
-                            break;
                         case TIMERANGE:
-                            createTimeRange(request);
-                            break;
                         case INGRIDIENT:
-                            createIngridient(request);
-                            break;
                         case WORKSHIFT:
-                            createWorkshift(request);
+                        case TABLE:
+                        case RESERVATION:
+                            Service.getService(entity).create(request);
                             break;
                         case TABLES_EMPLOYEES:
                             assignTables(request);
-                            break;
-                        case TABLE:
-                            createTable(request);
                             break;
                         case CART:
                             int userId = Integer.parseInt(request.getSession().getAttribute("userId").toString());
                             createOrUpdateOrder(request, orderlistService, userId);
                             break;
-                        case RESERVATION:
-                            createReservation(request);
-                            break;
                     }
                     break;
                 case UPDATE: {
                     int id = Integer.parseInt(request.getParameter("id"));
-                    switch (entity) {
-                        case INGRIDIENT:
-                            updateIngridient(request, id);
-                            break;
-                        case TIMERANGE:
-                            updateTimeRange(request, id);
-                            break;
-                        case EMPLOYEE:
-                            updateEmployee(request, id);
-                            break;
-                        case CATEGORY:
-                            updateCategory(request, id);
-                            break;
-                        case ORDER:
-                            updateOrder(id);
-                            break;
-                        case TABLE:
-                            updateTable(request, id);
-                            break;
-                        case RESERVATION:
-                            updateReservation(request, id);
-                            break;
-                    }
+                    Service.getService(entity).update(request, id);
                     break;
                 }
                 case DELETE:
@@ -125,7 +87,7 @@ public class ControllerServlet extends HttpServlet {
                         String priceFrom = request.getParameter("priceFrom");
                         String priceTo = request.getParameter("priceTo");
 
-                        request.setAttribute("productsList", productService.getHQL(categoryId, name, parseDouble(priceFrom, request), parseDouble(priceTo, request)));
+                        request.setAttribute("productsList", productService.getHQL(categoryId, name, priceFrom, priceTo, request));
                     }
                     break;
             }
@@ -204,33 +166,6 @@ public class ControllerServlet extends HttpServlet {
         rd.forward(request, response);
     }
 
-    private void updateOrder(int id) {
-
-        OrderService orderService = (OrderService) Service.getService(Entity.ORDER);
-
-        Order order = orderService.get(id);
-        order.setEnded(true);
-        orderService.update(order);
-    }
-
-    private void createReservation(HttpServletRequest request) {
-
-        TableService tableService = (TableService) Service.getService(Entity.TABLE);
-        ReservationService reservationService = (ReservationService) Service.getService(Entity.RESERVATION);
-
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        Timestamp time = Timestamp.valueOf(request.getParameter("time").replace("T", " ") + ":00");
-        int tableId = Integer.parseInt(request.getParameter("tableId"));
-
-        Table table = tableService.get(tableId);
-
-        Reservation reservation = new Reservation(name, phone, time, table);
-        reservationService.add(reservation);
-
-        request.setAttribute("resultMessage", "Столик забронирован");
-    }
-
     private void deassignTables(HttpServletRequest req, int id) {
 
         EmployeeService employeeService = (EmployeeService) Service.getService(Entity.EMPLOYEE);
@@ -265,180 +200,6 @@ public class ControllerServlet extends HttpServlet {
         }};
         employee.getTables().addAll(tables);
         employeeService.update(employee);
-    }
-
-    private void createTable(HttpServletRequest req) {
-
-        Service tableService = Service.getService(Entity.TABLE);
-
-        int number = Integer.parseInt(req.getParameter("number"));
-        tableService.add(new Table(number, req.getParameter("table")));
-    }
-
-    private void createWorkshift(HttpServletRequest req) {
-
-        Service workshiftService = Service.getService(Entity.WORKSHIFT);
-        final Service employeeService = Service.getService(Entity.EMPLOYEE);
-        Service timeRangeService = Service.getService(Entity.TIMERANGE);
-
-        final String[] employeeId = req.getParameterValues("employee");
-        List<Employee> employees = new ArrayList<Employee>() {{
-            for (String anEmployeeId : employeeId) {
-                add((Employee) employeeService.get(Integer.parseInt(anEmployeeId)));
-            }
-        }};
-        Date date = Date.valueOf(req.getParameter("date"));
-        int timerangeId = Integer.parseInt(req.getParameter("timerange"));
-        TimeRange timeRange = (TimeRange) timeRangeService.get(timerangeId);
-        Workshift workshift = new Workshift(date, timeRange, employees);
-        workshiftService.add(workshift);
-        for (Employee emp : employees) {
-            emp.getWorkshifts().add(workshift);
-            employeeService.update(emp);
-        }
-    }
-
-    private void createIngridient(HttpServletRequest req) {
-
-        Service ingridientService = Service.getService(Entity.INGRIDIENT);
-
-        String name = req.getParameter("name");
-        int quantity = Integer.parseInt(req.getParameter("quantity"));
-        double price = Double.parseDouble(req.getParameter("price"));
-        ingridientService.add(new Ingridient(name, quantity, price));
-    }
-
-    private void updateIngridient(HttpServletRequest req, int id) {
-
-        Service ingridientService = Service.getService(Entity.INGRIDIENT);
-
-        Ingridient ingridient = (Ingridient) ingridientService.get(id);
-
-        String name = req.getParameter("name");
-
-        if (!Objects.equals(name, ingridient.getName())) {
-            ingridient.setName(name);
-        }
-
-        if (req.getParameter("quantity") != null) {
-            int quantity = Integer.parseInt(req.getParameter("quantity"));
-            if (quantity != ingridient.getQuantity()) {
-                ingridient.setQuantity(quantity);
-            }
-        }
-
-        if (req.getParameter("price") != null) {
-            double price = Double.parseDouble(req.getParameter("price"));
-            if (price != ingridient.getPrice()) {
-                ingridient.setPrice(price);
-            }
-        }
-
-        ingridientService.update(ingridient);
-    }
-
-    private void updateTable(HttpServletRequest request, int id) {
-
-        Service tableService = Service.getService(Entity.TABLE);
-
-        Table table = (Table) tableService.get(id);
-
-        int number = Integer.parseInt(request.getParameter("number"));
-        String type = request.getParameter("table");
-
-        table.setNumber(number);
-        table.setType(type);
-
-        tableService.update(table);
-    }
-
-    private void updateReservation(HttpServletRequest request, int id) {
-
-        ReservationService reservationService = (ReservationService) Service.getService(Entity.RESERVATION);
-        TableService tableService = (TableService) Service.getService(Entity.TABLE);
-
-        Reservation reservation = reservationService.get(id);
-
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        Timestamp time = Timestamp.valueOf(request.getParameter("time").replace("T", " ") + ":00");
-
-        reservation.setName(name);
-        reservation.setPhone(phone);
-        reservation.setDatetime(time);
-
-        int tableId = Integer.parseInt(request.getParameter("tableId"));
-        Table table = tableService.get(tableId);
-        reservation.setTable(table);
-        reservation.setId_table(tableId);
-
-        reservationService.update(reservation);
-    }
-
-    private void createProduct(HttpServletRequest request, CompositionService compositionService) {
-
-        Service productService = Service.getService(Entity.PRODUCT);
-        Service categoryService = Service.getService(Entity.CATEGORY);
-        final Service ingridientService = Service.getService(Entity.INGRIDIENT);
-
-        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        Category category = (Category) categoryService.get(categoryId);
-        String name = request.getParameter("name");
-        String price = request.getParameter("price");
-
-        Product product = new Product(category, name, parseDouble(price, request));
-        productService.add(product);
-        final String ingridientsId[] = request.getParameterValues("ingridientsId");
-        List<Ingridient> ingridients = new ArrayList<Ingridient>() {{
-            for (String anIngridientsId : ingridientsId) {
-                add((Ingridient) ingridientService.get(Integer.parseInt(anIngridientsId)));
-            }
-        }};
-        String required[] = request.getParameterValues("quantity");
-        int i = 0;
-        for (Ingridient ingridient : ingridients) {
-            Composition composition = new Composition();
-            composition.setProduct(product);
-            composition.setIngridient(ingridient);
-            composition.setRequired(Integer.parseInt(required[i]));
-            compositionService.add(composition);
-            product.getIngridients().add(composition);
-            i++;
-        }
-    }
-
-    private void createEmployee(HttpServletRequest request) {
-
-        Service employeeService = Service.getService(Entity.EMPLOYEE);
-        Service userTypeService = Service.getService(Entity.USERTYPE);
-
-        String surname = request.getParameter("surname");
-        String name = request.getParameter("name");
-        String patronymic = request.getParameter("patronymic");
-        String wage = request.getParameter("wage");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
-        UserType userType = (UserType) userTypeService.get(userTypeId);
-        Employee employee = new Employee(surname, name, patronymic, parseDouble(wage, request), username, password, userType);
-        employeeService.add(employee);
-    }
-
-    private void createTimeRange(HttpServletRequest request) {
-
-        Service timeRangeService = Service.getService(Entity.TIMERANGE);
-
-        Time start = Time.valueOf(request.getParameter("start") + ":00");
-        Time finish = Time.valueOf(request.getParameter("finish") + ":00");
-        timeRangeService.add(new TimeRange(start, finish));
-    }
-
-    private void createCategory(HttpServletRequest request) {
-
-        Service categoryService = Service.getService(Entity.CATEGORY);
-
-        String categoryName = request.getParameter("categoryName");
-        categoryService.add(new Category(categoryName));
     }
 
     private void createOrUpdateOrder(HttpServletRequest request, OrderlistService orderlistService, int userId) {
@@ -478,88 +239,5 @@ public class ControllerServlet extends HttpServlet {
             i++;
         }
         orderService.refresh(order);
-    }
-
-    private void updateCategory(HttpServletRequest request, int id) {
-
-        Service categoryService = Service.getService(Entity.CATEGORY);
-
-        Category category = (Category) categoryService.get(id);
-        String categoryName = request.getParameter("categoryName");
-        if (categoryName != null && !categoryName.equals(category.getName())) {
-            category.setName(categoryName);
-            categoryService.update(category);
-        }
-    }
-
-    private void updateTimeRange(HttpServletRequest request, int id) {
-
-        Service timeRangeService = Service.getService(Entity.TIMERANGE);
-
-        TimeRange timeRange = (TimeRange) timeRangeService.get(id);
-        Time start = Time.valueOf(request.getParameter("start") + ":00");
-        Time finish = Time.valueOf(request.getParameter("finish") + ":00");
-        timeRange.setStart(start);
-        timeRange.setFinish(finish);
-        timeRangeService.update(timeRange);
-    }
-
-    private void updateEmployee(HttpServletRequest request, int id) {
-
-        EmployeeService employeeService = (EmployeeService) Service.getService(Entity.EMPLOYEE);
-        UserTypeService userTypeService = (UserTypeService) Service.getService(Entity.USERTYPE);
-
-        String surname = request.getParameter("surname");
-        String name = request.getParameter("name");
-        String patronymic = request.getParameter("patronymic");
-        String wage = request.getParameter("wage");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        Employee employee = employeeService.get(id);
-
-
-        if (surname != null && !surname.equals(employee.getSurname())) {
-            employee.setSurname(surname);
-        }
-
-        if (name != null && !name.equals(employee.getName())) {
-            employee.setName(name);
-        }
-
-        if (patronymic != null && !patronymic.equals(employee.getPatronymic())) {
-            employee.setPatronymic(patronymic);
-        }
-
-        if (wage != null && !parseDouble(wage, request).equals(employee.getWage())) {
-            employee.setWage(parseDouble(wage, request));
-        }
-
-        if (username != null && !username.equals(employee.getUsername())) {
-            employee.setUsername(username);
-        }
-
-        if (password != null && !password.equals(employee.getPassword())) {
-            employee.setPassword(password);
-        }
-
-        int userTypeId = Integer.parseInt(request.getParameter("userTypeId"));
-        UserType userType = userTypeService.get(userTypeId);
-        if (userType != null && !userType.equals(employee.getUserType())) {
-            employee.setUserType(userType);
-        }
-
-        employeeService.update(employee);
-    }
-
-    private Double parseDouble(String str, HttpServletRequest request) {
-        if (str != null && str.length() > 0)
-            try {
-                return Double.parseDouble(str);
-            } catch (NumberFormatException e) {
-                request.setAttribute("errorMessage", "Error: incorrect value, required number.");
-                return -1.0;
-            }
-        return 0.0;
     }
 }

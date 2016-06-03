@@ -4,6 +4,7 @@ import org.meiskalt7.servlets.Entity;
 import org.meiskalt7.util.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
+import javax.servlet.http.HttpServletRequest;
 
 abstract public class Service<T> implements GenericDao<T> {
 
@@ -60,5 +61,16 @@ abstract public class Service<T> implements GenericDao<T> {
             default:
                 return null;
         }
+    }
+
+    public static Double parseDouble(String str, HttpServletRequest request) {
+        if (str != null && str.length() > 0)
+            try {
+                return Double.parseDouble(str);
+            } catch (NumberFormatException e) {
+                request.setAttribute("errorMessage", "Error: incorrect value, required number.");
+                return -1.0;
+            }
+        return 0.0;
     }
 }
