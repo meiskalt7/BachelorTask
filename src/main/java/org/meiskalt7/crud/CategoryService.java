@@ -51,7 +51,12 @@ public class CategoryService extends Service<Category> {
         }
     }
 
-    public int getId(String category) {
-        return (Integer) em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList().get(0);
+    public Integer getId(String category) {
+        List result = em.createQuery("SELECT id FROM Category WHERE name = :category").setParameter("category", category).getResultList();
+        if (result.size() != 0) {
+            return (Integer) result.get(0);
+        } else {
+            return null;
+        }
     }
 }
