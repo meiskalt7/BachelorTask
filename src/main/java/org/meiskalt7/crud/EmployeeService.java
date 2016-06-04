@@ -88,7 +88,7 @@ public class EmployeeService extends Service<Employee> {
             employee.setPatronymic(patronymic);
         }
 
-        if (Objects.equals(wage, employee.getWage())) {
+        if (Objects.equals(Double.parseDouble(wage), employee.getWage())) {
             employee.setWage(parseDouble(wage, request));
         }
 
