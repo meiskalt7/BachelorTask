@@ -141,7 +141,7 @@
             <input type="hidden" name="productId" value="${product.getId()}">
 
             <td>
-                <button type="submit" name="button" value="ADD CART" class="addProductButton">
+                <button type="submit" name="button" value="TO_CART" class="addProductButton">
                     В корзину
                 </button>
             </td>

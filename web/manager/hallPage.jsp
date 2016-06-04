@@ -161,7 +161,7 @@
                 </c:forEach>
             </select></td>
             <td>
-                <button type="submit" name="button" value="ADD TABLES_EMPLOYEES" class="addProductButton">
+                <button type="submit" name="button" value="ASSIGN" class="addProductButton">
                     ДОБАВИТЬ
                 </button>
             </td>
@@ -181,7 +181,7 @@
                 </select></td>
                 <td>
                     <input type="hidden" name="id" value="${employee.getId()}">
-                    <button type="submit" name="button" value="DELETE TABLES_EMPLOYEES" class="deleteButton">УДАЛИТЬ
+                    <button type="submit" name="button" value="DEASSIGN" class="deleteButton">УДАЛИТЬ
                     </button>
                 </td>
             </form>
