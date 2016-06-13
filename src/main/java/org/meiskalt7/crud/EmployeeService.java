@@ -80,23 +80,23 @@ public class EmployeeService extends Service<Employee> {
             employee.setSurname(surname);
         }
 
-        if (Objects.equals(name, employee.getName())) {
+        if (!Objects.equals(name, employee.getName())) {
             employee.setName(name);
         }
 
-        if (Objects.equals(patronymic, employee.getPatronymic())) {
+        if (!Objects.equals(patronymic, employee.getPatronymic())) {
             employee.setPatronymic(patronymic);
         }
 
-        if (Objects.equals(Double.parseDouble(wage), employee.getWage())) {
+        if (!Objects.equals(Double.parseDouble(wage), employee.getWage())) {
             employee.setWage(parseDouble(wage, request));
         }
 
-        if (Objects.equals(username, employee.getUsername())) {
+        if (!Objects.equals(username, employee.getUsername())) {
             employee.setUsername(username);
         }
 
-        if (Objects.equals(password, employee.getPassword())) {
+        if (!Objects.equals(password, employee.getPassword())) {
             employee.setPassword(password);
         }
 
