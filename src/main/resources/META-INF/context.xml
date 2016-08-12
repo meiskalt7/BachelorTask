@@ -10,5 +10,5 @@
               username="postgres"
               password="root"
               driverClassName="org.postgresql.Driver"
-              url="jdbc:postgresql://localhost:5433/baka"/>
+              url="jdbc:postgresql://localhost:5432/baka"/>
 </Context>
