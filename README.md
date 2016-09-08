@@ -5,7 +5,7 @@
 ### What is this repository for? ###
 
 * Quick summary
-Используемые технологии: JSP, JSTL, Servlets, JPA, MySQL
+Используемые технологии: JSP, JSTL, Servlets, JPA, PostgreSQL
 Были применены паттерны проектирования DAO, Factory Method и др.
 * Version
 1.0 Релиз
